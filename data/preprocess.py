@@ -82,6 +82,8 @@ df2 = pd.read_csv("./who_life_exp.csv")
 df2.rename(columns={'year': 'Year', 'country': 'Entity'}, inplace=True)
 df2 = df2.loc[df2['Year'].isin([2000,2005,2010,2015])]
 #some country name need to be change to merge...
+
+df['Entity'].replace('Russia', 'Russian Federation', inplace=True)
 df2['Entity'].replace('United States of America', 'United States', inplace=True)
 
 # perform an inner join on the 'id' column
