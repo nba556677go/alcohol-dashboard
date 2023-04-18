@@ -82,10 +82,17 @@ df2 = pd.read_csv("./who_life_exp.csv")
 df2.rename(columns={'year': 'Year', 'country': 'Entity'}, inplace=True)
 df2 = df2.loc[df2['Year'].isin([2000,2005,2010,2015])]
 #some country name need to be change to merge...
+
+df['Entity'].replace('Russia', 'Russian Federation', inplace=True)
 df2['Entity'].replace('United States of America', 'United States', inplace=True)
 
 # perform an inner join on the 'id' column
 df_inner = pd.merge(df, df2, on=['Year', 'Entity'], how='inner')
+
+df3 = pd.read_csv("./HappinessAlcoholConsumption.csv")
+df3.rename(columns={'Country': 'Entity'}, inplace=True)
+df_inner = pd.merge(df_inner, df3, on=['Entity'], how='inner')
+
 
 
 #df.to_csv("./data/conusmption_gdp_year_processed.csv")
