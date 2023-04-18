@@ -4,7 +4,8 @@ export const processRadar = (countries, consumptionData) => {
     let maxGDP = 0,
         maxConsumption = 0,
         maxLife_expect = 0,
-        maxPopulation = 0;
+        maxPopulation = 0,
+        maxHappinessScore = 0;
     
     for (var i = 0; i < countries.length; i++) {
       const targetData = consumptionData.find(item => item.Entity === countries[i])
@@ -14,6 +15,7 @@ export const processRadar = (countries, consumptionData) => {
       maxConsumption = Math.max(maxConsumption, targetData['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'])
       maxLife_expect = Math.max(maxLife_expect, targetData['life_expect'])
       maxPopulation = Math.max(maxPopulation, targetData['Population (historical estimates)'])
+      maxHappinessScore = Math.max(maxHappinessScore, targetData['HappinessScore'])
     }
   
     for (var i = 0; i < countries.length; i++) {
@@ -38,6 +40,11 @@ export const processRadar = (countries, consumptionData) => {
            value: parseFloat(data[i]['life_expect']) / maxLife_expect,
            country: countries[i]
         },
+        {
+          axis: "Happiness",
+          value: parseFloat(data[i]['HappinessScore']) / maxHappinessScore,
+          country: countries[i]
+       },
       ];
   
       result.push(item);
