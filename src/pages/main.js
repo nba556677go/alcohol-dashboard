@@ -3,6 +3,8 @@ import { Row, Col } from 'antd';
 import { csv } from "d3-fetch";
 import WorldMap from '../components/map/worldMap'
 import Radar from '../components/radar'
+import PieChart from '../components/pieChart'
+import BarChart from '../components/barChart'
 import { processRadar } from '../utils/process.js'
 import '../css/main.css'
 
@@ -54,9 +56,14 @@ export default function Main() {
 
     return (
         <div className="main-wrapper">
+            <h2 style={{textAlign:'center'}}>Alcohol Consumption and Produce</h2>
             <Row gutter={0}>
                 <Col span={10}>
                     <WorldMap selectCountry={selectCountry} data={consumptionData} countries={countries}/>
+                </Col>
+                <Col span={7}>
+                    <PieChart/>
+                    <BarChart/>
                 </Col>
                 <Col span={7}>
                     { 
