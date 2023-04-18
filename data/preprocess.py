@@ -89,6 +89,11 @@ df2['Entity'].replace('United States of America', 'United States', inplace=True)
 # perform an inner join on the 'id' column
 df_inner = pd.merge(df, df2, on=['Year', 'Entity'], how='inner')
 
+df3 = pd.read_csv("./HappinessAlcoholConsumption.csv")
+df3.rename(columns={'Country': 'Entity'}, inplace=True)
+df_inner = pd.merge(df_inner, df3, on=['Entity'], how='inner')
+
+
 
 #df.to_csv("./data/conusmption_gdp_year_processed.csv")
 df_inner.to_csv("./conusmption_gdp_happiness_year_processed.csv")
