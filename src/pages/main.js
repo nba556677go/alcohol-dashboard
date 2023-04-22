@@ -5,6 +5,7 @@ import WorldMap from '../components/map/worldMap'
 import Radar from '../components/radar'
 import PieChart from '../components/pieChart'
 import BarChart from '../components/barChart'
+import Biplot from '../components/biplot'
 import { processRadar } from '../utils/process.js'
 import '../css/main.css'
 
@@ -14,6 +15,7 @@ export default function Main() {
     const [consumptionData, setConsumptionData] = useState([]);
     const [countries, setCountries] = useState(['United States','China','Australia']);
     const [radarData, setRadarData] = useState([]);
+
     
     useEffect(() => {
       const load = async () => {
@@ -71,6 +73,17 @@ export default function Main() {
                       <Radar data={radarData}/>
                     }
                 </Col>
+            </Row>
+            <Row>
+              <Col span={10}>
+                  scatterplot
+              </Col>
+              <Col span={7}>
+                  barchart
+              </Col>
+              <Col span={7}>
+                  <Biplot/>
+              </Col>
             </Row>
         </div>
     )
