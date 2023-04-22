@@ -8,7 +8,6 @@ const colorScale = d3.scaleThreshold()
   .range(d3.schemeBlues[7]);
 
 const MapChart = ({ data, selectCountry, countries }) => {
-
   var tooltip = d3.select("#geo-map")
     .append("div")
     .style("opacity", 0)

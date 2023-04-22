@@ -57,8 +57,8 @@ def buildPCA(alcohol):
     axes_df = pd.DataFrame((pca.components_[0:2, :]).T, columns=['first_pca','second_pca'])
     pca_dict[alcohol] = {"scatters" : scat_df, "vectors" : axes_df}
 
-    axes_df.to_csv(f'./backend/pca_{alcohol}_vectors.csv', index=False)
-    scat_df.to_csv(f'./backend/pca_{alcohol}_scatters.csv', index=False)
+    axes_df.to_csv(f'./public/data/pca_{alcohol}_vectors.csv', index=False)
+    scat_df.to_csv(f'./public/data/pca_{alcohol}_scatters.csv', index=False)
     
     # # draw the biplot
     # plt.figure(figsize=(10,8))

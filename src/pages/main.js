@@ -5,7 +5,7 @@ import WorldMap from '../components/map/worldMap'
 import Radar from '../components/radar'
 import PieChart from '../components/pieChart'
 import BarChart from '../components/barChart'
-import { processRadar } from '../utils/process.js'
+import { processRadar, processWine, processScatter } from '../utils/process.js'
 import '../css/main.css'
 
 var init = true;
@@ -14,11 +14,14 @@ export default function Main() {
     const [consumptionData, setConsumptionData] = useState([]);
     const [countries, setCountries] = useState(['United States','China','Australia']);
     const [radarData, setRadarData] = useState([]);
-    
+    const [wineData, setWineData] = useState([]);
     useEffect(() => {
       const load = async () => {
-        let data = await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
-        setConsumptionData(data.filter(item => item.Year === '2015'));
+        let cData = await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
+        setConsumptionData(cData.filter(item => item.Year === '2015'));
+        console.log(consumptionData);
+        let wineData = await csv(`/data/wine_processed.csv`);
+        setWineData(processWine(wineData));
       }
       load();
     }, []);
@@ -70,6 +73,9 @@ export default function Main() {
                       radarData.length > 0 && 
                       <Radar data={radarData}/>
                     }
+                </Col>
+                <Col span={7}>
+                  {/* <BiPlot data={wineData}/> */}
                 </Col>
             </Row>
         </div>

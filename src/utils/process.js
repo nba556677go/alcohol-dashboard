@@ -8,7 +8,7 @@ export const processRadar = (countries, consumptionData) => {
         maxHappinessScore = 0;
     
     for (var i = 0; i < countries.length; i++) {
-      const targetData = consumptionData.find(item => item.Entity === countries[i])
+      const targetData = consumptionData.find(item => item.Country === countries[i])
       data.push(targetData)
         
       maxGDP = Math.max(maxGDP, targetData['GDP per capita, PPP (constant 2017 international $)'])
@@ -69,3 +69,17 @@ export const hashStringToColor = (str) => {
     var b = hash & 0x0000FF;
     return "#" + ("0" + r.toString(16)).substr(-2) + ("0" + g.toString(16)).substr(-2) + ("0" + b.toString(16)).substr(-2);
   }
+
+
+
+export const processWine = (wineData) => {
+    let result = [];
+    let data = [];
+    return wineData;
+};
+
+export const processScatter = (Data) => {
+  let result = [];
+  let data = [];
+  return Data;
+};
