@@ -28,3 +28,14 @@ export const countryColors = {
     Uzbekistan: "#FB6C10",
     Brazil: "#FC3C29",
   };
+
+
+// 1 is catagory, 0 is numerivcal
+export const variableType = {
+  ABV: 0,
+  'Suggested Temperature': 1,
+  Price: 0,
+  Rating: 0,
+  IBU: 0,
+  Calories: 0
+}

@@ -16,7 +16,7 @@ const BarChart = () => {
 
     const drawChart = () => {
 
-        var data = [{key: 'Angola', value: 1200},{key: 'China', value: 1100},{key: 'Comoros', value: 900}, {key: 'France', value: 800}, {key: 'US', value: 500}, {key: 'UK', value: 500}, {key: 'India', value: 400}, {key: 'Russia', value: 300}, {key: 'Germany', value: 200}]
+        var data = [{key: 'Angola', value: 1200},{key: 'China', value: 1100},{key: 'Comoros', value: 900}, {key: 'France', value: 800}, {key: 'US', value: 500}, {key: 'UK', value: 500}, {key: 'India', value: 400}]
          
         const svg = d3.select("#barChart")
                     .append("svg")

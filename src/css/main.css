@@ -3,3 +3,8 @@
     width:98%;
     margin: 0 auto;
 }
+
+h2 {
+    margin: 0;
+    margin-bottom: -30px;
+}

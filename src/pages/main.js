@@ -5,7 +5,8 @@ import WorldMap from '../components/map/worldMap'
 import Radar from '../components/radar'
 import PieChart from '../components/pieChart'
 import BarChart from '../components/barChart'
-import { processRadar, processWine, processScatter } from '../utils/process.js'
+import Biplot from '../components/biplot'
+import { processRadar, processWine} from '../utils/process.js'
 import '../css/main.css'
 
 var init = true;
@@ -77,6 +78,17 @@ export default function Main() {
                 <Col span={7}>
                   {/* <BiPlot data={wineData}/> */}
                 </Col>
+            </Row>
+            <Row>
+              <Col span={10}>
+                  scatterplot
+              </Col>
+              <Col span={7}>
+                  barchart
+              </Col>
+              <Col span={7}>
+                  <Biplot/>
+              </Col>
             </Row>
         </div>
     )

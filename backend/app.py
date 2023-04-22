@@ -28,7 +28,8 @@ best_k = {"wine":4, "spirits": 4, "beer":3}
 
 def buildPCA(alcohol):
     df = pd.read_csv(f"./public/data/{alcohol}_processed.csv")
-    features = df.columns.values
+    #ignore first column since it is index
+    features = df.columns.values[1:]
     # convert string columns to categorical data
     for col in df.columns:
         # Check if the column is of type string
@@ -36,7 +37,7 @@ def buildPCA(alcohol):
             # Convert the column to numerical categories
             df[col] = pd.Categorical(df[col]).codes
 
-    X = df.to_numpy()
+    X = df.iloc[:, 1:].to_numpy()
 
     # normalzie the data 
     scaler = StandardScaler()
