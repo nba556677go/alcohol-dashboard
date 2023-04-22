@@ -9,8 +9,11 @@ df  = df[df["Suggested Serving Temperature"].notnull()]
 df  = df[df["Sweet-Dry Scale"].notnull()]
 df  = df[df["Food Pairing"].notnull()]
 df  = df[df["Body"].notnull()]
+df  = df[df["Tasting Notes"].notnull()]
+
 
 df['Price'] = df['Price'].replace('[\$\,\.]', '', regex=True).astype(float)
+df['ABV'] = df['ABV'].str.replace('%', '').astype(float)
 #only one inside
 df = df[df["Suggested Serving Temperature"] != '18-20°C° F']
 
@@ -33,14 +36,14 @@ df = df.drop(df.columns[0], axis=1)
 df  = df[df["Rate Count"] > 1.0]    
 df  = df[df["ABV"].notnull()]
 df  = df[df["Price"].notnull()]
-#df  = df[df["Years Aged"].notnull()]
+df  = df[df["Categories"].notnull()]
 
 df['Price'] = df['Price'].replace('[\$\,\.]', '', regex=True).astype(float)
-
+df['ABV'] = df['ABV'].str.replace('%', '').astype(float)
 
 
 #drop ID and reset row
-df.drop(columns=["Volume", "Description"], inplace=True)
+df.drop(columns=["Volume", "Description", "Tasting Notes" ,"Base Ingredient" , "Years Aged"], inplace=True)
 df.reset_index(drop=True, inplace=True)
 
 df.to_csv("./spirits_processed.csv")
@@ -54,10 +57,14 @@ df  = df[df["Rate Count"] > 1.0]
 df  = df[df["ABV"].notnull()]
 df  = df[df["Suggested Serving Temperature"].notnull()]
 df  = df[df["Calories Per Serving (12 OZ/0.35L)"].notnull()]
+df  = df[df["Carbs Per Serving (12 OZ/0.35L)"].notnull()]
+df  = df[df["Type"].notnull()]
+
 
 
 
 df['Price'] = df['Price'].replace('[\$\,\.]', '', regex=True).astype(float)
+df['ABV'] = df['ABV'].str.replace('%', '').astype(float)
 
 
 temp_class = { '55-60° F' : 5, '50-55° F' : 4, '45-50° F' : 3 , '60-65° F' : 6, '40-45° F' : 2,
@@ -66,8 +73,7 @@ df = df.replace({"Suggested Serving Temperature": temp_class})
 
 
 #drop ID and reset row
-
-df.drop(columns=["Volume", "Description", "IBU"], inplace=True)
+df.drop(columns=["Volume", "Description", "IBU", "Food Pairing" ], inplace=True)
 df.reset_index(drop=True, inplace=True)
 
 df.to_csv("./beer_processed.csv")
