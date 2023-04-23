@@ -60,8 +60,6 @@ df = df.replace({"Suggested Serving Temperature": temp_class})
 
 df.drop(columns=["Volume", "Description"], inplace=True)
 df.reset_index(drop=True, inplace=True)
-#create ID column based on index
-df["ID"] = df.index
 
 df['region'] = df['Country'].map(regionMap)
 df['Code'] = df['Country'].map(codeMap)
@@ -86,7 +84,6 @@ df['ABV'] = df['ABV'].str.replace('%', '').astype(float)
 df.drop(columns=["Volume", "Description", "Tasting Notes" ,"Base Ingredient" , "Years Aged"], inplace=True)
 df.reset_index(drop=True, inplace=True)
 #create ID column based on index
-df["ID"] = df.index
 df['region'] = df['Country'].map(regionMap)
 df['Code'] = df['Country'].map(codeMap)
 df.to_csv("./spirits_processed.csv")
@@ -118,8 +115,7 @@ df = df.replace({"Suggested Serving Temperature": temp_class})
 #drop ID and reset row
 df.drop(columns=["Volume", "Description", "IBU", "Food Pairing", "Tasting Notes" ], inplace=True)
 df.reset_index(drop=True, inplace=True)
-#create ID column based on index
-df["ID"] = df.index
+
 df['region'] = df['Country'].map(regionMap)
 df['Code'] = df['Country'].map(codeMap)
 

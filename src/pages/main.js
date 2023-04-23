@@ -16,15 +16,32 @@ export default function Main() {
     const [countries, setCountries] = useState(['United States','China','Australia']);
     const [radarData, setRadarData] = useState([]);
     const [wineData, setWineData] = useState([]);
+    const [PCAData, setPCAData] = useState([]);
     useEffect(() => {
       const load = async () => {
         let cData = await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
         setConsumptionData(cData.filter(item => item.Year === '2015'));
-        console.log(consumptionData);
         let wineData = await csv(`/data/wine_processed.csv`);
-        setWineData(processWine(wineData));
+        setWineData(wineData) ;
+        let PCAScat = await csv(`/data/pca_wine_scatters.csv`);
+        let PCAVec = await csv(`/data/pca_wine_vectors.csv`);
+        setPCAData({scatter : PCAScat, vector : PCAVec});
+        // const [cData, wineData, PCAScat, PCAVec] = await Promise.all([
+        //   csv(`/data/conusmption_gdp_happiness_year_processed.csv`),
+        //   csv( `/data/wine_processed.csv`),
+        //   csv(`/data/pca_wine_scatters.csv`),
+        //   csv(`/data/pca_wine_vectors.csv`)
+        // ])
+        // setConsumptionData(cData.filter(item => item.Year === '2015'));
+        // setWineData(wineData);
+        // setPCAData({scatter : PCAScat, vector : PCAVec});
+        
+        
       }
+    
+      
       load();
+      console.log(PCAData)
     }, []);
 
     useEffect(() => {
@@ -75,9 +92,6 @@ export default function Main() {
                       <Radar data={radarData}/>
                     }
                 </Col>
-                <Col span={7}>
-                  {/* <BiPlot data={wineData}/> */}
-                </Col>
             </Row>
             <Row>
               <Col span={10}>
@@ -87,7 +101,7 @@ export default function Main() {
                   barchart
               </Col>
               <Col span={7}>
-                  <Biplot/>
+                  <Biplot data={PCAData} wdata={wineData}/>
               </Col>
             </Row>
         </div>

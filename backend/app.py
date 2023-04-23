@@ -24,12 +24,16 @@ CORS(app)
 pca_dict = {}
 
 #best number of cluster - NOT TESTED
-best_k = {"wine":4, "spirits": 4, "beer":3}
+best_k = {"wine":4, "spirits": 3, "beer":3}
+feature_dict = {"wine" : ["Country", "Brand", "ABV", "Categories",  "Rate Count", "Price","region"],
+                    "spirits" : ["Country", "Brand","Categories", "ABV", "region"],
+                    "beer" : ["Country", "Brand","Categories", "ABV", "region"]}
+
 
 def buildPCA(alcohol):
     df = pd.read_csv(f"./public/data/{alcohol}_processed.csv")
     #ignore first column since it is index
-    features = df.columns.values[1:]
+    features = feature_dict[alcohol]
     # convert string columns to categorical data
     for col in df.columns:
         # Check if the column is of type string
@@ -37,7 +41,7 @@ def buildPCA(alcohol):
             # Convert the column to numerical categories
             df[col] = pd.Categorical(df[col]).codes
 
-    X = df.iloc[:, 1:].to_numpy()
+    X = df[features].to_numpy()
 
     # normalzie the data 
     scaler = StandardScaler()
@@ -56,6 +60,7 @@ def buildPCA(alcohol):
     scat_df["label"] = biplot_cluster.labels_
 
     axes_df = pd.DataFrame((pca.components_[0:2, :]).T, columns=['first_pca','second_pca'])
+    axes_df["ind"] = features
     pca_dict[alcohol] = {"scatters" : scat_df, "vectors" : axes_df}
 
     axes_df.to_csv(f'./public/data/pca_{alcohol}_vectors.csv', index=False)
