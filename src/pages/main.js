@@ -6,7 +6,9 @@ import Radar from '../components/radar'
 import PieChart from '../components/pieChart'
 import BarChart from '../components/barChart'
 import Biplot from '../components/biplot'
-import { processRadar, processWine} from '../utils/process.js'
+import Scatterplot from "../components/scatterplot";
+import Recommand from "../components/recommand";
+import { processRadar, processWine } from '../utils/process.js'
 import '../css/main.css'
 
 var init = true;
@@ -15,8 +17,13 @@ export default function Main() {
     const [consumptionData, setConsumptionData] = useState([]);
     const [countries, setCountries] = useState(['United States','China','Australia']);
     const [radarData, setRadarData] = useState([]);
+
     const [wineData, setWineData] = useState([]);
     const [PCAData, setPCAData] = useState([]);
+
+    const [scatterData, setScatterData] = useState([])
+    const [recommandData, setRecommandData] = useState([])
+
     useEffect(() => {
       const load = async () => {
         let cData = await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
@@ -26,6 +33,9 @@ export default function Main() {
         let PCAScat = await csv(`/data/pca_wine_scatters.csv`);
         let PCAVec = await csv(`/data/pca_wine_vectors.csv`);
         setPCAData({scatter : PCAScat, vector : PCAVec});
+
+        let scatterData = await csv(`/data/Final_NCAA.csv`);
+        setScatterData(scatterData);
         // const [cData, wineData, PCAScat, PCAVec] = await Promise.all([
         //   csv(`/data/conusmption_gdp_happiness_year_processed.csv`),
         //   csv( `/data/wine_processed.csv`),
@@ -35,8 +45,6 @@ export default function Main() {
         // setConsumptionData(cData.filter(item => item.Year === '2015'));
         // setWineData(wineData);
         // setPCAData({scatter : PCAScat, vector : PCAVec});
-        
-        
       }
     
       
@@ -53,7 +61,6 @@ export default function Main() {
       if(consumptionData.length === 0) return;
       setRadarData(processRadar(countries, consumptionData));
    }, [countries])
-
 
     const selectCountry = (country) => {
         const index = countries.findIndex(
@@ -73,6 +80,10 @@ export default function Main() {
             }
           });
         }
+    }
+
+    const selectScatter = (data) => {
+        setRecommandData(data)
     }
 
     return (
@@ -95,10 +106,10 @@ export default function Main() {
             </Row>
             <Row>
               <Col span={10}>
-                  scatterplot
+                  <Scatterplot data={scatterData} selectChange={selectScatter}/>
               </Col>
               <Col span={7}>
-                  barchart
+                  <Recommand data={recommandData}/>
               </Col>
               <Col span={7}>
                   <Biplot data={PCAData} wdata={wineData}/>
