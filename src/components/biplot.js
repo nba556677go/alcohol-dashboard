@@ -4,9 +4,10 @@ import '../css/biplot.css'
 
 const Biplot = (props) => {
     useEffect(() => {
+        if(props.data.length == 0 || props.wdata.length == 0) return;
         removeChart();
         drawChart();
-    }, [props.data])
+    }, [props])
 
     const removeChart = () => {
         const svg = d3.select("#biplot").select("svg")
