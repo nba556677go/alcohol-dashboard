@@ -10,9 +10,15 @@ const Scatterplot = (props) => {
     }, [props.data])
 
     const removeChart = () => {
-        const svg = d3.select("#scatter_area").select("div")
+        const svg = d3.select("#scatter_area").select("svg")
         svg.selectAll("*").remove();
         svg.remove();
+        const div1 = d3.select("#scatter_area").select("div")
+        div1.selectAll("*").remove();
+        div1.remove();
+        const div2 = d3.select("#scatter_area").select("div")
+        div2.selectAll("*").remove();
+        div2.remove();
     }
 
     var cat_attrs = ['TEAM', 'CONF', 'POSTSEASON', 'SEED', 'STATE', 'GEO_REGION',"G","W"];
@@ -289,7 +295,7 @@ const Scatterplot = (props) => {
             d3.select(".brush").remove();
     
             var xattr = this.value
-            switch(xattr){
+            switch(xattr) {
                 case "LON":
                     x.domain([-130,-65]);
                     break;
@@ -319,42 +325,42 @@ const Scatterplot = (props) => {
             canvas1.call(brush);
           }
     
-          function yChange() {
-            d3.select(".brush").remove();
-    
-            var yattr = this.value
-    
-            switch(yattr){
-                case "LON":
-                    y.domain([-130,-65]);
-                    break;
-                case "LAT":
-                    y.domain([24,50]);
-                    break;
-                default:
-                    y.domain(d3.extent(props.data, (d) => +d[yattr]  ));
-                    break;
-            }
-    
-            
-            y_axis.transition()
-                    .duration(200)
-                    .call(d3.axisLeft(y)); 
-    
-            y_text.transition()
-                    .duration(200)
-                    .text(yattr);  
-    
-            
-            
-            d3.select('#scatter_area')        
-                    .selectAll('circle')
-                    .transition()
-                    .duration(800)
-                    .attr('cy',function (d) { return y(+d[yattr]) })
-                    .style("fill", (d) => colors(geo_regions.indexOf(d.GEO_REGION)));
-            canvas1.call(brush);
-          }
+        function yChange() {
+        d3.select(".brush").remove();
+
+        var yattr = this.value
+
+        switch(yattr){
+            case "LON":
+                y.domain([-130,-65]);
+                break;
+            case "LAT":
+                y.domain([24,50]);
+                break;
+            default:
+                y.domain(d3.extent(props.data, (d) => +d[yattr]  ));
+                break;
+        }
+
+        
+        y_axis.transition()
+                .duration(200)
+                .call(d3.axisLeft(y)); 
+
+        y_text.transition()
+                .duration(200)
+                .text(yattr);  
+
+        
+        
+        d3.select('#scatter_area')        
+                .selectAll('circle')
+                .transition()
+                .duration(800)
+                .attr('cy',function (d) { return y(+d[yattr]) })
+                .style("fill", (d) => colors(geo_regions.indexOf(d.GEO_REGION)));
+        canvas1.call(brush);
+        }
     
         function brushended(event) {
             if (!event.selection) {
@@ -365,7 +371,7 @@ const Scatterplot = (props) => {
                   .style("fill", (d) => colors(geo_regions.indexOf(d.GEO_REGION)));
             }
         }
-    
+        
     }
 
     return <div id="scatter_area"></div>
