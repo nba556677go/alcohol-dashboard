@@ -13,12 +13,9 @@ const Scatterplot = (props) => {
         const svg = d3.select("#scatter_area").select("svg")
         svg.selectAll("*").remove();
         svg.remove();
-        const div1 = d3.select("#scatter_area").select("div")
-        div1.selectAll("*").remove();
-        div1.remove();
-        const div2 = d3.select("#scatter_area").select("div")
-        div2.selectAll("*").remove();
-        div2.remove();
+        const div = d3.select("#scatter_area").selectAll("div")
+        div.selectAll("*").remove();
+        div.remove();
     }
 
     var cat_attrs = ['TEAM', 'CONF', 'POSTSEASON', 'SEED', 'STATE', 'GEO_REGION',"G","W"];
@@ -371,7 +368,6 @@ const Scatterplot = (props) => {
                   .style("fill", (d) => colors(geo_regions.indexOf(d.GEO_REGION)));
             }
         }
-        
     }
 
     return <div id="scatter_area"></div>
