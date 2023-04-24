@@ -106,7 +106,7 @@ export default function Main() {
             </Row>
             <Row>
               <Col span={10}>
-                  <Scatterplot data={scatterData} selectChange={selectScatter}/>
+                  <Scatterplot data={wineData} selectChange={selectScatter}/>
               </Col>
               <Col span={7}>
                   <Recommand data={recommandData}/>

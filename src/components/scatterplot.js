@@ -18,9 +18,12 @@ const Scatterplot = (props) => {
         div.remove();
     }
 
-    var cat_attrs = ['TEAM', 'CONF', 'POSTSEASON', 'SEED', 'STATE', 'GEO_REGION',"G","W"];
+    var cat_attrs = ['Price', 'Rating', 'ABV', 'Rate Count'];
     var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
-    var geo_regions = ['West','Southeast','Midwest','Southwest','Northeast'];
+    var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
+
+    var xattr = 'Price'
+    var yattr = 'Rating'
 
     var tooltipBox = d3.select("#scatter_area")
         .append("div")
@@ -41,33 +44,33 @@ const Scatterplot = (props) => {
         width  = 600 - margin.left - margin.right,
         height = 390 - margin.top  - margin.bottom;
     
-        var num_attrs = Object.keys(props.data[0]).filter(function(d) { return !cat_attrs.includes(d); });
+        var num_attrs = Object.keys(props.data[0]).filter(function(d) { return cat_attrs.includes(d); });
     
         // X-axis dropdown menu
         var x_opt = d3.select("#scatter_area")
                         .append("div")
                         .style("display",  "table-cell")
-                        .style("padding-left","150px")
-                        .style("width","450px");
+                        .style("padding-left","50px")
+                        .style("width","150px");
     
         x_opt.append('label').text('X-Axis:');
         x_opt.append('br');
         var x_change = x_opt.append('select')
-                                .attr('id','xSelect')
-                                .on('change',xChange)
-                                .selectAll('option')
-                                .data(num_attrs)
-                                .enter()
+                            .attr('id','xSelect')
+                            .on('change',xChange)
+                            .selectAll('option')
+                            .data(num_attrs)
+                            .enter()
                             .append('option')
-                                .attr('value', (d)=>d)
-                                .text((d)=>d)
-                                .property("selected", (d) => d === "2P_O");
+                            .attr('value', (d)=>d)
+                            .text((d)=>d)
+                            .property("selected", (d) => d === xattr);
         
         // Y-axis dropdown menu
         var y_opt = d3.select("#scatter_area")
                         .append("div")
                         .style("display",  "table-cell")
-                        .style("padding-left","150px")
+                        .style("padding-left","50px")
                         .style("width","450px");
                         
     
@@ -82,7 +85,7 @@ const Scatterplot = (props) => {
                                 .append('option')
                                 .attr('value', (d)=>d)
                                 .text((d)=>d)
-                                .property("selected", (d) => d === "EFG_O");
+                                .property("selected", (d) => d === yattr);
     
         // create canvas for scatter plot
         var svg1 = d3.select("#scatter_area")
@@ -92,16 +95,17 @@ const Scatterplot = (props) => {
     
         var canvas1 = svg1.append("g")
                             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        // canvas1.call(tooltipBox);
-       
-        var x = d3.scaleLinear().range([0, width]).domain([35, 65]);
-        var y = d3.scaleLinear().range([height, 0]).domain([40, 60]);
+        
+        var x = d3.scaleLinear().range([0, width]).domain(d3.extent(props.data, (d) => Number(d.Price)));
+        var yextent = d3.extent(props.data, (d) => d.Rating)
+
+        var y = d3.scaleLinear().range([height, 0]).domain([yextent[0], 1.02 * yextent[1]]);
         
         //insert  x axis
         var x_axis = canvas1.append("g")
                             .attr("transform", "translate(0," + height + ")")
                             .attr("class", "myaxis")
-                            .call(d3.axisBottom(x)); 
+                            .call(d3.axisBottom().scale(x)); 
         // x label
         var x_text = canvas1.append("g")
             .attr("transform", "translate(0," + height + ")");
@@ -180,40 +184,17 @@ const Scatterplot = (props) => {
         if (e === null) {canvas1.selectAll(".hidden").classed("hidden", false);}
         else {
             var brushed_data =  d3.selectAll(".brushed").data(); 
-            // draw_radars(brushed_data);
-    
-            //update bars
-            // check the status of btns
-            // if (d3.select("#conflb").classed('active') == true ){
-                // when CONF is checked
-            // var confTemp = d3.nest()
-            //         .key(function(d) { return d.CONF; })
-            //         .rollup(function(v) { return  d3.mean(v, function(d) { return +d.BARTHAG; });})
-            //         .entries(brushed_data);
-
-            // var confTemp = d3.rollup(brushed_data, v => d3.mean(v, function(d) { return +d.BARTHAG; }), d => d.CONF)
-
-                    
-            // draw_bars.updateBars(confTemp,'CONF');
-
-            props.selectChange(brushed_data)
-
-
-            // } else {
-            //     // when SEED is checked
-            //     var seedTemp = d3.nest()
-            //             .key(function(d) { return d.SEED; })
-            //             .rollup(function(v) { return  d3.mean(v, function(d) { return +d.BARTHAG; });})
-            //             .entries(brushed_data);
-                        
-            //     draw_bars.updateBars(seedTemp,'SEED');
-            // }
+            brushed_data.sort(function(a,b){ // 这是比较函数
+                return b['Rate Count'] - a['Rate Count'];    // 降序
+            })
+            var top10 = brushed_data.slice(0, 10)
+            props.selectChange(top10);
         }
       }
     
       function highLightPoint(filterVar, filterVal){
-          var xattr = d3.select("#xSelect").node().value;
-          var yattr = d3.select('#ySelect').node().value;
+          xattr = d3.select("#xSelect").node().value;
+          yattr = d3.select('#ySelect').node().value;
           canvas1.selectAll('circle')
                 .classed("hidden", function(d){
                     if (d[filterVar] == filterVal){
@@ -231,33 +212,10 @@ const Scatterplot = (props) => {
                 });
         // update radar
         var brushed_data =  d3.selectAll(".brushed").data(); 
-        // debugger
-        // draw_radars(brushed_data);
-    
-        //update bars
-        // if (d3.select("#conflb").classed('active') == true ){
-        // when CONF is checked
-        // var confTemp = d3.nest()
-        //         .key(function(d) { return d.CONF; })
-        //         .rollup(function(v) { return  d3.mean(v, function(d) { return +d.BARTHAG; });})
-        //         .entries(brushed_data);
-
-        // var confTemp = d3.rollup(brushed_data, v => d3.mean(v, function(d) { return +d.BARTHAG; }), d => d.CONF)
-                
-        // draw_bars.updateBars(confTemp,'CONF');
         props.selectChange(brushed_data)
-
-        // } else {
-        //     // when SEED is checked
-        //     var seedTemp = d3.nest()
-        //             .key(function(d) { return d.SEED; })
-        //             .rollup(function(v) { return  d3.mean(v, function(d) { return +d.BARTHAG; });})
-        //             .entries(brushed_data);
-                    
-        //     draw_bars.updateBars(seedTemp,'SEED');
-        // }
       }
-      draw_scatter.highLightPoint = highLightPoint;
+
+        draw_scatter.highLightPoint = highLightPoint;
     
          // Add scatter plots for new data
         var scatters = canvas1.selectAll(".circle")
@@ -266,51 +224,47 @@ const Scatterplot = (props) => {
         scatters.enter()
                 .append("circle")
                 .attr("class", "circle")
-                .attr('cx',(d) => x(+d[num_attrs[11]])  )
-                .attr('cy',(d) => y(+d[num_attrs[3]]) )
+                .attr('cx',(d) => x(+d[xattr])  )
+                .attr('cy',(d) => y(+d[yattr]) )
                 .attr("r", 5)
                 .style("opacity",0.6)
                 .on("mouseover", function (event, d) {
     
                     //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
-                    tooltipBox.html("<span class='tooltipHeader'>" + d['TEAM'] + "</span></br>" + 
-                    "<span class='tooltip-row-name'>Conference </span><span class='tooltip-win'>" + d['CONF'] + 
-                    "</span></br>" + "<span class='tooltip-row-name'>SEED </span><span class='tooltip-win'>" + d['SEED'] + 
-                    " </span></br>" + "<span class='tooltip-row-name'>Post Season: </span><span class='tooltip-win'>" + d['POSTSEASON'] + 
-                    "</span>");
+                    tooltipBox.html("<span class='tooltipHeader'>" + d['Name'] + "</span></br>" + 
+                        "<span class='tooltip-row-name'>Country </span><span class='tooltip-win'>" + d['Country'] + 
+                        "</span></br>" + "<span class='tooltip-row-name'>Brand </span><span class='tooltip-win'>" + d['Brand'] + 
+                        " </span></br>" + "<span class='tooltip-row-name'>ABV: </span><span class='tooltip-win'>" + d['ABV'] + 
+                        "</span>");
                     // tooltipBox.show();
                     tooltipBox
-                    .style("left", (event.layerX+10) + "px")
-                    .style("top", (event.layerY-10) + "px")
-                    .transition().duration(1)
-                    .style('opacity', 1);
+                        .style("left", (event.layerX+10) + "px")
+                        .style("top", (event.layerY-10) + "px")
+                        .transition().duration(1)
+                        .style('opacity', 1);
                 })
                 .on("mouseout",function(){tooltipBox.style('opacity', 0);})
-                .style("fill", (d) => colors(geo_regions.indexOf(d.GEO_REGION)));
+                .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
+        // if there is no brush, select top10 at the beginning
+        var data_cp = JSON.parse(JSON.stringify(props.data))
+        data_cp.sort(function(a,b){ // 这是比较函数
+            return b['Rate Count'] - a['Rate Count'];    // 降序
+        })
+        var top10 = data_cp.slice(0, 10)
+        props.selectChange(top10);
         
         function xChange() {
             d3.select(".brush").remove();
-    
-            var xattr = this.value
-            switch(xattr) {
-                case "LON":
-                    x.domain([-130,-65]);
-                    break;
-                case "LAT":
-                    x.domain([24,50]);
-                    break;
-                default:
-                    x.domain(d3.extent(props.data, (d) => +d[xattr] ) );
-                    break;
-            }
-    
-              x_axis.transition()
-                    .duration(200)
-                    .call(d3.axisBottom(x)); 
-    
-              x_text.transition()
-                    .duration(200)
-                    .text(xattr);  
+            xattr = this.value
+            x.domain(d3.extent(props.data, (d) => +d[xattr] ) );
+   
+            x_axis.transition()
+                .duration(200)
+                .call(d3.axisBottom(x)); 
+
+            x_text.transition()
+                .duration(200)
+                .text(xattr);  
     
             
             d3.select('#scatter_area')        
@@ -318,28 +272,17 @@ const Scatterplot = (props) => {
                     .transition()
                     .duration(800)
                     .attr('cx',function (d) { return x(+d[xattr]) })
-                    .style("fill", (d) => colors(geo_regions.indexOf(d.GEO_REGION)));
+                    .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
             canvas1.call(brush);
           }
     
         function yChange() {
         d3.select(".brush").remove();
 
-        var yattr = this.value
+        yattr = this.value
 
-        switch(yattr){
-            case "LON":
-                y.domain([-130,-65]);
-                break;
-            case "LAT":
-                y.domain([24,50]);
-                break;
-            default:
-                y.domain(d3.extent(props.data, (d) => +d[yattr]  ));
-                break;
-        }
+        y.domain(d3.extent(props.data, (d) => +d[yattr]));
 
-        
         y_axis.transition()
                 .duration(200)
                 .call(d3.axisLeft(y)); 
@@ -355,7 +298,7 @@ const Scatterplot = (props) => {
                 .transition()
                 .duration(800)
                 .attr('cy',function (d) { return y(+d[yattr]) })
-                .style("fill", (d) => colors(geo_regions.indexOf(d.GEO_REGION)));
+                .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
         canvas1.call(brush);
         }
     
@@ -365,7 +308,7 @@ const Scatterplot = (props) => {
                   .transition()
                   .duration(150)
                   .ease(d3.easeLinear)
-                  .style("fill", (d) => colors(geo_regions.indexOf(d.GEO_REGION)));
+                  .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
             }
         }
     }
