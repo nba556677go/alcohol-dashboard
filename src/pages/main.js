@@ -130,7 +130,7 @@ export default function Main() {
                   <Scatterplot data={row2Data} selectChange={selectScatter}/>
               </Col>
               <Col span={6}>
-                  <Recommand data={recommandData}/>
+                  <Recommand data={recommandData} type={type}/>
               </Col>
               <Col span={7}>
                   <Biplot data={PCAData} wdata={row2Data}/>

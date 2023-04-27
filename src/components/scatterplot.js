@@ -41,8 +41,8 @@ const Scatterplot = (props) => {
     var draw_scatter = function(){
         //set values
         var margin = { top: 50, right: 100, bottom: 60, left: 50 },
-        width  = 600 - margin.left - margin.right,
-        height = 390 - margin.top  - margin.bottom;
+        width  = 700 - margin.left - margin.right,
+        height = 410 - margin.top  - margin.bottom;
     
         var num_attrs = Object.keys(props.data[0]).filter(function(d) { return cat_attrs.includes(d); });
     
@@ -187,7 +187,7 @@ const Scatterplot = (props) => {
             brushed_data.sort(function(a,b){ // 这是比较函数
                 return b['Rate Count'] - a['Rate Count'];    // 降序
             })
-            var top10 = brushed_data.slice(0, 10)
+            var top10 = brushed_data.slice(0, 10).reverse()
             props.selectChange(top10);
         }
       }
@@ -250,7 +250,7 @@ const Scatterplot = (props) => {
         data_cp.sort(function(a,b){ // 这是比较函数
             return b['Rate Count'] - a['Rate Count'];    // 降序
         })
-        var top10 = data_cp.slice(0, 10)
+        var top10 = data_cp.slice(0, 10).reverse()
         props.selectChange(top10);
         
         function xChange() {

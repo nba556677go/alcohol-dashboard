@@ -64,11 +64,11 @@ const Recommand = (props) => {
             }).ticks(10))
             .append("text")
             .attr("y", -5)
-            .attr("x", 2.5 * 7)
+            .attr("x", 2.5 * (props.type.length + 3))
             .attr("dy", "-0.71em")
             .attr("text-anchor", "center")
             .attr("stroke", "black")
-            .text('Wine')
+            .text(props.type)
 
         // var x_grid = canvas.append("g")			
         //     .attr("class", "grid")
