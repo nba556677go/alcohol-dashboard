@@ -25,12 +25,15 @@ const MapChart = ({ data, selectCountry, countries }) => {
     <div id="geo-map">
       <ComposableMap
         data-tip=""
+        width="500"
+        height="300"
         projectionConfig={{
             rotate: [-10, 0, 0],
-            scale: 147
+            center: [20, 8],
+            scale: 90
         }}
       >
-        <ZoomableGroup zoom={1}>
+        <ZoomableGroup>
           {data.length > 0 && (
               <Geographies geography={geoUrl}>
               {({ geographies }) =>

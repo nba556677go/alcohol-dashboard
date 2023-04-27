@@ -15,10 +15,11 @@ var init = true;
 
 export default function Main() {
     const [consumptionData, setConsumptionData] = useState([]);
-    const [countries, setCountries] = useState(['United States','China','Australia']);
+    const [countries, setCountries] = useState([]);
     const [radarData, setRadarData] = useState([]);
-
-    const [wineData, setWineData] = useState([]);
+    
+    const [type, setType] = useState("Wine"); 
+    const [row2Data, setRow2Data] = useState([]);
     const [PCAData, setPCAData] = useState([]);
 
     const [scatterData, setScatterData] = useState([])
@@ -29,7 +30,8 @@ export default function Main() {
         let cData = await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
         setConsumptionData(cData.filter(item => item.Year === '2015'));
         let wineData = await csv(`/data/wine_processed.csv`);
-        setWineData(wineData) ;
+        setRow2Data(wineData);
+
         let PCAScat = await csv(`/data/pca_wine_scatters.csv`);
         let PCAVec = await csv(`/data/pca_wine_vectors.csv`);
         setPCAData({scatter : PCAScat, vector : PCAVec});
@@ -54,12 +56,16 @@ export default function Main() {
 
     useEffect(() => {
        if(consumptionData.length === 0) return;
-       setRadarData(processRadar(countries, consumptionData));
+       setRadarData(processRadar(['United States','China','Australia'], consumptionData));
     }, [consumptionData])
 
     useEffect(() => {
       if(consumptionData.length === 0) return;
-      setRadarData(processRadar(countries, consumptionData));
+      if(countries.length == 0) {
+        setRadarData(processRadar(['United States','China','Australia'], consumptionData));
+      } else {
+        setRadarData(processRadar(countries, consumptionData));
+      }
    }, [countries])
 
     const selectCountry = (country) => {
@@ -85,15 +91,30 @@ export default function Main() {
     const selectScatter = (data) => {
         setRecommandData(data)
     }
+    
+    // alcolhol type change
+    const selectAlcoholType = async (type) => {
+      setType(type);
+      type = type.toLowerCase();
+      let data = await csv(`/data/${type}_processed.csv`);
+      setRow2Data(data);
+      let PCAScat = await csv(`/data/pca_${type}_scatters.csv`);
+      let PCAVec = await csv(`/data/pca_${type}_vectors.csv`);
+      setPCAData({scatter : PCAScat, vector : PCAVec});
+    }
 
     return (
         <div className="main-wrapper">
-            <h2 style={{textAlign:'center'}}>Alcohol Consumption and Produce</h2>
+            <h2 style={{textAlign:'center',marginBottom: '5px'}}>Alcohol Consumption and Production</h2>
             <Row gutter={0}>
                 <Col span={10}>
-                    <WorldMap selectCountry={selectCountry} data={consumptionData} countries={countries}/>
+                    <WorldMap 
+                        selectCountry={selectCountry} 
+                        data={consumptionData} 
+                        countries={countries}
+                        selectAlcoholType={selectAlcoholType}/>
                 </Col>
-                <Col span={7}>
+                <Col span={6}>
                     <PieChart/>
                     <BarChart/>
                 </Col>
@@ -106,13 +127,13 @@ export default function Main() {
             </Row>
             <Row>
               <Col span={10}>
-                  <Scatterplot data={wineData} selectChange={selectScatter}/>
+                  <Scatterplot data={row2Data} selectChange={selectScatter}/>
               </Col>
-              <Col span={7}>
+              <Col span={6}>
                   <Recommand data={recommandData}/>
               </Col>
               <Col span={7}>
-                  <Biplot data={PCAData} wdata={wineData}/>
+                  <Biplot data={PCAData} wdata={row2Data}/>
               </Col>
             </Row>
         </div>
