@@ -18,7 +18,7 @@ const Biplot = (props) => {
     const drawChart = () => {
       console.log(props.data)
       
-    
+      var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
         const svg = d3.select("#biplot")
             .append("svg")
             .attr("width",  400)
@@ -111,7 +111,7 @@ const Biplot = (props) => {
             .attr("cy", (d, i)=>yScale(component2[i]))
             .style("fill", "white")
             .attr("stroke-width", 2)
-            .attr("stroke", (d) => zScale(d.label));
+            .attr("stroke", (d) => colors(d.label));
 
         container.append("g")
             .selectAll("dot")
@@ -185,7 +185,7 @@ const Biplot = (props) => {
                     .attr("r", 2)
                     .style("fill", "white")
                     .attr("stroke-width", 2)
-                    .attr("stroke", "rgb(44, 160, 44)");
+                    .attr("stroke", (d) => colors(0));
         
         container.append("circle")
                     .attr("cx",width - 100)
@@ -193,7 +193,7 @@ const Biplot = (props) => {
                     .attr("r", 2)
                     .style("fill", "white")
                     .attr("stroke-width", 2)
-                    .attr("stroke", "rgb(255, 127, 14)");
+                    .attr("stroke", (d) => colors(1));
         
         container.append("circle")
                     .attr("cx",width - 100)
@@ -201,7 +201,7 @@ const Biplot = (props) => {
                     .attr("r", 2)
                     .style("fill", "white")
                     .attr("stroke-width", 2)
-                    .attr("stroke", "rgb(31, 119, 180)");
+                    .attr("stroke", (d) => colors(2));
         
         container.append("text").attr("x", width - 80).attr("y", 25).text("Cluster 1").style("font-size", "12px").attr("alignment-baseline","middle")
         container.append("text").attr("x", width - 80).attr("y", 40).text("Cluster 2").style("font-size", "12px").attr("alignment-baseline","middle")
