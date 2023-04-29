@@ -46,14 +46,23 @@ const MapChart = ({ data, selectCountry, countries }) => {
                           fill={ 
                             d ? (countries.includes(geo.properties.name) ? '#F53' : colorScale(d['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'])): "#F5F4F6"}
                           onMouseEnter={(event) => {
+                              if(!d) {
+                                console.log(geo.properties.name)
+                                return
+                              };
                               const { name } = geo.properties;
 
                               tooltip
-                                .html(name)
                                 .style("left", (event.pageX+10) + "px")
                                 .style("top", (event.pageY-10) + "px")
                                 .transition().duration(1)
                                 .style('opacity', 1);
+
+                                tooltip.html("<span class='tooltipHeader'>" + name + "</span></br>" + 
+                                "<span class='tooltip-row-name'></span><span class='tooltip-win'>" + d['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'] + " liters" +
+                                "</span></br>" + "<span class='tooltip-row-name'>GDP: </span><span class='tooltip-win'>" + Number(d['GDP per capita, PPP (constant 2017 international $)']).toFixed(2) + 
+                                " </span></br>" + "<span class='tooltip-row-name'>Population: </span><span class='tooltip-win'>" + (Number(d['Population (historical estimates)'])/1000000).toFixed(2) + "M" +
+                                "</span>");
                           }}
                           onClick={function() {
                             const { name } = geo.properties;

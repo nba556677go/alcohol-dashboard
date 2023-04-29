@@ -21,13 +21,13 @@ const Biplot = (props) => {
       var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
         const svg = d3.select("#biplot")
             .append("svg")
-            .attr("width",  400)
-            .attr("height", 400)
+            .attr("width",  450)
+            .attr("height", 450)
 
         // set up the dimensions and margins of the plot
         const margin = 100;
-        const width = 400 - margin;
-        const height = 400 - margin;
+        const width = 450 - margin;
+        const height = 450 - margin;
 
         var container = svg.append("g").attr("transform", "translate(" + margin/2 + "," + margin/2 + ")");
 

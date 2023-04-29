@@ -8,3 +8,78 @@ h2 {
     margin: 0;
     margin-bottom: -30px;
 }
+
+body {
+    /* background-color: dimgrey; */
+    /* color: #fff; */
+}
+
+
+/*Tooltip Styles*/
+.tooltip {
+	line-height: 1.4;
+	font-weight: bold;
+	padding: 12px;
+	background: rgba(40, 40, 40, 0.8);
+	box-shadow: 1px 1px 5px #333;
+	color: #fff;
+	border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.tooltip:after {
+	box-sizing: border-box;
+	display: inline;
+	font-size: 10px;
+	width: 100%;
+	line-height: 1;
+	color: rgba(40, 40, 40, 0.86);
+	content: "\25BC";
+	position: absolute;
+	text-align: center;
+}
+
+/* Style northward tooltips differently */
+.tooltip.n:after {
+	margin: -1px 0 0 0;
+	top: 100%;
+	left: 0;
+}
+
+.tooltip-detail-title {
+	color: #888;
+	font-weight: normal;
+}
+
+.tooltip-detail-num {
+	color: #f1c40f;
+	font-weight: normal;
+}
+
+.tooltipHeader {
+	font-size: 1.3em;
+	color: #2b8cbe;
+  stroke: #2b8cbe;
+}
+
+.tooltip-txt {
+	color: #9e9ac8;
+	font-weight: normal;
+}
+
+.tooltip-win {
+	color: #2ecc71;
+}
+
+.tooltip-loss {
+	color: #f39c12;
+}
+
+.tooltip-row-name {
+	color: #aaa;
+	font-weight: normal;
+}
+
+.tooltip-opponent {
+	color: #80AED6;
+}
