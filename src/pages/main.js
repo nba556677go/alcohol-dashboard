@@ -30,7 +30,7 @@ export default function Main() {
         setConsumptionData(cData.filter(item => item.Year === '2015'));
         let wineData = await csv(`/data/wine_processed.csv`);
         setRow2Data(wineData);
-
+//default load
         let PCAScat = await csv(`/data/pca_wine_scatters.csv`);
         let PCAVec = await csv(`/data/pca_wine_vectors.csv`);
         setPCAData({scatter : PCAScat, vector : PCAVec});
@@ -90,6 +90,17 @@ export default function Main() {
       setPCAData({scatter : PCAScat, vector : PCAVec});
     }
 
+    //switch to consumption data
+    //TODO: switch to consumption data for scatter plot and barchart
+    const selectConsumptionData = async (type) => {
+      
+      //let data = await csv(`/data/${type}_processed.csv`);
+      //setRow2Data(data);
+      let PCAScat = await csv(`/data/pca_consumption_scatters.csv`);
+      let PCAVec = await csv(`/data/pca_consumption_vectors.csv`);
+      setPCAData({scatter : PCAScat, vector : PCAVec});
+    }
+
     return (
         <div className="main-wrapper">
             <h2 style={{textAlign:'center',marginBottom: '5px'}}>Alcohol Consumption and Production</h2>
@@ -99,7 +110,8 @@ export default function Main() {
                         selectCountry={selectCountry} 
                         data={consumptionData} 
                         countries={countries}
-                        selectAlcoholType={selectAlcoholType}/>
+                        selectAlcoholType={selectAlcoholType}
+                        selectConsumptionData={selectConsumptionData}/>
                 </Col>
                 <Col span={6}>
                     <PieChart/>

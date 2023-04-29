@@ -24,13 +24,14 @@ CORS(app)
 pca_dict = {}
 
 #best number of cluster - NOT TESTED
-best_k = {"wine":4, "spirits": 3, "beer":3}
+best_k = {"wine":3, "spirits": 3, "beer":3, "consumption": 3}
 feature_dict = {"wine" : ["Country", "Brand", "ABV", "Categories",  "Rate Count", "Price","region"],
                     "spirits" : ["Country", "Brand","Categories", "ABV", "region"],
-                    "beer" : ["Country", "Brand","Categories", "ABV", "region"]}
+                    "beer" : ["Country", "Brand","Categories", "ABV", "region"],
+                    "consumption" : ["Country","Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)", "GDP per capita, PPP (constant 2017 international $)", "Population (historical estimates)",'life_expect', 'HappinessScore']}
 
 
-def buildPCA(alcohol):
+def buildProduce_PCA(alcohol):
     df = pd.read_csv(f"./public/data/{alcohol}_processed.csv")
     #ignore first column since it is index
     features = feature_dict[alcohol]
@@ -74,9 +75,52 @@ def buildPCA(alcohol):
     # plt.show()
 
 
-buildPCA("wine")
-buildPCA("spirits")
-buildPCA("beer")
+def buildConsump_PCA():
+    df = pd.read_csv("./public/data/conusmption_gdp_happiness_year_processed.csv")
+    #ignore first column since it is index
+    features = feature_dict["consumption"]
+    # convert string columns to categorical data
+    for col in df.columns:
+        # Check if the column is of type string
+        if df[col].dtype == 'object':
+            # Convert the column to numerical categories
+            df[col] = pd.Categorical(df[col]).codes
+
+    X = df[features].to_numpy()
+
+    # normalzie the data 
+    scaler = StandardScaler()
+    X_norm = scaler.fit_transform(X)
+    # perform PCA transformation
+    pca = PCA()
+    X_pca = pca.fit_transform(X_norm)
+    loadings = pd.DataFrame(pca.components_.T, index=features)
+    #top_loadings = copy.deepcopy(loadings)
+
+    #add kmeans label for all PC selected 
+    from threadpoolctl import threadpool_limits
+    with threadpool_limits(user_api="openmp", limits=4):
+        biplot_cluster = KMeans(n_clusters=best_k["consumption"],max_iter=500, random_state=0).fit(X_norm)
+    scat_df = pd.DataFrame(X_pca[:,0:2], columns=['first_pca','second_pca'])
+    scat_df["label"] = biplot_cluster.labels_
+
+    axes_df = pd.DataFrame((pca.components_[0:2, :]).T, columns=['first_pca','second_pca'])
+    display_dict = {'Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)': 'Consumption',
+                     "GDP per capita, PPP (constant 2017 international $)": "GDP", 
+                     "Population (historical estimates)": "Population"}
+    axes_df["ind"] = [display_dict.get(n, n) for n in features]
+    pca_dict["consumption"] = {"scatters" : scat_df, "vectors" : axes_df}
+
+    axes_df.to_csv(f'./public/data/pca_consumption_vectors.csv', index=False)
+    scat_df.to_csv(f'./public/data/pca_consumption_scatters.csv', index=False)
+
+
+
+buildProduce_PCA("wine")
+buildProduce_PCA("spirits")
+buildProduce_PCA("beer")
+
+buildConsump_PCA()
 
 
 

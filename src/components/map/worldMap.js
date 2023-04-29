@@ -5,8 +5,9 @@ import { Radio } from 'antd';
 import { OmitProps } from "antd/es/transfer/ListBody";
 
 
-function WorldMap({selectCountry, data, countries, selectAlcoholType}) {
-  const [radioValue, setRadioValue] = useState("Consumption");
+
+function WorldMap({selectCountry, data, countries, selectAlcoholType, selectConsumptionData}) {
+  const [radioValue, setRadioValue] = useState("Production");//initial state set to production
   const [alcoholType, setAlcoholType] = useState("Wine");
 
   const options = [
@@ -37,6 +38,11 @@ function WorldMap({selectCountry, data, countries, selectAlcoholType}) {
 
   const handleRadioChange = (val) => {
     setRadioValue(val.target.value);
+    if (val.target.value === 'Consumption') selectConsumptionData(val.target.value); 
+    else {//default alchohol = wine when switching to production
+      setAlcoholType("wine");
+      selectAlcoholType("wine");
+    }
   }
 
   const handleChangeAlcohol = (val) => {
