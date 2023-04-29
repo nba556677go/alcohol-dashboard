@@ -146,9 +146,15 @@ df  = df[df["region"].notnull()]
 df_productionCount = df['Country'].value_counts().rename_axis('Country').reset_index(name='beer')
 df_capital = pd.merge(df_capital, df_productionCount, on=['Country'], how='left')
 
-df_capital.to_csv("./productionMap_data.csv")
+
 
 
 df.to_csv("./beer_processed.csv")
 
+#add region in productionmap
+df_capital['region'] = df_capital['Country'].map(regionMap)
+df_capital['Code'] = df_capital['Country'].map(codeMap)
+df_capital  = df_capital[df_capital["region"].notnull()]
+
+df_capital.to_csv("./productionMap_data.csv")
 
