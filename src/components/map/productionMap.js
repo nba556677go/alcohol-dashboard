@@ -12,10 +12,13 @@ const MapChart = () => {
   const [maxValue, setMaxValue] = useState(0);
 
   useEffect(() => {
-    csv("/data/data.csv").then((cities) => {
-      const sortedCities = sortBy(cities, (o) => -o.population);
-      setMaxValue(sortedCities[0].population);
+    csv("/data/productionMap_data.csv").then((cities) => {
+      console.log(cities)//ONLY read 1 row of data?
+      const sortedCities = sortBy(cities, (o) => -o.wine);
+      //console.log(sortedCities)
+      setMaxValue(sortedCities[0].wine);
       setData(sortedCities);
+      
     });
   }, []);
 
@@ -36,10 +39,10 @@ const MapChart = () => {
           ))
         }
       </Geographies>
-      {data.map(({ city_code, lng, lat, population }) => {
+      {data.map(({ id, Country, Capital  , lng, lat, wine, spirits, beer }) => {
         return (
-          <Marker key={city_code} coordinates={[lng, lat]}>
-            <circle fill="#F53" stroke="#FFF" r={popScale(population)} />
+          <Marker key={id} coordinates={[lng, lat]}>
+            <circle fill="#F53" stroke="#FFF" r={popScale(wine)} />
           </Marker>
         );
       })}
