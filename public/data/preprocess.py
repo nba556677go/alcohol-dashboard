@@ -12,8 +12,11 @@ df2.rename(columns={'year': 'Year', 'country': 'Country'}, inplace=True)
 df2 = df2.loc[df2['Year'].isin([2000,2005,2010,2015])]
 #some country name need to be change to merge...
 
-df['Country'].replace('Russia', 'Russian Federation', inplace=True)
 df2['Country'].replace('United States of America', 'United States', inplace=True)
+df2['Country'].replace('Russian Federation', 'Russia', inplace=True)
+df2['Country'].replace('United Kingdom of Great Britain and Northern Ireland', 'United Kingdom', inplace=True)
+df2['Country'].replace('Syrian Arab Republic', 'Syria', inplace=True)
+
 
 
 
@@ -22,16 +25,23 @@ df2['Country'].replace('United States of America', 'United States', inplace=True
 df_inner = pd.merge(df, df2, on=['Year', 'Country'], how='inner')
 
 df3 = pd.read_csv("./HappinessAlcoholConsumption.csv")
+df3['Country'].replace('Czech Republic', 'Czechia', inplace=True)
+
 #df3.rename(columns={'Country': 'Entity'}, inplace=True)
 df_inner = pd.merge(df_inner, df3, on=['Country'], how='inner')
 
 #create  region/code map to add to wine/beer/spirits
-regionMap = dict(zip(df_inner.Country, df2.region))
-codeMap = dict(zip(df_inner.Country, df_inner.Code))
+regionMap = dict(zip(df2.Country, df2.region))
+codeMap = dict(zip(df2.Country, df2.country_code))
+#add Scotland in particular - its an area
+regionMap['Scotland'] = 'Europe'
+codeMap['Scotland'] = 'GBR'
 
 #df.to_csv("./data/conusmption_gdp_year_processed.csv")
 df_inner.to_csv("./conusmption_gdp_happiness_year_processed.csv")
 
+
+df_capital = pd.read_csv("./capital_geo.csv")
 
 ###wine
 df = pd.read_csv("./wine_data.csv")
@@ -63,6 +73,13 @@ df.reset_index(drop=True, inplace=True)
 
 df['region'] = df['Country'].map(regionMap)
 df['Code'] = df['Country'].map(codeMap)
+df  = df[df["region"].notnull()]
+
+#count country wine count
+
+df_productionCount = df['Country'].value_counts().rename_axis('Country').reset_index(name='wine')
+df_capital = pd.merge(df_capital, df_productionCount, on=['Country'], how='left')
+#df_productionMap_data.to_csv("./productionMap_data.csv")
 
 
 df.to_csv("./wine_processed.csv")
@@ -86,6 +103,12 @@ df.reset_index(drop=True, inplace=True)
 #create ID column based on index
 df['region'] = df['Country'].map(regionMap)
 df['Code'] = df['Country'].map(codeMap)
+df  = df[df["region"].notnull()]
+
+#production map data
+df_productionCount = df['Country'].value_counts().rename_axis('Country').reset_index(name='spirits')
+df_capital = pd.merge(df_capital, df_productionCount, on=['Country'], how='left')
+
 df.to_csv("./spirits_processed.csv")
 
 ###Beer
@@ -118,6 +141,13 @@ df.reset_index(drop=True, inplace=True)
 
 df['region'] = df['Country'].map(regionMap)
 df['Code'] = df['Country'].map(codeMap)
+df  = df[df["region"].notnull()]
+#production map data
+df_productionCount = df['Country'].value_counts().rename_axis('Country').reset_index(name='beer')
+df_capital = pd.merge(df_capital, df_productionCount, on=['Country'], how='left')
+
+df_capital.to_csv("./productionMap_data.csv")
+
 
 df.to_csv("./beer_processed.csv")
 

@@ -1,50 +1,50 @@
 ,Name,Country,Brand,Categories,Type,ABV,Calories Per Serving (12 OZ/0.35L),Carbs Per Serving (12 OZ/0.35L),Suggested Serving Temperature,Rating,Rate Count,Price,region,Code
-0,Allagash River Trip,United States,Allagash,"ALE, Belgian-Style Ale",Craft Beer,4.8,128.0,7.9,3,5.0,6,1299.0,Europe,USA
-1,Night Shift Nite Lite Craft Light Lager,United States,Night Shift,"American-Style Lager, Lager, Pale Lager",Craft Beer,4.3,120.0,8.1,1,5.0,45,779.0,Europe,USA
-2,Bud Light,United States,Bud Light,"American-Style Lager, Lager, Pale Lager",Craft Beer,4.2,110.0,6.6,1,4.9,1153,1299.0,Europe,USA
-3,Bell’s Oberon American Wheat Ale,United States,Bells Brewery,"ALE, Wheat Ale",Craft Beer,5.8,187.0,16.2,3,5.0,17,1099.0,Europe,USA
-4,Samuel Adams Sam Light Beer,United States,Samuel Adams,"American-Style Lager, Lager, Pale Lager",Craft Beer,4.3,119.0,9.6,1,5.0,6,999.0,Europe,USA
-5,Rogue Dead Guy Ale,United States,Rogue Ales  Spirits,"Bock, Lager, Maibock  Helles Bock",Craft Beer,6.8,210.0,17.0,4,5.0,35,749.0,Europe,USA
-6,New Belgium Fat Tire Amber Ale,United States,New Belgium Brewing Company,"ALE, Amber  Red Ale",Craft Beer,5.2,160.0,9.0,3,5.0,240,399.0,Europe,USA
-7,New Belgium Voodoo Ranger Imperial IPA,United States,New Belgium Brewing Company,"ALE, Imperial  Double IPA, IPA",Craft Beer,9.0,250.0,17.0,4,5.0,234,1186.0,Europe,USA
-8,New Belgium Voodoo Ranger IPA,United States,New Belgium Brewing Company,"ALE, IPA",Craft Beer,7.0,200.0,15.0,3,5.0,97,1074.0,Europe,USA
-9,New Belgium Voodoo Ranger Juicy Haze IPA,United States,New Belgium Brewing Company,"ALE, IPA, New England  Hazy IPA",Craft Beer,7.5,230.0,16.0,3,5.0,82,1149.0,Europe,USA
-10,New Belgium Voodoo Ranger Rotating IPA Series,United States,New Belgium Brewing Company,"ALE, IPA",Craft Beer,7.7,230.0,15.0,3,5.0,45,1162.0,Europe,USA
-11,New Belgium Mountain Time Premium Lager,United States,New Belgium Brewing Company,"Lager, Pale Lager",Craft Beer,4.4,130.0,10.0,2,5.0,19,1299.0,Europe,USA
-12,New Belgium Fat Tire Belgian Style White,United States,New Belgium Brewing Company,"ALE, Wheat Ale, Witbier",Craft Beer,5.2,170.0,16.0,3,5.0,18,1049.0,Europe,USA
-13,New Belgium Trippel Belgian Style Ale,United States,New Belgium Brewing Company,"ALE, Belgian-Style Ale, Tripel",Craft Beer,8.5,240.0,8.0,4,5.0,14,1099.0,Europe,USA
-14,New Belgium Honey Orange Tripel,United States,New Belgium Brewing Company,"ALE, Belgian-Style Ale, Tripel",Craft Beer,10.0,285.0,20.0,3,5.0,9,1399.0,Europe,USA
-15,New Belgium Glütiny Pale Ale,United States,New Belgium Brewing Company,"ALE, Pale Ale",Craft Beer,6.0,171.0,10.0,3,5.0,5,999.0,Europe,USA
-16,New Belgium La Folie,United States,New Belgium Brewing Company,"ALE, Flanders Red  Brown, Sour  Wild Ale",Craft Beer,7.0,210.0,15.0,3,5.0,4,1199.0,Europe,USA
-17,New Belgium Old Aggie Superior Lager,United States,New Belgium Brewing Company,"Lager, Pale Lager",Craft Beer,4.7,141.0,11.0,2,5.0,3,1500.0,Europe,USA
-18,New Belgium Mural Watermelon Lime,United States,New Belgium Brewing Company,Fruit Beer,Craft Beer,4.0,110.0,9.0,3,5.0,3,1004.0,Europe,USA
-19,New Belgium Citradelic Tangerine IPA,United States,New Belgium Brewing Company,"ALE, IPA",Craft Beer,6.0,176.0,10.0,3,5.0,2,1040.0,Europe,USA
-20,New Belgium The Hemperor HPA,United States,New Belgium Brewing Company,"ALE, IPA",Craft Beer,7.0,200.0,13.0,3,5.0,2,1199.0,Europe,USA
-21,Truly Hard Seltzer Berry Mix Pack Spiked & Sparkling Water,United States,Truly Hard Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,5.0,100.0,2.0,2,5.0,458,1799.0,Europe,USA
-22,Truly Hard Seltzer Citrus Mix Pack Spiked & Sparkling Water,United States,Truly Hard Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,5.0,100.0,2.0,2,5.0,134,1799.0,Europe,USA
-23,Truly Hard Seltzer Lime Spiked & Sparkling Water,United States,Truly Hard Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,5.0,100.0,2.0,2,5.0,9,999.0,Europe,USA
-24,Yuengling Light Lager,United States,Yuengling,"American-Style Lager, Lager, Pale Lager",Craft Beer,3.8,99.0,3.2,1,5.0,48,2173.0,Europe,USA
-25,Shiner Bock,United States,Shiner,"Bock, Lager",Craft Beer,4.41,141.0,12.4,4,5.0,94,999.0,Europe,USA
-26,Shiner Light Blonde,United States,Shiner,"American-Style Lager, Lager, Pale Lager",Craft Beer,4.2,99.0,3.4,1,5.0,19,946.0,Europe,USA
-27,Shiner Ruby Redbird,United States,Shiner,Fruit Beer,Craft Beer,4.01,95.0,3.0,3,5.0,13,1724.0,Europe,USA
-28,Crook & Marker Spiked Sparkling Seltzer Red Variety Pack,United States,Crook  Marker,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,4.0,80.0,1.0,2,5.0,13,1699.0,Europe,USA
-29,Crook & Marker Spiked Sparkling Seltzer Blue Variety Pack,United States,Crook  Marker,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,4.0,80.0,1.0,2,5.0,8,1699.0,Europe,USA
-30,Saint Archer Gold Light Lager Beer,United States,Saint Archer,"American-Style Lager, Lager, Pale Lager",Craft Beer,4.2,95.0,2.6,2,5.0,10,946.0,Europe,USA
-31,White Claw Hard Seltzer Variety Pack,United States,White Claw,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,5.0,100.0,2.0,2,5.0,1184,1869.0,Europe,USA
-32,Mysters Hard Seltzer,United States,Dry Dock,"Hard Seltzer, Specialty Beer  Alternatives",Independent Craft Brewers,5.0,110.0,2.0,2,5.0,4,1799.0,Europe,USA
-33,Smirnoff Seltzer Variety Pack,United States,Smirnoff Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,4.5,90.0,1.0,2,5.0,61,1699.0,Europe,USA
-34,Smirnoff Seltzer 4 Ways to Rosé,United States,Smirnoff Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,4.5,90.0,1.0,2,5.0,11,1709.0,Europe,USA
-35,PRESS Premium Hard Seltzer Variety Pack,United States,Press Spiked Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Independent Craft Brewers,4.0,110.0,7.0,2,5.0,61,1744.0,Europe,USA
-36,PRESS Premium Hard Seltzer Pomegranate Ginger,United States,Press Spiked Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Independent Craft Brewers,4.0,110.0,7.0,2,5.0,6,197.0,Europe,USA
-37,PRESS Premium Hard Seltzer Grapefruit Cardamom,United States,Press Spiked Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Independent Craft Brewers,4.0,110.0,7.0,2,5.0,3,999.0,Europe,USA
-38,Willie’s Superbrew Ginger & Lemon Hard Seltzer,United States,Willies Superbrew,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,4.5,120.0,8.0,2,5.0,9,1199.0,Europe,USA
-39,Willie’s Superbrew Mango & Passionfruit Hard Seltzer,United States,Willies Superbrew,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,4.5,110.0,4.0,2,5.0,7,1199.0,Europe,USA
-40,Willie’s Superbrew Pomegranate & Acai Hard Seltzer,United States,Willies Superbrew,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,4.5,110.0,6.0,2,5.0,5,1199.0,Europe,USA
-41,Willie’s Superbrew Pear & Cinnamon Hard Seltzer,United States,Willies Superbrew,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,4.5,120.0,8.0,2,5.0,2,1199.0,Europe,USA
-42,Bravazzi Hard Italian Soda Grapefruit,United States,Bravazzi,"Hard Soda, Specialty Beer  Alternatives",Independent Craft Brewers,4.2,160.0,20.0,4,5.0,4,999.0,Europe,USA
-43,Athletic Brewing Run Wild Non-Alcoholic IPA,United States,Athletic Brewing Company,"Non-Alcoholic Beer, Specialty Beer  Alternatives",Craft Beer,0.5,70.0,16.0,3,5.0,37,1099.0,Europe,USA
-44,Athletic Brewing Upside Dawn Non-Alcoholic Golden Ale,United States,Athletic Brewing Company,"ALE, Golden  Blonde Ale",Craft Beer,0.5,50.0,12.0,3,5.0,19,1099.0,Europe,USA
-45,Athletic Brewing – Seasonal Offering,United States,Athletic Brewing Company,"ALE, Dry Stout, Stout",Craft Beer,0.5,90.0,12.0,1,5.0,5,1099.0,Europe,USA
-46,Arctic Chill Weekender Mix Pack,United States,Arctic Chill,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,5.0,100.0,3.0,2,5.0,14,1699.0,Europe,USA
-47,Arctic Chill Raspberry Lime,United States,Arctic Chill,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,5.0,100.0,3.0,2,5.0,2,999.0,Europe,USA
-48,Session Premium Lager,United States,Session Premium Lager,"American-Style Lager, Lager, Pale Lager",Craft Beer,5.0,130.0,5.0,1,5.0,10,1499.0,Europe,USA
+0,Allagash River Trip,United States,Allagash,"ALE, Belgian-Style Ale",Craft Beer,4.8,128.0,7.9,3,5.0,6,1299.0,Americas,USA
+1,Night Shift Nite Lite Craft Light Lager,United States,Night Shift,"American-Style Lager, Lager, Pale Lager",Craft Beer,4.3,120.0,8.1,1,5.0,45,779.0,Americas,USA
+2,Bud Light,United States,Bud Light,"American-Style Lager, Lager, Pale Lager",Craft Beer,4.2,110.0,6.6,1,4.9,1153,1299.0,Americas,USA
+3,Bell’s Oberon American Wheat Ale,United States,Bells Brewery,"ALE, Wheat Ale",Craft Beer,5.8,187.0,16.2,3,5.0,17,1099.0,Americas,USA
+4,Samuel Adams Sam Light Beer,United States,Samuel Adams,"American-Style Lager, Lager, Pale Lager",Craft Beer,4.3,119.0,9.6,1,5.0,6,999.0,Americas,USA
+5,Rogue Dead Guy Ale,United States,Rogue Ales  Spirits,"Bock, Lager, Maibock  Helles Bock",Craft Beer,6.8,210.0,17.0,4,5.0,35,749.0,Americas,USA
+6,New Belgium Fat Tire Amber Ale,United States,New Belgium Brewing Company,"ALE, Amber  Red Ale",Craft Beer,5.2,160.0,9.0,3,5.0,240,399.0,Americas,USA
+7,New Belgium Voodoo Ranger Imperial IPA,United States,New Belgium Brewing Company,"ALE, Imperial  Double IPA, IPA",Craft Beer,9.0,250.0,17.0,4,5.0,234,1186.0,Americas,USA
+8,New Belgium Voodoo Ranger IPA,United States,New Belgium Brewing Company,"ALE, IPA",Craft Beer,7.0,200.0,15.0,3,5.0,97,1074.0,Americas,USA
+9,New Belgium Voodoo Ranger Juicy Haze IPA,United States,New Belgium Brewing Company,"ALE, IPA, New England  Hazy IPA",Craft Beer,7.5,230.0,16.0,3,5.0,82,1149.0,Americas,USA
+10,New Belgium Voodoo Ranger Rotating IPA Series,United States,New Belgium Brewing Company,"ALE, IPA",Craft Beer,7.7,230.0,15.0,3,5.0,45,1162.0,Americas,USA
+11,New Belgium Mountain Time Premium Lager,United States,New Belgium Brewing Company,"Lager, Pale Lager",Craft Beer,4.4,130.0,10.0,2,5.0,19,1299.0,Americas,USA
+12,New Belgium Fat Tire Belgian Style White,United States,New Belgium Brewing Company,"ALE, Wheat Ale, Witbier",Craft Beer,5.2,170.0,16.0,3,5.0,18,1049.0,Americas,USA
+13,New Belgium Trippel Belgian Style Ale,United States,New Belgium Brewing Company,"ALE, Belgian-Style Ale, Tripel",Craft Beer,8.5,240.0,8.0,4,5.0,14,1099.0,Americas,USA
+14,New Belgium Honey Orange Tripel,United States,New Belgium Brewing Company,"ALE, Belgian-Style Ale, Tripel",Craft Beer,10.0,285.0,20.0,3,5.0,9,1399.0,Americas,USA
+15,New Belgium Glütiny Pale Ale,United States,New Belgium Brewing Company,"ALE, Pale Ale",Craft Beer,6.0,171.0,10.0,3,5.0,5,999.0,Americas,USA
+16,New Belgium La Folie,United States,New Belgium Brewing Company,"ALE, Flanders Red  Brown, Sour  Wild Ale",Craft Beer,7.0,210.0,15.0,3,5.0,4,1199.0,Americas,USA
+17,New Belgium Old Aggie Superior Lager,United States,New Belgium Brewing Company,"Lager, Pale Lager",Craft Beer,4.7,141.0,11.0,2,5.0,3,1500.0,Americas,USA
+18,New Belgium Mural Watermelon Lime,United States,New Belgium Brewing Company,Fruit Beer,Craft Beer,4.0,110.0,9.0,3,5.0,3,1004.0,Americas,USA
+19,New Belgium Citradelic Tangerine IPA,United States,New Belgium Brewing Company,"ALE, IPA",Craft Beer,6.0,176.0,10.0,3,5.0,2,1040.0,Americas,USA
+20,New Belgium The Hemperor HPA,United States,New Belgium Brewing Company,"ALE, IPA",Craft Beer,7.0,200.0,13.0,3,5.0,2,1199.0,Americas,USA
+21,Truly Hard Seltzer Berry Mix Pack Spiked & Sparkling Water,United States,Truly Hard Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,5.0,100.0,2.0,2,5.0,458,1799.0,Americas,USA
+22,Truly Hard Seltzer Citrus Mix Pack Spiked & Sparkling Water,United States,Truly Hard Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,5.0,100.0,2.0,2,5.0,134,1799.0,Americas,USA
+23,Truly Hard Seltzer Lime Spiked & Sparkling Water,United States,Truly Hard Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,5.0,100.0,2.0,2,5.0,9,999.0,Americas,USA
+24,Yuengling Light Lager,United States,Yuengling,"American-Style Lager, Lager, Pale Lager",Craft Beer,3.8,99.0,3.2,1,5.0,48,2173.0,Americas,USA
+25,Shiner Bock,United States,Shiner,"Bock, Lager",Craft Beer,4.41,141.0,12.4,4,5.0,94,999.0,Americas,USA
+26,Shiner Light Blonde,United States,Shiner,"American-Style Lager, Lager, Pale Lager",Craft Beer,4.2,99.0,3.4,1,5.0,19,946.0,Americas,USA
+27,Shiner Ruby Redbird,United States,Shiner,Fruit Beer,Craft Beer,4.01,95.0,3.0,3,5.0,13,1724.0,Americas,USA
+28,Crook & Marker Spiked Sparkling Seltzer Red Variety Pack,United States,Crook  Marker,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,4.0,80.0,1.0,2,5.0,13,1699.0,Americas,USA
+29,Crook & Marker Spiked Sparkling Seltzer Blue Variety Pack,United States,Crook  Marker,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,4.0,80.0,1.0,2,5.0,8,1699.0,Americas,USA
+30,Saint Archer Gold Light Lager Beer,United States,Saint Archer,"American-Style Lager, Lager, Pale Lager",Craft Beer,4.2,95.0,2.6,2,5.0,10,946.0,Americas,USA
+31,White Claw Hard Seltzer Variety Pack,United States,White Claw,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,5.0,100.0,2.0,2,5.0,1184,1869.0,Americas,USA
+32,Mysters Hard Seltzer,United States,Dry Dock,"Hard Seltzer, Specialty Beer  Alternatives",Independent Craft Brewers,5.0,110.0,2.0,2,5.0,4,1799.0,Americas,USA
+33,Smirnoff Seltzer Variety Pack,United States,Smirnoff Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,4.5,90.0,1.0,2,5.0,61,1699.0,Americas,USA
+34,Smirnoff Seltzer 4 Ways to Rosé,United States,Smirnoff Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Variety Pack Beer,4.5,90.0,1.0,2,5.0,11,1709.0,Americas,USA
+35,PRESS Premium Hard Seltzer Variety Pack,United States,Press Spiked Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Independent Craft Brewers,4.0,110.0,7.0,2,5.0,61,1744.0,Americas,USA
+36,PRESS Premium Hard Seltzer Pomegranate Ginger,United States,Press Spiked Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Independent Craft Brewers,4.0,110.0,7.0,2,5.0,6,197.0,Americas,USA
+37,PRESS Premium Hard Seltzer Grapefruit Cardamom,United States,Press Spiked Seltzer,"Hard Seltzer, Specialty Beer  Alternatives",Independent Craft Brewers,4.0,110.0,7.0,2,5.0,3,999.0,Americas,USA
+38,Willie’s Superbrew Ginger & Lemon Hard Seltzer,United States,Willies Superbrew,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,4.5,120.0,8.0,2,5.0,9,1199.0,Americas,USA
+39,Willie’s Superbrew Mango & Passionfruit Hard Seltzer,United States,Willies Superbrew,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,4.5,110.0,4.0,2,5.0,7,1199.0,Americas,USA
+40,Willie’s Superbrew Pomegranate & Acai Hard Seltzer,United States,Willies Superbrew,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,4.5,110.0,6.0,2,5.0,5,1199.0,Americas,USA
+41,Willie’s Superbrew Pear & Cinnamon Hard Seltzer,United States,Willies Superbrew,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,4.5,120.0,8.0,2,5.0,2,1199.0,Americas,USA
+42,Bravazzi Hard Italian Soda Grapefruit,United States,Bravazzi,"Hard Soda, Specialty Beer  Alternatives",Independent Craft Brewers,4.2,160.0,20.0,4,5.0,4,999.0,Americas,USA
+43,Athletic Brewing Run Wild Non-Alcoholic IPA,United States,Athletic Brewing Company,"Non-Alcoholic Beer, Specialty Beer  Alternatives",Craft Beer,0.5,70.0,16.0,3,5.0,37,1099.0,Americas,USA
+44,Athletic Brewing Upside Dawn Non-Alcoholic Golden Ale,United States,Athletic Brewing Company,"ALE, Golden  Blonde Ale",Craft Beer,0.5,50.0,12.0,3,5.0,19,1099.0,Americas,USA
+45,Athletic Brewing – Seasonal Offering,United States,Athletic Brewing Company,"ALE, Dry Stout, Stout",Craft Beer,0.5,90.0,12.0,1,5.0,5,1099.0,Americas,USA
+46,Arctic Chill Weekender Mix Pack,United States,Arctic Chill,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,5.0,100.0,3.0,2,5.0,14,1699.0,Americas,USA
+47,Arctic Chill Raspberry Lime,United States,Arctic Chill,"Hard Seltzer, Specialty Beer  Alternatives",Craft Beer,5.0,100.0,3.0,2,5.0,2,999.0,Americas,USA
+48,Session Premium Lager,United States,Session Premium Lager,"American-Style Lager, Lager, Pale Lager",Craft Beer,5.0,130.0,5.0,1,5.0,10,1499.0,Americas,USA
