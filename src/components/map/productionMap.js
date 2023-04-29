@@ -7,23 +7,25 @@ import sortBy from "lodash/sortBy";
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-continents.json";
 
-const MapChart = () => {
+const MapChart = ({alcoholType}) => {
   const [data, setData] = useState([]);
   const [maxValue, setMaxValue] = useState(0);
 
   useEffect(() => {
     csv("/data/productionMap_data.csv").then((cities) => {
       console.log(cities)//ONLY read 1 row of data?
+      // filter the ones that value is large than 0
+      cities = cities.filter(item => item[alcoholType.toLowerCase()])
       const sortedCities = sortBy(cities, (o) => -o.wine);
       //console.log(sortedCities)
       setMaxValue(sortedCities[0].wine);
       setData(sortedCities);
       
     });
-  }, []);
+  }, [alcoholType]);
 
   const popScale = useMemo(
-    () => scaleLinear().domain([0, maxValue]).range([0, 14]),
+    () => scaleLinear().domain([0, maxValue]).range([4, 20]),
     [maxValue]
   );
 

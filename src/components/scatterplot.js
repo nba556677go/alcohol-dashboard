@@ -238,8 +238,8 @@ const Scatterplot = (props) => {
     
                     //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
                     tooltipBox.html("<span class='tooltipHeader'>" + d['Name'] + "</span></br>" + 
-                        "<span class='tooltip-row-name'>Country </span><span class='tooltip-win'>" + d['Country'] + 
-                        "</span></br>" + "<span class='tooltip-row-name'>Brand </span><span class='tooltip-win'>" + d['Brand'] + 
+                        "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + d['Country'] + 
+                        "</span></br>" + "<span class='tooltip-row-name'>Brand: </span><span class='tooltip-win'>" + d['Brand'] + 
                         " </span></br>" + "<span class='tooltip-row-name'>ABV: </span><span class='tooltip-win'>" + d['ABV'] + 
                         "</span>");
                     // tooltipBox.show();

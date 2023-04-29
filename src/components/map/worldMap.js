@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import MapChart from "./mapChart";
 import ProductionMap from './productionMap'
 import { Radio } from 'antd';
-import { OmitProps } from "antd/es/transfer/ListBody";
-
 
 
 function WorldMap({selectCountry, data, countries, selectAlcoholType, selectConsumptionData}) {
@@ -68,7 +66,7 @@ function WorldMap({selectCountry, data, countries, selectAlcoholType, selectCons
       <div style={{marginTop: '30px'}}>
          { radioValue === 'Consumption' ? 
             <MapChart data={data} selectCountry={selectCountry} countries={countries}/>: 
-            <ProductionMap/>
+            <ProductionMap alcoholType={alcoholType}/>
          }
       </div>
     </div>
