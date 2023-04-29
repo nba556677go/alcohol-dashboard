@@ -22,7 +22,6 @@ export default function Main() {
     const [row2Data, setRow2Data] = useState([]);
     const [PCAData, setPCAData] = useState([]);
 
-    const [scatterData, setScatterData] = useState([])
     const [recommandData, setRecommandData] = useState([])
 
     useEffect(() => {
@@ -35,18 +34,6 @@ export default function Main() {
         let PCAScat = await csv(`/data/pca_wine_scatters.csv`);
         let PCAVec = await csv(`/data/pca_wine_vectors.csv`);
         setPCAData({scatter : PCAScat, vector : PCAVec});
-
-        let scatterData = await csv(`/data/Final_NCAA.csv`);
-        setScatterData(scatterData);
-        // const [cData, wineData, PCAScat, PCAVec] = await Promise.all([
-        //   csv(`/data/conusmption_gdp_happiness_year_processed.csv`),
-        //   csv( `/data/wine_processed.csv`),
-        //   csv(`/data/pca_wine_scatters.csv`),
-        //   csv(`/data/pca_wine_vectors.csv`)
-        // ])
-        // setConsumptionData(cData.filter(item => item.Year === '2015'));
-        // setWineData(wineData);
-        // setPCAData({scatter : PCAScat, vector : PCAVec});
       }
     
       

@@ -25,20 +25,20 @@ const Scatterplot = (props) => {
     var xattr = 'Price'
     var yattr = 'Rating'
 
-    var tooltipBox = d3.select("#scatter_area")
-        .append("div")
-        .style("opacity", 0)
-        .attr("class", "tooltip")
-        .style("position", "absolute")
-        .style("background-color", "black")
-        .style("border", "solid")
-        .style("border-width", "0px")
-        .style("border-radius", "5px")
-        .style("padding", "10px")
-        .style("color", "white")
-        .style("visibility", "visible");
-
     var draw_scatter = function(){
+        var tooltipBox = d3.select("#scatter_area")
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip")
+            .style("position", "absolute")
+            .style("background-color", "black")
+            .style("border", "solid")
+            .style("border-width", "0px")
+            .style("border-radius", "5px")
+            .style("padding", "10px")
+            .style("color", "white")
+            .style("visibility", "visible");
+    
         //set values
         var margin = { top: 50, right: 100, bottom: 60, left: 50 },
         width  = 700 - margin.left - margin.right,
@@ -229,6 +229,12 @@ const Scatterplot = (props) => {
                 .attr("r", 5)
                 .style("opacity",0.6)
                 .on("mouseover", function (event, d) {
+
+                    tooltipBox
+                        .style("left", (event.layerX+10) + "px")
+                        .style("top", (event.layerY-10) + "px")
+                        .transition().duration(1)
+                        .style('opacity', 1);
     
                     //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
                     tooltipBox.html("<span class='tooltipHeader'>" + d['Name'] + "</span></br>" + 
@@ -237,11 +243,7 @@ const Scatterplot = (props) => {
                         " </span></br>" + "<span class='tooltip-row-name'>ABV: </span><span class='tooltip-win'>" + d['ABV'] + 
                         "</span>");
                     // tooltipBox.show();
-                    tooltipBox
-                        .style("left", (event.layerX+10) + "px")
-                        .style("top", (event.layerY-10) + "px")
-                        .transition().duration(1)
-                        .style('opacity', 1);
+            
                 })
                 .on("mouseout",function(){tooltipBox.style('opacity', 0);})
                 .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
