@@ -17,6 +17,7 @@ export default function Main() {
     const [consumptionData, setConsumptionData] = useState([]);
     const [countries, setCountries] = useState([]);
     const [radarData, setRadarData] = useState([]);
+    const [genre, setGenre] = useState(["production"]);
     
     const [type, setType] = useState("Wine"); 
     const [row2Data, setRow2Data] = useState([]);
@@ -84,6 +85,7 @@ export default function Main() {
       setType(type);
       type = type.toLowerCase();
       let data = await csv(`/data/${type}_processed.csv`);
+      setGenre("production");
       setRow2Data(data);
       let PCAScat = await csv(`/data/pca_${type}_scatters.csv`);
       let PCAVec = await csv(`/data/pca_${type}_vectors.csv`);
@@ -94,13 +96,15 @@ export default function Main() {
     //TODO: switch to consumption data for scatter plot and barchart
     const selectConsumptionData = async (type) => {
       
-      //let data = await csv(`/data/${type}_processed.csv`);
-      //setRow2Data(data);
+      let scatter_data= await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
+      setGenre("consumption");
+      setRow2Data(scatter_data);
       let PCAScat = await csv(`/data/pca_consumption_scatters.csv`);
       let PCAVec = await csv(`/data/pca_consumption_vectors.csv`);
       setPCAData({scatter : PCAScat, vector : PCAVec});
+      
     }
-
+    
     return (
         <div className="main-wrapper">
             <h2 style={{textAlign:'center',marginBottom: '5px'}}>Alcohol Consumption and Production</h2>
@@ -126,7 +130,7 @@ export default function Main() {
             </Row>
             <Row>
               <Col span={10}>
-                  <Scatterplot data={row2Data} selectChange={selectScatter}/>
+                  <Scatterplot data={row2Data} selectChange={selectScatter} genre={genre}/>
               </Col>
               <Col span={6}>
                   <Recommand data={recommandData} type={type}/>

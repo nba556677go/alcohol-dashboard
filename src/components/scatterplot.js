@@ -4,10 +4,11 @@ import { useEffect } from "react";
 const Scatterplot = (props) => {
 
     useEffect(() => {
-        if (!props.data.length) return;
+        
+        if (!props.data.length || !props.genre.length) return;//BUG - !init not working
         removeChart();
         draw_scatter();
-    }, [props.data])
+    }, [props.data, props.genre])
 
     const removeChart = () => {
         const svg = d3.select("#scatter_area").select("svg")
@@ -17,14 +18,28 @@ const Scatterplot = (props) => {
         div.selectAll("*").remove();
         div.remove();
     }
+    console.log(props.genre);
+    //console.log(props.data);
+    if (props.genre === "production"){
+        var cat_attrs = ['Price', 'Rating', 'ABV', 'Rate Count'];
+        var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
+        var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
 
-    var cat_attrs = ['Price', 'Rating', 'ABV', 'Rate Count'];
-    var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
-    var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
+        var xattr = 'Price'
+        var yattr = 'Rating'
+    }
+    //consumption data import 
+    else {
+        var cat_attrs = ["Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)"
+        , "GDP per capita, PPP (constant 2017 international $)",  "Population (historical estimates)", "life_expect", "life_exp60", "adult_mortality","bmi","age5-19thinness", "age5-19obesity", "Beer_PerCapita","HappinessScore","HDI", "Spirit_PerCapita", "Wine_PerCapita"
+    ];
+        var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
+        var geo_regions = [...new Set(props.data.map(item => item.region))];
+        //console.log(geo_regions)
 
-    var xattr = 'Price'
-    var yattr = 'Rating'
-
+        var xattr = cat_attrs[0]
+        var yattr = cat_attrs[1]
+    }
     var draw_scatter = function(){
         var tooltipBox = d3.select("#scatter_area")
             .append("div")
@@ -41,11 +56,11 @@ const Scatterplot = (props) => {
     
         //set values
         var margin = { top: 50, right: 100, bottom: 60, left: 50 },
-        width  = 700 - margin.left - margin.right,
+        width  = 650 - margin.left - margin.right,
         height = 410 - margin.top  - margin.bottom;
     
         var num_attrs = Object.keys(props.data[0]).filter(function(d) { return cat_attrs.includes(d); });
-    
+       
         // X-axis dropdown menu
         var x_opt = d3.select("#scatter_area")
                         .append("div")
@@ -63,7 +78,13 @@ const Scatterplot = (props) => {
                             .enter()
                             .append('option')
                             .attr('value', (d)=>d)
-                            .text((d)=>d)
+                            .text((d)=>{
+                                if (d === "Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)")
+                                    return "alcohol consumption"
+                                else if (d === "GDP per capita, PPP (constant 2017 international $)") return "GDP"
+                                else if (d === "Population (historical estimates)") return "Population"
+                                else return d;
+                            })
                             .property("selected", (d) => d === xattr);
         
         // Y-axis dropdown menu
@@ -84,7 +105,13 @@ const Scatterplot = (props) => {
                                 .enter()
                                 .append('option')
                                 .attr('value', (d)=>d)
-                                .text((d)=>d)
+                                .text((d)=>{
+                                    if (d === "Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)")
+                                        return "alcohol consumption"
+                                    else if (d === "GDP per capita, PPP (constant 2017 international $)") return "GDP"
+                                    else if (d === "Population (historical estimates)") return "Population"
+                                    else return d;
+                                })
                                 .property("selected", (d) => d === yattr);
     
         // create canvas for scatter plot
@@ -96,8 +123,8 @@ const Scatterplot = (props) => {
         var canvas1 = svg1.append("g")
                             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         
-        var x = d3.scaleLinear().range([0, width]).domain(d3.extent(props.data, (d) => Number(d.Price)));
-        var yextent = d3.extent(props.data, (d) => d.Rating)
+        var x = d3.scaleLinear().range([0, width]).domain(d3.extent(props.data, (d) => Number(d[xattr])));
+        var yextent = d3.extent(props.data, (d) => +d[yattr])
 
         var y = d3.scaleLinear().range([height, 0]).domain([yextent[0], 1.02 * yextent[1]]);
         
@@ -133,15 +160,16 @@ const Scatterplot = (props) => {
                 .attr("fill","black")
                 .attr("font-weight","bold")
                 .attr("font-size","12px");
+        if (props.genre === "production"){
+            var brush = d3.brush()
+                .on("start", brushstart)
+                .on("brush", brushmove)
+                .on("end", brushend)
+                .extent([[0,0],[width,height]]);
         
-        var brush = d3.brush()
-            .on("start", brushstart)
-            .on("brush", brushmove)
-            .on("end", brushend)
-            .extent([[0,0],[width,height]]);
-    
-        canvas1.call(brush);
-        var brushCell;
+            canvas1.call(brush);
+            var brushCell;
+        }
         // Clear the previously-active brush, if any.
         function brushstart() {
             if (brushCell !== this) {
@@ -250,7 +278,10 @@ const Scatterplot = (props) => {
         // if there is no brush, select top10 at the beginning
         var data_cp = JSON.parse(JSON.stringify(props.data))
         data_cp.sort(function(a,b){ // 这是比较函数
-            return b['Rate Count'] - a['Rate Count'];    // 降序
+            return (props.genre === 'production'?
+               b['Rate Count'] - a['Rate Count']: 
+                b["Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)"] - a["Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)"]    // 降序
+            )
         })
         var top10 = data_cp.slice(0, 10).reverse()
         props.selectChange(top10);
@@ -275,7 +306,8 @@ const Scatterplot = (props) => {
                     .duration(800)
                     .attr('cx',function (d) { return x(+d[xattr]) })
                     .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
-            canvas1.call(brush);
+            if (props.genre === 'production')
+                canvas1.call(brush);
           }
     
         function yChange() {
@@ -301,7 +333,8 @@ const Scatterplot = (props) => {
                 .duration(800)
                 .attr('cy',function (d) { return y(+d[yattr]) })
                 .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
-        canvas1.call(brush);
+                if (props.genre === 'production')
+                    canvas1.call(brush);
         }
     
         function brushended(event) {
