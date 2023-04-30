@@ -1,12 +1,12 @@
 import * as d3 from "d3";
 import { useEffect } from "react";
 
-const PieChart = () => {
-
+const PieChart = (props) => {
     useEffect(() => {
+        if(props.data.length === 0) return;
         removeChart();
         drawChart();
-    }, [])
+    }, [props.data, props.radio, props.type])
 
     const removeChart = () => {
         const svg = d3.select("#pieChart").select("svg")
@@ -15,9 +15,36 @@ const PieChart = () => {
     }
 
     const drawChart = () => {
-        // data = [{key: 'Africa', value: 300},{key: 'Americas', value: 500},{key: 'Europe', value: 800}, {key: 'Western Pacific', value: 600}, {key: 'Asia', value: 450}]
-        var data = {Africa: 9, Americas: 20, Europe:30, 'Western Pacific':8, Asia:12};
+        var data = {}
+        var regions = []
+        // consumption region distribution
+        if(props.genre === 'consumption') {     
+            props.data.forEach((d) => {
+                const value = Number(d['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'])
+                if(!value) return
+                if(!regions.includes(d.region)) {
+                    regions.push(d.region);
+                    data[d.region] = 0
+                }
+                data[d.region] += value
+            })
+        } else {
+            var alcoholType = props.type.toLowerCase();
+            props.data.forEach((d) => {
+                const value = Number(d[alcoholType])
+                if(!value) return
+                if(!regions.includes(d.region)) {
+                    regions.push(d.region);
+                    data[d.region] = 0
+                }
+                data[d.region] += value
+            })
+        }
 
+        // data.sort((a, b) => b.value - a.value)
+        data = Object.fromEntries(Object.entries(data).sort((prev, next) => prev[1] - next[1]))
+
+        
         var width = 400,
             height = 300,
             margin = 100;
@@ -35,7 +62,7 @@ const PieChart = () => {
                 
             // set the color scale
             var color = d3.scaleOrdinal()
-                .domain(["Africa", "Americas", "Europe", "Western Pacific", "Asia"])
+                .domain(regions)
                 .range(d3.schemeDark2);
             
             // Compute the position of each group on the pie:
@@ -76,7 +103,7 @@ const PieChart = () => {
                     const posA = arc.centroid(d) // line insertion in the slice
                     const posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
                     const posC = outerArc.centroid(d); // Label position = almost the same as posB
-                    const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
+                    const midangle = d.startAngle + ( d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
                     posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
                     return [posA, posB, posC]
                   })
@@ -90,6 +117,7 @@ const PieChart = () => {
                   .attr('transform', function(d) {
                       const pos = outerArc.centroid(d);
                       const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+                      console.log(midangle)
                       pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
                       return `translate(${pos})`;
                   })

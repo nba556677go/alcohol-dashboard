@@ -38,8 +38,8 @@ function WorldMap({selectCountry, data, countries, selectAlcoholType, selectCons
     setRadioValue(val.target.value);
     if (val.target.value === 'Consumption') selectConsumptionData(val.target.value); 
     else {//default alchohol = wine when switching to production
-      setAlcoholType("wine");
-      selectAlcoholType("wine");
+      setAlcoholType("Wine");
+      selectAlcoholType("Wine");
     }
   }
 

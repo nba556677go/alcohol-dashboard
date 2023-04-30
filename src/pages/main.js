@@ -17,6 +17,7 @@ var init = true;
 
 export default function Main() {
     const [consumptionData, setConsumptionData] = useState([]);
+    const [productionData, setProductionData] = useState([]);
     const [countries, setCountries] = useState([]);
     const [radarData, setRadarData] = useState([]);
     const [genre, setGenre] = useState(["production"]);
@@ -33,14 +34,15 @@ export default function Main() {
         setConsumptionData(cData.filter(item => item.Year === '2015'));
         let wineData = await csv(`/data/wine_processed.csv`);
         setRow2Data(wineData);
-//default load
+        //default load
         let PCAScat = await csv(`/data/pca_wine_scatters.csv`);
         let PCAVec = await csv(`/data/pca_wine_vectors.csv`);
         setPCAData({scatter : PCAScat, vector : PCAVec});
         setGenre("production");
+
+        let productionData = await csv("/data/productionMap_data.csv")
+        setProductionData(productionData);
       }
-    
-      
       load();
       console.log(PCAData)
     }, []);
@@ -121,8 +123,8 @@ export default function Main() {
                         selectConsumptionData={selectConsumptionData}/>
                 </Col>
                 <Col span={6}>
-                    <PieChart/>
-                    <BarChart/>
+                    <PieChart genre={genre} type={type} data={genre==='consumption'?consumptionData:productionData}/>
+                    <BarChart genre={genre} type={type} data={genre==='consumption'?consumptionData:productionData}/>
                 </Col>
                 <Col span={7}>
                     { 

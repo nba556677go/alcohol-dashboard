@@ -1,12 +1,13 @@
 import * as d3 from "d3";
 import { useEffect } from "react";
 
-const BarChart = () => {
+const BarChart = (props) => {
 
     useEffect(() => {
+        if(props.data.length === 0) return;
         removeChart();
         drawChart();
-    }, [])
+    }, [props.data, props.type, props.genre])
 
     const removeChart = () => {
         const svg = d3.select("#barChart").select("svg")
@@ -15,9 +16,20 @@ const BarChart = () => {
     }
 
     const drawChart = () => {
-
-        var data = [{key: 'Angola', value: 1200},{key: 'China', value: 1100},{key: 'Comoros', value: 900}, {key: 'France', value: 800}, {key: 'US', value: 500}, {key: 'UK', value: 500}, {key: 'India', value: 400}]
-         
+        var data = []
+        // top 7 countries
+        if(props.genre === 'consumption') {
+            var sortedData = props.data.sort((a, b) => b['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'] - a['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)']);
+            data = sortedData.slice(0, 7).map((d) => {
+                return {key: d.Country, value: Number(d['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'])}
+            })         
+        } else {
+            var alcoholType = props.type.toLowerCase();
+            var sortedData = props.data.sort((a, b) => b[alcoholType] - a[alcoholType]);
+            data = sortedData.slice(0, 7).map((d) => {
+                return {key: d.Country, value: Number(d[alcoholType])}
+            })  
+        }
         const svg = d3.select("#barChart")
                     .append("svg")
                     .attr("width",  400)
@@ -61,7 +73,7 @@ const BarChart = () => {
             .attr("x", width + 10)
             .attr("text-anchor", "end")
             .attr("stroke", "black")
-            .text("number");
+            .text("country");
 
         container.append("g")
             .call(d3.axisLeft(yScale).tickFormat((d) => {
@@ -73,16 +85,7 @@ const BarChart = () => {
             .attr("dy", "-0.71em")
             .attr("text-anchor", "center")
             .attr("stroke", "black")
-            .text('country')
-        
-        container
-            .append("text")
-            .attr("x", width / 2)
-            .attr("y", 0 - (margin / 4))
-            .attr("text-anchor", "middle")
-            .attr("stroke", "black")
-            .style("font-size", "16px")
-            .text('Consumption');
+            .text(props.genre)
     }
 
     return <div id="barChart"></div>
