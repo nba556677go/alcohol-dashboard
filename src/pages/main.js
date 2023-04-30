@@ -6,8 +6,10 @@ import Radar from '../components/radar'
 import PieChart from '../components/pieChart'
 import BarChart from '../components/barChart'
 import Biplot from '../components/biplot'
-import Scatterplot from "../components/scatterplot";
+import Scatterplot from "../components/scatterplot/scatterplot";
+import ConsumptionScatterplot from "../components/scatterplot/consumptionScatterplot";
 import Recommand from "../components/recommand";
+import ConsumptionHorizonBar from "../components/consumptionHorizonBar";
 import { processRadar, processWine } from '../utils/process.js'
 import '../css/main.css'
 
@@ -35,6 +37,7 @@ export default function Main() {
         let PCAScat = await csv(`/data/pca_wine_scatters.csv`);
         let PCAVec = await csv(`/data/pca_wine_vectors.csv`);
         setPCAData({scatter : PCAScat, vector : PCAVec});
+        setGenre("production");
       }
     
       
@@ -93,7 +96,7 @@ export default function Main() {
     }
 
     //switch to consumption data
-    //TODO: switch to consumption data for scatter plot and barchart
+    //TODO : switch to consumption data for barchart
     const selectConsumptionData = async (type) => {
       
       let scatter_data= await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
@@ -130,10 +133,17 @@ export default function Main() {
             </Row>
             <Row>
               <Col span={10}>
-                  <Scatterplot data={row2Data} selectChange={selectScatter} genre={genre}/>
+              {genre === 'production' ? 
+                  <Scatterplot data={row2Data} selectChange={selectScatter} />:
+                  <ConsumptionScatterplot data={row2Data} selectChange={selectScatter} />
+                }
               </Col>
+
               <Col span={6}>
-                  <Recommand data={recommandData} type={type}/>
+                {genre === 'production' ? 
+                  <Recommand data={recommandData} type={type}/>:
+                  <ConsumptionHorizonBar data={recommandData} type={type}/>//TODO: display wine/spirit/beer consumption per capita
+                  } 
               </Col>
               <Col span={7}>
                   <Biplot data={PCAData} wdata={row2Data}/>

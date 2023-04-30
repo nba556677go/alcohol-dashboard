@@ -1,14 +1,14 @@
 import * as d3 from "d3";
 import { useEffect } from "react";
 
-const Scatterplot = (props) => {
+const ConsumptionScatterplot = (props) => {
 
     useEffect(() => {
         
-        if (!props.data.length || !props.genre.length) return;//BUG - !init not working
+        if (!props.data.length ) return;//BUG - !init not working
         removeChart();
         draw_scatter();
-    }, [props.data, props.genre])
+    }, [props.data])
 
     const removeChart = () => {
         const svg = d3.select("#scatter_area").select("svg")
@@ -20,26 +20,17 @@ const Scatterplot = (props) => {
     }
     console.log(props.genre);
     //console.log(props.data);
-    if (props.genre === "production"){
-        var cat_attrs = ['Price', 'Rating', 'ABV', 'Rate Count'];
-        var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
-        var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
+    
+    var cat_attrs = ["Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)"
+    , "GDP per capita, PPP (constant 2017 international $)",  "Population (historical estimates)", "life_expect", "life_exp60", "adult_mortality","bmi","age5-19thinness", "age5-19obesity", "Beer_PerCapita","HappinessScore","HDI", "Spirit_PerCapita", "Wine_PerCapita"
+];
+    var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
+    var geo_regions = [...new Set(props.data.map(item => item.region))];
+    //console.log(geo_regions)
 
-        var xattr = 'Price'
-        var yattr = 'Rating'
-    }
-    //consumption data import 
-    else {
-        var cat_attrs = ["Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)"
-        , "GDP per capita, PPP (constant 2017 international $)",  "Population (historical estimates)", "life_expect", "life_exp60", "adult_mortality","bmi","age5-19thinness", "age5-19obesity", "Beer_PerCapita","HappinessScore","HDI", "Spirit_PerCapita", "Wine_PerCapita"
-    ];
-        var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
-        var geo_regions = [...new Set(props.data.map(item => item.region))];
-        //console.log(geo_regions)
-
-        var xattr = cat_attrs[0]
-        var yattr = cat_attrs[1]
-    }
+    var xattr = cat_attrs[0]
+    var yattr = cat_attrs[1]
+    
     var draw_scatter = function(){
         var tooltipBox = d3.select("#scatter_area")
             .append("div")
@@ -352,4 +343,4 @@ const Scatterplot = (props) => {
 }
 
 
-export default Scatterplot
+export default ConsumptionScatterplot 
