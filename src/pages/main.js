@@ -99,9 +99,10 @@ export default function Main() {
     //TODO : switch to consumption data for barchart
     const selectConsumptionData = async (type) => {
       
-      let scatter_data= await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
+      //let scatter_data= await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
+      
       setGenre("consumption");
-      setRow2Data(scatter_data);
+      setRow2Data(consumptionData);
       let PCAScat = await csv(`/data/pca_consumption_scatters.csv`);
       let PCAVec = await csv(`/data/pca_consumption_vectors.csv`);
       setPCAData({scatter : PCAScat, vector : PCAVec});
@@ -142,7 +143,8 @@ export default function Main() {
               <Col span={6}>
                 {genre === 'production' ? 
                   <Recommand data={recommandData} type={type}/>:
-                  <ConsumptionHorizonBar data={recommandData} type={type}/>//TODO: display wine/spirit/beer consumption per capita
+                  
+                  <ConsumptionHorizonBar data={row2Data} selectCountry={selectCountry}/>//TODO: display wine/spirit/beer consumption per capita
                   } 
               </Col>
               <Col span={7}>

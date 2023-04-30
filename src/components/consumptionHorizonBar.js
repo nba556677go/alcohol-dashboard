@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import { useEffect } from "react";
+import { useEffect , useRef} from "react";
 
 const ConsumptionHorizonBar= (props) => {
 
@@ -15,10 +15,11 @@ const ConsumptionHorizonBar= (props) => {
         svg.remove();
     }
 
-    // var level_thresh = [0.22948346,0.49744762,0.79435826];
-    var greens =['#f0f9e8', '#bae4bc','#7bccc4','#43a2ca','#0868ac'];
-    var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
 
+    // // var level_thresh = [0.22948346,0.49744762,0.79435826];
+    var greens =['#f0f9e8', '#bae4bc','#7bccc4','#43a2ca','#0868ac'];
+    // var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
+    
     //set values
     var margin = { top: 30, right: 80, bottom: 60, left: 8 },
     width  = 400 - margin.left - margin.right,
@@ -36,16 +37,41 @@ const ConsumptionHorizonBar= (props) => {
 
         var canvas = svg1.append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        // insert x axis
-        x.domain(d3.extent(props.data, (d) => Number(d['Rate Count'])));
         
-        y.domain(props.data.map(function(d){ return d.Name; }));
 
         // var x_axis = canvas.append("g")
         //         .attr("transform", "translate(0," + height + ")")
         //         .attr("class","myaxis")
         //         .call(d3.axisBottom().scale(x));
+
+        
+
+        // var x_grid = canvas.append("g")			
+        //     .attr("class", "grid")
+        //     .attr("transform", "translate(0," + height + ")")
+        //     .call(d3.axisBottom()
+        //             .scale(x)
+        //             .ticks(8)
+        //             .tickSize(-height)
+        //             .tickFormat(""));
+        
+        var slicedData = props.data.slice(0, 5);
+        Window.data =slicedData;
+        updateBars(slicedData, props.selectCountry, canvas);
+    }
+
+    var updateBars = function(data, selectedCountry ,canvas) {
+
+        var groups = data.map(d => d.Country);
+        var subgroups = ["Wine_PerCapita", "Spirit_PerCapita", "Beer_PerCapita"]
+        x.domain([0,1000]);
+        y.domain(groups);
+        // color palette = one color per subgroup
+        var color = d3.scaleOrdinal()
+        .domain(subgroups)
+        .range(["green", "orange", "purple"])
+        
+        
 
         canvas.append("g")
             .attr("transform", "translate(0," + height + ")")
@@ -56,45 +82,48 @@ const ConsumptionHorizonBar= (props) => {
             .attr("x", width + 10)
             .attr("text-anchor", "end")
             .attr("stroke", "black")
-            .text("Rate Count");
+            .text("consumption/capita");
 
         canvas.append("g")
             .call(d3.axisLeft(y).tickFormat((d) => {
                 return d;
             }).ticks(10))
             .append("text")
-            .attr("y", -5)
-            .attr("x", 2.5 * (props.type.length + 3))
+            .attr("y", -5   )
+            .attr("x", 2.5 * 4)
             .attr("dy", "-0.71em")
             .attr("text-anchor", "center")
             .attr("stroke", "black")
-            .text(props.type)
-
-        // var x_grid = canvas.append("g")			
-        //     .attr("class", "grid")
-        //     .attr("transform", "translate(0," + height + ")")
-        //     .call(d3.axisBottom()
-        //             .scale(x)
-        //             .ticks(8)
-        //             .tickSize(-height)
-        //             .tickFormat(""));
-
-        updateBars(props.data, canvas);
-    }
-
-    var updateBars = function(data, canvas) {
-
-        y.domain(data.map(function(d){ return d.Name; }));
+            .text("Country")
         // x.domain(d3.extent(data, (d) => d["Rate Count"]));
 
-        var barGroups = canvas.selectAll(".bargroup").data(data);
+        //stack the data? --> stack per subgroup
+        var stackedData = d3.stack()
+        .keys(subgroups)
+        (data)
+        console.log(stackedData)
+        var barGroups = canvas.selectAll(".bargroup").data(stackedData);
     
         barGroups.exit().remove(); // exit, remove the g
         // enter, append the g
-        const bargEnter = barGroups.enter() 
-            .append("g")
-            .attr("class", "bargroup");
+        const bargEnter = barGroups
+        .enter().append("g")
+        .attr("fill", function(d) { return color(d.key); })
+        .selectAll("rect")
+        // enter a second time = loop subgroup per subgroup to add all rectangles
+        .data(function(d) { return d; })
+        .enter().append("rect")
+          .attr("x", function(d) { return x(d[0]); })
+          .attr("y", function(d) { return y(d.data.Country); })
+          .attr("height",y.bandwidth()/2)
+          .attr("width", function(d) { return - (x(d[0]) - x(d[1])); })
+            //   .on("mouseover", onMouseOver)
+            //     .on("mouseout", onMouseOut)
+            //     .on("click",onMouseClick)   
+          
         
+
+        /*
         bargEnter.append("rect")
                 .attr("class", "bar")
                 .attr("x", (d) => x(d.Name) )
@@ -116,49 +145,50 @@ const ConsumptionHorizonBar= (props) => {
                 .on("mouseout", onMouseOut)
                 .on("click",onMouseClick)
                 ;
+        */
         
         bargEnter.append("text")
                     .attr("class", "bar_tick")
                     .attr("fill","grey")
                     .attr("dx", ".5em")
                     .attr("dy", "1.2em")
-                    .text(function(d) { return d.Name; });
+                    .text(function(d) { return d.Country; });
     
-        barGroups = bargEnter.merge(barGroups); // enter + update on the g
+        // barGroups = bargEnter.merge(barGroups); // enter + update on the g
     
-        barGroups.attr('transform', function(d){ // enter + update, position the g
-            return 'translate(0,' + y(d.Name) + ')';
-        });
+        // barGroups.attr('transform', function(d){ // enter + update, position the g
+        //     return 'translate(0,' + y(d.Name) + ')';
+        // });
     
-        barGroups.select("rect")
-            .transition().duration(300)
-            .attr("x", (d) => x(d.Name) )
-            .attr("y", (d) => y(d['Rate Count']))
-            .style("fill",function(d){
-                var index = geo_regions.indexOf(d.region);
-                return greens[index];
-        });
+        // barGroups.select("rect")
+        //     .transition().duration(300)
+        //     .attr("x", (d) => x(d.Name) )
+        //     .attr("y", (d) => y(d['Rate Count']))
+        //     .style("fill",function(d){
+        //         var index = geo_regions.indexOf(d.region);
+        //         return greens[index];
+        // });
 
-        barGroups.select("text") // enter + update on subselection
-            .transition().duration(300)
-            .text(function(d) { return d.Name; });
+        // barGroups.select("text") // enter + update on subselection
+        //     .transition().duration(300)
+        //     .text(function(d) { return d.Name; });
     
         //Handler for mouseover event
         function onMouseOver(d, i) {
             d3.select(this)
                 .transition()
                 .duration(400)
-                .attr('width', function(d) { return x(+d['Rate Count']) +10; });
+                .attr('width', function(d) { return x(+d['Wine_PerCapita']) +10; });
 
             var hilt_text = canvas.append("g")
                                     .attr("id","hilt_text");
             hilt_text.append("text")
                     .attr('class', 'bar_val')
-                    .attr("fill","white")
-                    .attr('x', function() {return x(+d['Rate Count']) + 15;})
-                    .attr('y', function() {return y(d.Name);})
+                    .attr("fill","grey")
+                    .attr('x', function() {return x(+d['Wine_PerCapita']) + 15;})
+                    .attr('y', function() {return y(d.Country);})
                     .attr("dy", "1em")
-                    .text(function() {return (+d['Rate Count']).toFixed(4); });};
+                    .text(function() {return (+d['Wine_PerCapita']).toFixed(4); });};
     
     
         //Handler for mouseout event
@@ -167,7 +197,7 @@ const ConsumptionHorizonBar= (props) => {
             d3.select(this)
                 .transition()
                 .duration(400)
-                .attr("width", function(d) { return Math.max(x(d['Rate Count']), 10); } );
+                .attr("width", function(d) { return Math.max(x(d['Wine_PerCapita']), 10); } );
 
             d3.selectAll('.bar_val').remove()
         };
