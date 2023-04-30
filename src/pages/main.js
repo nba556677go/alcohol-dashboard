@@ -10,7 +10,7 @@ import Scatterplot from "../components/scatterplot/scatterplot";
 import ConsumptionScatterplot from "../components/scatterplot/consumptionScatterplot";
 import Recommand from "../components/recommand";
 import ConsumptionHorizonBar from "../components/consumptionHorizonBar";
-import { processRadar, processWine } from '../utils/process.js'
+import { processRadar, processHorizonBar, findtop10Data } from '../utils/process.js'
 import '../css/main.css'
 
 var init = true;
@@ -27,6 +27,8 @@ export default function Main() {
     const [PCAData, setPCAData] = useState([]);
 
     const [recommandData, setRecommandData] = useState([])
+    const [consumpHorizonData, setConsumpHorizonData] = useState([])
+    
 
     useEffect(() => {
       const load = async () => {
@@ -56,8 +58,10 @@ export default function Main() {
       if(consumptionData.length === 0) return;
       if(countries.length == 0) {
         setRadarData(processRadar(['United States','China','Australia'], consumptionData));
+        setConsumpHorizonData(processHorizonBar(findtop10Data( 'Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)',consumptionData))); 
       } else {
         setRadarData(processRadar(countries, consumptionData));
+        setConsumpHorizonData(processHorizonBar(countries, consumptionData));
       }
    }, [countries])
 
@@ -82,7 +86,9 @@ export default function Main() {
     }
 
     const selectScatter = (data) => {
-        setRecommandData(data)
+        genre === 'production' ? 
+        setRecommandData(data):
+        setConsumpHorizonData(data)  
     }
     
     // alcolhol type change
@@ -146,7 +152,7 @@ export default function Main() {
                 {genre === 'production' ? 
                   <Recommand data={recommandData} type={type}/>:
                   
-                  <ConsumptionHorizonBar data={row2Data} selectCountry={selectCountry}/>//TODO: display wine/spirit/beer consumption per capita
+                  <ConsumptionHorizonBar data={consumpHorizonData} selectCountry={selectCountry}/>//TODO: display wine/spirit/beer consumption per capita
                   } 
               </Col>
               <Col span={7}>

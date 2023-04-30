@@ -151,7 +151,7 @@ const ConsumptionScatterplot = (props) => {
                 .attr("fill","black")
                 .attr("font-weight","bold")
                 .attr("font-size","12px");
-        if (props.genre === "production"){
+        
             var brush = d3.brush()
                 .on("start", brushstart)
                 .on("brush", brushmove)
@@ -160,7 +160,7 @@ const ConsumptionScatterplot = (props) => {
         
             canvas1.call(brush);
             var brushCell;
-        }
+        
         // Clear the previously-active brush, if any.
         function brushstart() {
             if (brushCell !== this) {
@@ -204,7 +204,7 @@ const ConsumptionScatterplot = (props) => {
         else {
             var brushed_data =  d3.selectAll(".brushed").data(); 
             brushed_data.sort(function(a,b){ // 这是比较函数
-                return b['Rate Count'] - a['Rate Count'];    // 降序
+                return b['Alcohol_PerCapita'] - a['Alcohol_PerCapita'];    // 降序
             })
             var top10 = brushed_data.slice(0, 10).reverse()
             props.selectChange(top10);
@@ -269,9 +269,8 @@ const ConsumptionScatterplot = (props) => {
         // if there is no brush, select top10 at the beginning
         var data_cp = JSON.parse(JSON.stringify(props.data))
         data_cp.sort(function(a,b){ // 这是比较函数
-            return (props.genre === 'production'?
-               b['Rate Count'] - a['Rate Count']: 
-                b["Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)"] - a["Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)"]    // 降序
+            return (
+               b['Alcohol_PerCapita'] - a['Alcohol_PerCapita']
             )
         })
         var top10 = data_cp.slice(0, 10).reverse()
@@ -297,7 +296,7 @@ const ConsumptionScatterplot = (props) => {
                     .duration(800)
                     .attr('cx',function (d) { return x(+d[xattr]) })
                     .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
-            if (props.genre === 'production')
+            //if (props.genre === 'production')
                 canvas1.call(brush);
           }
     
@@ -324,7 +323,7 @@ const ConsumptionScatterplot = (props) => {
                 .duration(800)
                 .attr('cy',function (d) { return y(+d[yattr]) })
                 .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
-                if (props.genre === 'production')
+                //if (props.genre === 'production')
                     canvas1.call(brush);
         }
     

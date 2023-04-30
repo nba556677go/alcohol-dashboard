@@ -59,15 +59,14 @@ const ConsumptionHorizonBar= (props) => {
         //             .tickFormat(""));
         
         var slicedData = props.data.slice(0, 5);
-        Window.data =slicedData;
-        updateBars(slicedData, props.selectCountry, canvas);
+        updateBars(props.data, props.selectCountry, canvas);
     }
 
     var updateBars = function(data, selectedCountry ,canvas) {
 
         var groups = data.map(d => d.Country);
         
-        x.domain([0,1000]);
+        x.domain([0,d3.max(data, d => d.Alcohol_PerCapita)]);
         y.domain(groups);
         // color palette = one color per subgroup
         var color = d3.scaleOrdinal()

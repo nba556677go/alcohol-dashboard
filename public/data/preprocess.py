@@ -26,7 +26,11 @@ df_inner = pd.merge(df, df2, on=['Year', 'Country'], how='inner')
 
 df3 = pd.read_csv("./HappinessAlcoholConsumption.csv")
 df3['Country'].replace('Czech Republic', 'Czechia', inplace=True)
-
+df3["Beer_PerCapita"] = df3["Beer_PerCapita"]/80
+df3["Spirit_PerCapita"] = df3["Spirit_PerCapita"]/80
+df3["Wine_PerCapita"] = df3["Wine_PerCapita"]/80
+#create Alcoholpercapita
+df3["Alcohol_PerCapita"] = df3["Beer_PerCapita"] + df3["Spirit_PerCapita"] + df3["Wine_PerCapita"]
 #df3.rename(columns={'Country': 'Entity'}, inplace=True)
 df_inner = pd.merge(df_inner, df3, on=['Country'], how='inner')
 

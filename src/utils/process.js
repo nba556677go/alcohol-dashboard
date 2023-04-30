@@ -1,3 +1,5 @@
+import { sort } from "d3";
+
 export const processRadar = (countries, consumptionData) => {
     let result = [];
     let data = [];
@@ -78,8 +80,26 @@ export const processWine = (wineData) => {
     return wineData;
 };
 
-export const processScatter = (Data) => {
+export const findtop10Data = (field , data) => {
   let result = [];
-  let data = [];
-  return Data;
+
+
+  var sortedData = data.sort((a, b) => b[field] - a[field]);
+  sortedData = sortedData.slice(0, 10);    
+
+  return sortedData;
 };
+
+
+
+export const processHorizonBar = (countries, consumptionData) => {
+  
+  let data = [];
+
+  for (var i = 0; i < countries.length; i++) {
+    const targetData = consumptionData.find(item => item.Country === countries[i])
+    data.push(targetData)
+  }
+  return data;
+};
+
