@@ -83,3 +83,12 @@ body {
 .tooltip-opponent {
 	color: #80AED6;
 }
+
+.field {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+
+.field input {
+  margin-right: 0.5em;
+}

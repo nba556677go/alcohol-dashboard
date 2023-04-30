@@ -1,13 +1,15 @@
 import * as d3 from "d3";
-import { useEffect , useRef} from "react";
+import { useEffect , useState} from "react";
 
 const ConsumptionHorizonBar= (props) => {
-
+    const allKeys = ["Wine_PerCapita", "Spirit_PerCapita", "Beer_PerCapita"]
+    const [keys, setKeys] = useState(allKeys);
     useEffect(() => {
         if(props.data.length == 0) return;
         removeChart();
+        //setKeys(allKeys)
         draw_bars();
-    }, [props.data])
+    }, [props.data, keys])
 
     const removeChart = () => {
         const svg = d3.select("#recommand").select("svg")
@@ -18,10 +20,11 @@ const ConsumptionHorizonBar= (props) => {
 
     // // var level_thresh = [0.22948346,0.49744762,0.79435826];
     var greens =['#f0f9e8', '#bae4bc','#7bccc4','#43a2ca','#0868ac'];
+    const colors = ["green", "orange", "purple"]
     // var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
     
     //set values
-    var margin = { top: 30, right: 80, bottom: 60, left: 8 },
+    var margin = { top: 30, right: 80, bottom: 60, left: 70 },
     width  = 400 - margin.left - margin.right,
     height = 450 - margin.top  - margin.bottom;
 
@@ -63,13 +66,13 @@ const ConsumptionHorizonBar= (props) => {
     var updateBars = function(data, selectedCountry ,canvas) {
 
         var groups = data.map(d => d.Country);
-        var subgroups = ["Wine_PerCapita", "Spirit_PerCapita", "Beer_PerCapita"]
+        
         x.domain([0,1000]);
         y.domain(groups);
         // color palette = one color per subgroup
         var color = d3.scaleOrdinal()
-        .domain(subgroups)
-        .range(["green", "orange", "purple"])
+        .domain(keys)
+        .range(colors)
         
         
 
@@ -99,9 +102,10 @@ const ConsumptionHorizonBar= (props) => {
 
         //stack the data? --> stack per subgroup
         var stackedData = d3.stack()
-        .keys(subgroups)
+        .keys(keys)
         (data)
         console.log(stackedData)
+        console.log(data)
         var barGroups = canvas.selectAll(".bargroup").data(stackedData);
     
         barGroups.exit().remove(); // exit, remove the g
@@ -114,7 +118,7 @@ const ConsumptionHorizonBar= (props) => {
         .data(function(d) { return d; })
         .enter().append("rect")
           .attr("x", function(d) { return x(d[0]); })
-          .attr("y", function(d) { return y(d.data.Country); })
+          .attr("y", function(d) { return y(d.data.Country) + y.bandwidth()/4; })
           .attr("height",y.bandwidth()/2)
           .attr("width", function(d) { return - (x(d[0]) - x(d[1])); })
             //   .on("mouseover", onMouseOver)
@@ -220,7 +224,29 @@ const ConsumptionHorizonBar= (props) => {
         };
     }
 
-    return <div id="recommand" class="bar_area"></div>
+    return (
+        <div>
+            <div id="recommand" class="bar_area"></div>
+            <div className="fields">
+            {allKeys.map(key => (
+            <div key={key} className="field">
+                <input
+                id={key}
+                type="checkbox"
+                checked={keys.includes(key)}
+                onChange={e => {
+                    e.target.checked ?
+                    setKeys(Array.from(new Set([...keys, key]))) : setKeys(keys.filter(_key => _key !== key));
+                }}
+                />
+                <label htmlFor={key} style={{ color: colors[key] }}>
+                {key}
+                </label>
+            </div>
+            ))}
+        </div>
+      </div>
+        )
 }
 
 export default ConsumptionHorizonBar
