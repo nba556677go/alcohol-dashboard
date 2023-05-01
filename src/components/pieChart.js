@@ -42,9 +42,8 @@ const PieChart = (props) => {
         }
 
         // data.sort((a, b) => b.value - a.value)
-        data = Object.fromEntries(Object.entries(data).sort((prev, next) => prev[1] - next[1]))
+        // data = Object.fromEntries(Object.entries(data).sort((prev, next) => prev[1] - next[1]))
 
-        
         var width = 400,
             height = 300,
             margin = 100;
@@ -99,34 +98,43 @@ const PieChart = (props) => {
                   .attr("stroke", "black")
                   .style("fill", "none")
                   .attr("stroke-width", 1)
-                  .attr('points', function(d) {
-                    const posA = arc.centroid(d) // line insertion in the slice
-                    const posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
-                    const posC = outerArc.centroid(d); // Label position = almost the same as posB
+                  .attr('points', function(d, i) {
                     const midangle = d.startAngle + ( d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
-                    posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
+                    const posA = arc.centroid(d) // line insertion in the slice
+                    // line break: we use the other arc generator that has been built only for that
+                    var posB = outerArc.centroid(d);
+                    var posC = outerArc.centroid(d); // Label position = almost the same as posB
+
+                    if (midangle > 6.15) {
+                        posB[1]+= -15 * (data_ready.length - i - 1)
+                        posC[1]+= -15 * (data_ready.length - i - 1)
+                    }
+                    posC[0] = radius * 0.95 * (midangle < Math.PI || midangle > 6.15 ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
                     return [posA, posB, posC]
                   })
             
-                // Add the polylines between chart and labels:
-                svg
+            // Add the polylines between chart and labels:
+            svg
                 .selectAll('allLabels')
                 .data(data_ready)
                 .join('text')
                   .text(d => d.data[0])
-                  .attr('transform', function(d) {
+                  .attr('transform', function(d, i) {
                       const pos = outerArc.centroid(d);
                       const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
                       console.log(midangle)
-                      pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+                      pos[0] = radius * 0.99 * (midangle < Math.PI || midangle > 6.15 ? 1 : -1);
+                      if (midangle > 6.15) {
+                        pos[1]+= -15 * (data_ready.length - i - 1)
+                    }
                       return `translate(${pos})`;
                   })
                   .style('text-anchor', function(d) {
                       const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-                      return (midangle < Math.PI ? 'start' : 'end')
+                      return (midangle < Math.PI || midangle > 6.15 ? 'start' : 'end')
                   })
     }
-
+    
     return <div id="pieChart"></div>
 }
 
