@@ -24,8 +24,8 @@ const ConsumptionHorizonBar= (props) => {
     // var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
     
     //set values
-    var margin = { top: 30, right: 80, bottom: 60, left: 70 },
-    width  = 400 - margin.left - margin.right,
+    var margin = { top: 50, right: 50, bottom: 50, left: 50 },
+    width  = 450 - margin.left - margin.right,
     height = 450 - margin.top  - margin.bottom;
 
     var y = d3.scaleBand().range([height, 0]).padding(0.3);
@@ -83,7 +83,7 @@ const ConsumptionHorizonBar= (props) => {
             .attr("y", 30)
             .attr("x", width + 10)
             .attr("text-anchor", "end")
-            .attr("stroke", "black")
+            .attr("stroke", "white")
             .text("consumption/capita");
 
         canvas.append("g")
@@ -95,7 +95,7 @@ const ConsumptionHorizonBar= (props) => {
             .attr("x", 2.5 * 4)
             .attr("dy", "-0.71em")
             .attr("text-anchor", "center")
-            .attr("stroke", "black")
+            .attr("stroke", "white")
             .text("Country")
         // x.domain(d3.extent(data, (d) => d["Rate Count"]));
 

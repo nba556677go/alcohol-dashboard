@@ -46,8 +46,8 @@ const ConsumptionScatterplot = (props) => {
             .style("visibility", "visible");
     
         //set values
-        var margin = { top: 50, right: 100, bottom: 60, left: 50 },
-        width  = 650 - margin.left - margin.right,
+        var margin = { top: 50, right: 50, bottom: 50, left: 50 },
+        width  = 600 - margin.left - margin.right,
         height = 410 - margin.top  - margin.bottom;
     
         var num_attrs = Object.keys(props.data[0]).filter(function(d) { return cat_attrs.includes(d); });
