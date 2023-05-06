@@ -21,15 +21,15 @@ const Biplot = (props) => {
       var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
         const svg = d3.select("#biplot")
             .append("svg")
-            .attr("width",  450)
-            .attr("height", 450)
+            .attr("width",  420)
+            .attr("height", 420)
 
         // set up the dimensions and margins of the plot
         const margin = 100;
-        const width = 450 - margin;
-        const height = 450 - margin;
+        const width = 420 - margin;
+        const height = 420 - margin;
 
-        var container = svg.append("g").attr("transform", "translate(" + margin/2 + "," + margin/2 + ")");
+        var container = svg.append("g").attr("transform", "translate(" + 2/3 * margin + "," + margin/2 + ")");
 
         //const { scatter, path_x,  path_y, ind} = data
         
@@ -132,13 +132,13 @@ const Biplot = (props) => {
             .attr("text-anchor", (d,i)=>path_x[i] > 0 ? 'start' : 'end')
             .text((d,i)=>ind[i])
             .style("font-size", "12px")
-            .attr("stroke", "black");
+            .attr("stroke", "white");
 
         
         container.append("path")
             .datum(y_path)
             .attr("fill", "none")
-            .attr("stroke", "#3944fb")
+            .attr("stroke", "white")
             .attr("stroke-width", 1.5)
             .attr("d", d3.line()
                 .x((d,i)=>xScale(x_path[i]))
@@ -147,6 +147,7 @@ const Biplot = (props) => {
         container
                 .append("text")
                 .attr("class", "axis-label")
+                .attr("stroke", "white")
                 .attr("x", -(height) / 2)
                 .attr("y", -40)
                 .attr("transform", "rotate(-90)")
@@ -157,26 +158,27 @@ const Biplot = (props) => {
                 .append("text")
                 .attr("class", "axis-label")
                 .attr("text-anchor", "middle")
+                .attr("stroke", "white")
                 .attr("x", width / 2)
                 .attr("y", height + 40)
                 .text("Component 1");
 
-        container
-                .append("text")
-                .attr("class", "title")
-                .attr("stroke", "black")
-                .style("font-size", "16px")
-                .attr("text-anchor", "middle")
-                .attr("x", width / 2)
-                .attr("y", -35)
-                .text("Biplot");
+        // container
+        //         .append("text")
+        //         .attr("class", "title")
+        //         .attr("stroke", "black")
+        //         .style("font-size", "16px")
+        //         .attr("text-anchor", "middle")
+        //         .attr("x", width / 2)
+        //         .attr("y", -35)
+        //         .text("Biplot");
 
         const lengend = container.append("rect")
                         .attr("x",width - 110)
                         .attr("y",10)
                         .attr("width", 100)
                         .attr("height", 60)
-                        .attr("fill", "#f8f9fa");
+                        .attr("fill", "dimgrey");
 
 
         container.append("circle")
@@ -203,9 +205,9 @@ const Biplot = (props) => {
                     .attr("stroke-width", 2)
                     .attr("stroke", (d) => colors(2));
         
-        container.append("text").attr("x", width - 80).attr("y", 25).text("Cluster 1").style("font-size", "12px").attr("alignment-baseline","middle")
-        container.append("text").attr("x", width - 80).attr("y", 40).text("Cluster 2").style("font-size", "12px").attr("alignment-baseline","middle")
-        container.append("text").attr("x", width - 80).attr("y", 55).text("Cluster 3").style("font-size", "12px").attr("alignment-baseline","middle")
+        container.append("text").attr("x", width - 80).attr("y", 25).text("Cluster 1").style("font-size", "12px").attr("alignment-baseline","middle").attr('stroke', 'white');
+        container.append("text").attr("x", width - 80).attr("y", 40).text("Cluster 2").style("font-size", "12px").attr("alignment-baseline","middle").attr('stroke', 'white');
+        container.append("text").attr("x", width - 80).attr("y", 55).text("Cluster 3").style("font-size", "12px").attr("alignment-baseline","middle").attr('stroke', 'white');
 
 
     }

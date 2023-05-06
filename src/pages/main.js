@@ -120,7 +120,7 @@ export default function Main() {
     return (
         <div className="main-wrapper">
             <h2 style={{textAlign:'center',marginBottom: '5px'}}>Alcohol Consumption and Production</h2>
-            <Row gutter={0}>
+            <Row>
                 <Col span={10}>
                     <WorldMap 
                         selectCountry={selectCountry} 
@@ -129,18 +129,18 @@ export default function Main() {
                         selectAlcoholType={selectAlcoholType}
                         selectConsumptionData={selectConsumptionData}/>
                 </Col>
-                <Col span={6}>
+                <Col span={8}>
                     <PieChart genre={genre} type={type} data={genre==='consumption'?consumptionData:productionData}/>
-                    <BarChart genre={genre} type={type} data={genre==='consumption'?consumptionData:productionData}/>
+                    {/* <BarChart genre={genre} type={type} data={genre==='consumption'?consumptionData:productionData}/> */}
                 </Col>
-                <Col span={7}>
+                <Col span={6}>
                     { 
                       radarData.length > 0 && 
                       <Radar data={radarData}/>
                     }
                 </Col>
             </Row>
-            <Row>
+            <Row> 
               <Col span={10}>
               {genre === 'production' ? 
                   <Scatterplot data={row2Data} selectChange={selectScatter} />:
@@ -148,14 +148,14 @@ export default function Main() {
                 }
               </Col>
 
-              <Col span={6}>
+              <Col span={8}>
                 {genre === 'production' ? 
                   <Recommand data={recommandData} type={type}/>:
                   
                   <ConsumptionHorizonBar data={consumpHorizonData} selectCountry={selectCountry}/>//TODO: display wine/spirit/beer consumption per capita
                   } 
               </Col>
-              <Col span={7}>
+              <Col span={6}>
                   <Biplot data={PCAData} wdata={row2Data}/>
               </Col>
             </Row>

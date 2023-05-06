@@ -19,8 +19,8 @@ const Scatterplot = (props) => {
     }
 
     var cat_attrs = ['Price', 'Rating', 'ABV', 'Rate Count'];
-    var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
-    var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
+    var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824', '#82ccc6']);
+    var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe', 'Western Pacific', 'South-East Asia'];
 
     var xattr = 'Price'
     var yattr = 'Rating'
@@ -40,8 +40,8 @@ const Scatterplot = (props) => {
             .style("visibility", "visible");
     
         //set values
-        var margin = { top: 50, right: 100, bottom: 60, left: 50 },
-        width  = 700 - margin.left - margin.right,
+        var margin = { top: 50, right: 50, bottom: 50, left: 50 },
+        width  = 600 - margin.left - margin.right,
         height = 410 - margin.top  - margin.bottom;
     
         var num_attrs = Object.keys(props.data[0]).filter(function(d) { return cat_attrs.includes(d); });
@@ -49,8 +49,9 @@ const Scatterplot = (props) => {
         // X-axis dropdown menu
         var x_opt = d3.select("#scatter_area")
                         .append("div")
-                        .style("display",  "table-cell")
-                        .style("padding-left","50px")
+                        .style("position",  "absolute")
+                        .style("left","80px")
+                        .style("top", "20px")
                         .style("width","150px");
     
         x_opt.append('label').text('X-Axis:');
@@ -69,8 +70,10 @@ const Scatterplot = (props) => {
         // Y-axis dropdown menu
         var y_opt = d3.select("#scatter_area")
                         .append("div")
-                        .style("display",  "table-cell")
-                        .style("padding-left","50px")
+                        .style("position",  "absolute")
+                        // .style("padding-left","50px")
+                        .style("left","220px")
+                        .style("top", "20px")
                         .style("width","450px");
                         
     

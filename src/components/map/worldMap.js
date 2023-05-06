@@ -49,13 +49,14 @@ function WorldMap({selectCountry, data, countries, selectAlcoholType, selectCons
   }
   
   return (
-    <div className="Chart">
+    <div className="Chart" style={{width:'100%', height: '100%'}}>
       <Radio.Group
         options={options}
         onChange={handleRadioChange}
         value={radioValue}
         optionType="button"
         style={{position:'absolute', top:'20px', left:'30px'}}
+        buttonStyle="solid"
       />
       { radioValue === 'Production' && <Radio.Group 
          options={alcohol} 

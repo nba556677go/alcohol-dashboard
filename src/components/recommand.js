@@ -55,7 +55,7 @@ const Recommand = (props) => {
             .attr("y", 30)
             .attr("x", width + 10)
             .attr("text-anchor", "end")
-            .attr("stroke", "black")
+            .attr("stroke", "white")
             .text("Rate Count");
 
         canvas.append("g")
@@ -67,7 +67,7 @@ const Recommand = (props) => {
             .attr("x", 2.5 * (props.type.length + 3))
             .attr("dy", "-0.71em")
             .attr("text-anchor", "center")
-            .attr("stroke", "black")
+            .attr("stroke", "white")
             .text(props.type)
 
         // var x_grid = canvas.append("g")			

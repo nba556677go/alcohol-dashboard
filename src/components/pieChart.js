@@ -17,6 +17,7 @@ const PieChart = (props) => {
     const drawChart = () => {
         var data = {}
         var regions = []
+
         // consumption region distribution
         if(props.genre === 'consumption') {     
             props.data.forEach((d) => {
@@ -45,7 +46,7 @@ const PieChart = (props) => {
         // data = Object.fromEntries(Object.entries(data).sort((prev, next) => prev[1] - next[1]))
 
         var width = 400,
-            height = 300,
+            height = 400,
             margin = 100;
                 
         // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
@@ -95,7 +96,7 @@ const PieChart = (props) => {
                 .selectAll('allPolylines')
                 .data(data_ready)
                 .join('polyline')
-                  .attr("stroke", "black")
+                  .attr("stroke", "white")
                   .style("fill", "none")
                   .attr("stroke-width", 1)
                   .attr('points', function(d, i) {
@@ -133,6 +134,8 @@ const PieChart = (props) => {
                       const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
                       return (midangle < Math.PI || midangle > 6.15 ? 'start' : 'end')
                   })
+                  .attr("stroke", "white")
+                  .attr("stroke-width", 1)
     }
     
     return <div id="pieChart"></div>
