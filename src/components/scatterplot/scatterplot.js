@@ -50,7 +50,7 @@ const Scatterplot = (props) => {
         var x_opt = d3.select("#scatter_area")
                         .append("div")
                         .style("position",  "absolute")
-                        .style("left","80px")
+                        .style("left","100px")
                         .style("top", "20px")
                         .style("width","150px");
     
@@ -72,7 +72,7 @@ const Scatterplot = (props) => {
                         .append("div")
                         .style("position",  "absolute")
                         // .style("padding-left","50px")
-                        .style("left","220px")
+                        .style("left","240px")
                         .style("top", "20px")
                         .style("width","450px");
                         
@@ -222,41 +222,46 @@ const Scatterplot = (props) => {
     
          // Add scatter plots for new data
         var scatters = canvas1.selectAll(".circle")
-                            .data(props.data);
-                                
-        scatters.enter()
-                .append("circle")
-                .attr("class", "circle")
-                .attr('cx',(d) => x(+d[xattr])  )
-                .attr('cy',(d) => y(+d[yattr]) )
-                .attr("r", 5)
-                .style("opacity",0.6)
-                .on("mouseover", function (event, d) {
+                            .data(props.data)
+                            .enter()
+                            .append("circle")
+                            .attr("class", "circle")
+                            .attr('cx',(d) => x(+d[xattr])  )
+                            .attr('cy',(d) => y(+d[yattr]) )
+                            .attr("r", 5)
+                            .style("opacity", 0)
+                            .on("mouseover", function (event, d) {
 
-                    tooltipBox
-                        .style("left", (event.layerX+10) + "px")
-                        .style("top", (event.layerY-10) + "px")
-                        .transition().duration(1)
-                        .style('opacity', 1);
-    
-                    //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
-                    tooltipBox.html("<span class='tooltipHeader'>" + d['Name'] + "</span></br>" + 
-                        "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + d['Country'] + 
-                        "</span></br>" + "<span class='tooltip-row-name'>Brand: </span><span class='tooltip-win'>" + d['Brand'] + 
-                        " </span></br>" + "<span class='tooltip-row-name'>ABV: </span><span class='tooltip-win'>" + d['ABV'] + 
-                        "</span>");
-                    // tooltipBox.show();
+                            tooltipBox
+                                .style("left", (event.layerX+10) + "px")
+                                .style("top", (event.layerY-10) + "px")
+                                .transition().duration(1)
+                                .style('opacity', 1);
             
-                })
-                .on("mouseout",function(){tooltipBox.style('opacity', 0);})
-                .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
-        // if there is no brush, select top10 at the beginning
-        var data_cp = JSON.parse(JSON.stringify(props.data))
-        data_cp.sort(function(a,b){ // 这是比较函数
-            return b['Rate Count'] - a['Rate Count'];    // 降序
-        })
+                            //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
+                            tooltipBox.html("<span class='tooltipHeader'>" + d['Name'] + "</span></br>" + 
+                                "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + d['Country'] + 
+                                "</span></br>" + "<span class='tooltip-row-name'>Brand: </span><span class='tooltip-win'>" + d['Brand'] + 
+                                " </span></br>" + "<span class='tooltip-row-name'>ABV: </span><span class='tooltip-win'>" + d['ABV'] + 
+                                "</span>");
+                            // tooltipBox.show();
+                    
+                        })
+                            .on("mouseout",function(){tooltipBox.style('opacity', 0);})
+                            .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
+                            // if there is no brush, select top10 at the beginning
+                            var data_cp = JSON.parse(JSON.stringify(props.data))
+                            data_cp.sort(function(a,b){ // 这是比较函数
+                                return b['Rate Count'] - a['Rate Count'];    // 降序
+                            })
+                            
         var top10 = data_cp.slice(0, 10).reverse()
         props.selectChange(top10);
+
+        scatters.transition()
+                .duration(1000)
+                .ease(d3.easeLinear)
+                .style('opacity', 0.6)
         
         function xChange() {
             d3.select(".brush").remove();

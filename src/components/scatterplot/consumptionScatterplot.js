@@ -4,7 +4,7 @@ import { useEffect } from "react";
 const ConsumptionScatterplot = (props) => {
 
     useEffect(() => {
-        
+
         if (!props.data.length ) return;//BUG - !init not working
         removeChart();
         draw_scatter();
@@ -55,8 +55,10 @@ const ConsumptionScatterplot = (props) => {
         // X-axis dropdown menu
         var x_opt = d3.select("#scatter_area")
                         .append("div")
-                        .style("display",  "table-cell")
+                        .style("position", "absolute")
                         .style("padding-left","50px")
+                        .style("left","50px")
+                        .style("top", "0px")
                         .style("width","150px");
     
         x_opt.append('label').text('X-Axis:');
@@ -81,8 +83,10 @@ const ConsumptionScatterplot = (props) => {
         // Y-axis dropdown menu
         var y_opt = d3.select("#scatter_area")
                         .append("div")
-                        .style("display",  "table-cell")
-                        .style("padding-left","50px")
+                        .style("position",  "absolute")
+                        // .style("padding-left","50px")
+                        .style("left","280px")
+                        .style("top", "0px")
                         .style("width","450px");
                         
     
@@ -238,43 +242,47 @@ const ConsumptionScatterplot = (props) => {
     
          // Add scatter plots for new data
         var scatters = canvas1.selectAll(".circle")
-                            .data(props.data);
-                                
-        scatters.enter()
-                .append("circle")
-                .attr("class", "circle")
-                .attr('cx',(d) => x(+d[xattr])  )
-                .attr('cy',(d) => y(+d[yattr]) )
-                .attr("r", 5)
-                .style("opacity",0.6)
-                .on("mouseover", function (event, d) {
+                            .data(props.data)
+                            .enter()
+                            .append("circle")
+                            .attr("class", "circle")
+                            .attr('cx',(d) => x(+d[xattr])  )
+                            .attr('cy',(d) => y(+d[yattr]) )
+                            .attr("r", 5)
+                            .style("opacity",0)
+                            .on("mouseover", function (event, d) {
 
-                    tooltipBox
-                        .style("left", (event.layerX+10) + "px")
-                        .style("top", (event.layerY-10) + "px")
-                        .transition().duration(1)
-                        .style('opacity', 1);
-    
-                    //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
-                    tooltipBox.html("<span class='tooltipHeader'>" + d['Country'] + "</span></br>" + 
-                        "<span class='tooltip-row-name'>Consumption: </span><span class='tooltip-win'>" + d['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'] + " liters" +
-                        "</span></br>" + "<span class='tooltip-row-name'>GDP: </span><span class='tooltip-win'>" + Number(d['GDP per capita, PPP (constant 2017 international $)']).toFixed(2) + 
-                        " </span></br>" + "<span class='tooltip-row-name'>Population: </span><span class='tooltip-win'>" + (Number(d['Population (historical estimates)'])/1000000).toFixed(2) + "M" +
-                        "</span>");
-                    // tooltipBox.show();
+                            tooltipBox
+                                .style("left", (event.layerX+10) + "px")
+                                .style("top", (event.layerY-10) + "px")
+                                .transition().duration(1)
+                                .style('opacity', 1);
             
-                })
-                .on("mouseout",function(){tooltipBox.style('opacity', 0);})
-                .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
-        // if there is no brush, select top10 at the beginning
-        var data_cp = JSON.parse(JSON.stringify(props.data))
-        data_cp.sort(function(a,b){ // 这是比较函数
-            return (
-               b['Alcohol_PerCapita'] - a['Alcohol_PerCapita']
-            )
-        })
+                            //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
+                            tooltipBox.html("<span class='tooltipHeader'>" + d['Country'] + "</span></br>" + 
+                                "<span class='tooltip-row-name'>Consumption: </span><span class='tooltip-win'>" + d['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'] + " liters" +
+                                "</span></br>" + "<span class='tooltip-row-name'>GDP: </span><span class='tooltip-win'>" + Number(d['GDP per capita, PPP (constant 2017 international $)']).toFixed(2) + 
+                                " </span></br>" + "<span class='tooltip-row-name'>Population: </span><span class='tooltip-win'>" + (Number(d['Population (historical estimates)'])/1000000).toFixed(2) + "M" +
+                                "</span>");
+                            // tooltipBox.show();
+                        
+                            })
+                            .on("mouseout",function(){tooltipBox.style('opacity', 0);})
+                            .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
+                    // if there is no brush, select top10 at the beginning
+                    var data_cp = JSON.parse(JSON.stringify(props.data))
+                    data_cp.sort(function(a,b){ // 这是比较函数
+                        return (
+                        b['Alcohol_PerCapita'] - a['Alcohol_PerCapita']
+                        )
+                    })
         var top10 = data_cp.slice(0, 10).reverse()
         props.selectChange(top10);
+
+        scatters.transition()
+            .duration(1000)
+            .ease(d3.easeLinear)
+            .style('opacity', 0.6)
         
         function xChange() {
             d3.select(".brush").remove();

@@ -111,7 +111,12 @@ const Biplot = (props) => {
             .attr("cy", (d, i)=>yScale(component2[i]))
             .style("fill", "white")
             .attr("stroke-width", 2)
-            .attr("stroke", (d) => colors(d.label));
+            .attr("stroke", (d) => colors(d.label))
+            .style('opacity', 0)
+            .transition()
+            .duration(1000)
+            .ease(d3.easeLinear)
+            .style('opacity', 1)
 
         container.append("g")
             .selectAll("dot")
