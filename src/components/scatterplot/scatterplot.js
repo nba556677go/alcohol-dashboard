@@ -19,8 +19,8 @@ const Scatterplot = (props) => {
     }
 
     var cat_attrs = ['Price', 'Rating', 'ABV', 'Rate Count'];
-    var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824', '#82ccc6']);
-    var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe', 'Western Pacific', 'South-East Asia'];
+    var colors = ['#52ad66', '#e2ad0d','#f75639', '#a37720', '#43a2ca','#0868ac', '#e2ad0d'];
+    var geo_regions = ['Americas','Western Pacific', 'Europe', 'Eastern Mediterranean', 'Africa', 'South-East Asia', 'Eastern Mediterranean'];
 
     var xattr = 'Price'
     var yattr = 'Rating'
@@ -248,7 +248,7 @@ const Scatterplot = (props) => {
                     
                         })
                             .on("mouseout",function(){tooltipBox.style('opacity', 0);})
-                            .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
+                            .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
                             // if there is no brush, select top10 at the beginning
                             var data_cp = JSON.parse(JSON.stringify(props.data))
                             data_cp.sort(function(a,b){ // 这是比较函数
@@ -282,7 +282,7 @@ const Scatterplot = (props) => {
                     .transition()
                     .duration(800)
                     .attr('cx',function (d) { return x(+d[xattr]) })
-                    .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
+                    .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
             canvas1.call(brush);
           }
     
@@ -308,7 +308,7 @@ const Scatterplot = (props) => {
                 .transition()
                 .duration(800)
                 .attr('cy',function (d) { return y(+d[yattr]) })
-                .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
+                .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
         canvas1.call(brush);
         }
     
@@ -318,7 +318,7 @@ const Scatterplot = (props) => {
                   .transition()
                   .duration(150)
                   .ease(d3.easeLinear)
-                  .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
+                  .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
             }
         }
     }

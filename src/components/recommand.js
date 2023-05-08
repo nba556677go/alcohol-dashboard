@@ -16,8 +16,8 @@ const Recommand = (props) => {
     }
 
     // var level_thresh = [0.22948346,0.49744762,0.79435826];
-    var greens =['#f0f9e8', '#bae4bc','#7bccc4','#43a2ca','#0868ac'];
-    var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
+    var greens = ['#52ad66', '#e2ad0d','#f75639', '#a37720', '#43a2ca','#0868ac', '#e2ad0d'];
+    var geo_regions = ['Americas','Western Pacific', 'Europe', 'Eastern Mediterranean', 'Africa', 'South-East Asia', 'Eastern Mediterranean'];
 
     //set values
     var margin = { top: 30, right: 80, bottom: 60, left: 8 },
@@ -101,7 +101,7 @@ const Recommand = (props) => {
                 .attr("y", (d) => y(d['Rate Count']))
                 .attr("width", function(d) { return Math.max(x(d['Rate Count']), 10); } )
                 .attr("height", y.bandwidth())
-                .style("opacity",0.8)
+                .style("opacity",1)
                 .style("fill",function(d){
                     var index = geo_regions.indexOf(d.region);
                     return greens[index] || 'red';
@@ -119,7 +119,7 @@ const Recommand = (props) => {
         
         bargEnter.append("text")
                     .attr("class", "bar_tick")
-                    .attr("fill","grey")
+                    .attr("fill","white")
                     .attr("dx", ".5em")
                     .attr("dy", "1.2em")
                     .text(function(d) { return d.Name; });
