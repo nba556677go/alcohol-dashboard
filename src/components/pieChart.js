@@ -90,7 +90,17 @@ const PieChart = (props) => {
                 .attr('fill', d => color(d.data[1]))
                 .attr("stroke", "white")
                 .style("stroke-width", "2px")
+                .style("opacity", 0)
+                .transition()
+                .duration(1000)
+                .ease(d3.easeLinear)
                 .style("opacity", 0.7)
+                .attrTween("d", function(d) {
+                    var interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                    return function(t) {
+                      return arc(interpolate(t));
+                    };
+                })
             
             svg
                 .selectAll('allPolylines')
@@ -113,6 +123,11 @@ const PieChart = (props) => {
                     posC[0] = radius * 0.95 * (midangle < Math.PI || midangle > 6.15 ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
                     return [posA, posB, posC]
                   })
+                  .style("opacity", 0)
+                  .transition()
+                  .duration(1000)
+                  .ease(d3.easeLinear)
+                  .style("opacity", 1)
             
             // Add the polylines between chart and labels:
             svg
@@ -137,6 +152,11 @@ const PieChart = (props) => {
                   .attr("stroke", "white")
                   .attr("stroke-width", 1)
                   .style('font-size', '12px')
+                  .style("opacity", 0)
+                  .transition()
+                  .duration(1000)
+                  .ease(d3.easeLinear)
+                  .style("opacity", 1)
     }
     
     return <div id="pieChart"></div>

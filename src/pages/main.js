@@ -121,7 +121,7 @@ export default function Main() {
         <div className="main-wrapper">
             <h2 style={{textAlign:'center',marginBottom: '5px'}}>Alcohol Consumption and Production</h2>
             <Row>
-                <Col span={10}>
+                <Col span={9}>
                     <WorldMap 
                         selectCountry={selectCountry} 
                         data={consumptionData} 
@@ -133,7 +133,7 @@ export default function Main() {
                     <PieChart genre={genre} type={type} data={genre==='consumption'?consumptionData:productionData}/>
                     {/* <BarChart genre={genre} type={type} data={genre==='consumption'?consumptionData:productionData}/> */}
                 </Col>
-                <Col span={6}>
+                <Col span={7}>
                     { 
                       radarData.length > 0 && 
                       <Radar data={radarData}/>
@@ -141,7 +141,7 @@ export default function Main() {
                 </Col>
             </Row>
             <Row> 
-              <Col span={10}>
+              <Col span={9}>
               {genre === 'production' ? 
                   <Scatterplot data={row2Data} selectChange={selectScatter} />:
                   <ConsumptionScatterplot data={row2Data} selectChange={selectScatter} />
@@ -155,7 +155,7 @@ export default function Main() {
                   <ConsumptionHorizonBar data={consumpHorizonData} selectCountry={selectCountry}/>//TODO: display wine/spirit/beer consumption per capita
                   } 
               </Col>
-              <Col span={6}>
+              <Col span={7}>
                   <Biplot data={PCAData} wdata={row2Data}/>
               </Col>
             </Row>

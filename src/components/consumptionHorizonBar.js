@@ -26,7 +26,7 @@ const ConsumptionHorizonBar= (props) => {
     //set values
     var margin = { top: 50, right: 50, bottom: 50, left: 50 },
     width  = 450 - margin.left - margin.right,
-    height = 450 - margin.top  - margin.bottom;
+    height = 400 - margin.top  - margin.bottom;
 
     var y = d3.scaleBand().range([height, 0]).padding(0.3);
     var x = d3.scaleLinear().range([0, width]);
