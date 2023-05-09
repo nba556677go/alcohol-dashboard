@@ -81,7 +81,11 @@ const MapChart = ({alcoholType}) => {
                   onMouseLeave={() => {
                     tooltip.transition().duration(200)
                         .style("opacity", 0);
-                  }} />
+                  }}
+                  onMouseClick={(event) => {
+                    
+                  }} 
+                  />
               </Marker>
             );
           })}

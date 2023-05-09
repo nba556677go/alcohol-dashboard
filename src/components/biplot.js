@@ -148,12 +148,13 @@ const Biplot = (props) => {
             .data(path_y)
             .enter().append("text")
             .attr("class", "lines")
-            .attr("x", (d,i)=> path_x[i] > 0 ? xScale(path_x[i]) + 5 : xScale(path_x[i]) - 5)
-            .attr("y",(d, i)=> i==1 ? yScale(d) - 5: yScale(d) + 2)
+            .attr("x", (d,i)=> path_x[i] > 0 ? xScale(3*path_x[i]) + 5 : xScale(3*path_x[i]) - 5)
+            .attr("y",(d, i)=> i==1 ? yScale(3*d) - 5: yScale(3*d) + 2)
             .attr("text-anchor", (d,i)=>path_x[i] > 0 ? 'start' : 'end')
             .text((d,i)=>ind[i])
-            .style("font-size", "12px")
-            .attr("stroke", "white");
+            .style("font-size", "12px")      
+            .attr("stroke", "white")
+            .attr('stroke-width', '1px');
 
         
         container.append("path")
@@ -162,8 +163,9 @@ const Biplot = (props) => {
             .attr("stroke", "white")
             .attr("stroke-width", 1.5)
             .attr("d", d3.line()
-                .x((d,i)=>xScale(x_path[i]))
-                .y(d=>yScale(d)));
+                .x((d,i)=>xScale(3*x_path[i]))
+                .y(d=>yScale(3*d)))
+            .attr('stroke-width', '4px');
         
         container
                 .append("text")

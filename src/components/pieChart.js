@@ -51,6 +51,12 @@ const PieChart = (props) => {
                 
         // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
         var radius = Math.min(width, height) / 2 - margin
+
+        var sum = 0
+
+        Object.keys(data).forEach(item => {
+            sum += data[item]
+        })
         
         // append the svg object to the div called 'my_dataviz'
         var svg = d3.select("#pieChart")
@@ -162,6 +168,36 @@ const PieChart = (props) => {
                   .duration(1000)
                   .ease(d3.easeLinear)
                   .style("opacity", 1)
+
+                  // Add the polylines between chart and labels:
+            svg
+                .selectAll('percentage')
+                .data(data_ready)
+                .join('text')
+                .text(d => {
+                    const percentage = Number.parseInt((d.data[1] / sum)*100)
+                    // const percentage = (d.data[1]/sum * 100).toFixed(2) * 100
+                    return percentage >= 8  ? percentage + '%' : ''
+                })
+                .attr('transform', function(d, i) {
+                    const pos = arc.centroid(d) // line insertion in the slice
+                    const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+                    pos[0]  = (midangle < Math.PI || midangle > 6.15 ? pos[0] - 10 : pos[0] + 10); 
+                    pos[1] = (midangle < Math.PI || midangle > 6.15 ? pos[1] + 5 : pos[1] + 10);
+                    return `translate(${pos})`;
+                })
+                .style('text-anchor', function(d) {
+                    const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+                    return (midangle < Math.PI || midangle > 6.15 ? 'start' : 'end')
+                })
+                .attr("stroke", "white")
+                .attr("stroke-width", 2)
+                .style('font-size', '14px')
+                .style("opacity", 0)
+                .transition()
+                .duration(1000)
+                .ease(d3.easeLinear)
+                .style("opacity", 1)
     }
     
     return <div id="pieChart"></div>
