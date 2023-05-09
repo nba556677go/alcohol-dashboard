@@ -268,6 +268,7 @@ const ConsumptionScatterplot = (props) => {
                         
                             })
                             .on("mouseout",function(){tooltipBox.style('opacity', 0);})
+                            //.on("click",onMouseClick)  
                             .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
                     // if there is no brush, select top10 at the beginning
                     var data_cp = JSON.parse(JSON.stringify(props.data))
@@ -344,6 +345,8 @@ const ConsumptionScatterplot = (props) => {
                   .style("fill", (d) => colors(geo_regions.indexOf(d.region)));
             }
         }
+
+       
     }
 
     return <div id="scatter_area"></div>

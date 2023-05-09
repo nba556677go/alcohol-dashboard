@@ -98,7 +98,7 @@ export default function Main() {
         d3.select(divid).selectAll('.circle')
                   .classed("hidden", function(d, i){
                     
-                  console.log(d)
+                  //console.log(d)
                   
                   if (countries.includes(d["Country"])){
                     //console.log(d)
@@ -123,16 +123,20 @@ export default function Main() {
         //       })
     }
 
-  
+  //brushed
     const selectScatter = (data) => {
+      //alert()
         if(genre === 'production') { 
-        setRecommandData(data)}
+          setRecommandData(data)
+        }
         else{
           //biplot hidden 
-        
-          let countryList = data.map(d => d["Country"])
+          //set radar plot based on brushed scatters
+          let countryList = [...new Set(data.map(d => d["Country"]))]
           console.log(countryList)
+          if (!Window.init) {setRadarData(processRadar(countryList, consumptionData));}
           hideScatters("#biplot", countryList)
+          setCountries(countryList)
           setConsumpHorizonData(data) 
         }
 
@@ -195,7 +199,7 @@ export default function Main() {
               <Col span={9}>
               {genre === 'production' ? 
                   <Scatterplot data={row2Data} selectChange={selectScatter} />:
-                  <ConsumptionScatterplot data={row2Data} selectChange={selectScatter} />
+                  <ConsumptionScatterplot data={row2Data} selectChange={selectScatter} selectCountry={selectCountry} />
                 }
               </Col>
 
