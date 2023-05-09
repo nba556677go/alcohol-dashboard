@@ -18,6 +18,10 @@ body {
 	font-family: "Monaco" !important
 }
 
+.ant-radio-wrapper { 
+    color: #fff;
+}
+
 .ant-row {
 	margin-bottom: 20px;
 }
@@ -27,6 +31,13 @@ body {
 	display: flex;
     justify-content: center;
 	align-items: center;
+}
+
+h3 {
+	width:100%;
+	text-align: center;
+	font-family: "Monaco";
+	text-transform: capitalize;
 }
 
 text, label {

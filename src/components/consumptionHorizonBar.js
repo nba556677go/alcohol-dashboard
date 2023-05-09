@@ -32,6 +32,19 @@ const ConsumptionHorizonBar= (props) => {
     var x = d3.scaleLinear().range([0, width]);
 
     var draw_bars = function () {
+        var tooltipBox = d3.select("#recommand")
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip")
+            .style("position", "absolute")
+            .style("background-color", "black")
+            .style("border", "solid")
+            .style("border-width", "0px")
+            .style("border-radius", "5px")
+            .style("padding", "10px")
+            .style("color", "white")
+            .style("visibility", "visible");
+
         var svg1 = d3.select("#recommand")
             .append("svg")
             .attr("width",  width  + margin.left + margin.right)
@@ -183,6 +196,23 @@ const ConsumptionHorizonBar= (props) => {
                 .transition()
                 .duration(400)
                 .attr('width', function(d) { return - (x(i[0]) - x(i[1])) + 10; });
+            
+            // tooltipBox
+            //     .style("left", (event.layerX+10) + "px")
+            //     .style("top", (event.layerY-10) + "px")
+            //     .transition().duration(1)
+            //     .style('opacity', 1);
+
+            // //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
+            // tooltipBox.html("<span class='tooltipHeader'>" + d['Name'] + "</span></br>" + 
+            //     "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + d['Country'] + 
+            //     "</span></br>" + "<span class='tooltip-row-name'>Brand: </span><span class='tooltip-win'>" + d['Brand'] + 
+            //     " </span></br>" + "<span class='tooltip-row-name'>ABV: </span><span class='tooltip-win'>" + d['ABV'] + 
+            //     " </span></br>" + "<span class='tooltip-row-name'>Price: </span><span class='tooltip-win'>" + d['Price'] + 
+            //     " </span></br>" + "<span class='tooltip-row-name'>Rating: </span><span class='tooltip-win'>" + d['Rating'] + 
+            //     " </span></br>" + "<span class='tooltip-row-name'>Rate Count: </span><span class='tooltip-win'>" + d['Rate Count'] + 
+            //     "</span>");
+
 
             var hilt_text = canvas.append("g")
                                     .attr("id","hilt_text");
@@ -253,6 +283,7 @@ const ConsumptionHorizonBar= (props) => {
 
     return (
         <div>
+            <h3 style={{position:'absolute', top: '-30px', left: '0'}}>Wine/Spirit/Beer Consumption per capita</h3>
             <div id="recommand" class="bar_area"></div>
             <div className="fields">
             {allKeys.map(key => (

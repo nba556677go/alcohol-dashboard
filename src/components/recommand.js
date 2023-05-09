@@ -192,7 +192,12 @@ const Recommand = (props) => {
         };
     }
 
-    return <div id="recommand" class="bar_area"></div>
+    return (
+        <div>
+            <h3 style={{position:'absolute', top: '-30px', left: '0'}}>Most Rated {props.type}</h3>
+            <div id="recommand" class="bar_area"></div>
+        </div>
+    )
 }
 
 export default Recommand

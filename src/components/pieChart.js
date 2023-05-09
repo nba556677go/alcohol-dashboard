@@ -200,7 +200,14 @@ const PieChart = (props) => {
                 .style("opacity", 1)
     }
     
-    return <div id="pieChart"></div>
+    return (
+        <div style={{position: 'relative'}}>
+            <h3 style={{position:'absolute', top: '20px', left: '0'}}>
+                {props.genre === 'production' ? props.type : ''} {props.genre} by Continent
+            </h3>
+            <div id="pieChart"></div>
+        </div>
+    )
 }
 
 export default PieChart
