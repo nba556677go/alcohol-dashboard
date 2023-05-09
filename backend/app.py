@@ -83,9 +83,11 @@ def buildConsump_PCA():
     #ignore first column since it is index
     features = feature_dict["consumption"]
     #filter out year 2015
-    df = df[df["Year"] == 2015]
+    #df = df[df["Year"] == 2015]
     country_col = df["Country"]
+    year_col = df["Year"]
     country_col.reset_index(drop=True, inplace=True)
+    year_col.reset_index(drop=True, inplace=True)
     # convert string columns to categorical data
     for col in df.columns:
         # Check if the column is of type string
@@ -111,6 +113,7 @@ def buildConsump_PCA():
     scat_df = pd.DataFrame(X_pca[:,0:2], columns=['first_pca','second_pca'])
     scat_df["label"] = biplot_cluster.labels_
     scat_df["Country"] = country_col
+    scat_df["Year"] = year_col
 
     axes_df = pd.DataFrame((pca.components_[0:2, :]).T, columns=['first_pca','second_pca'])
     display_dict = {'Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)': 'Consumption',

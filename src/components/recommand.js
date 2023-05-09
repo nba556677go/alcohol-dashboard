@@ -79,10 +79,10 @@ const Recommand = (props) => {
         //             .tickSize(-height)
         //             .tickFormat(""));
 
-        updateBars(props.data, canvas);
+        updateBars(props.data, canvas, props.selectCountry);
     }
 
-    var updateBars = function(data, canvas) {
+    var updateBars = function(data, canvas, selectCountry) {
 
         y.domain(data.map(function(d){ return d.Name; }));
         // x.domain(d3.extent(data, (d) => d["Rate Count"]));
@@ -155,10 +155,10 @@ const Recommand = (props) => {
             hilt_text.append("text")
                     .attr('class', 'bar_val')
                     .attr("fill","white")
-                    .attr('x', function() {return x(+d['Rate Count']) + 15;})
-                    .attr('y', function() {return y(d.Name);})
+                    .attr('x', function() {return width - 15;})
+                    .attr('y', function() {return y(i.Name);})
                     .attr("dy", "1em")
-                    .text(function() {return (+d['Rate Count']).toFixed(4); });};
+                    .text(function() {  return (+i['Rate Count']).toFixed(1); });};
     
     
         //Handler for mouseout event
@@ -174,6 +174,8 @@ const Recommand = (props) => {
     
         //Handler for mouseclick event
         function onMouseClick(d, i) {
+            
+            selectCountry(i["Country"])
             // if (d3.select("#conflb").classed('active') == true ){
             //     // when CONF is checked
             // draw_scatter.highLightPoint('CONF',d.key);

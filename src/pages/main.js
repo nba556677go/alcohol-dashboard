@@ -59,6 +59,7 @@ export default function Main() {
     useEffect(() => {
       if(consumptionData.length === 0) return;
       if(countries.length == 0) {
+        
         setRadarData(processRadar(['United States','China','Australia'], consumptionData));
         setConsumpHorizonData(processHorizonBar(findtop10Data( 'Alcohol_PerCapita',consumptionData))); 
       } else {
@@ -84,24 +85,29 @@ export default function Main() {
             
             else {
               console.log([...prevState, country])
-              hideScatters([...prevState, country])
+              hideScatters("#scatter_area", [...prevState, country])
               //Window.displayCountry = [...prevState, country];
               return [...prevState, country]
             }
           });
         }
     }
-    const hideScatters = (countries) => {
-      d3.select("#scatter_area").selectAll('circle')
-                .classed("hidden", function(d){
-                //console.log(Window.displayCountry)
-                
-                if (countries.includes(d["Country"])){
-                    return false;
-                }else{
-                    return true;
-                }
-              })
+    const hideScatters = (divid, countries) => {
+
+      
+        d3.select(divid).selectAll('.circle')
+                  .classed("hidden", function(d, i){
+                    
+                  console.log(d)
+                  
+                  if (countries.includes(d["Country"])){
+                    //console.log(d)
+                      return false;
+                  }else{
+                      return true;
+                  }
+                })
+      
 
         // //select biplot
         // d3.select("#biplot").selectAll('circle')
@@ -119,9 +125,20 @@ export default function Main() {
 
   
     const selectScatter = (data) => {
-        genre === 'production' ? 
-        setRecommandData(data):
-        setConsumpHorizonData(data)  
+        if(genre === 'production') { 
+        setRecommandData(data)}
+        else{
+          //biplot hidden 
+        
+          let countryList = data.map(d => d["Country"])
+          console.log(countryList)
+          hideScatters("#biplot", countryList)
+          setConsumpHorizonData(data) 
+        }
+
+
+        
+        
     }
 
     // alcolhol type change
@@ -145,6 +162,7 @@ export default function Main() {
       setGenre("consumption");
       setRow2Data(consumptionData);
       let PCAScat = await csv(`/data/pca_consumption_scatters.csv`);
+      Window.scat = PCAScat
       let PCAVec = await csv(`/data/pca_consumption_vectors.csv`);
       setPCAData({scatter : PCAScat, vector : PCAVec});
       
@@ -183,13 +201,13 @@ export default function Main() {
 
               <Col span={8}>
                 {genre === 'production' ? 
-                  <Recommand data={recommandData} type={type}/>:
+                  <Recommand data={recommandData} selectCountry={selectCountry} type={type}/>:
                   
                   <ConsumptionHorizonBar data={consumpHorizonData} selectCountry={selectCountry} mapCountries={countries} />//TODO: display wine/spirit/beer consumption per capita
                   } 
               </Col>
               <Col span={7}>
-                  <Biplot data={PCAData} wdata={row2Data}/>
+                  <Biplot genre={genre} data={PCAData} wdata={row2Data}/>
               </Col>
             </Row>
         </div>

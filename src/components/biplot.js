@@ -1,13 +1,22 @@
 import * as d3 from "d3";
-import { useEffect } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import '../css/biplot.css'
+import Slider from 'react-rangeslider'
+// To include the default styles
+import 'react-rangeslider/lib/index.css'
+
 
 const Biplot = (props) => {
+    const [year, setYear] = useState("2015");
     useEffect(() => {
+        
         if(props.data.length == 0 || props.wdata.length == 0) return;
+        //genre changed, but consumption data not changed
+        if (props.genre === 'consumption' && props.data.scatter.length != 438) return;
         removeChart();
-        drawChart();
-    }, [props])
+        drawChart(year);
+        
+    }, [props, year])
 
     const removeChart = () => {
         const svg = d3.select("#biplot").select("svg")
@@ -15,9 +24,14 @@ const Biplot = (props) => {
         svg.remove();
     }
 
-    const drawChart = () => {
+    const drawChart = (year) => {
       console.log(props.data)
-      
+      console.log(props.genre)
+      console.log(year)
+      let data = []
+      props.genre === 'production' ? 
+            data = props.data : data = {scatter : props.data.scatter.filter(item => item.Year === year), vector: props.data.vector}
+    
       var colors = d3.scaleOrdinal().range(['#5bfc70', '#23fcd4','#82ccc6', '#41ae76', '#005824']);
         const svg = d3.select("#biplot")
             .append("svg")
@@ -33,10 +47,10 @@ const Biplot = (props) => {
 
         //const { scatter, path_x,  path_y, ind} = data
         
-        const scatter = props.data.scatter
-        const path_x = props.data.vector.map(s => s.first_pca)
-        const path_y = props.data.vector.map(s => s.second_pca)
-        const ind = props.data.vector.map(s => s.ind)
+        const scatter = data.scatter
+        const path_x = data.vector.map(s => s.first_pca)
+        const path_y = data.vector.map(s => s.second_pca)
+        const ind = data.vector.map(s => s.ind)
         var x_path = []
         var y_path = []
         for(let i = 0;i<path_x.length;i++){
@@ -189,6 +203,7 @@ const Biplot = (props) => {
 
 
         container.append("circle")
+                    .attr("class", "legend")
                     .attr("cx",width - 100)
                     .attr("cy",24)
                     .attr("r", 2)
@@ -197,6 +212,7 @@ const Biplot = (props) => {
                     .attr("stroke", (d) => colors(0));
         
         container.append("circle")
+            .attr("class", "legend")
                     .attr("cx",width - 100)
                     .attr("cy",39)
                     .attr("r", 2)
@@ -205,6 +221,7 @@ const Biplot = (props) => {
                     .attr("stroke", (d) => colors(1));
         
         container.append("circle")
+                    .attr("class", "legend")
                     .attr("cx",width - 100)
                     .attr("cy",54)
                     .attr("r", 2)
@@ -219,8 +236,41 @@ const Biplot = (props) => {
 
     }
 
+    const handleChange = (value) => {
+        //console.log(value.toString());
+        
+        setYear(value.toString());
+      };
+
+     const handleChangeStart = () => {
+        //console.log('Change event started')
+      };
+    
+    
+    const  handleChangeComplete = () => {
+        //console.log('Change event completed')
+      };
+
     return (
-        <div id="biplot"></div>
+
+        <div>
+            <div id="biplot"></div>
+            { (props.genre === 'consumption') ? 
+                <div className='slider'>
+                    <Slider
+                    min={2000}
+                    max={2015}
+                    step={5}
+                    value={year}
+                    onChangeStart={handleChangeStart}
+                    onChange={handleChange}
+                    onChangeComplete={handleChangeComplete}
+                    />
+                    <div className='value'>{year}</div>
+                </div>
+            : <div></div> }
+            
+        </div>
     );
 
 }
