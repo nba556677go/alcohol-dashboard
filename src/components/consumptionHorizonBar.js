@@ -20,7 +20,7 @@ const ConsumptionHorizonBar= (props) => {
 
     // // var level_thresh = [0.22948346,0.49744762,0.79435826];
     var greens =['#f0f9e8', '#bae4bc','#7bccc4','#43a2ca','#0868ac'];
-    const colors = ["green", "orange", "purple"]
+    const colors = ["green", "orange", "#50a1ca"]
     // var geo_regions = ['Africa','Americas','Eastern Mediterranean','Europe'];
     
     //set values

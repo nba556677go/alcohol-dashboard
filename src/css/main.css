@@ -12,7 +12,8 @@ h2 {
 body {
 	width: 100vw;
 	height: 100vh;
-	background: linear-gradient(to bottom, #4b6cb7, #182848);
+	/* background: linear-gradient(to bottom, #4b6cb7, #182848); */
+	background: linear-gradient(to bottom, #17294f, #182848);
     color: #fff !important;
 	font-family: "Monaco" !important
 }

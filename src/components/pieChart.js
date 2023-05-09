@@ -61,9 +61,11 @@ const PieChart = (props) => {
             .attr("transform", "translate(" + (width) / 2 + "," + (height) / 2 + ")");
                 
             // set the color scale
-            var color = d3.scaleOrdinal()
-                .domain(regions)
-                .range(d3.schemeDark2);
+            // var color = d3.scaleOrdinal()
+            //     .domain(regions)
+            //     .range(d3.schemeDark2);
+            var color =['#52ad66', '#e2ad0d','#f75639', '#a37720', '#43a2ca','#0868ac', '#e2ad0d'];
+            var geo_regions = ['Americas','Western Pacific', 'Europe', 'Eastern Mediterranean', 'Africa', 'South-East Asia', 'Eastern Mediterranean'];
             
             // Compute the position of each group on the pie:
             const pie = d3.pie()
@@ -87,14 +89,17 @@ const PieChart = (props) => {
                 .data(data_ready)
                 .join('path')
                 .attr('d', arc)
-                .attr('fill', d => color(d.data[1]))
+                .attr('fill', d => {
+                    var index = geo_regions.indexOf(d.data[0]);
+                    return color[index] || 'red';
+                })
                 .attr("stroke", "white")
                 .style("stroke-width", "2px")
                 .style("opacity", 0)
                 .transition()
                 .duration(1000)
                 .ease(d3.easeLinear)
-                .style("opacity", 0.7)
+                .style("opacity", 1)
                 .attrTween("d", function(d) {
                     var interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
                     return function(t) {
