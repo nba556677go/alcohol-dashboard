@@ -35,6 +35,8 @@ def buildProduce_PCA(alcohol):
     df = pd.read_csv(f"./public/data/{alcohol}_processed.csv")
     #ignore first column since it is index
     features = feature_dict[alcohol]
+    country_col = df["Country"]
+    country_col.reset_index(drop=True, inplace=True)
     # convert string columns to categorical data
     for col in df.columns:
         # Check if the column is of type string
@@ -59,6 +61,7 @@ def buildProduce_PCA(alcohol):
         biplot_cluster = KMeans(n_clusters=best_k[alcohol],max_iter=500, random_state=0).fit(X_norm)
     scat_df = pd.DataFrame(X_pca[:,0:2], columns=['first_pca','second_pca'])
     scat_df["label"] = biplot_cluster.labels_
+    scat_df["Country"] = country_col
 
     axes_df = pd.DataFrame((pca.components_[0:2, :]).T, columns=['first_pca','second_pca'])
     axes_df["ind"] = features
@@ -79,6 +82,10 @@ def buildConsump_PCA():
     df = pd.read_csv("./public/data/conusmption_gdp_happiness_year_processed.csv")
     #ignore first column since it is index
     features = feature_dict["consumption"]
+    #filter out year 2015
+    df = df[df["Year"] == 2015]
+    country_col = df["Country"]
+    country_col.reset_index(drop=True, inplace=True)
     # convert string columns to categorical data
     for col in df.columns:
         # Check if the column is of type string
@@ -103,6 +110,7 @@ def buildConsump_PCA():
         biplot_cluster = KMeans(n_clusters=best_k["consumption"],max_iter=500, random_state=0).fit(X_norm)
     scat_df = pd.DataFrame(X_pca[:,0:2], columns=['first_pca','second_pca'])
     scat_df["label"] = biplot_cluster.labels_
+    scat_df["Country"] = country_col
 
     axes_df = pd.DataFrame((pca.components_[0:2, :]).T, columns=['first_pca','second_pca'])
     display_dict = {'Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)': 'Consumption',

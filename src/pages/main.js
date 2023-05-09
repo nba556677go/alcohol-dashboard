@@ -102,6 +102,19 @@ export default function Main() {
                     return true;
                 }
               })
+
+        // //select biplot
+        // d3.select("#biplot").selectAll('circle')
+        //         .classed("hidden", function(d){
+            
+        //         //console.log(Window.displayCountry)
+        //         console.log(d)
+        //         if (countries.includes(d.Country)){//some bug
+        //             return false;
+        //         }else{
+        //             return true;
+        //         }
+        //       })
     }
 
   

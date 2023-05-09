@@ -103,9 +103,11 @@ const Biplot = (props) => {
             .attr("transform", "translate(" + width + ", 0)");
         
         container.selectAll(".circle")
+        
             .data(scatter)
             .enter()
             .append("circle")
+            .attr("class", "circle")
             .attr("r", 2)
             .attr("cx", (d,i)=>xScale(component1[i]) )
             .attr("cy", (d, i)=>yScale(component2[i]))
