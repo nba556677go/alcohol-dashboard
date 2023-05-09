@@ -216,18 +216,18 @@ const ConsumptionScatterplot = (props) => {
       }
     
       function highLightPoint(filterVar, filterVal){
-          xattr = d3.select("#xSelect").node().value;
-          yattr = d3.select('#ySelect').node().value;
+         console.log(filterVal)
+         alert("in hightlight")
           canvas1.selectAll('circle')
                 .classed("hidden", function(d){
-                    if (d[filterVar] == filterVal){
+                    if (d[filterVar] in filterVal){
                         return false;
                     }else{
                         return true;
                     }
                 })
                 .classed("brushed", function(d){
-                    if (d[filterVar] == filterVal){
+                    if (d[filterVar] in filterVal){
                         return true;
                     }else{
                         return false;

@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import { useEffect , useState} from "react";
-
+import draw_scatter from "./scatterplot/consumptionScatterplot"
 const ConsumptionHorizonBar= (props) => {
     const allKeys = ["Wine_PerCapita", "Spirit_PerCapita", "Beer_PerCapita"]
     const [keys, setKeys] = useState(allKeys);
@@ -62,7 +62,7 @@ const ConsumptionHorizonBar= (props) => {
         updateBars(props.data, props.selectCountry, canvas);
     }
 
-    var updateBars = function(data, selectedCountry ,canvas) {
+    var updateBars = function(data, selectCountry ,canvas) {
 
         var groups = data.map(d => d.Country);
         
@@ -120,9 +120,9 @@ const ConsumptionHorizonBar= (props) => {
           .attr("y", function(d) { return y(d.data.Country) + y.bandwidth()/4; })
           .attr("height",y.bandwidth()/2)
           .attr("width", function(d) { return - (x(d[0]) - x(d[1])); })
-            //   .on("mouseover", onMouseOver)
-            //     .on("mouseout", onMouseOut)
-            //     .on("click",onMouseClick)   
+               .on("mouseover", onMouseOver)
+                 .on("mouseout", onMouseOut)
+                 .on("click",onMouseClick)   
           
         
 
@@ -178,20 +178,26 @@ const ConsumptionHorizonBar= (props) => {
     
         //Handler for mouseover event
         function onMouseOver(d, i) {
+            
             d3.select(this)
                 .transition()
                 .duration(400)
-                .attr('width', function(d) { return x(+d['Wine_PerCapita']) +10; });
+                .attr('width', function(d) { return - (x(i[0]) - x(i[1])) + 10; });
 
             var hilt_text = canvas.append("g")
                                     .attr("id","hilt_text");
             hilt_text.append("text")
                     .attr('class', 'bar_val')
-                    .attr("fill","grey")
-                    .attr('x', function() {return x(+d['Wine_PerCapita']) + 15;})
-                    .attr('y', function() {return y(d.Country);})
+                    .attr("fill","white")
+                    .attr('x', function() {return width - 20;})
+                    .attr('y', function() {return y(i["data"].Country) + y.bandwidth()/4 + 5;})
                     .attr("dy", "1em")
-                    .text(function() {return (+d['Wine_PerCapita']).toFixed(4); });};
+                    .text(function() { 
+                    
+                        let display_alcohol = 0.0
+                        keys.forEach((key) => display_alcohol += +i["data"][key] )               
+                        return (+display_alcohol).toFixed(4); 
+                    });};
     
     
         //Handler for mouseout event
@@ -200,19 +206,41 @@ const ConsumptionHorizonBar= (props) => {
             d3.select(this)
                 .transition()
                 .duration(400)
-                .attr("width", function(d) { return Math.max(x(d['Wine_PerCapita']), 10); } );
+                .attr("width", function(d) { return - (x(d[0]) - x(d[1])); } );
 
             d3.selectAll('.bar_val').remove()
         };
     
         //Handler for mouseclick event
         function onMouseClick(d, i) {
-            // if (d3.select("#conflb").classed('active') == true ){
-            //     // when CONF is checked
-            // draw_scatter.highLightPoint('CONF',d.key);
-            // }else{
-            //     draw_scatter.highLightPoint('SEED',d.key);
-            // }
+            
+            Window.init = true;
+            //console.log(i["data"].Country)
+            selectCountry(i["data"].Country)
+            
+            d3.select("#scatter_area").selectAll('circle')
+            .classed("hidden", function(d){
+                //console.log(Window.displayCountry)
+                
+                if (d["Country"] === i["data"].Country){
+                    //alert("in1")
+                    return false;
+                }else{
+                    return true;
+                }
+            })
+            // .classed("brushed", function(d){
+            //     if (d["Country"] === i["data"].Country){
+            //         return true;
+            //         //alert("in2")
+            //     }else{
+            //         return false;
+            //     }
+            // });
+            // //process radio?
+            // var brushed_data =  d3.selectAll(".brushed").data();     
+            //props.selectClick(brushed_data)
+        
     
             // var stateTemp = d3.nest()
             //         .key(function(d) { return d.STATE; })

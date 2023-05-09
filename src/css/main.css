@@ -115,3 +115,7 @@ text, label {
 .field input {
   margin-right: 0.5em;
 }
+
+circle.hidden {
+	fill: #ccc !important;
+}

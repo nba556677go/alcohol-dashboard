@@ -11,10 +11,12 @@ import ConsumptionScatterplot from "../components/scatterplot/consumptionScatter
 import Recommand from "../components/recommand";
 import ConsumptionHorizonBar from "../components/consumptionHorizonBar";
 import { processRadar, processHorizonBar, findtop10Data } from '../utils/process.js'
+import * as d3 from "d3"
 import '../css/main.css'
 
-var init = true;
-
+Window.init = true;
+Window.displayCountry = [];
+//Window.isBarSelected = false;
 export default function Main() {
     const [consumptionData, setConsumptionData] = useState([]);
     const [productionData, setProductionData] = useState([]);
@@ -58,7 +60,7 @@ export default function Main() {
       if(consumptionData.length === 0) return;
       if(countries.length == 0) {
         setRadarData(processRadar(['United States','China','Australia'], consumptionData));
-        setConsumpHorizonData(processHorizonBar(findtop10Data( 'Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)',consumptionData))); 
+        setConsumpHorizonData(processHorizonBar(findtop10Data( 'Alcohol_PerCapita',consumptionData))); 
       } else {
         setRadarData(processRadar(countries, consumptionData));
         setConsumpHorizonData(processHorizonBar(countries, consumptionData));
@@ -69,28 +71,46 @@ export default function Main() {
         const index = countries.findIndex(
           (name) => name === country
         );
-        if (index > -1 && !init) {
+        if (index > -1 && !Window.init ) {
           setCountries(countries.filter((item) => item !== country));
         } else {
           setCountries((prevState) => {
-            if(init) {
-              init = false;
+            if(Window.init) {
+              Window.init = false;
               console.log([country])
+              //highlightPoint(country)//highlight single country in scatters
               return [country]
-            } else {
+            } 
+            
+            else {
               console.log([...prevState, country])
+              hideScatters([...prevState, country])
+              //Window.displayCountry = [...prevState, country];
               return [...prevState, country]
             }
           });
         }
     }
+    const hideScatters = (countries) => {
+      d3.select("#scatter_area").selectAll('circle')
+                .classed("hidden", function(d){
+                //console.log(Window.displayCountry)
+                
+                if (countries.includes(d["Country"])){
+                    return false;
+                }else{
+                    return true;
+                }
+              })
+    }
 
+  
     const selectScatter = (data) => {
         genre === 'production' ? 
         setRecommandData(data):
         setConsumpHorizonData(data)  
     }
-    
+
     // alcolhol type change
     const selectAlcoholType = async (type) => {
       setType(type);
@@ -104,11 +124,11 @@ export default function Main() {
     }
 
     //switch to consumption data
-    //TODO : switch to consumption data for barchart
     const selectConsumptionData = async (type) => {
       
       //let scatter_data= await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
-      
+      Window.displayCountry = [];
+      Window.init = true;
       setGenre("consumption");
       setRow2Data(consumptionData);
       let PCAScat = await csv(`/data/pca_consumption_scatters.csv`);
@@ -152,7 +172,7 @@ export default function Main() {
                 {genre === 'production' ? 
                   <Recommand data={recommandData} type={type}/>:
                   
-                  <ConsumptionHorizonBar data={consumpHorizonData} selectCountry={selectCountry}/>//TODO: display wine/spirit/beer consumption per capita
+                  <ConsumptionHorizonBar data={consumpHorizonData} selectCountry={selectCountry} mapCountries={countries} />//TODO: display wine/spirit/beer consumption per capita
                   } 
               </Col>
               <Col span={7}>

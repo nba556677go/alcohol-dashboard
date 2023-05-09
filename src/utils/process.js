@@ -85,7 +85,7 @@ export const findtop10Data = (field , data) => {
 
 
   var sortedData = data.sort((a, b) => b[field] - a[field]);
-  sortedData = sortedData.slice(0, 10);    
+  sortedData = sortedData.slice(0, 7);    
 
   return sortedData;
 };
