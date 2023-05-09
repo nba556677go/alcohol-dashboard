@@ -4,7 +4,7 @@ import { csv } from "d3-fetch";
 import WorldMap from '../components/map/worldMap'
 import Radar from '../components/radar'
 import PieChart from '../components/pieChart'
-import BarChart from '../components/barChart'
+// import BarChart from '../components/barChart'
 import Biplot from '../components/biplot'
 import Scatterplot from "../components/scatterplot/scatterplot";
 import ConsumptionScatterplot from "../components/scatterplot/consumptionScatterplot";
