@@ -126,17 +126,18 @@ export default function Main() {
   //brushed
     const selectScatter = (data) => {
       //alert()
+      let countryList = [...new Set(data.map(d => d["Country"]))]
+          console.log(countryList)
+          if (!Window.init) {setRadarData(processRadar(countryList, consumptionData));}
+          hideScatters("#biplot", countryList)
+          setCountries(countryList)
         if(genre === 'production') { 
           setRecommandData(data)
         }
         else{
           //biplot hidden 
           //set radar plot based on brushed scatters
-          let countryList = [...new Set(data.map(d => d["Country"]))]
-          console.log(countryList)
-          if (!Window.init) {setRadarData(processRadar(countryList, consumptionData));}
-          hideScatters("#biplot", countryList)
-          setCountries(countryList)
+          
           setConsumpHorizonData(data) 
         }
 
