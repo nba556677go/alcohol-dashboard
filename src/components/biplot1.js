@@ -208,19 +208,22 @@ const Biplot1 = (props) => {
                             .attr("r", 5)
                             .style("opacity",0)
                             .on("mouseover", function (event, d) {
-
-                            tooltipBox
-                                .style("left", (event.layerX+10) + "px")
-                                .style("top", (event.layerY-10) + "px")
-                                .transition().duration(1)
-                                .style('opacity', 1);
-            
-                            //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
-                            tooltipBox.html("<span class='tooltipHeader'>" + d['Country'] + "</span></br>" + 
-                                "<span class='tooltip-row-name'>Consumption: </span><span class='tooltip-win'>" + d['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'] + " liters" +
-                                "</span></br>" + "<span class='tooltip-row-name'>GDP: </span><span class='tooltip-win'>" + Number(d['GDP per capita, PPP (constant 2017 international $)']).toFixed(2) + 
-                                " </span></br>" + "<span class='tooltip-row-name'>Population: </span><span class='tooltip-win'>" + (Number(d['Population (historical estimates)'])/1000000).toFixed(2) + "M" +
+                                //console.log(event.srcElement.getAttribute("class"))
+                            if(event.srcElement.getAttribute("class") === "circle"){
+                                tooltipBox
+                                    .style("left", (event.layerX+10) + "px")
+                                    .style("top", (event.layerY-10) + "px")
+                                    .transition().duration(1)
+                                    .style('opacity', 1);
+                
+                                //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
+                                tooltipBox.html("<span class='tooltipHeader'>" + d['Name'] + "</span></br>" + 
+                                "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + d['Country'] + 
+                                "</span></br>" + "<span class='tooltip-row-name'>First: </span><span class='tooltip-win'>" + d['first_pca'] + 
+                                " </span></br>" + "<span class='tooltip-row-name'>Second: </span><span class='tooltip-win'>" + d['second_pca'] + 
+                                " </span></br>" + "<span class='tooltip-row-name'>Cluster: </span><span class='tooltip-win'>" + d['label'] + 
                                 "</span>");
+                            }
                             // tooltipBox.show();
                         
                             })
