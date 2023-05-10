@@ -137,7 +137,7 @@ const Recommand = (props) => {
                     .attr("class", "bar_tick")
                     .attr("fill","white")
                     .attr("dx", ".5em")
-                    .attr("dy", "1.2em")
+                    .attr("dy", () => y.bandwidth() / 2 + 5)
                     .style("cursor", "pointer")
                     .text(function(d) { return d.Name; })
                     .on("mouseover", onMouseOver)
@@ -157,6 +157,7 @@ const Recommand = (props) => {
                 var index = geo_regions.indexOf(d.region);
                 return greens[index];
         });
+
 
         barGroups.select("text") // enter + update on subselection
             .transition().duration(300)
