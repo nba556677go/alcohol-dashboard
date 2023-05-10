@@ -161,6 +161,7 @@ const Recommand = (props) => {
         barGroups.select("text") // enter + update on subselection
             .transition().duration(300)
             .text(function(d) { return d.Name; });
+        
     
         //Handler for mouseover event
         function onMouseOver(d, i) {
