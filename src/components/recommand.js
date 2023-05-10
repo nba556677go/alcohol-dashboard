@@ -174,7 +174,8 @@ const Recommand = (props) => {
                 .style("left", (d.layerX+10) + "px")
                 .style("top", (d.layerY-10) + "px")
                 .transition().duration(1)
-                .style('opacity', 1);
+                .style('opacity', 1)
+                .style('z-index', 1);
 
             tooltipBox.html("<span class='tooltipHeader'>" + i['Name'] + "</span></br>" + 
                 "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + i['Country'] + 
@@ -208,7 +209,8 @@ const Recommand = (props) => {
 
             // d3.selectAll('.bar_val').remove()
 
-            tooltipBox.style('opacity', 0);
+            tooltipBox.style('opacity', 0)
+            .style('z-index', -1);;
 
         };
     

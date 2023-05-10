@@ -203,7 +203,8 @@ const ConsumptionHorizonBar= (props) => {
                 .style("left", (d.layerX+10) + "px")
                 .style("top", (d.layerY-10) + "px")
                 .transition().duration(1)
-                .style('opacity', 1);
+                .style('opacity', 1)
+                .style('z-index', 1);
 
             //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
             tooltipBox.html(
@@ -239,7 +240,8 @@ const ConsumptionHorizonBar= (props) => {
                 .duration(400)
                 .attr("width", function(d) { return - (x(d[0]) - x(d[1])); } );
             
-            tooltipBox.style('opacity', 0);
+            tooltipBox.style('opacity', 0)
+            .style('z-index', -1);
             // d3.selectAll('.bar_val').remove()
         };
     
