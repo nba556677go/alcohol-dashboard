@@ -240,7 +240,8 @@ const Scatterplot = (props) => {
                                 .style("left", (event.layerX+10) + "px")
                                 .style("top", (event.layerY-10) + "px")
                                 .transition().duration(1)
-                                .style('opacity', 1);
+                                .style('opacity', 1)
+                                .style('z-index', 1);;
             
                             //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
                             tooltipBox.html("<span class='tooltipHeader'>" + d['Name'] + "</span></br>" + 
@@ -254,7 +255,10 @@ const Scatterplot = (props) => {
                             // tooltipBox.show();
                     
                         })
-                            .on("mouseout",function(){tooltipBox.style('opacity', 0);})
+                            .on("mouseout",function(){
+                                tooltipBox.style('opacity', 0)
+                                .style('z-index', -1);
+                            })
                             .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
                             // if there is no brush, select top10 at the beginning
                             var data_cp = JSON.parse(JSON.stringify(props.data))

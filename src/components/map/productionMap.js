@@ -28,6 +28,13 @@ const MapChart = ({alcoholType}) => {
 
   useEffect(() => {
     setData([])
+    d3.selectAll('.production-circles')
+    .style('opacity', 0)
+    .transition()
+    .duration(1000)
+    .ease(d3.easeLinear)
+    .style('opacity', 1)
+
     csv("/data/productionMap_data.csv").then((cities) => {
       console.log(cities)//ONLY read 1 row of data?
       // filter the ones that value is large than 0
@@ -66,6 +73,7 @@ const MapChart = ({alcoholType}) => {
                 <circle 
                   fill="#F53" 
                   stroke="#FFF" 
+                  class="production-circles"
                   r={popScale(item[alcoholType.toLowerCase()])}
                   onMouseEnter={(event) => {
                     tooltip
