@@ -37,6 +37,10 @@ def buildProduce_PCA(alcohol):
     features = feature_dict[alcohol]
     country_col = df["Country"]
     country_col.reset_index(drop=True, inplace=True)
+    id_col  = df['Unnamed: 0']
+    id_col.reset_index(drop=True, inplace=True)
+    name_col = df["Name"]
+    name_col.reset_index(drop=True, inplace=True)
     # convert string columns to categorical data
     for col in df.columns:
         # Check if the column is of type string
@@ -62,6 +66,8 @@ def buildProduce_PCA(alcohol):
     scat_df = pd.DataFrame(X_pca[:,0:2], columns=['first_pca','second_pca'])
     scat_df["label"] = biplot_cluster.labels_
     scat_df["Country"] = country_col
+    scat_df["ID"] = id_col
+    scat_df["Name"] = name_col
 
     axes_df = pd.DataFrame((pca.components_[0:2, :]).T, columns=['first_pca','second_pca'])
     axes_df["ind"] = features

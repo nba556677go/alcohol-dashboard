@@ -87,23 +87,23 @@ export default function Main() {
             
             else {
               console.log([...prevState, country])
-              hideScatters("#scatter_area", [...prevState, country])
+              hideScatters("#scatter_area", "Country",  [...prevState, country])
               //Window.displayCountry = [...prevState, country];
               return [...prevState, country]
             }
           });
         }
     }
-    const hideScatters = (divid, countries) => {
+    const hideScatters = (divid, field , changeList) => {
 
-        Window.biplot = d3.select("#biplot")
+        if(field === "") field = "ID";
         //console.log(d3.select("#biplot"))
         d3.select(divid).selectAll('.circle')
                   .classed("hidden", function(d, i){
                     
                 
-                  if (countries.includes(d["Country"])){
-                      console.log(d["Country"])
+                  if (changeList.includes(d[field])){
+                      console.log(d[field])
                       //console.log(countries.includes(d["Country"]))
                       return false;
                   }else{
@@ -132,15 +132,18 @@ export default function Main() {
       let countryList = [...new Set(data.map(d => d["Country"]))]
           console.log(countryList)
           if (!Window.init) {setRadarData(processRadar(countryList, consumptionData));}
-          hideScatters("#biplot", countryList)
+          
           setCountries(countryList)
         if(genre === 'production') { 
+          let idList = [...new Set(data.map(d => d[""]))]
+          console.log()
+          hideScatters("#biplot", "", idList)
           setRecommandData(data)
         }
         else{
           //biplot hidden 
           //set radar plot based on brushed scatters
-          
+          hideScatters("#biplot", "Country", countryList)
           setConsumpHorizonData(data) 
         }  
     }
