@@ -1,5 +1,25 @@
 import pandas as pd
 
+###Category list 
+categoryList = {"wine" : ["Red Wine", "White Wine"], 
+              "spirits" : ["Whiskey", "Gin", "Rum", "Vodka", "Tequila", "Brandy", "Liqueur"],
+               "beer" : ["IPA", "ALE", "Lager", "Seltzer"] }
+
+def replaceCategory(df, key):
+       for index, row in df.iterrows():
+              for type in categoryList[key]:
+                     #print(row["Categories"])
+                     #print(i)
+                     if type in row["Categories"]:
+                            df.at[index, "Categories" ] = type
+                            break
+                     else: 
+                            df.at[index, "Categories" ] = "Others"
+       #print(df["Categories"])
+       #input()
+       return df
+
+
 ###process alcohol-consumption-vs-gdp-per-capita and who_life_exp. merge two with years of 2000,2005,2010,2015
 df = pd.read_csv("./alcohol-consumption-vs-gdp-per-capita.csv")
 df  = df[df["GDP per capita, PPP (constant 2017 international $)"].notnull()]
@@ -85,7 +105,8 @@ df_productionCount = df['Country'].value_counts().rename_axis('Country').reset_i
 df_capital = pd.merge(df_capital, df_productionCount, on=['Country'], how='left')
 #df_productionMap_data.to_csv("./productionMap_data.csv")
 
-
+## category separation
+df = replaceCategory(df, "wine")
 df.to_csv("./wine_processed.csv")
 
 ###spirits
@@ -113,6 +134,9 @@ df  = df[df["region"].notnull()]
 df_productionCount = df['Country'].value_counts().rename_axis('Country').reset_index(name='spirits')
 df_capital = pd.merge(df_capital, df_productionCount, on=['Country'], how='left')
 
+
+## category separation
+df = replaceCategory(df, "spirits")
 df.to_csv("./spirits_processed.csv")
 
 ###Beer
@@ -151,8 +175,7 @@ df_productionCount = df['Country'].value_counts().rename_axis('Country').reset_i
 df_capital = pd.merge(df_capital, df_productionCount, on=['Country'], how='left')
 
 
-
-
+df = replaceCategory(df, "beer")
 df.to_csv("./beer_processed.csv")
 
 #add region in productionmap

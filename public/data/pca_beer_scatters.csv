@@ -1,50 +1,50 @@
 first_pca,second_pca,label,Country,ID,Name
-2.3175486733327224,1.4337949288090075,0,United States,0,Allagash River Trip
--0.10791079936138444,0.3770886437582175,1,United States,1,Night Shift Nite Lite Craft Light Lager
-0.19529002188191769,0.9565043891761541,1,United States,2,Bud Light
-1.100755816680766,0.640207910520351,0,United States,3,Bell’s Oberon American Wheat Ale
--0.43989008752777536,-0.1653684814158076,2,United States,4,Samuel Adams Sam Light Beer
-0.16654054968640483,-0.821918307586385,2,United States,5,Rogue Dead Guy Ale
-1.9082143046654148,0.20295263881520015,0,United States,6,New Belgium Fat Tire Amber Ale
-1.8857133279578517,-1.2167264610925939,0,United States,7,New Belgium Voodoo Ranger Imperial IPA
-1.5891646694423107,-0.4737411735545659,0,United States,8,New Belgium Voodoo Ranger IPA
-1.5935466640846374,-0.6604407161040183,0,United States,9,New Belgium Voodoo Ranger Juicy Haze IPA
-1.7906139379039319,-0.7324515152619525,0,United States,10,New Belgium Voodoo Ranger Rotating IPA Series
--0.8331995502353996,0.4643056568284668,1,United States,11,New Belgium Mountain Time Premium Lager
-0.3736005649611287,0.1819817841864029,1,United States,12,New Belgium Fat Tire Belgian Style White
-2.5788830331811092,-1.0204947118936882,0,United States,13,New Belgium Trippel Belgian Style Ale
-3.0105600370274406,-1.5748740155523733,0,United States,14,New Belgium Honey Orange Tripel
-0.8828489802920724,-0.10987429510511443,0,United States,15,New Belgium Glütiny Pale Ale
-1.8681853493885443,-0.46992829089478444,0,United States,16,New Belgium La Folie
--0.7468641494661334,0.3534297960967299,1,United States,17,New Belgium Old Aggie Superior Lager
--0.5297823980084039,0.6178594617937884,1,United States,18,New Belgium Mural Watermelon Lime
-1.301380000211423,-0.10415497111544242,0,United States,19,New Belgium Citradelic Tangerine IPA
-1.5891646694423107,-0.4737411735545659,0,United States,20,New Belgium The Hemperor HPA
--1.1284614671250126,-0.9741617136167814,2,United States,21,Truly Hard Seltzer Berry Mix Pack Spiked & Sparkling Water
--1.1284614671250126,-0.9741617136167814,2,United States,22,Truly Hard Seltzer Citrus Mix Pack Spiked & Sparkling Water
--1.1284614671250126,-0.9741617136167814,2,United States,23,Truly Hard Seltzer Lime Spiked & Sparkling Water
--1.1647461764344027,-0.929875349250789,2,United States,24,Yuengling Light Lager
--0.7137337579686898,-0.4791579676010142,2,United States,25,Shiner Bock
--0.6346581985340594,-0.39963842375890757,2,United States,26,Shiner Light Blonde
--1.107868305607279,-0.33513636928514595,2,United States,27,Shiner Ruby Redbird
--0.5033030938983255,0.88718158305091,1,United States,28,Crook & Marker Spiked Sparkling Seltzer Red Variety Pack
--0.5033030938983255,0.88718158305091,1,United States,29,Crook & Marker Spiked Sparkling Seltzer Blue Variety Pack
--0.3856737324092664,0.0072044201216109795,2,United States,30,Saint Archer Gold Light Lager Beer
--1.2114562891666103,-1.1097759949102872,2,United States,31,White Claw Hard Seltzer Variety Pack
--0.29851324670903556,0.3819810993182805,1,United States,32,Mysters Hard Seltzer
--1.1893589796988586,-0.6537543311037135,2,United States,33,Smirnoff Seltzer Variety Pack
--1.1893589796988586,-0.6537543311037135,2,United States,34,Smirnoff Seltzer 4 Ways to Rosé
--0.8352823820647163,0.3447244578768855,1,United States,35,PRESS Premium Hard Seltzer Variety Pack
--0.8352823820647163,0.3447244578768855,1,United States,36,PRESS Premium Hard Seltzer Pomegranate Ginger
--0.8352823820647163,0.3447244578768855,1,United States,37,PRESS Premium Hard Seltzer Grapefruit Cardamom
--1.4383434458236517,-1.060597174984232,2,United States,38,Willie’s Superbrew Ginger & Lemon Hard Seltzer
--1.4383434458236517,-1.060597174984232,2,United States,39,Willie’s Superbrew Mango & Passionfruit Hard Seltzer
--1.4383434458236517,-1.060597174984232,2,United States,40,Willie’s Superbrew Pomegranate & Acai Hard Seltzer
--1.4383434458236517,-1.060597174984232,2,United States,41,Willie’s Superbrew Pear & Cinnamon Hard Seltzer
--0.4192668559420696,1.0825864638202072,1,United States,42,Bravazzi Hard Italian Soda Grapefruit
--1.5971011679593916,2.717471092772195,1,United States,43,Athletic Brewing Run Wild Non-Alcoholic IPA
-0.3560435916642451,2.7441612713906642,1,United States,44,Athletic Brewing Upside Dawn Non-Alcoholic Golden Ale
-0.6350642716104785,2.747974154050446,1,United States,45,Athletic Brewing – Seasonal Offering
-0.1994556855405505,1.1956667870793178,1,United States,46,Arctic Chill Weekender Mix Pack
-0.1994556855405505,1.1956667870793178,1,United States,47,Arctic Chill Raspberry Lime
--0.3214356411077518,-0.5596931044167001,2,United States,48,Session Premium Lager
+2.080155500813167,1.079319754747657,1,United States,0,Allagash River Trip
+0.09909508936292408,0.39501637156593344,2,United States,1,Night Shift Nite Lite Craft Light Lager
+0.4979254936697672,0.8614354564724221,2,United States,2,Bud Light
+1.9774271164517927,0.31179469608565974,1,United States,3,Bell’s Oberon American Wheat Ale
+-0.3209671440108126,-0.02624479496410859,0,United States,4,Samuel Adams Sam Light Beer
+0.41985969934837813,-0.9445621711102521,1,United States,5,Rogue Dead Guy Ale
+1.324958350333265,0.05616574818178609,1,United States,6,New Belgium Fat Tire Amber Ale
+1.6668872343627599,-1.6409628253088648,1,United States,7,New Belgium Voodoo Ranger Imperial IPA
+1.242250653024902,-0.7378044577799331,1,United States,8,New Belgium Voodoo Ranger IPA
+1.3484097983593666,-0.9635940496621662,1,United States,9,New Belgium Voodoo Ranger Juicy Haze IPA
+1.3908734564931522,-1.0539098864150593,1,United States,10,New Belgium Voodoo Ranger Rotating IPA Series
+0.22534247677325075,0.4551737448219973,2,United States,11,New Belgium Mountain Time Premium Lager
+1.324958350333265,0.05616574818178609,1,United States,12,New Belgium Fat Tire Belgian Style White
+2.0256087095407307,-1.4340455582409508,1,United States,13,New Belgium Trippel Belgian Style Ale
+2.344086145544124,-2.1114143338876503,1,United States,14,New Belgium Honey Orange Tripel
+1.494812982868408,-0.30509759882978643,1,United States,15,New Belgium Glütiny Pale Ale
+1.707131273537337,-0.7566767825942523,1,United States,16,New Belgium La Folie
+0.2890379639739294,0.3196999896926575,2,United States,17,New Belgium Old Aggie Superior Lager
+-0.3244654600067566,0.6546777431421029,2,United States,18,New Belgium Mural Watermelon Lime
+1.0299323623559729,-0.28622527401546716,1,United States,19,New Belgium Citradelic Tangerine IPA
+1.242250653024902,-0.7378044577799331,1,United States,20,New Belgium The Hemperor HPA
+-1.5221678149411701,-0.725866740500638,0,United States,21,Truly Hard Seltzer Berry Mix Pack Spiked & Sparkling Water
+-1.5221678149411701,-0.725866740500638,0,United States,22,Truly Hard Seltzer Citrus Mix Pack Spiked & Sparkling Water
+-1.5221678149411701,-0.725866740500638,0,United States,23,Truly Hard Seltzer Lime Spiked & Sparkling Water
+-1.1622351977493155,-0.5376622445094492,0,United States,24,Yuengling Light Lager
+-0.5076432487240985,-0.28654908844322086,0,United States,25,Shiner Bock
+-0.5522300897645736,-0.191717459852683,0,United States,26,Shiner Light Blonde
+-1.0574511855041058,-0.08704509012311505,0,United States,27,Shiner Ruby Redbird
+-0.5793149638323241,0.8841806512214434,2,United States,28,Crook & Marker Spiked Sparkling Seltzer Red Variety Pack
+-0.5793149638323241,0.8841806512214434,2,United States,29,Crook & Marker Spiked Sparkling Seltzer Blue Variety Pack
+-0.23718341473427143,0.12422841504484854,2,United States,30,Saint Archer Gold Light Lager Beer
+-1.627183373284604,-0.8311820321331486,0,United States,31,White Claw Hard Seltzer Variety Pack
+-0.472012231506829,0.3272861758244671,2,United States,32,Mysters Hard Seltzer
+-1.5233114019322003,-0.39476185698589467,0,United States,33,Smirnoff Seltzer Variety Pack
+-1.5233114019322003,-0.39476185698589467,0,United States,34,Smirnoff Seltzer 4 Ways to Rosé
+-0.9993771972060604,0.4629194846914013,2,United States,35,PRESS Premium Hard Seltzer Variety Pack
+-0.9993771972060604,0.4629194846914013,2,United States,36,PRESS Premium Hard Seltzer Pomegranate Ginger
+-0.9993771972060604,0.4629194846914013,2,United States,37,PRESS Premium Hard Seltzer Grapefruit Cardamom
+-1.8383580769625028,-0.7107077318834263,0,United States,38,Willie’s Superbrew Ginger & Lemon Hard Seltzer
+-1.8383580769625028,-0.7107077318834263,0,United States,39,Willie’s Superbrew Mango & Passionfruit Hard Seltzer
+-1.8383580769625028,-0.7107077318834263,0,United States,40,Willie’s Superbrew Pomegranate & Acai Hard Seltzer
+-1.8383580769625028,-0.7107077318834263,0,United States,41,Willie’s Superbrew Pear & Cinnamon Hard Seltzer
+0.13806043150076566,0.9856230729192519,2,United States,42,Bravazzi Hard Italian Soda Grapefruit
+-0.43748612728740394,2.8670966361127967,2,United States,43,Athletic Brewing Run Wild Non-Alcoholic IPA
+0.9571557342499027,2.810479661669839,2,United States,44,Athletic Brewing Upside Dawn Non-Alcoholic Golden Ale
+0.9571557342499027,2.810479661669839,2,United States,45,Athletic Brewing – Seasonal Offering
+0.15808111855377535,0.9591779256195301,2,United States,46,Arctic Chill Weekender Mix Pack
+0.15808111855377535,0.9591779256195301,2,United States,47,Arctic Chill Raspberry Lime
+-0.2773598988859963,-0.44766551523174514,0,United States,48,Session Premium Lager
