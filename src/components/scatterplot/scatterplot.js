@@ -259,6 +259,11 @@ const Scatterplot = (props) => {
                                 tooltipBox.style('opacity', 0)
                                 .style('z-index', -1);
                             })
+                            // .style("fill", "black")
+                            // .attr("stroke-width", 2)
+                            // .attr("r", 4)
+                            // .attr("stroke", (d) =>  colors[geo_regions.indexOf(d.region)]);
+
                             .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
                             // if there is no brush, select top10 at the beginning
                             var data_cp = JSON.parse(JSON.stringify(props.data))

@@ -80,7 +80,8 @@ const MapChart = ({alcoholType, selectProdMap}) => {
                       .style("left", (event.pageX+10) + "px")
                       .style("top", (event.pageY-10) + "px")
                       .transition().duration(1)
-                      .style('opacity', 1);
+                      .style('opacity', 1)
+                      .style('z-index', 1);
 
                       tooltip.html("<span class='tooltipHeader'>" + item.Country + "</span></br>" + 
                       "<span class='tooltip-row-name'>Production:</span><span class='tooltip-win'>" + Number.parseInt(item[alcoholType.toLowerCase()]) +
@@ -89,7 +90,8 @@ const MapChart = ({alcoholType, selectProdMap}) => {
                   }}
                   onMouseLeave={() => {
                     tooltip.transition().duration(200)
-                        .style("opacity", 0);
+                        .style("opacity", 0)
+                        .style('z-index', -1);
                   }}
                   onClick={(event) => {
                     console.log(item)
