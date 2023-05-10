@@ -29,8 +29,6 @@ const Biplot1 = (props) => {
     
     
     var draw_scatter = function(year){
-
-
         console.log(props.genre);
         //console.log(props.data);
         let data = []
@@ -59,7 +57,7 @@ const Biplot1 = (props) => {
     
         //set values
         var margin = { top: 50, right: 50, bottom: 50, left: 50 },
-        width  = 600 - margin.left - margin.right,
+        width  = 550 - margin.left - margin.right,
         height = 410 - margin.top  - margin.bottom;
     
     
@@ -290,10 +288,27 @@ const Biplot1 = (props) => {
                 .x((d,i)=>x(3*x_path[i]))
                 .y(d=>y(3*d)))
             .attr('stroke-width', '4px');
-
-
-
         
+        
+            canvas1
+                .append("text")
+                .attr("class", "axis-label")
+                .attr("stroke", "white")
+                .attr("x", -(height) / 2)
+                .attr("y", -40)
+                .attr("transform", "rotate(-90)")
+                .attr("text-anchor", "middle")
+                .text("Component 2");
+    
+           canvas1
+                .append("text")
+                .attr("class", "axis-label")
+                .attr("text-anchor", "middle")
+                .attr("stroke", "white")
+                .attr("x", width / 2)
+                .attr("y", height + 40)
+                .text("Component 1");
+
         function xChange() {
             d3.select(".brush").remove();
             xattr = this.value
@@ -374,8 +389,8 @@ const Biplot1 = (props) => {
       };
 
     return (
-
         <div>
+            <h3 style={{position:'absolute', top: '-50px', left: '0'}}>PCA Biplot</h3>
             <div id="biplot"></div>
             { (props.genre === 'consumption') ? 
                 <div className='slider'>
