@@ -89,6 +89,7 @@ export default function Main() {
             else {
               console.log([...prevState, country])
               hideScatters("#scatter_area", "Country",  [...prevState, country])
+              hideScatters("#biplot", "Country",  [...prevState, country])
               //Window.displayCountry = [...prevState, country];
               return [...prevState, country]
             }
@@ -128,7 +129,7 @@ export default function Main() {
     }
 
   //brushed
-    const selectScatter = (data) => {
+    const selectScatter = (data, PCAdata) => {
       //alert()
       console.log(data);
       if(!data.length) return;
@@ -138,8 +139,8 @@ export default function Main() {
           
           setCountries(countryList)
         if(genre === 'production') { 
-          let idList = [...new Set(data.map(d => d[""]))]
-          console.log()
+          console.log(PCAdata)
+          let idList = [...new Set(data.map(d => d[""]))]//update all ids in biplot
           hideScatters("#biplot", "", idList)
           setRecommandData(data)
         }
@@ -149,6 +150,12 @@ export default function Main() {
           hideScatters("#biplot", "Country", countryList)
           setConsumpHorizonData(data) 
         }  
+    }
+
+    const selectHorizonBar = (country) => {
+      hideScatters("#scatter_area", "Country",  [country])
+      hideScatters("#biplot", "Country",  [country])
+      setCountries([country])
     }
     const selectProdMap = (country) => {
       setCountries([country])
@@ -228,7 +235,7 @@ export default function Main() {
                 {genre === 'production' ? 
                   <Recommand data={recommandData} selectCountry={selectCountry} type={type}/>:
                   
-                  <ConsumptionHorizonBar data={consumpHorizonData} selectCountry={selectCountry} mapCountries={countries} />//TODO: display wine/spirit/beer consumption per capita
+                  <ConsumptionHorizonBar data={consumpHorizonData} selectCountry={selectHorizonBar} mapCountries={countries} />//TODO: display wine/spirit/beer consumption per capita
                   } 
               </Col>
               <Col span={7}>

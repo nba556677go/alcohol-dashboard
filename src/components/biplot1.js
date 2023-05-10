@@ -216,7 +216,9 @@ const Biplot1 = (props) => {
                                     .style('z-index', 1);
                 
                                 //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
-                                tooltipBox.html("<span class='tooltipHeader'>" + d['Name'] + "</span></br>" + 
+                                var title = "";
+                                (props.genre === "production") ?  title = d['Name'] : title = d['Country']
+                                tooltipBox.html("<span class='tooltipHeader'>" + title + "</span></br>" + 
                                 "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + d['Country'] + 
                                 "</span></br>" + "<span class='tooltip-row-name'>First: </span><span class='tooltip-win'>" + d['first_pca'] + 
                                 " </span></br>" + "<span class='tooltip-row-name'>Second: </span><span class='tooltip-win'>" + d['second_pca'] + 

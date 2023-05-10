@@ -208,14 +208,14 @@ const ConsumptionScatterplot = (props) => {
       // If the brush is empty, select all circles.
       function brushend() {
         var e = d3.brushSelection(this);
-        if (e === null) {canvas1.selectAll(".hidden").classed("hidden", false);}
+        if (e === null) {canvas1.selectAll(".hidden").classed("hidden", false); d3.select("#biplot").selectAll(".hidden").classed("hidden", false);}
         else {
             var brushed_data =  d3.selectAll(".brushed").data(); 
             brushed_data.sort(function(a,b){ // 这是比较函数
                 return b['Alcohol_PerCapita'] - a['Alcohol_PerCapita'];    // 降序
             })
             var top10 = brushed_data.slice(0, 7).reverse()
-            props.selectChange(top10);
+            props.selectChange(top10, brushed_data);
         }
       }
     
@@ -286,7 +286,7 @@ const ConsumptionScatterplot = (props) => {
                         )
                     })
         var top10 = data_cp.slice(0, 7).reverse()
-        props.selectChange(top10);
+        props.selectChange(top10, data_cp);
 
         scatters.transition()
             .duration(1000)
