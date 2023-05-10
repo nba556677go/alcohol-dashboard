@@ -11,13 +11,17 @@ export const processRadar = (countries, consumptionData) => {
     
     for (var i = 0; i < countries.length; i++) {
       const targetData = consumptionData.find(item => item.Country === countries[i])
-      data.push(targetData)
-        
-      maxGDP = Math.max(maxGDP, targetData['GDP per capita, PPP (constant 2017 international $)'])
-      maxConsumption = Math.max(maxConsumption, targetData['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'])
-      maxLife_expect = Math.max(maxLife_expect, targetData['life_expect'])
-      maxPopulation = Math.max(maxPopulation, targetData['Population (historical estimates)'])
-      maxHappinessScore = Math.max(maxHappinessScore, targetData['HappinessScore'])
+      console.log(targetData)
+      if(targetData != undefined){
+        data.push(targetData)
+          
+        maxGDP = Math.max(maxGDP, targetData['GDP per capita, PPP (constant 2017 international $)'])
+        maxConsumption = Math.max(maxConsumption, targetData['Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)'])
+        maxLife_expect = Math.max(maxLife_expect, targetData['life_expect'])
+        maxPopulation = Math.max(maxPopulation, targetData['Population (historical estimates)'])
+        maxHappinessScore = Math.max(maxHappinessScore, targetData['HappinessScore'])
+      }
+      console.log(data)
     }
   
     for (var i = 0; i < countries.length; i++) {

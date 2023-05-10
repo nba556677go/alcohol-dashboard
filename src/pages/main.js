@@ -129,6 +129,8 @@ export default function Main() {
   //brushed
     const selectScatter = (data) => {
       //alert()
+      //console.log(data);
+      if(!data.length) return;
       let countryList = [...new Set(data.map(d => d["Country"]))]
           console.log(countryList)
           if (!Window.init) {setRadarData(processRadar(countryList, consumptionData));}
