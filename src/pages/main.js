@@ -11,8 +11,10 @@ import ConsumptionScatterplot from "../components/scatterplot/consumptionScatter
 import Recommand from "../components/recommand";
 import ConsumptionHorizonBar from "../components/consumptionHorizonBar";
 import { processRadar, processHorizonBar, findtop10Data } from '../utils/process.js'
+import Biplot1 from "../components/biplot1";
 import * as d3 from "d3"
 import '../css/main.css'
+
 
 Window.init = true;
 Window.displayCountry = [];
@@ -94,14 +96,15 @@ export default function Main() {
     }
     const hideScatters = (divid, countries) => {
 
-      
+        Window.biplot = d3.select("#biplot")
+        //console.log(d3.select("#biplot"))
         d3.select(divid).selectAll('.circle')
                   .classed("hidden", function(d, i){
                     
-                  //console.log(d)
-                  
+                
                   if (countries.includes(d["Country"])){
-                    //console.log(d)
+                      console.log(d["Country"])
+                      //console.log(countries.includes(d["Country"]))
                       return false;
                   }else{
                       return true;
@@ -212,7 +215,8 @@ export default function Main() {
                   } 
               </Col>
               <Col span={7}>
-                  <Biplot genre={genre} data={PCAData} wdata={row2Data}/>
+                  {/* <Biplot genre={genre} data={PCAData} wdata={row2Data}/> */}
+                  <Biplot1 genre={genre} data={PCAData} wdata={row2Data} />
               </Col>
             </Row>
         </div>

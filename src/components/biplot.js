@@ -16,7 +16,7 @@ const Biplot = (props) => {
         removeChart();
         drawChart(year);
         
-    }, [props, year])
+    }, [props.data, props.genre, year])
 
     const removeChart = () => {
         const svg = d3.select("#biplot").select("svg")
@@ -128,10 +128,12 @@ const Biplot = (props) => {
             .style("fill", "white")
             .attr("stroke-width", 2)
             .attr("stroke", (d) => colors(d.label))
-            .style('opacity', 0)
-            .transition()
-            .duration(1000)
-            .ease(d3.easeLinear)
+            // .style('opacity', 0)
+            // .on("click",onMouseClick) 
+            // .transition()
+            // .duration(1000)
+            // .ease(d3.easeLinear)
+            .on("click",onMouseClick) 
             .style('opacity', 1)
 
         container.append("g")
@@ -235,8 +237,24 @@ const Biplot = (props) => {
         container.append("text").attr("x", width - 80).attr("y", 40).text("Cluster 2").style("font-size", "12px").attr("alignment-baseline","middle").attr('stroke', 'white');
         container.append("text").attr("x", width - 80).attr("y", 55).text("Cluster 3").style("font-size", "12px").attr("alignment-baseline","middle").attr('stroke', 'white');
 
-
+        function onMouseClick(d, i) {
+            
+            Window.init = true;
+            //console.log(i["data"].Country)
+           console.log("inclick")
+            
+            container.selectAll('circle').style("fill", "red")
+            .classed("hidden", function(d){
+                //console.log(Window.displayCountry)
+               
+                    return true;
+                
+            })
+        }
     }
+
+
+    
 
     const handleChange = (value) => {
         //console.log(value.toString());
