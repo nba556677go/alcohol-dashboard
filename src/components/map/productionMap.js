@@ -102,10 +102,13 @@ const MapChart = ({alcoholType, selectProdMap, countries}) => {
                         .style('z-index', -1);
                   }}
                   onClick={(event) => {
-                    Window.init = false
+                    
+                    //Window.init = false
                     console.log(item)
                     tooltip.style("opacity", 0);
+                    
                     selectProdMap(item.Country)
+                    
                     
                   }} 
                   />

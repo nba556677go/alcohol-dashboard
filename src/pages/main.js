@@ -10,13 +10,14 @@ import Scatterplot from "../components/scatterplot/scatterplot";
 import ConsumptionScatterplot from "../components/scatterplot/consumptionScatterplot";
 import Recommand from "../components/recommand";
 import ConsumptionHorizonBar from "../components/consumptionHorizonBar";
-import { processRadar, processHorizonBar, findtop10Data } from '../utils/process.js'
+import { processRadar, processHorizonBar, findtop10Data, processRecommandBar } from '../utils/process.js'
 import Biplot1 from "../components/biplot1";
 import * as d3 from "d3"
 import '../css/main.css'
 
 
 Window.init = true;
+Window.isMapClick = false;
 Window.displayCountry = [];
 //Window.isBarSelected = false;
 export default function Main() {
@@ -63,11 +64,16 @@ export default function Main() {
       if(countries.length == 0) {
         
         setRadarData(processRadar(['United States','China','Australia'], consumptionData));
-        setConsumpHorizonData(processHorizonBar(findtop10Data( 'Alcohol_PerCapita',consumptionData))); 
+        if(genre === "consumption") setConsumpHorizonData(processHorizonBar(findtop10Data( 'Alcohol_PerCapita',consumptionData))); 
       } else {
         console.log(countries)
         setRadarData(processRadar(countries, consumptionData));
-        setConsumpHorizonData(processHorizonBar(countries, consumptionData));
+        if(genre === "consumption") setConsumpHorizonData(processHorizonBar(countries, consumptionData));
+        if(genre === 'production' && !Window.init){ // set recommand data
+          //console.log(row2Data)
+          const recommanded = processRecommandBar(countries, row2Data)
+          setRecommandData(recommanded)
+        }
       }
    }, [countries])
 
@@ -76,18 +82,30 @@ export default function Main() {
           (name) => name === country
         );
         if (index > -1 && !Window.init ) {
+          //alert("0")
+          hideScatters("#scatter_area", "Country",  countries.filter((item) => item !== country))
+          hideScatters("#biplot", "Country",  countries.filter((item) => item !== country))
           setCountries(countries.filter((item) => item !== country));
         } else {
           setCountries((prevState) => {
             if(Window.init) {
               Window.init = false;
               console.log([country])
+              //alert("1")
+              if(Window.isMapClick){
+                Window.isMapClick = false
+                hideScatters("#scatter_area", "Country",  [country])
+                hideScatters("#biplot", "Country",  [country])
+              }
+
               //highlightPoint(country)//highlight single country in scatters
               return [country]
             } 
             
             else {
+              //alert("2")
               console.log([...prevState, country])
+              
               hideScatters("#scatter_area", "Country",  [...prevState, country])
               hideScatters("#biplot", "Country",  [...prevState, country])
               //Window.displayCountry = [...prevState, country];
@@ -102,8 +120,6 @@ export default function Main() {
         //console.log(d3.select("#biplot"))
         d3.select(divid).selectAll('.circle')
                   .classed("hidden", function(d, i){
-                    
-                
                   if (changeList.includes(d[field])){
                       console.log(d[field])
                       //console.log(countries.includes(d["Country"]))
@@ -129,26 +145,31 @@ export default function Main() {
     }
 
   //brushed
-    const selectScatter = (data, PCAdata) => {
+    const selectScatter = (topdata, Alldata) => {
       //alert()
-      console.log(data);
-      if(!data.length) return;
-      let countryList = [...new Set(data.map(d => d["Country"]))]
-          console.log(countryList)
-          if (!Window.init) {setRadarData(processRadar(countryList, consumptionData));}
-          
-          setCountries(countryList)
-        if(genre === 'production') { 
-          let idList = [...new Set(data.map(d => d[""]))]//update all ids in biplot
-          hideScatters("#biplot", "", idList)
-          setRecommandData(data)
-        }
-        else{
-          //biplot hidden 
-          //set radar plot based on brushed scatters
-          hideScatters("#biplot", "Country", countryList)
-          setConsumpHorizonData(data) 
-        }  
+      console.log(topdata);
+      if(!topdata.length) return;
+      
+      let countryList = [...new Set(topdata.map(d => d["Country"]))]
+        console.log(countryList)
+        if (!Window.init) {setRadarData(processRadar(countryList, consumptionData));}
+        
+        
+      if(genre === 'production') { 
+        let idList = [...new Set(topdata.map(d => d[""]))]//update all ids in biplot
+        hideScatters("#biplot", "", idList)
+        setRecommandData(topdata)
+        // set country list by selecting all scatter data
+        //const allcountryList = [...new Set(Alldata.map(d => d["Country"]))]
+        setCountries(countryList)
+      }
+      else{
+        //biplot hidden 
+        //set radar plot based on brushed scatters
+        hideScatters("#biplot", "Country", countryList)
+        setConsumpHorizonData(topdata) 
+        setCountries(countryList)
+      }  
     }
 
     const selectHorizonBar = (country) => {
@@ -157,17 +178,14 @@ export default function Main() {
       setCountries([country])
     }
     const selectProdMap = (country) => {
-      setCountries([country])
-      hideScatters("#biplot", "Country", [country])
-      hideScatters("#scatter_area", "Country",  [country])
-      Window.data = row2Data;
-      let recommendData = row2Data.filter((item) => item.Country == country)
-      recommendData.sort(function(a,b){ // 这是比较函数
-        return b['Rate Count'] - a['Rate Count'];    // 降序
-      })
-      let sortdata = recommendData.slice(0, 7).reverse()
-      //console.log(recommendData)
-      setRecommandData(sortdata)
+      Window.isMapClick = true;
+      selectCountry(country);
+      
+      
+      
+      //hideScatters("#biplot", "Country", [country])
+      //hideScatters("#scatter_area", "Country",  [country])
+      //setRecommandData(sortdata)
     }
     // alcolhol type change
     const selectAlcoholType = async (type) => {

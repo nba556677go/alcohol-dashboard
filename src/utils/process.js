@@ -12,7 +12,7 @@ export const processRadar = (countries, consumptionData) => {
     for (var i = 0; i < countries.length; i++) {
       const targetData = consumptionData.find(item => item.Country === countries[i])
       //console.log(targetData)
-      if(targetData != undefined){
+      if(targetData !== undefined){
         data.push(targetData)
           
         maxGDP = Math.max(maxGDP, targetData['GDP per capita, PPP (constant 2017 international $)'])
@@ -105,5 +105,19 @@ export const processHorizonBar = (countries, consumptionData) => {
     data.push(targetData)
   }
   return data;
+};
+
+
+export const processRecommandBar = (countries, row2Data) => {
+  
+  let data = [];
+
+  for (var i = 0; i < countries.length; i++) {
+    const target = row2Data.filter(item => item.Country === countries[i])
+    
+    data.push(target)
+  }
+  data = data.flat()
+  return findtop10Data('Rate Count' , data).reverse();
 };
 
