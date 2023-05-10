@@ -60,8 +60,6 @@ const Biplot1 = (props) => {
         width  = 550 - margin.left - margin.right,
         height = (props.genre === 'production'? 420 : 380) - margin.top  - margin.bottom;
     
-    
-    
         // create canvas for scatter plot
         var svg1 = d3.select("#biplot")
                         .append("svg")
@@ -233,7 +231,11 @@ const Biplot1 = (props) => {
                                 .style('z-index', -1);
                             })
                             //.on("click",onMouseClick)  
-                            .style("fill", (d) => colors(d.label));
+                            // .style("fill", (d) => colors(d.label))
+                            .style("fill", "black")
+                            .attr("stroke-width", 2)
+                            .attr("r", 2)
+                            .attr("stroke", (d) =>  colors(d.label));
                     // if there is no brush, select top10 at the beginning
                     var data_cp = JSON.parse(JSON.stringify(data.scatter))
                     data_cp.sort(function(a,b){ // 这是比较函数
