@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Scatterplot = (props) => {
 
@@ -22,8 +22,12 @@ const Scatterplot = (props) => {
     var colors = ['#52ad66', '#e2ad0d','#f75639', '#a37720', '#43a2ca','#0868ac', '#e2ad0d'];
     var geo_regions = ['Americas','Western Pacific', 'Europe', 'Eastern Mediterranean', 'Africa', 'South-East Asia', 'Eastern Mediterranean'];
 
-    var xattr = 'Price'
-    var yattr = 'Rating'
+    // var xattr = 'Price'
+    // var yattr = 'Rating'
+
+    const [xattr, setXattr] = useState('Price')
+    const [yattr, setYattr] = useState('Rating')
+
 
     var draw_scatter = function(){
         var tooltipBox = d3.select("#scatter_area")
@@ -190,7 +194,7 @@ const Scatterplot = (props) => {
             brushed_data.sort(function(a,b){ // 这是比较函数
                 return b['Rate Count'] - a['Rate Count'];    // 降序
             })
-            var top10 = brushed_data.slice(0, 10).reverse()
+            var top10 = brushed_data.slice(0, 7).reverse()
             props.selectChange(top10);
         }
       }
@@ -243,6 +247,9 @@ const Scatterplot = (props) => {
                                 "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + d['Country'] + 
                                 "</span></br>" + "<span class='tooltip-row-name'>Brand: </span><span class='tooltip-win'>" + d['Brand'] + 
                                 " </span></br>" + "<span class='tooltip-row-name'>ABV: </span><span class='tooltip-win'>" + d['ABV'] + 
+                                " </span></br>" + "<span class='tooltip-row-name'>Price: </span><span class='tooltip-win'>" + d['Price'] + 
+                                " </span></br>" + "<span class='tooltip-row-name'>Rating: </span><span class='tooltip-win'>" + d['Rating'] + 
+                                " </span></br>" + "<span class='tooltip-row-name'>Rate Count: </span><span class='tooltip-win'>" + d['Rate Count'] + 
                                 "</span>");
                             // tooltipBox.show();
                     
@@ -255,7 +262,7 @@ const Scatterplot = (props) => {
                                 return b['Rate Count'] - a['Rate Count'];    // 降序
                             })
                             
-        var top10 = data_cp.slice(0, 10).reverse()
+        var top10 = data_cp.slice(0, 7).reverse()
         props.selectChange(top10);
 
         scatters.transition()
@@ -265,7 +272,8 @@ const Scatterplot = (props) => {
         
         function xChange() {
             d3.select(".brush").remove();
-            xattr = this.value
+            // xattr = this.value
+            setXattr(this.value)
             x.domain(d3.extent(props.data, (d) => +d[xattr] ) );
    
             x_axis.transition()
@@ -289,7 +297,8 @@ const Scatterplot = (props) => {
         function yChange() {
         d3.select(".brush").remove();
 
-        yattr = this.value
+        // yattr = this.value
+        setYattr(this.value)
 
         y.domain(d3.extent(props.data, (d) => +d[yattr]));
 
@@ -323,7 +332,12 @@ const Scatterplot = (props) => {
         }
     }
 
-    return <div id="scatter_area"></div>
+    return (
+        <div>
+            <h3 style={{position:'absolute', top: '-50px', left: '0'}}>{xattr} VS {yattr}</h3>
+            <div id="scatter_area"></div>
+        </div>
+    )
 }
 
 

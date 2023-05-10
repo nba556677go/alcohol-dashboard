@@ -45,7 +45,7 @@ const PieChart = (props) => {
         // data.sort((a, b) => b.value - a.value)
         // data = Object.fromEntries(Object.entries(data).sort((prev, next) => prev[1] - next[1]))
 
-        var width = 550,
+        var width = 620,
             height = 450,
             margin = 100;
                 
@@ -162,7 +162,7 @@ const PieChart = (props) => {
                   })
                   .attr("stroke", "white")
                   .attr("stroke-width", 1)
-                  .style('font-size', '12px')
+                  .style('font-size', '14px')
                   .style("opacity", 0)
                   .transition()
                   .duration(1000)
@@ -200,7 +200,14 @@ const PieChart = (props) => {
                 .style("opacity", 1)
     }
     
-    return <div id="pieChart"></div>
+    return (
+        <div style={{position: 'relative'}}>
+            <h3 style={{position:'absolute', top: '5px', left: '0'}}>
+                {props.genre === 'production' ? props.type : ''} {props.genre} by Continent
+            </h3>
+            <div id="pieChart"></div>
+        </div>
+    )
 }
 
 export default PieChart

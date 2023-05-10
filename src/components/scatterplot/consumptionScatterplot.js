@@ -1,10 +1,9 @@
 import * as d3 from "d3";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ConsumptionScatterplot = (props) => {
 
     useEffect(() => {
-
         if (!props.data.length ) return;//BUG - !init not working
         removeChart();
         draw_scatter();
@@ -28,8 +27,17 @@ const ConsumptionScatterplot = (props) => {
     var geo_regions = [...new Set(props.data.map(item => item.region))];
     //console.log(geo_regions)
 
-    var xattr = cat_attrs[0]
-    var yattr = cat_attrs[1]
+    const [xattr, setXattr] = useState(cat_attrs[0])
+    const [yattr, setYattr] = useState(cat_attrs[1])
+
+
+    const transformFunction = (d) => {
+        if (d === "Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)")
+            return "alcohol consumption"
+        else if (d === "GDP per capita, PPP (constant 2017 international $)") return "GDP"
+        else if (d === "Population (historical estimates)") return "Population"
+        else return d;
+    }
     
     var draw_scatter = function(){
         var tooltipBox = d3.select("#scatter_area")
@@ -72,11 +80,7 @@ const ConsumptionScatterplot = (props) => {
                             .append('option')
                             .attr('value', (d)=>d)
                             .text((d)=>{
-                                if (d === "Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)")
-                                    return "alcohol consumption"
-                                else if (d === "GDP per capita, PPP (constant 2017 international $)") return "GDP"
-                                else if (d === "Population (historical estimates)") return "Population"
-                                else return d;
+                                return transformFunction(d);
                             })
                             .property("selected", (d) => d === xattr);
         
@@ -210,7 +214,7 @@ const ConsumptionScatterplot = (props) => {
             brushed_data.sort(function(a,b){ // 这是比较函数
                 return b['Alcohol_PerCapita'] - a['Alcohol_PerCapita'];    // 降序
             })
-            var top10 = brushed_data.slice(0, 10).reverse()
+            var top10 = brushed_data.slice(0, 7).reverse()
             props.selectChange(top10);
         }
       }
@@ -277,7 +281,7 @@ const ConsumptionScatterplot = (props) => {
                         b['Alcohol_PerCapita'] - a['Alcohol_PerCapita']
                         )
                     })
-        var top10 = data_cp.slice(0, 10).reverse()
+        var top10 = data_cp.slice(0, 7).reverse()
         props.selectChange(top10);
 
         scatters.transition()
@@ -287,7 +291,8 @@ const ConsumptionScatterplot = (props) => {
         
         function xChange() {
             d3.select(".brush").remove();
-            xattr = this.value
+            // xattr = this.value
+            setXattr(this.value)
             x.domain(d3.extent(props.data, (d) => +d[xattr] ) );
    
             x_axis.transition()
@@ -312,7 +317,8 @@ const ConsumptionScatterplot = (props) => {
         function yChange() {
         d3.select(".brush").remove();
 
-        yattr = this.value
+        // yattr = this.value
+        setYattr(this.value)
 
         y.domain(d3.extent(props.data, (d) => +d[yattr]));
 
@@ -349,7 +355,12 @@ const ConsumptionScatterplot = (props) => {
        
     }
 
-    return <div id="scatter_area"></div>
+    return (
+        <div>
+            <h3 style={{position:'absolute', top: '-40px', left: '0'}}>{transformFunction(xattr)} VS {transformFunction(yattr)}</h3>
+            <div id="scatter_area"></div>
+        </div>
+    )
 }
 
 

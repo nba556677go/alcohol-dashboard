@@ -65,6 +65,9 @@ function WorldMap({selectCountry, data, countries, selectAlcoholType, selectCons
          style={{position:'absolute', top:'24px', left:'280px'}} />
       }
       <div style={{marginTop: '30px'}}>
+         <h3 style={{top:'45px', position: 'absolute'}}>
+            {radioValue === 'Consumption' ? 'Alcohol Consumption (2015) ' : 'Alcohol Production'} Map
+          </h3>
          { radioValue === 'Consumption' ? 
             <MapChart data={data} selectCountry={selectCountry} countries={countries}/>: 
             <ProductionMap alcoholType={alcoholType}/>

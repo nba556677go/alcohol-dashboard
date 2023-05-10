@@ -30,8 +30,23 @@ const ConsumptionHorizonBar= (props) => {
 
     var y = d3.scaleBand().range([height, 0]).padding(0.3);
     var x = d3.scaleLinear().range([0, width]);
+    
+    var tooltipBox;
 
     var draw_bars = function () {
+        tooltipBox = d3.select("#recommand")
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip")
+            .style("position", "absolute")
+            .style("background-color", "black")
+            .style("border", "solid")
+            .style("border-width", "0px")
+            .style("border-radius", "5px")
+            .style("padding", "10px")
+            .style("color", "white")
+            .style("visibility", "visible")
+
         var svg1 = d3.select("#recommand")
             .append("svg")
             .attr("width",  width  + margin.left + margin.right)
@@ -63,7 +78,6 @@ const ConsumptionHorizonBar= (props) => {
     }
 
     var updateBars = function(data, selectCountry ,canvas) {
-
         var groups = data.map(d => d.Country);
         
         x.domain([0,d3.max(data, d => d.Alcohol_PerCapita)]);
@@ -81,9 +95,10 @@ const ConsumptionHorizonBar= (props) => {
             .attr("class","myaxis")
             .append("text")
             .attr("y", 30)
-            .attr("x", width + 10)
+            .attr("x", width + 50)
             .attr("text-anchor", "end")
             .attr("stroke", "white")
+            .style("font-size", "14px")
             .text("consumption/capita");
 
         canvas.append("g")
@@ -96,6 +111,7 @@ const ConsumptionHorizonBar= (props) => {
             .attr("dy", "-0.71em")
             .attr("text-anchor", "center")
             .attr("stroke", "white")
+            .style("font-size", "14px")
             .text("Country")
         // x.domain(d3.extent(data, (d) => d["Rate Count"]));
 
@@ -178,26 +194,41 @@ const ConsumptionHorizonBar= (props) => {
     
         //Handler for mouseover event
         function onMouseOver(d, i) {
-            
             d3.select(this)
                 .transition()
                 .duration(400)
                 .attr('width', function(d) { return - (x(i[0]) - x(i[1])) + 10; });
+            
+            tooltipBox
+                .style("left", (d.layerX+10) + "px")
+                .style("top", (d.layerY-10) + "px")
+                .transition().duration(1)
+                .style('opacity', 1);
 
-            var hilt_text = canvas.append("g")
-                                    .attr("id","hilt_text");
-            hilt_text.append("text")
-                    .attr('class', 'bar_val')
-                    .attr("fill","white")
-                    .attr('x', function() {return width - 20;})
-                    .attr('y', function() {return y(i["data"].Country) + y.bandwidth()/4 + 5;})
-                    .attr("dy", "1em")
-                    .text(function() { 
+            //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
+            tooltipBox.html(
+                "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + i.data.Country + 
+                "</span></br>" + "<span class='tooltip-row-name'>Wine: </span><span class='tooltip-win'>" + i.data['Wine_PerCapita'] + 
+                " </span></br>" + "<span class='tooltip-row-name'>Spirit: </span><span class='tooltip-win'>" + i.data['Spirit_PerCapita'] + 
+                " </span></br>" + "<span class='tooltip-row-name'>Beer: </span><span class='tooltip-win'>" + i.data['Beer_PerCapita'] + 
+                "</span>");
+
+
+            // var hilt_text = canvas.append("g")
+            //                         .attr("id","hilt_text");
+            // hilt_text.append("text")
+            //         .attr('class', 'bar_val')
+            //         .attr("fill","white")
+            //         .attr('x', function() {return width - 20;})
+            //         .attr('y', function() {return y(i["data"].Country) + y.bandwidth()/4 + 5;})
+            //         .attr("dy", "1em")
+            //         .text(function() { 
                     
-                        let display_alcohol = 0.0
-                        keys.forEach((key) => display_alcohol += +i["data"][key] )               
-                        return (+display_alcohol).toFixed(4); 
-                    });};
+            //             let display_alcohol = 0.0
+            //             keys.forEach((key) => display_alcohol += +i["data"][key] )               
+            //             return (+display_alcohol).toFixed(4); 
+            //         });
+        };
     
     
         //Handler for mouseout event
@@ -207,8 +238,9 @@ const ConsumptionHorizonBar= (props) => {
                 .transition()
                 .duration(400)
                 .attr("width", function(d) { return - (x(d[0]) - x(d[1])); } );
-
-            d3.selectAll('.bar_val').remove()
+            
+            tooltipBox.style('opacity', 0);
+            // d3.selectAll('.bar_val').remove()
         };
     
         //Handler for mouseclick event
@@ -253,6 +285,7 @@ const ConsumptionHorizonBar= (props) => {
 
     return (
         <div>
+            <h3 style={{position:'absolute', top: '-30px', left: '0'}}>Wine/Spirit/Beer Consumption per capita</h3>
             <div id="recommand" class="bar_area"></div>
             <div className="fields">
             {allKeys.map(key => (
@@ -267,7 +300,7 @@ const ConsumptionHorizonBar= (props) => {
                 }}
                 />
                 <label htmlFor={key} style={{ color: colors[key] }}>
-                {key}
+                {key.split('_')[0]}
                 </label>
             </div>
             ))}

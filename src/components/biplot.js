@@ -191,7 +191,7 @@ const Biplot = (props) => {
         // container
         //         .append("text")
         //         .attr("class", "title")
-        //         .attr("stroke", "black")
+        //         .attr("stroke", "white")
         //         .style("font-size", "16px")
         //         .attr("text-anchor", "middle")
         //         .attr("x", width / 2)
@@ -274,6 +274,7 @@ const Biplot = (props) => {
     return (
 
         <div>
+            <h3 style={{position:'absolute', top: '-50px', left: '0'}}>PCA Biplot</h3>
             <div id="biplot"></div>
             { (props.genre === 'consumption') ? 
                 <div className='slider'>
