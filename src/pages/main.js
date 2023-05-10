@@ -65,6 +65,7 @@ export default function Main() {
         setRadarData(processRadar(['United States','China','Australia'], consumptionData));
         setConsumpHorizonData(processHorizonBar(findtop10Data( 'Alcohol_PerCapita',consumptionData))); 
       } else {
+        console.log(countries)
         setRadarData(processRadar(countries, consumptionData));
         setConsumpHorizonData(processHorizonBar(countries, consumptionData));
       }
@@ -129,7 +130,7 @@ export default function Main() {
   //brushed
     const selectScatter = (data) => {
       //alert()
-      //console.log(data);
+      console.log(data);
       if(!data.length) return;
       let countryList = [...new Set(data.map(d => d["Country"]))]
           console.log(countryList)
@@ -149,7 +150,19 @@ export default function Main() {
           setConsumpHorizonData(data) 
         }  
     }
-
+    const selectProdMap = (country) => {
+      setCountries([country])
+      hideScatters("#biplot", "Country", [country])
+      hideScatters("#scatter_area", "Country",  [country])
+      Window.data = row2Data;
+      let recommendData = row2Data.filter((item) => item.Country == country)
+      recommendData.sort(function(a,b){ // 这是比较函数
+        return b['Rate Count'] - a['Rate Count'];    // 降序
+      })
+      let sortdata = recommendData.slice(0, 7).reverse()
+      //console.log(recommendData)
+      setRecommandData(sortdata)
+    }
     // alcolhol type change
     const selectAlcoholType = async (type) => {
       setType(type);
@@ -176,6 +189,8 @@ export default function Main() {
       setPCAData({scatter : PCAScat, vector : PCAVec});
       
     }
+
+    
     
     return (
         <div className="main-wrapper">
@@ -187,7 +202,8 @@ export default function Main() {
                         data={consumptionData} 
                         countries={countries}
                         selectAlcoholType={selectAlcoholType}
-                        selectConsumptionData={selectConsumptionData}/>
+                        selectConsumptionData={selectConsumptionData}
+                        selectProdMap={selectProdMap}/>
                 </Col>
                 <Col span={8}>
                     <PieChart genre={genre} type={type} data={genre==='consumption'?consumptionData:productionData}/>

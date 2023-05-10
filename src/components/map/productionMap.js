@@ -8,7 +8,7 @@ import * as d3 from "d3"
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-continents.json";
 
-const MapChart = ({alcoholType}) => {
+const MapChart = ({alcoholType, selectProdMap}) => {
   const [data, setData] = useState([]);
   const [maxValue, setMaxValue] = useState(0);
 
@@ -85,12 +85,16 @@ const MapChart = ({alcoholType}) => {
                       tooltip.html("<span class='tooltipHeader'>" + item.Country + "</span></br>" + 
                       "<span class='tooltip-row-name'>Production:</span><span class='tooltip-win'>" + Number.parseInt(item[alcoholType.toLowerCase()]) +
                       "</span>");
+                      
                   }}
                   onMouseLeave={() => {
                     tooltip.transition().duration(200)
                         .style("opacity", 0);
                   }}
-                  onMouseClick={(event) => {
+                  onClick={(event) => {
+                    console.log(item)
+                    tooltip.style("opacity", 0);
+                    selectProdMap(item.Country)
                     
                   }} 
                   />

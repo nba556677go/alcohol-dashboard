@@ -4,7 +4,7 @@ import ProductionMap from './productionMap'
 import { Radio } from 'antd';
 
 
-function WorldMap({selectCountry, data, countries, selectAlcoholType, selectConsumptionData}) {
+function WorldMap({selectCountry, data, countries, selectAlcoholType, selectConsumptionData, selectProdMap}) {
   const [radioValue, setRadioValue] = useState("Production");//initial state set to production
   const [alcoholType, setAlcoholType] = useState("Wine");
 
@@ -70,7 +70,7 @@ function WorldMap({selectCountry, data, countries, selectAlcoholType, selectCons
           </h3>
          { radioValue === 'Consumption' ? 
             <MapChart data={data} selectCountry={selectCountry} countries={countries}/>: 
-            <ProductionMap alcoholType={alcoholType}/>
+            <ProductionMap alcoholType={alcoholType} selectProdMap={selectProdMap}/>
          }
       </div>
     </div>

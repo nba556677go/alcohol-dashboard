@@ -11,7 +11,7 @@ export const processRadar = (countries, consumptionData) => {
     
     for (var i = 0; i < countries.length; i++) {
       const targetData = consumptionData.find(item => item.Country === countries[i])
-      console.log(targetData)
+      //console.log(targetData)
       if(targetData != undefined){
         data.push(targetData)
           
@@ -21,7 +21,7 @@ export const processRadar = (countries, consumptionData) => {
         maxPopulation = Math.max(maxPopulation, targetData['Population (historical estimates)'])
         maxHappinessScore = Math.max(maxHappinessScore, targetData['HappinessScore'])
       }
-      console.log(data)
+      //console.log(data)
     }
   
     for (var i = 0; i < countries.length; i++) {
