@@ -139,11 +139,7 @@ export default function Main() {
           //set radar plot based on brushed scatters
           
           setConsumpHorizonData(data) 
-        }
-
-
-        
-        
+        }  
     }
 
     // alcolhol type change
@@ -175,7 +171,7 @@ export default function Main() {
     
     return (
         <div className="main-wrapper">
-            <h2 style={{textAlign:'center',marginBottom: '5px'}}>Alcohol Consumption and Production</h2>
+            <h1 style={{textAlign:'center',marginBottom: '5px'}}>Alcohol Consumption and Production</h1>
             <Row>
                 <Col span={9}>
                     <WorldMap 

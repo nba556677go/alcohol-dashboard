@@ -15,7 +15,7 @@ body {
 	/* background: linear-gradient(to bottom, #4b6cb7, #182848); */
 	background: linear-gradient(to bottom, #2d2d2f, #070707);
     color: #fff !important;
-	font-family: "Monaco" !important
+	font-family: "Monaco" !important;
 }
 
 .ant-radio-wrapper { 
@@ -33,11 +33,17 @@ body {
 	align-items: center;
 }
 
+
+h1{
+	margin: 0;
+}
+
 h3 {
 	width:100%;
 	text-align: center;
 	font-family: "Monaco";
 	text-transform: capitalize;
+	font-size: 18px;
 }
 
 text, label {
@@ -130,4 +136,12 @@ text, label {
 
 circle.hidden {
 	fill: #ccc !important;
+}
+
+
+.fields{
+	position: absolute;
+	top: 65px;
+	left: 180px;
+	font-size:14px;
 }

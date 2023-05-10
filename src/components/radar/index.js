@@ -34,8 +34,8 @@ function RadarWrapper({ data }) {
 
   return (
     <div>
-      <h3 style={{position:'absolute', top: '20px', left: '0'}}>National Index</h3>
-      <div id="radChart" class="radarChart" style={{padding: 0, margin: 0}}></div>;
+      <h3 style={{position:'absolute', top: '5px', left: '0'}}>National Index</h3>
+      <div id="radChart" class="radarChart" style={{padding: 0, margin: 0}}></div>
     </div>
   )
 }

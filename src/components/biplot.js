@@ -256,7 +256,7 @@ const Biplot = (props) => {
     return (
 
         <div>
-            <h3 style={{position:'absolute', top: '-30px', left: '0'}}>PCA Biplot</h3>
+            <h3 style={{position:'absolute', top: '-50px', left: '0'}}>PCA Biplot</h3>
             <div id="biplot"></div>
             { (props.genre === 'consumption') ? 
                 <div className='slider'>

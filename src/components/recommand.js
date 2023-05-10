@@ -27,7 +27,22 @@ const Recommand = (props) => {
     var y = d3.scaleBand().range([height, 0]).padding(0.3);
     var x = d3.scaleLinear().range([0, width]);
 
+    var tooltipBox
+
     var draw_bars = function () {
+        tooltipBox = d3.select("#recommand")
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip")
+            .style("position", "absolute")
+            .style("background-color", "black")
+            .style("border", "solid")
+            .style("border-width", "0px")
+            .style("border-radius", "5px")
+            .style("padding", "10px")
+            .style("color", "white")
+            .style("visibility", "visible");
+
         var svg1 = d3.select("#recommand")
             .append("svg")
             .attr("width",  width  + margin.left + margin.right)
@@ -54,6 +69,7 @@ const Recommand = (props) => {
             .append("text")
             .attr("y", 30)
             .attr("x", width + 10)
+            .style("font-size", "14px")
             .attr("text-anchor", "end")
             .attr("stroke", "white")
             .text("Rate Count");
@@ -64,10 +80,11 @@ const Recommand = (props) => {
             }).ticks(10))
             .append("text")
             .attr("y", -5)
-            .attr("x", 2.5 * (props.type.length + 3))
+            .attr("x", 4 * (props.type.length + 3))
             .attr("dy", "-0.71em")
             .attr("text-anchor", "center")
             .attr("stroke", "white")
+            .style("font-size", "14px")
             .text(props.type)
 
         // var x_grid = canvas.append("g")			
@@ -114,15 +131,17 @@ const Recommand = (props) => {
                 })
                 .on("mouseover", onMouseOver)
                 .on("mouseout", onMouseOut)
-                .on("click",onMouseClick)
-                ;
+                .on("click",onMouseClick);
         
         bargEnter.append("text")
                     .attr("class", "bar_tick")
                     .attr("fill","white")
                     .attr("dx", ".5em")
                     .attr("dy", "1.2em")
-                    .text(function(d) { return d.Name; });
+                    .style("cursor", "pointer")
+                    .text(function(d) { return d.Name; })
+                    .on("mouseover", onMouseOver)
+                    .on("mouseout", onMouseOut);
     
         barGroups = bargEnter.merge(barGroups); // enter + update on the g
     
@@ -150,15 +169,32 @@ const Recommand = (props) => {
                 .duration(400)
                 .attr('width', function(d) { return x(+d['Rate Count']) +10; });
 
-            var hilt_text = canvas.append("g")
-                                    .attr("id","hilt_text");
-            hilt_text.append("text")
-                    .attr('class', 'bar_val')
-                    .attr("fill","white")
-                    .attr('x', function() {return width - 15;})
-                    .attr('y', function() {return y(i.Name);})
-                    .attr("dy", "1em")
-                    .text(function() {  return (+i['Rate Count']).toFixed(1); });};
+            tooltipBox
+                .style("left", (d.layerX+10) + "px")
+                .style("top", (d.layerY-10) + "px")
+                .transition().duration(1)
+                .style('opacity', 1);
+
+            tooltipBox.html("<span class='tooltipHeader'>" + i['Name'] + "</span></br>" + 
+                "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + i['Country'] + 
+                "</span></br>" + "<span class='tooltip-row-name'>Brand: </span><span class='tooltip-win'>" + i['Brand'] + 
+                " </span></br>" + "<span class='tooltip-row-name'>ABV: </span><span class='tooltip-win'>" + i['ABV'] + 
+                " </span></br>" + "<span class='tooltip-row-name'>Price: </span><span class='tooltip-win'>" + i['Price'] + 
+                " </span></br>" + "<span class='tooltip-row-name'>Rating: </span><span class='tooltip-win'>" + i['Rating'] + 
+                " </span></br>" + "<span class='tooltip-row-name'>Rate Count: </span><span class='tooltip-win'>" + i['Rate Count'] + 
+                "</span>");
+
+
+            // var hilt_text = canvas.append("g")
+            //                         .attr("id","hilt_text");
+            // hilt_text.append("text")
+            //         .attr('class', 'bar_val')
+            //         .attr("fill","white")
+            //         .attr('x', function() {return width - 15;})
+            //         .attr('y', function() {return y(i.Name);})
+            //         .attr("dy", "1em")
+            //         .text(function() {  return (+i['Rate Count']).toFixed(1); });
+            };
     
     
         //Handler for mouseout event
@@ -169,7 +205,10 @@ const Recommand = (props) => {
                 .duration(400)
                 .attr("width", function(d) { return Math.max(x(d['Rate Count']), 10); } );
 
-            d3.selectAll('.bar_val').remove()
+            // d3.selectAll('.bar_val').remove()
+
+            tooltipBox.style('opacity', 0);
+
         };
     
         //Handler for mouseclick event
@@ -194,7 +233,7 @@ const Recommand = (props) => {
 
     return (
         <div>
-            <h3 style={{position:'absolute', top: '-30px', left: '0'}}>Most Rated {props.type}</h3>
+            <h3 style={{position:'absolute', top: '-50px', left: '0'}}>Most Rated {props.type}</h3>
             <div id="recommand" class="bar_area"></div>
         </div>
     )
