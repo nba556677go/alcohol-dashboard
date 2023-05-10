@@ -282,8 +282,9 @@ const Scatterplot = (props) => {
         function xChange() {
             d3.select(".brush").remove();
             // xattr = this.value
-            setXattr(this.value)
-            x.domain(d3.extent(props.data, (d) => +d[xattr] ) );
+            var xLabel = this.value
+            setXattr(xLabel)
+            x.domain(d3.extent(props.data, (d) => +d[xLabel] ) );
    
             x_axis.transition()
                 .duration(200)
@@ -291,14 +292,14 @@ const Scatterplot = (props) => {
 
             x_text.transition()
                 .duration(200)
-                .text(xattr);  
+                .text(xLabel);  
     
             
             d3.select('#scatter_area')        
                     .selectAll('circle')
                     .transition()
                     .duration(800)
-                    .attr('cx',function (d) { return x(+d[xattr]) })
+                    .attr('cx',function (d) { return x(+d[xLabel]) })
                     .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
             canvas1.call(brush);
           }
@@ -307,9 +308,10 @@ const Scatterplot = (props) => {
         d3.select(".brush").remove();
 
         // yattr = this.value
-        setYattr(this.value)
+        let yLabel = this.value
+        setYattr(yLabel)
 
-        y.domain(d3.extent(props.data, (d) => +d[yattr]));
+        y.domain(d3.extent(props.data, (d) => +d[yLabel]));
 
         y_axis.transition()
                 .duration(200)
@@ -317,7 +319,7 @@ const Scatterplot = (props) => {
 
         y_text.transition()
                 .duration(200)
-                .text(yattr);  
+                .text(yLabel);  
 
         
         
@@ -325,7 +327,7 @@ const Scatterplot = (props) => {
                 .selectAll('circle')
                 .transition()
                 .duration(800)
-                .attr('cy',function (d) { return y(+d[yattr]) })
+                .attr('cy',function (d) { return y(+d[yLabel]) })
                 .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
         canvas1.call(brush);
         }
