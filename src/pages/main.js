@@ -139,7 +139,6 @@ export default function Main() {
           
           setCountries(countryList)
         if(genre === 'production') { 
-          console.log(PCAdata)
           let idList = [...new Set(data.map(d => d[""]))]//update all ids in biplot
           hideScatters("#biplot", "", idList)
           setRecommandData(data)

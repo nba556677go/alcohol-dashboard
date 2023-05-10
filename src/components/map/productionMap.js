@@ -8,7 +8,7 @@ import * as d3 from "d3"
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-continents.json";
 
-const MapChart = ({alcoholType, selectProdMap}) => {
+const MapChart = ({alcoholType, selectProdMap, countries}) => {
   const [data, setData] = useState([]);
   const [maxValue, setMaxValue] = useState(0);
 
@@ -25,7 +25,12 @@ const MapChart = ({alcoholType, selectProdMap}) => {
     .style("color", "white")
     .style("visibility", "visible");
 
-
+    useEffect(() => {
+      if(countries == undefined) return;
+      if (countries.length == 0 ) return ;
+      console.log(countries)
+    }, [countries]);
+  
   useEffect(() => {
     setData([])
     d3.selectAll('.production-circles')
@@ -68,10 +73,13 @@ const MapChart = ({alcoholType, selectProdMap}) => {
             }
           </Geographies>
           {data.map((item) => {
+            let color = ""
+            if (Window.init) color = "#F53"
+            else{(countries.includes(item.Country)) ? color = "green" : color = "#F53"}
             return (
               <Marker key={item.id} coordinates={[item.lng, item.lat]}>
                 <circle 
-                  fill="#F53" 
+                  fill = {color}
                   stroke="#FFF" 
                   class="production-circles"
                   r={popScale(item[alcoholType.toLowerCase()])}
@@ -94,6 +102,7 @@ const MapChart = ({alcoholType, selectProdMap}) => {
                         .style('z-index', -1);
                   }}
                   onClick={(event) => {
+                    Window.init = false
                     console.log(item)
                     tooltip.style("opacity", 0);
                     selectProdMap(item.Country)
