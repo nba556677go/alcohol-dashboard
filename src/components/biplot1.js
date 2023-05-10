@@ -209,8 +209,8 @@ const Biplot1 = (props) => {
                                 //console.log(event.srcElement.getAttribute("class"))
                             if(event.srcElement.getAttribute("class") === "circle"){
                                 tooltipBox
-                                    .style("left", (event.layerX+10) + "px")
-                                    .style("top", (event.layerY-10) + "px")
+                                    .style("right", (550 - event.layerX+10) + "px")
+                                    .style("bottom", (((props.genre === 'production'? 420 : 380)) - event.layerY-10) + "px")
                                     .transition().duration(1)
                                     .style('opacity', 1)
                                     .style('z-index', 1);
