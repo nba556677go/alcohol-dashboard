@@ -4,8 +4,8 @@ import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simp
 const geoUrl = "/features.json";
 
 const colorScale = d3.scaleThreshold()
-  .domain([0, 1, 3, 6, 12, 18])
-  .range(d3.schemeBlues[7]);
+  .domain([0, 3, 6, 8, 10, 12, 14, 16, 18])
+  .range(d3.schemeBlues[9]);
 
 const MapChart = ({ data, selectCountry, countries }) => {
   var tooltip = d3.select("#geo-map")
