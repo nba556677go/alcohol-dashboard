@@ -67,8 +67,8 @@ const Recommand = (props) => {
             .call(d3.axisBottom(x))
             .attr("class","myaxis")
             .append("text")
-            .attr("y", 30)
-            .attr("x", width + 10)
+            .attr("y", 35)
+            .attr("x", width + 40)
             .style("font-size", "14px")
             .attr("text-anchor", "end")
             .attr("stroke", "white")
@@ -161,6 +161,7 @@ const Recommand = (props) => {
         barGroups.select("text") // enter + update on subselection
             .transition().duration(300)
             .text(function(d) { return d.Name; });
+        
     
         //Handler for mouseover event
         function onMouseOver(d, i) {

@@ -29,8 +29,6 @@ const Biplot1 = (props) => {
     
     
     var draw_scatter = function(year){
-
-
         console.log(props.genre);
         //console.log(props.data);
         let data = []
@@ -58,9 +56,9 @@ const Biplot1 = (props) => {
             .style("visibility", "visible");
     
         //set values
-        var margin = { top: 50, right: 50, bottom: 50, left: 50 },
-        width  = 600 - margin.left - margin.right,
-        height = 410 - margin.top  - margin.bottom;
+        var margin = { top: props.genre === 'production'? 50 : 20, right: 50, bottom: 50, left: 50 },
+        width  = 550 - margin.left - margin.right,
+        height = (props.genre === 'production'? 420 : 380) - margin.top  - margin.bottom;
     
     
     
@@ -275,8 +273,8 @@ const Biplot1 = (props) => {
             .data(path_y)
             .enter().append("text")
             .attr("class", "lines")
-            .attr("x", (d,i)=> path_x[i] > 0 ? x(3*path_x[i]) + 5 : x(3*path_x[i]) - 5)
-            .attr("y",(d, i)=> i==1 ? y(3*d) - 5: y(3*d) + 2)
+            .attr("x", (d,i)=> path_x[i] > 0 ? x(2*path_x[i]) + 5 : x(2*path_x[i]) - 5)
+            .attr("y",(d, i)=> i==1 ? y(2*d) - 5: y(2*d) + 2)
             .attr("text-anchor", (d,i)=>path_x[i] > 0 ? 'start' : 'end')
             .text((d,i)=>ind[i])
             .style("font-size", "12px")      
@@ -290,13 +288,30 @@ const Biplot1 = (props) => {
             .attr("stroke", "white")
             .attr("stroke-width", 1.5)
             .attr("d", d3.line()
-                .x((d,i)=>x(3*x_path[i]))
-                .y(d=>y(3*d)))
+                .x((d,i)=>x(2*x_path[i]))
+                .y(d=>y(2*d)))
             .attr('stroke-width', '4px');
-
-
-
         
+        
+            canvas1
+                .append("text")
+                .attr("class", "axis-label")
+                .attr("stroke", "white")
+                .attr("x", -(height) / 2)
+                .attr("y", -40)
+                .attr("transform", "rotate(-90)")
+                .attr("text-anchor", "middle")
+                .text("Component 2");
+    
+           canvas1
+                .append("text")
+                .attr("class", "axis-label")
+                .attr("text-anchor", "middle")
+                .attr("stroke", "white")
+                .attr("x", width / 2)
+                .attr("y", height + 40)
+                .text("Component 1");
+
         function xChange() {
             d3.select(".brush").remove();
             xattr = this.value
@@ -377,9 +392,8 @@ const Biplot1 = (props) => {
       };
 
     return (
-
         <div>
-            <div id="biplot"></div>
+            <h3 style={{position:'absolute', top: '-50px', left: '0'}}>PCA Biplot</h3>
             { (props.genre === 'consumption') ? 
                 <div className='slider'>
                     <Slider
@@ -394,6 +408,7 @@ const Biplot1 = (props) => {
                     <div className='value'>{year}</div>
                 </div>
             : <div></div> }
+            <div id="biplot"></div>
             
         </div>
     );

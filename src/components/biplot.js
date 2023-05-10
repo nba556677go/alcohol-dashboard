@@ -5,11 +5,9 @@ import Slider from 'react-rangeslider'
 // To include the default styles
 import 'react-rangeslider/lib/index.css'
 
-
 const Biplot = (props) => {
     const [year, setYear] = useState("2015");
     useEffect(() => {
-        
         if(props.data.length == 0 || props.wdata.length == 0) return;
         //genre changed, but consumption data not changed
         if (props.genre === 'consumption' && props.data.scatter.length != 438) return;
