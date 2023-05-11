@@ -287,7 +287,7 @@ const ConsumptionScatterplot = (props) => {
                         b['Alcohol_PerCapita'] - a['Alcohol_PerCapita']
                         )
                     })
-        var top10 = data_cp.slice(0, 7).reverse()
+        var top10 = data_cp.slice(0, 5).reverse()
         var bottom  = data_cp.slice(-2).reverse()
         top10 = bottom.concat(top10);
         props.selectChange(top10, data_cp);
