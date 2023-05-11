@@ -170,16 +170,44 @@ const Scatterplot = (props) => {
     
           canvas1.selectAll('circle')
             .classed("hidden", function(d){
-                if (x(+d[xattr]) >= x0 && x(+d[xattr]) <= x0 + dx && y(+d[yattr]) >= y0 && y(+d[yattr]) <= y0 + dy){
+                var xValue;
+                var yValue;
+                if (xattr === 'Categories') {
+                    xValue = x(d[xattr]) + x.bandwidth()/2
+                } else {
+                    xValue = x(d[xattr])
+                }
+
+                if(yattr === 'Categories') {
+                    yValue = y(d[yattr]) + y.bandwidth()/2
+                } else {
+                    yValue = y(d[yattr])
+                }
+
+                if (xValue >= x0 && xValue <= x0 + dx && yValue >= y0 && yValue <= y0 + dy){
                     return false;
                 } else {
                     return true;
                 }
             })
-            .classed("brushed", function(d){
-                if (x(+d[xattr]) >= x0 && x(+d[xattr]) <= x0 + dx && y(+d[yattr]) >= y0 && y(+d[yattr]) <= y0 + dy){
+            .classed("brushed", function(d) {
+                var xValue;
+                var yValue;
+                if (xattr === 'Categories') {
+                    xValue = x(d[xattr]) + x.bandwidth()/2
+                } else {
+                    xValue = x(d[xattr])
+                }
+
+                if(yattr === 'Categories') {
+                    yValue = y(d[yattr]) + y.bandwidth()/2
+                } else {
+                    yValue = y(d[yattr])
+                }
+
+                if (xValue >= x0 && xValue <= x0 + dx && yValue >= y0 && yValue <= y0 + dy){
                     return true;
-                }else{
+                }else {
                     return false;
                 }
             });
