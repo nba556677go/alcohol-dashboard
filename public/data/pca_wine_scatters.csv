@@ -1,405 +1,405 @@
 first_pca,second_pca,label,Country,ID,Name,Brand,Categories
-1.4023431791070622,1.516555846366662,2,France,0,Louis Jadot Beaujolais Villages,Louis Jadot,Red Wine
-2.5842721421973565,-0.2442679596434508,2,New Zealand,1,90+ Cellars Sauvignon Blanc (Lot 2),90 Cellars,White Wine
-1.5520790318065794,-0.5179559496949137,2,Italy,2,90+ Cellars Pinot Grigio (Lot 42),90 Cellars,White Wine
--0.716323386907081,-0.9326974469162931,0,United States,3,90+ Cellars Pinot Noir,90 Cellars,Red Wine
--0.3265891271215599,0.6231332746779867,0,Chile,4,90+ Cellars Cabernet Sauvignon Lot 53,90 Cellars,Red Wine
--0.04159685898010813,0.9843137845642785,0,Argentina,5,90+ Cellars Old Vine Malbec (Lot 23),90 Cellars,Red Wine
--0.7717660664812794,-0.8289776019755402,0,United States,6,Beringer Main & Vine Cabernet Sauvignon,Beringer Vineyards,Red Wine
-0.5449151603032085,-1.9739074103165655,1,United States,7,Beringer Main & Vine Pinot Grigio,Beringer Vineyards,White Wine
--1.7680940966028678,-0.03617826514642639,0,United States,8,Beringer Knights Valley Cabernet Sauvignon,Beringer Vineyards,Red Wine
--0.8190068533819146,-0.21432141377009362,0,United States,9,Francis Coppola Diamond Collection Cabernet Sauvignon,Francis Ford Coppola,Red Wine
-0.03280524132531562,-1.1724487419823815,1,United States,10,Francis Coppola Diamond Collection Chardonnay,Francis Ford Coppola,White Wine
--0.02493859171459324,-1.1377690209435265,1,United States,11,Francis Coppola Diamond Collection Sauvignon Blanc,Francis Ford Coppola,White Wine
-1.3880826897366512,-2.255245114660352,1,United States,12,Barefoot Pinot Grigio,Barefoot,White Wine
-0.2958555403117985,-1.82357876901984,1,United States,13,Barefoot Chardonnay,Barefoot,White Wine
--0.6126012767220993,-0.9063072562401784,0,United States,14,Barefoot Merlot,Barefoot,Red Wine
-2.8639122774838617,-3.1765998471711687,1,United States,15,Barefoot Riesling,Barefoot,White Wine
--0.6902487889803101,-0.8725877820849471,0,United States,16,Barefoot Cabernet Sauvignon,Barefoot,Red Wine
--0.7079167763622211,-0.8662889614684939,0,United States,17,Barefoot Pinot Noir,Barefoot,Red Wine
-0.3512663312715331,-1.8781167610918765,1,United States,18,Barefoot Sauvignon Blanc,Barefoot,White Wine
--0.5541388620740332,-0.9671861955094961,0,United States,19,Barefoot Malbec,Barefoot,Red Wine
-1.2186536260107146,1.2703114819443224,2,France,20,Louis Latour Pouilly Fuisse,Louis Latour,White Wine
--0.014842630780521893,-1.3901179867950486,1,United States,21,Chateau Ste. Michelle Chardonnay,Chateau Ste. Michelle,White Wine
-0.9492417272848458,-1.8931354714104809,1,United States,22,Chateau Ste. Michelle Riesling,Chateau Ste. Michelle,White Wine
--0.807296035389884,-0.4687333681681145,0,United States,23,Chateau Ste. Michelle Cabernet Sauvignon,Chateau Ste. Michelle,Red Wine
-1.7429729125087736,0.2663585507261795,2,France,24,Chateau Ste. Michelle Sauvignon Blanc,Chateau Ste. Michelle,White Wine
--1.4742286496136594,-0.1272543194386846,0,United States,25,Chateau Ste. Michelle Indian Wells Cabernet Sauvignon,Chateau Ste. Michelle,Red Wine
--0.9324375063104989,-0.44208828055755695,0,United States,26,Chateau Ste. Michelle Merlot,Chateau Ste. Michelle,Red Wine
-1.513770432108416,-2.240849100745873,1,United States,27,Chateau Ste. Michelle Harvest Select Riesling,Chateau Ste. Michelle,White Wine
-0.5270898236347267,-1.731121102157974,1,United States,28,Chateau Ste. Michelle Dry Riesling,Chateau Ste. Michelle,White Wine
-0.24930713360048903,-1.5769182015111234,1,United States,29,Chateau Ste. Michelle Pinot Gris,Chateau Ste. Michelle,White Wine
--0.4032700940640007,-1.1695772774701965,1,United States,30,Chateau Ste. Michelle Indian Wells Chardonnay,Chateau Ste. Michelle,White Wine
--0.14002737566680765,-1.2824645619735004,1,United States,31,Cupcake® Vineyards Chardonnay White Wine,Cupcake,White Wine
-0.5890569242407134,-1.6701060892569677,1,United States,32,Cupcake® Vineyards Pinot Grigio White Wine,Cupcake,White Wine
-5.304292764289104,-3.655330350910264,2,United States,33,Cupcake® Vineyards Cabernet Sauvignon Red Wine,Cupcake,Red Wine
--0.7908176481643185,-0.4995722645603492,0,United States,34,Cupcake® Vineyards Pinot Noir Red Wine,Cupcake,Red Wine
--0.576118134287241,-0.6071663479489859,0,United States,35,Cupcake® Vineyards Malbec Red Wine,Cupcake,Red Wine
-0.6671268476980369,-1.1012436416597338,1,United States,36,Kendall-Jackson Vintner’s Reserve Chardonnay,Kendall-Jackson,White Wine
--0.8166586367077914,0.0796263051437842,0,United States,37,Kendall-Jackson Vintner’s Reserve Cabernet Sauvignon,Kendall-Jackson,Red Wine
-0.14669146657223145,-0.9817500476551709,1,United States,38,Kendall-Jackson Vintner’s Reserve Sauvignon Blanc,Kendall-Jackson,White Wine
--0.5433689833445621,-0.5808088214834187,1,United States,39,Kendall-Jackson Grand Reserve Chardonnay,Kendall-Jackson,White Wine
-0.04698316848829671,-0.9346079435245925,1,United States,40,Kendall-Jackson Avant Chardonnay,Kendall-Jackson,White Wine
--1.439120371849331,0.37283609856611366,0,United States,41,Kendall-Jackson Vintner’s Reserve Merlot,Kendall-Jackson,Red Wine
--1.3675719995670519,0.2989942483256488,0,United States,42,Kendall-Jackson Vintner’s Reserve Pinot Noir,Kendall-Jackson,Red Wine
-0.03891307905675328,-0.9322113313915688,1,United States,43,Kendall-Jackson Vintner’s Reserve Pinot Gris,Kendall-Jackson,White Wine
-0.3296741548023631,-1.1058713100098074,1,United States,44,Kendall-Jackson Vintner’s Reserve Riesling,Kendall-Jackson,White Wine
-0.26104977462355067,2.311822722899723,0,Argentina,45,Trapiche Oak Cask Malbec,Trapiche,Red Wine
-0.7940189042837047,2.0101274355784877,0,Argentina,46,Trapiche Malbec,Trapiche,Red Wine
--0.3389864845271603,2.6684977795005254,0,Argentina,47,Trapiche Broquel Malbec,Trapiche,Red Wine
-0.6673236113601962,-0.7806540753299673,1,United States,48,Sutter Home Chardonnay,Sutter Home,White Wine
-0.3568997527325807,-0.6342888398321052,1,United States,49,Sutter Home Sauvignon Blanc,Sutter Home,White Wine
--0.19106999006130201,-1.2809811054441176,1,United States,50,Clos Du Bois Chardonnay,Clos du Bois,White Wine
--0.8599433233808812,-0.4836023390476373,0,United States,51,Clos du Bois Cabernet Sauvignon North Coast,Clos du Bois,Red Wine
-0.9920755205296982,-0.4493599035298452,0,United States,52,Josh Cellars Cabernet Sauvignon,Josh Cellars,Red Wine
-0.5091372307224028,-1.0787663160299084,1,United States,53,Josh Cellars Chardonnay,Josh Cellars,White Wine
-0.2339128914069732,-1.0165354558063837,1,United States,54,Josh Cellars Sauvignon Blanc,Josh Cellars,White Wine
--0.9385541372647391,0.04527281742302443,0,United States,55,Josh Cellars Merlot,Josh Cellars,Red Wine
-0.652789930266754,-0.5461447430192475,1,United States,56,Woodbridge Chardonnay by Robert Mondavi,Woodbridge By Robert Mondavi,White Wine
--0.21158312767985116,0.35435344429548077,0,United States,57,Woodbridge Cabernet Sauvignon by Robert Mondavi,Woodbridge By Robert Mondavi,Red Wine
-0.4570587258366633,-0.4966078535155468,1,United States,58,Woodbridge Pinot Grigio by Robert Mondavi,Woodbridge By Robert Mondavi,White Wine
-0.688145066631332,-0.6159056028882385,1,United States,59,Woodbridge Sauvignon Blanc by Robert Mondavi,Woodbridge By Robert Mondavi,White Wine
--0.42190673570762255,0.423826734197174,0,United States,60,Woodbridge Merlot by Robert Mondavi,Woodbridge By Robert Mondavi,Red Wine
-2.605232307390152,1.258506085294291,2,New Zealand,61,Tussock Jumper Sauvignon Blanc,Tussock Jumper,White Wine
-0.46062713379528974,-1.4257309403669334,1,United States,62,Gallo Family Vineyards Chardonnay,Gallo Family Vineyards,White Wine
-0.5230246684384112,-1.3624029242233682,1,United States,63,Ferrari-Carano Sonoma Chardonnay,Ferrari-Carano,White Wine
--0.011156258524840054,-1.451993488936918,1,United States,64,Chateau St. Jean Chardonnay California,Chateau St. Jean,White Wine
--1.27121141862298,0.6444994794313992,0,United States,65,Rodney Strong Sonoma County Cabernet Sauvignon,Rodney Strong,Red Wine
--0.4380459168170458,-0.2730277522994643,1,United States,66,Rodney Strong Chalk Hill Chardonnay,Rodney Strong,White Wine
--1.4372652244630635,0.7814695802037116,0,United States,67,Rodney Strong Alexander Valley Cabernet Sauvignon,Rodney Strong,Red Wine
--1.9870760535168437,1.2093018662918957,0,United States,68,Rodney Strong Alexander’s Crown Cabernet Sauvignon,Rodney Strong,Red Wine
--0.8274116900176934,0.12263287782961661,0,United States,69,Menage A Trois Lavish Merlot,Menage a Trois Wine,Red Wine
--0.8815666764177811,0.1737780676963456,0,United States,70,Menage A Trois Cabernet Sauvignon,Menage a Trois Wine,Red Wine
-0.3529054517189139,-0.9563064299098722,1,United States,71,Menage A Trois Pinot Grigio,Menage a Trois Wine,White Wine
-3.430015389546564,2.1824918010703835,2,Australia,72,[ yellow tail ] Chardonnay,Yellow Tail,White Wine
-2.5354070385975165,3.0972284841096065,2,Australia,73,[ yellow tail ] Cabernet Sauvignon,Yellow Tail,Red Wine
-4.228106546725957,1.7252638391737039,2,Australia,74,[ yellow tail ] Pinot Grigio,Yellow Tail,White Wine
-2.3885314109434264,3.140846824930639,2,Australia,75,[ yellow tail ]  Merlot,Yellow Tail,Red Wine
-3.906384562894181,1.8749843316577997,2,Australia,76,[ yellow tail ] Sauvignon Blanc,Yellow Tail,White Wine
-2.3332197626221913,3.1486826633197267,2,Australia,77,[ yellow tail ]  Pinot Noir,Yellow Tail,Red Wine
-4.111646617507911,1.7633557411107836,2,Australia,78,[ yellow tail ] Riesling,Yellow Tail,White Wine
-0.2883190327583376,-0.8746768697799542,1,United States,79,La Crema Sonoma Coast Chardonnay,La Crema Wines,White Wine
--0.6519032348286666,0.12723730557667878,0,United States,80,La Crema Sonoma Coast Pinot Noir,La Crema Wines,Red Wine
--0.8408391679103769,0.10340392157415268,0,United States,81,La Crema Monterey Pinot Noir,La Crema Wines,Red Wine
--0.17124761554275802,-0.7474492424809764,1,United States,82,La Crema Monterey Chardonnay,La Crema Wines,White Wine
--1.6312336972619192,0.5965531324295981,0,United States,83,La Crema Williamette Valley Pinot Noir,La Crema Wines,Red Wine
--0.8025494382477074,-0.30211201834036716,1,United States,84,La Crema Russian River Valley Chardonnay,La Crema Wines,White Wine
--1.8526956965211951,0.802571859176328,0,United States,85,La Crema Russian River Valley Pinot Noir,La Crema Wines,Red Wine
--0.5539337432362611,-0.6059210883989248,0,United States,86,Bota Box Cabernet Sauvignon,Bota Box Wines,Red Wine
-0.6946736606357834,-1.8244213624514203,1,United States,87,Bota Box Pinot Grigio,Bota Box Wines,White Wine
-0.30703171267577517,-1.5157563538208798,1,United States,88,Bota Box Sauvignon Blanc,Bota Box Wines,White Wine
-0.43965883459901084,-1.7486884190478695,1,United States,89,Bota Box Chardonnay,Bota Box Wines,White Wine
-0.16895648557223197,1.2343302912960472,0,Argentina,90,Bota Box Malbec,Bota Box Wines,Red Wine
--1.0671914310824238,-0.4534965567386136,0,United States,91,Bota Box Merlot,Bota Box Wines,Red Wine
-0.23869295330554577,-1.602232482536481,1,United States,92,Bota Box Riesling,Bota Box Wines,White Wine
--0.7169566814855902,-0.8125238825371386,0,United States,93,Black Box Cabernet Sauvignon,Black Box Wines,Red Wine
--0.5227137021437492,-1.1370882065345718,1,United States,94,Black Box Chardonnay,Black Box Wines,White Wine
--0.1391266141758954,-1.3593582808193982,1,United States,95,Black Box Sauvignon Blanc,Black Box Wines,White Wine
--1.3555839309890179,-0.3276412580646874,0,United States,96,Black Box Merlot,Black Box Wines,Red Wine
-0.4279076655142337,-1.741295116250273,1,United States,97,Black Box Riesling,Black Box Wines,White Wine
-3.0015018768344253,1.6592144929735262,2,Australia,98,Lindeman’s Bin 65 Chardonnay,Lindemans Wine,White Wine
-0.48495419175489757,-1.2900817705747705,1,United States,99,Franzia® Chardonnay White Wine,Franzia,White Wine
-0.34453463564604186,-1.248380719460157,1,United States,100,Franzia® Rich & Buttery Chardonnay White Wine,Franzia,White Wine
--1.113064928754088,-0.16731070161724024,0,United States,101,Estancia Cabernet Sauvignon,Estancia,Red Wine
--0.20476220802605385,-1.1422143147606942,1,United States,102,Estancia Reserve Chardonnay,Estancia,White Wine
--0.2063762259123625,-1.1417349923340896,1,United States,103,Estancia Pinot Grigio,Estancia,White Wine
-0.5526784136915615,1.7054898455335532,0,Italy,104,Ruffino Chianti DOCG,Ruffino,Red Wine
--0.20522478110857692,2.4312608344321007,0,Italy,105,Ruffino Riserva Ducale Oro Chianti Classico,Ruffino,Red Wine
-0.8736772659287404,1.588236030069467,2,Italy,106,Ruffino Aziano Chianti Classico,Ruffino,Red Wine
--0.5985272557737361,-0.536867050229585,0,United States,107,Dark Horse Cabernet Sauvignon,Dark Horse Wine,Red Wine
-0.4324416634854092,-1.5497828339148945,1,United States,108,Dark Horse Sauvignon Blanc,Dark Horse Wine,White Wine
-0.10426360810839817,-1.3981450517243799,1,United States,109,Dark Horse Chardonnay,Dark Horse Wine,White Wine
--0.7792972590403091,-0.48318293844985283,0,United States,110,Dark Horse Merlot,Dark Horse Wine,Red Wine
--0.2909425239243214,-0.028405228427705348,0,United States,111,Rex Goliath Pinot Noir,Rex Goliath,Red Wine
-0.07072699984162678,-0.687036913172473,1,United States,112,Rex Goliath Chardonnay,Rex Goliath,White Wine
--0.7858968460474748,0.22693809329284878,0,United States,113,Rex Goliath Cabernet Sauvignon,Rex Goliath,Red Wine
-0.06528946730894149,-0.6861233543663242,1,United States,114,Rex Goliath Pinot Grigio,Rex Goliath,White Wine
-0.03142914416786614,0.7304567279811717,0,Chile,115,Concha y Toro Casillero Del Diablo Cabernet Sauvignon,Casillero del Diablo,Red Wine
-0.014368615707663712,0.7472692205607006,0,Chile,116,Concha Y Toro Casillero del Diablo Malbec,Casillero del Diablo,Red Wine
--0.8304201381920857,-0.8819782442420244,0,United States,117,14 Hands Cabernet Sauvignon,14 Hands,Red Wine
--0.9401733544610767,-0.849384319232901,0,United States,118,14 Hands Merlot,14 Hands,Red Wine
--0.1211732027647167,-1.7451735354432378,1,United States,119,14 Hands Chardonnay,14 Hands,White Wine
-0.14692537995166893,-1.8965005015304601,1,United States,120,14 Hands Pinot Grigio,14 Hands,White Wine
--1.1611411254372714,0.17402582572569014,0,United States,121,J. Lohr Estates Seven Oaks Cabernet Sauvignon Paso Robles CA,J. Lohr Wines,Red Wine
--0.12985526512769438,-0.88616015622784,1,United States,122,J. Lohr Estates Riverstone Chardonnay Monterey Arroyo Seco CA,J. Lohr Wines,White Wine
--0.9751172619338887,0.014372087149646816,0,United States,123,J. Lohr Estates Los Osos Merlot Paso Robles CA,J. Lohr Wines,Red Wine
--0.7978919700209394,-0.7110636530612999,0,United States,124,Bogle Merlot,Bogle,Red Wine
--0.002200173469206587,0.8578462104359117,0,Chile,125,Cono Sur Bicicleta Pinot Noir,Cono Sur,Red Wine
-0.172008516684105,-1.1253615673104895,1,United States,127,Hess Select Monterey Chardonnay,Hess Collection,White Wine
--0.9075170551953042,-0.04287568877822286,0,United States,128,Hess Select North Coast Cabernet Sauvignon,Hess Collection,Red Wine
--0.08856119290154288,-1.0025673838779163,1,United States,129,Hess Select Sauvignon Blanc,Hess Collection,White Wine
--0.03795226824998356,1.3325299639443102,0,Chile,130,House Wine Cabernet Sauvignon,House Wine,Red Wine
-0.1322113457427559,-1.0188888586771105,1,United States,131,House Wine Pinot Grigio 3L Box,House Wine,White Wine
-0.3574177777208747,1.115283085792375,0,Chile,132,House Wine Malbec 3L Box,House Wine,Red Wine
-1.181530591226563,0.23112398756303673,1,Chile,133,House Wine Sauvignon Blanc,House Wine,White Wine
-0.9845172731090875,0.33297372279529547,1,Chile,134,House Wine Chardonnay,House Wine,White Wine
-0.44295478822090056,1.9924866830369807,0,Argentina,135,Santa Julia Organic Malbec,Santa Julia,Red Wine
-1.7768129048997334,0.6374958069161484,2,France,136,Gerard Bertrand Cote Des Roses Chardonnay,Gerard Bertrand,White Wine
-0.25240335527221247,0.8051791519043595,0,Italy,137,Villa Antinori Toscana Rosso,Antinori,Red Wine
-0.6880356321557094,0.47541943473677795,0,Italy,138,Santa Cristina Rosso Toscana,Antinori,Red Wine
-2.003016631686404,-0.6700573251014433,2,Italy,139,Santa Cristina Pinot Grigio,Antinori,White Wine
-0.3099772530662792,0.8390915418965504,0,Italy,140,Antinori Pèppoli Chianti Classico,Antinori,Red Wine
-0.09315053888957599,-0.9939342348937373,1,United States,141,Joel Gott Sauvignon Blanc,Joel Gott,White Wine
--1.0899839180449928,0.5314821764829011,0,United States,142,Robert Mondavi Bourbon Barrel Aged Cabernet Sauvignon Private Selection,Robert Mondavi Private Selection,Red Wine
-0.1776956223562652,-0.6585016745463079,1,United States,143,Robert Mondavi Buttery Chardonnay Private Selection,Robert Mondavi Private Selection,White Wine
-0.2715728653678625,1.61092526208804,0,Chile,144,Smoking Loon Cabernet Sauvignon,Smoking Loon,Red Wine
-2.6587171615581866,1.2624330283130638,2,New Zealand,145,Villa Maria Private Bin Sauvignon Blanc,Villa Maria,White Wine
--1.0813988070376568,-0.680968987161739,0,United States,146,Angeline Pinot Noir,Angeline Winery,Red Wine
--0.18168530436638,-1.6195939067609837,1,United States,147,Angeline Reserve Sauvignon Blanc,Angeline Winery,White Wine
--1.196908674844481,-0.6154937720405748,0,United States,148,Angeline Reserve Merlot,Angeline Winery,Red Wine
--0.11086962153251581,2.084790004303718,0,Argentina,149,Luigi Bosca Malbec,Luigi Bosca,Red Wine
--1.2401827485726136,0.8094579452710065,0,United States,150,Siduri Willamette Valley Pinot Noir,Siduri,Red Wine
--0.6793963729045746,0.032962690400951324,0,United States,151,"McManis Cabernet Sauvignon Red Wine – 750ml, California",McManis,Red Wine
--0.6955365517676615,0.037755914666998854,0,United States,152,"McManis Pinot Noir Red Wine – 750ml, Lodi, California",McManis,Red Wine
-0.6986746809458992,-1.5352330821281301,1,United States,153,Gato Negro Sauvignon Blanc,Gato Negro,White Wine
--0.416042762967696,-0.4886804754188317,0,United States,154,Gato Negro Malbec,Gato Negro,Red Wine
-0.20670681453044026,0.9504350073045773,0,Chile,155,Frontera Malbec,Frontera,Red Wine
-1.043715797729333,0.04912231167652028,1,Chile,156,Frontera Chardonnay,Frontera,White Wine
--1.3934419719863966,-0.16696492422957834,0,United States,157,Columbia Crest H3 Cabernet Sauvignon,Columbia Crest,Red Wine
--0.8407877436658151,-0.4936152664501582,0,United States,158,Columbia Crest Grand Estates Merlot,Columbia Crest,Red Wine
--1.1182608636672502,-0.5531148219910169,1,United States,159,Cakebread Cellars Napa Valley Chardonnay,Cakebread Cellars,White Wine
--0.16346073989153947,-0.8499493323246381,1,United States,160,J Vineyards & Winery Pinot Gris,J Vineyards,White Wine
--1.6157318155790574,0.9373779046542998,0,United States,161,Ridge Three Valleys,Ridge Vineyards,Red Wine
--1.7712775955507154,1.0645315651625664,0,United States,162,Ridge Ponzo Zinfandel,Ridge Vineyards,Red Wine
--0.1710990471778822,-1.0926873584236971,1,United States,163,Four Vines Naked Chardonnay,Four Vines,White Wine
--0.8153470238061125,-0.2121565867263406,0,United States,164,Decoy California Cabernet Sauvignon,Decoy Wines,Red Wine
--1.1810553824555734,-0.10845922248253562,0,United States,165,Decoy California Pinot Noir,Decoy Wines,Red Wine
--0.30122547820460177,-1.087529641459319,1,United States,166,Decoy Sonoma County Sauvignon Blanc,Decoy Wines,White Wine
--1.3675260163181349,-0.031411282616447475,0,United States,167,Decoy Sonoma County Merlot,Decoy Wines,Red Wine
--1.7680084755896195,0.2576146819589411,0,United States,168,Decoy Limited Napa Valley Cabernet Sauvignon,Decoy Wines,Red Wine
--0.9841825542164429,-0.3982423353159748,1,United States,169,Frank Family Vineyards Carneros Chardonnay,Frank Family,White Wine
--2.3128130230547073,0.9819882173484724,0,United States,170,Frank Family Vineyards Napa Valley Cabernet Sauvignon,Frank Family,Red Wine
-1.2538193672693632,-2.1996431012684554,1,United States,171,Carlo Rossi Chablis,Carlo Rossi,White Wine
--0.5959479350509719,0.38230250091953943,0,United States,172,Sterling Vintner’s Collection Cabernet Sauvignon,Sterling,Red Wine
--0.25224230611543735,-0.1473127714409889,1,United States,173,Sonoma-Cutrer Sonoma Coast Chardonnay White Wine,Sonoma-Cutrer Winery,White Wine
--1.2294395436476522,0.005345054180277654,0,United States,174,Gnarly Head Cabernet Sauvignon,Gnarly Head,Red Wine
--0.8318185590996944,0.6012984930358579,0,United States,175,The Federalist Lodi Cabernet Sauvignon,The Federalist,Red Wine
--1.3772367241669488,0.8824637403844307,0,United States,176,The Federalist Lodi Zinfandel,The Federalist,Red Wine
--1.5561688538826637,1.0098667315873506,0,United States,177,The Federalist Bourbon Barrel Aged Zinfandel,The Federalist,Red Wine
--1.1573744093290843,-0.48415309317255156,0,United States,178,Bonterra Organic Cabernet Sauvignon,Bonterra,Red Wine
-0.15844871712987485,-1.6360158862551148,1,United States,179,Bonterra Organic Sauvignon Blanc,Bonterra,White Wine
--0.7462037973771107,0.16202336633052425,0,United States,180,Murphy-Goode California Cabernet Sauvignon,Murphy-Goode,Red Wine
-0.12501644545898805,-0.7685582860363198,1,United States,181,Murphy-Goode North Coast Sauvignon Blanc,Murphy-Goode,White Wine
--0.7248144781135732,0.1409450174248461,0,United States,182,Murphy-Goode California Pinot Noir,Murphy-Goode,Red Wine
--0.7551200070862345,0.16747625721142007,0,United States,183,Murphy-Goode California Merlot,Murphy-Goode,Red Wine
--1.1998078818147593,0.4431886916174227,0,United States,184,Parducci Small Lot Pinot Noir,Parducci,Red Wine
-0.5998462538619065,0.8263499514397902,0,Italy,185,Cecchi Chianti Classico,Cecchi,Red Wine
-0.7510130878580081,0.6762696388258366,0,Italy,186,Cecchi Bonizio Rosso,Cecchi,Red Wine
--0.4509786499388593,2.7167741130802665,0,Argentina,187,Terrazas de los Andes Reserva Malbec,Terrazas de los Andes,Red Wine
--0.001768515120914939,2.371411480911434,0,Argentina,188,Terrazas de los Andes Altos de Plata Malbec,Terrazas de los Andes,Red Wine
-0.22734887234245163,-0.4885756139746664,1,United States,189,Vendange Chardonnay,Vendange,White Wine
--0.37109226455540006,-0.8753783229209532,1,United States,190,Duckhorn Vineyards Napa Valley Sauvignon Blanc,Duckhorn,White Wine
--1.3432646503930024,-0.0799497550857971,0,United States,191,Duckhorn Vineyards Napa Valley Cabernet Sauvignon,Duckhorn,Red Wine
--2.305545355896316,0.855005994958772,0,United States,192,Duckhorn Vineyards Napa Valley Merlot,Duckhorn,Red Wine
-0.1949055766453006,-0.29492592456695055,1,United States,193,William Hill North Coast Chardonnay,William Hill,White Wine
--0.8833529357467482,0.7396060563930476,0,United States,194,William Hill North Coast Cabernet Sauvignon,William Hill,Red Wine
-0.9222197587816323,-0.9889523542765539,1,United States,195,Ste Genevieve Chardonnay,Ste Genevieve,White Wine
-2.1330380672818317,0.22173141758035622,2,Italy,196,Mezzacorona Pinot Grigio,Mezzacorona,White Wine
-3.4432788211380925,0.516055969233939,2,New Zealand,197,Kim Crawford Sauvignon Blanc,Kim Crawford Wines,White Wine
--0.7947686262894257,0.4938818750388189,0,United States,198,Sokol Blosser Evolution Pinot Noir,Sokol Blosser,Red Wine
--0.16152691722114768,-0.6661260590782274,1,United States,199,Matchbook Chardonnay,Matchbook,White Wine
-0.112251747332917,-0.2301165315393391,1,United States,200,Wente Vineyards Riva Ranch Chardonnay,Wente Vineyards,White Wine
--0.691329847234764,0.626031233042783,0,United States,201,Wente Vineyards Southern Hills Cabernet Sauvignon,Wente Vineyards,Red Wine
--0.9221151429446881,0.8523500080302251,0,United States,202,Wente Vineyards Charles Wetmore Cabernet Sauvignon,Wente Vineyards,Red Wine
-0.20119350549738774,-0.3266550421535399,1,United States,203,Wente Vineyards Morning Fog Chardonnay,Wente Vineyards,White Wine
-0.7496769551704104,-1.8120143185471442,1,United States,204,Charles Smith Kung Fu Girl Riesling,Charles Smith Wines,White Wine
--1.470676570242873,-0.34148245079342915,0,United States,205,"Benziger Cabernet Sauvignon Red Wine – 750ml, Sonoma County",Benziger,Red Wine
--0.3619200293451965,-1.4399783761863147,1,United States,206,"Benziger Chardonnay White Wine – 750ml, Sonoma County",Benziger,White Wine
--1.5108813770353495,0.5058211997013301,0,United States,207,JUSTIN Cabernet Sauvignon,Justin Winery,Red Wine
--0.04415568234953519,-0.8747588072616006,1,United States,208,JUSTIN Sauvignon Blanc,Justin Winery,White Wine
--3.2259264408590202,1.989714783721477,0,United States,209,JUSTIN ISOSCELES,Justin Winery,Red Wine
-2.8288213647328257,-0.734199580792077,2,Italy,210,Cavit Pinot Grigio,Cavit,White Wine
--1.6494989032428644,0.08446652859138522,0,United States,211,Charles Krug Cabernet Sauvignon,Charles Krug,Red Wine
--1.823352687381494,0.07008291794863068,0,United States,212,Charles Krug Merlot,Charles Krug,Red Wine
--0.09461403964121527,-1.3635948177225388,1,United States,213,Charles Krug Sauvignon Blanc,Charles Krug,White Wine
--1.141199368774039,0.3171919785289588,0,United States,214,King Estate Willamette Valley Pinot Noir,King Estate,Red Wine
--0.06279264625162143,-0.8186751859667103,1,United States,215,King Estate Willamette Valley Pinot Gris,King Estate,White Wine
--0.985621527956434,0.16054232901618679,0,United States,216,King Estate “Inscription” Willamette Valley Pinot Noir,King Estate,Red Wine
-2.376204314816055,1.706865790308664,2,Australia,217,19 Crimes Cabernet Sauvignon,19 Crimes,Red Wine
-0.5854171238799981,-2.087033297759556,1,United States,218,Archer Roose Sauvignon Blanc,Archer Roose,White Wine
-2.206630442717315,-0.27049856624281643,2,Italy,219,Folonari Pinot Grigio,Folonari,White Wine
-0.08562338563661,0.21870434397742167,0,Spain,220,Campo Viejo Tempranillo Rioja,Campo Viejo,Red Wine
--1.3261659723411099,0.5772954598810618,0,United States,221,Napa Cellars Pinot Noir,Napa Cellars,Red Wine
--0.14670318608941818,-0.5886562825079468,1,United States,222,Napa Cellars Sauvignon Blanc,Napa Cellars,White Wine
--1.5449516223163335,0.6789152033813696,0,United States,223,Napa Cellars Merlot,Napa Cellars,Red Wine
--0.5821559728620085,0.08356155773961409,0,United States,224,Pepperwood Grove Pinot Noir,Pepperwood Grove,Red Wine
-0.6875820480713551,1.1137578275824829,0,Italy,225,Frescobaldi Castiglioni Chianti Chianti DOCG,Frescobaldi,Red Wine
-1.2216265800299522,0.2543433204933932,2,Italy,226,Ferrari Carano Fume Blanc,Ferrari,White Wine
--0.7825065902497188,0.003548428696616715,0,United States,227,Line 39 Pinot Noir,Line 39,Red Wine
--0.6177736298584164,-0.08871485800354706,0,United States,228,Line 39 Cabernet Sauvignon,Line 39,Red Wine
-0.38371367897864134,-1.0820399076067,1,United States,229,Line 39 Sauvignon Blanc,Line 39,White Wine
--0.11317708981839592,-1.3840198417709646,1,United States,230,Cambria Katherine’s Vineyard Chardonnay,Cambria,White Wine
--0.8229380377271399,0.49955839602896207,0,United States,231,SIMI Sonoma County Cabernet Sauvignon,SIMI,Red Wine
-0.141298119323627,-0.5315766905531643,1,United States,232,SIMI Sonoma County Chardonnay,SIMI,White Wine
-0.1481213441172221,-0.5816386825841006,1,United States,233,SIMI Sonoma County Sauvignon Blanc,SIMI,White Wine
--0.3115787538633202,-0.48153873226186206,1,United States,234,Matanzas Creek Alexander Valley Chardonnay,Matanzas Creek,White Wine
-2.307654007243879,0.5484912244558681,2,Italy,235,Tiamo Organic Pinot Grigio,Tiamo,White Wine
-0.2870001873897308,1.6746716675190625,0,Argentina,236,Kaiken Estate Malbec,Kaiken,Red Wine
--1.840351320479007,0.5830242017154258,0,United States,237,Klinker Brick Old Vine Zinfandel,Klinker Brick,Red Wine
--0.8122321172090589,-0.7264734317760658,0,United States,238,CK Mondavi Cabernet Sauvignon,CK Mondavi,Red Wine
-0.12544991712489717,-1.6791790459350913,1,United States,239,CK Mondavi Chardonnay,CK Mondavi,White Wine
-0.36485698875493006,-1.8044540946623442,1,United States,240,CK Mondavi Pinot Grigio,CK Mondavi,White Wine
--0.7795224710143541,-0.7470228107114315,0,United States,241,CK Mondavi Merlot,CK Mondavi,Red Wine
--0.8594247075679012,-0.43753164515526777,0,United States,242,Cycles Gladiator Pinot Noir,Cycles Gladiator,Red Wine
-0.1747453689058135,1.4047718052839486,0,Argentina,243,Doña Paula Estate Malbec,Dona Paula,Red Wine
-3.3872582674652096,0.6696735677966391,2,New Zealand,244,Oyster Bay Marlborough Sauvignon Blanc,Oyster Bay,White Wine
-1.3728208701593767,2.027248372754099,2,New Zealand,245,Oyster Bay Marlborough Pinot Noir,Oyster Bay,Red Wine
-2.7677531888258833,0.799648982748182,2,New Zealand,246,Oyster Bay Hawke’s Bay Pinot Gris,Oyster Bay,White Wine
-2.766393805692712,0.7998773724497192,2,New Zealand,247,Oyster Bay Marlborough Chardonnay,Oyster Bay,White Wine
-1.6526988941409828,1.8487560027552175,2,New Zealand,248,Oyster Bay Hawke’s Bay Merlot,Oyster Bay,Red Wine
--0.8130279335986224,0.04371999104983127,0,United States,249,Liberty School Cabernet Sauvignon,Liberty School,Red Wine
--1.3205130943228625,0.11811283638683473,0,United States,250,Franciscan Cabernet Sauvignon,Franciscan,Red Wine
--0.4304365524073415,0.26762727866135677,0,United States,251,Meiomi Pinot Noir,Meiomi Wines,Red Wine
--0.13669539901519256,-0.6189439537570597,1,United States,252,Meiomi Chardonnay,Meiomi Wines,White Wine
-2.9222222899310375,0.7030513448934249,2,New Zealand,253,Nobilo Sauvignon Blanc,Nobilo,White Wine
--1.5238936737789694,0.08768814908947282,0,United States,254,DAOU Vineyards Cabernet Sauvignon,Daou Vineyards,Red Wine
--4.3000332153113225,6.696633924946436,0,France,255,Dom Pérignon Vintage Champagne,Dom Perignon Champagne,Others
--1.0806381075117866,-0.6410056030207688,0,United States,256,A to Z Pinot Noir,A to Z,Red Wine
--0.1987008892654972,-1.6343762278601723,1,United States,257,A to Z Pinot Gris,A to Z,White Wine
-0.02151837316243359,-1.745187350627627,1,United States,258,A to Z Chardonnay,A to Z,White Wine
--1.4173655089310322,-0.3458828510995994,0,United States,259,Adelsheim Willamette Valley Pinot Noir,Adelsheim,Red Wine
--0.711248120316965,-0.06323462667611761,0,United States,260,Leese-Fitch Cabernet Sauvignon,Leese-Fitch,Red Wine
-1.2025134475682941,-0.3955050453381194,1,Chile,261,Carta Vieja Sauvignon Blanc,Carta Vieja,White Wine
-1.0833722454035426,0.9441314063810152,1,Chile,262,Veramonte Organic Reserva Sauvignon Blanc,Veramonte,White Wine
-0.01493817914593031,1.5176621772166747,0,Argentina,263,Finca de los Padrillos Malbec,Ernesto Catena,Red Wine
--1.0197780933577423,0.23901546368647048,0,United States,264,Louis M. Martini Sonoma County Cabernet Sauvignon,Louis M. Martini,Red Wine
-1.1276330357824826,0.8151773170380618,2,Italy,265,Gabbiano Chianti,Gabbiano,Red Wine
-0.5038697005222668,1.8798191770274781,0,Argentina,266,Revolution El Libre Malbec,Revolution Wine Company,Red Wine
-0.3865191335212115,1.9693329287756056,0,Argentina,267,Argentine Revolution Malbec,Revolution Wine Company,Red Wine
-1.1081868255459817,1.5858702446163038,2,France,268,Le Grand Noir Pinot Noir,Le Grand Noir,Red Wine
--1.1727400176139258,0.4021325718705922,0,United States,269,Noble Vines 337 Cabernet Sauvignon,Noble Vines,Red Wine
--1.1399672324572765,-0.46299148378912414,0,United States,270,Broadside Paso Robles Cabernet Sauvignon,Broadside,Red Wine
-1.6964337411044286,-0.192445861610695,2,Italy,271,Chloe Pinot Grigio,Chloe,White Wine
--0.32673149217622977,-1.2316940395926557,1,United States,272,Chloe Chardonnay,Chloe,White Wine
--0.928920822650878,-0.4544693581371055,0,United States,273,Chloe Pinot Noir,Chloe,Red Wine
--2.21539836475899,0.8959652172739999,0,United States,274,Freemark Abbey Napa Valley Cabernet Sauvignon,Freemark Abbey,Red Wine
--1.3232555849580856,0.10777253063157086,0,United States,275,Hahn Cabernet Sauvignon,Hahn,Red Wine
--0.4594237433122865,-0.8188618272047827,1,United States,276,Hahn Chardonnay,Hahn,White Wine
-2.386062197340411,0.5721908093248591,2,Italy,277,Voga Pinot Grigio,Voga,White Wine
--0.6353136733709103,-0.3434465066610741,0,United States,278,Erath Pinot Noir,Erath,Red Wine
--0.6306851443229808,0.4764768914451782,0,United States,279,Dreaming Tree Cabernet Sauvignon,The Dreaming Tree,Red Wine
-0.23618033512900222,-0.6273661185960632,1,United States,280,SeaGlass Sauvignon Blanc,SeaGlass,White Wine
-0.16426302393463396,-0.562063373765103,1,United States,281,Sean Minor 4B Chardonnay,Sean Minor,White Wine
-2.228412910136097,0.6918242395050669,2,Italy,282,Santa Margherita Pinot Grigio DOC,Santa Margherita,White Wine
-0.39115583028536577,1.9808331299748139,0,Italy,283,Santa Margherita Chianti Classico Riserva DOCG,Santa Margherita,Red Wine
-2.1335095880630583,0.28430292923186073,2,France,284,Pascal Jolivet Attitude Sauvignon Blanc,Domaine Pascal Jolivet,White Wine
--1.642862565046925,-0.31946004549044554,0,United States,285,Ancient Peaks Cabernet Sauvignon,Ancient Peaks,Red Wine
--0.9086169764070156,-0.7332369871578703,0,United States,286,Acrobat Pinot Noir,Acrobat,Red Wine
--0.6757541633150567,0.5202155264199609,0,United States,287,Tortoise Creek Pinot Noir,Tortoise Creek,Red Wine
--0.9635244039612644,-0.1232684992364705,0,United States,288,Grayson Cellars Cabernet Sauvigon,Grayson Cellars,Red Wine
--1.268124846231467,0.713533634375969,0,United States,289,Silver Palm Cabernet Sauvignon,Silver Palm,Red Wine
-0.5452789072038128,2.140219007732987,0,Argentina,290,Tilia Malbec,Tilia,Red Wine
-0.20819855715110575,1.240910985956098,0,Argentina,291,Cigar Box Reserve Hand Harvested Malbec,Cigar Box,Red Wine
--0.3108170630970502,1.6186983188811856,0,Argentina,292,Diamandes Perlita Malbec-Syrah,DiamAndes,Red Wine
--1.5468868604661499,0.5871327936021379,0,United States,293,Markham Merlot,Markham Vineyards,Red Wine
-0.17598733090443555,-1.8896447803958805,1,United States,294,AVA Grace Vineyards Pinot Grigio White Wine,AVA Grace Vineyards,White Wine
--0.04559930135529957,-1.7852647769198289,1,United States,295,"AVA Grace Vineyards Sauvignon Blanc White Wine – 750ml, 2017 California",AVA Grace Vineyards,White Wine
--0.006314752948482891,-0.3065409398177112,1,United States,296,Toad Hollow Chardonnay,Toad Hollow,White Wine
-2.4695437928808213,0.24813707051858408,2,Italy,297,Santa Marina Pinot Grigio,Santa Marina,White Wine
--0.6605748722090627,-0.6553041713761245,0,United States,298,Bread & Butter Pinot Noir,Bread  Butter,Red Wine
-0.00025152662904560875,-1.5041197897791956,1,United States,299,Bread & Butter Chardonnay,Bread  Butter,White Wine
--0.8582019612534656,0.8049104113027779,0,United States,300,Willamette Valley Vineyards Whole Cluster Pinot Noir,Willamette Valley Vineyards,Red Wine
--0.12820311251610383,-1.406540246360626,1,United States,301,Carmel Road Monterey Chardonnay,Carmel Road,White Wine
--1.1450405008805138,-0.4019607892136124,0,United States,302,Carmel Road Monterey Pinot Noir,Carmel Road,Red Wine
--0.9463230918110268,0.5422779635582581,0,United States,303,RouteStock Willamette Valley Pinot Noir,RouteStock,Red Wine
--1.3380118534448375,0.7675817934325332,0,United States,304,RouteStock Cabernet Sauvignon,RouteStock,Red Wine
--0.21329845987703616,-0.5479251945200443,1,United States,305,Mer Soleil Silver Unoaked Chardonnay,Mer Soleil,White Wine
--0.7637970914503852,-0.1683428247762579,1,United States,306,Mer Soleil Chardonnay,Mer Soleil,White Wine
-0.10568639425240249,-1.7722704367205806,1,United States,307,Bandit Pinot Grigio 1L Tetra Pak ®,Bandit,White Wine
--0.12620889077192907,1.163133040995453,0,Argentina,308,Antigal Uno Malbec,Antigal,Red Wine
-0.6008265471564492,0.7940416284869287,0,Argentina,309,Alamos Malbec,Alamos,Red Wine
-0.16385698843532592,0.9129750756935455,0,Argentina,310,Alamos Cabernet Sauvignon,Alamos,Red Wine
--0.04929650854523716,1.0196180351918525,0,Argentina,311,Alamos Red Blend,Alamos,Red Wine
--2.7824694242144083,1.1442510165724942,0,United States,312,Caymus Napa Valley Cabernet Sauvignon,Caymus,Red Wine
--1.3248666762333297,2.4221387083906074,0,Argentina,313,Caymus Red Schooner,Caymus,Red Wine
--0.053618676154800045,1.7108927667016833,0,Chile,314,Root:1 Cabernet Sauvignon,Root 1,Red Wine
--0.6892097905888822,0.4120437905302329,0,United States,315,Spellbound California Cabernet Sauvignon,Spellbound,Red Wine
-0.019968506220256782,-0.3263599552608392,1,United States,316,Toasted Head Chardonnay,Toasted Head,White Wine
-2.0222187323892507,0.11573338036434175,2,Italy,317,KRIS Pinot Grigio,KRIS,White Wine
--0.28809265249490923,-1.4381147079884569,1,South Africa,318,Indaba Sauvignon Blanc,Indaba,White Wine
--2.0637032642631494,0.7899834484826297,0,United States,319,Flowers Sonoma Coast Pinot Noir,Flowers Vineyards and Winery,Red Wine
--0.8639156110746724,-0.3364964614427007,1,United States,320,Flowers Sonoma Coast Chardonnay,Flowers Vineyards and Winery,White Wine
--0.21501091696915817,-0.42873768467086604,1,United States,321,Raeburn Chardonnay,Raeburn,White Wine
--0.9272007570199248,0.39180521861266804,0,United States,322,Replica Misbehaved California Pinot Noir,Replica,Red Wine
-2.5943934322590083,1.1605772685390348,2,New Zealand,323,Spy Valley Sauvignon Blanc,Spy Valley,White Wine
--0.21501091696915817,-0.42873768467086604,1,United States,324,Raeburn Chardonnay,Raeburn,White Wine
--0.9272007570199248,0.39180521861266804,0,United States,325,Replica Misbehaved California Pinot Noir,Replica,Red Wine
-2.5943934322590083,1.1605772685390348,2,New Zealand,326,Spy Valley Sauvignon Blanc,Spy Valley,White Wine
-0.3052931227766528,0.90194620548467,0,Spain,327,Montecillo Crianza,Montecillo,Red Wine
--0.5261680607946354,-0.6171667069663159,1,United States,328,Butter Chardonnay,JaM Cellars,White Wine
--1.027882916366466,-0.7597654117805968,0,United States,329,Alias Pinot Noir,Alias,Red Wine
--1.8129461773376465,0.024651655790798192,0,United States,330,Baby Blue,Blue Rock,Red Wine
--0.8510443831815567,-0.552791720307707,0,United States,331,Carnivor Cabernet Sauvignon,Carnivor,Red Wine
--0.027846747907847972,1.4300294680388737,0,Argentina,332,Crios de Susana Balbo Malbec,Crios,Red Wine
--1.0579632333650821,-0.46939429973244406,0,United States,333,Cannonball Cabernet Sauvignon,Cannonball,Red Wine
--1.0574843148376716,0.46313719057165276,0,United States,334,Oberon Napa County Cabernet Sauvignon,Oberon,Red Wine
--0.41877974789593725,0.4109752776741586,0,United States,335,The Pinot Project Pinot Noir,The Pinot Project,Red Wine
--1.278127646147501,-0.46382868295427926,0,United States,336,Averaen Willamette Valley Pinot Noir,Averaen,Red Wine
--0.7216668188409422,0.0036154378835690283,0,United States,337,Love Noir Pinot Noir Red Wine,Love Noir,Red Wine
--0.8961029835316143,-0.028616891809358114,0,United States,338,Imagery Cabernet Sauvignon,Imagery,Red Wine
--0.8977170014179228,-0.02813756938275337,0,United States,339,Imagery Pinot Noir,Imagery,Red Wine
--0.01326373811731494,-0.9784272324460526,1,United States,340,Imagery Chardonnay,Imagery,White Wine
-0.47523451246060355,-1.2318532644601876,1,United States,341,Imagery Sauvignon Blanc,Imagery,White Wine
-3.3307613529177025,0.5566604457386484,2,New Zealand,342,Matua Marlborough Sauvignon Blanc,Matua,White Wine
--0.3529568579828169,-1.2614322111292036,1,United States,343,Chime Chardonnay California,Chime,White Wine
--1.044563345622275,-0.16966120710583285,0,United States,344,Duck Pond Pinot Noir,Duck Pond,Red Wine
-1.785662753198005,0.8107484740434864,2,New Zealand,345,Cloudy Bay Sauvignon Blanc,Cloudy Bay,White Wine
-2.5270135162115612,0.852732658688658,2,New Zealand,346,Loveblock Sauvignon Blanc,Loveblock,White Wine
-0.7073582815532995,2.366004113719549,2,New Zealand,347,Loveblock Pinot Noir,Loveblock,Red Wine
--0.09938534579936525,-1.2412694405681228,1,United States,348,Conundrum White Blend,Conundrum,White Wine
--1.2800585753533702,-0.48473568245933385,0,United States,349,Aviary Cabernet Sauvignon,Aviary Vineyards,Red Wine
-1.9493815811114246,0.26283123826744936,2,Italy,350,Luna Nuda Pinot Grigio,Luna Nuda,White Wine
--0.04145589138910781,-0.9372716708206457,1,United States,351,Honig Napa Valley Sauvignon Blanc,Honig,White Wine
--2.23502698553669,0.9634039486608474,0,United States,352,Honig Cabernet Sauvignon,Honig,Red Wine
-0.6276181750346963,-1.983572658121973,1,United States,353,BABE Grigio with Bubbles,BABE,White Wine
-2.3911741287735264,-0.7577513547257397,2,Italy,354,Ca’ Donini Pinot Grigio,Ca Donini,White Wine
--1.4257672386092757,0.6702949986036896,0,United States,355,Paul Dolan Vineyards Organically Grown Cabernet Sauvignon,Paul Dolan,Red Wine
-0.3994635060987175,1.9610473508054893,0,Argentina,356,Punto Final Malbec Clásico,Renacer,Red Wine
--0.510451268052777,1.722519897747022,0,Argentina,357,Domaine Jean Bousquet Cabernet Sauvignon,Domaine Jean Bousquet,Red Wine
-0.22150629421480308,1.7891416729944403,0,Argentina,358,La Posta Pizzella Malbec,La Posta,Red Wine
-0.34259939749622587,-1.3401631292393887,1,United States,359,Emmolo Sauvignon Blanc,Emmolo,White Wine
--0.9821187748704274,0.8172914692597034,0,United States,360,Textbook Cabernet Sauvignon,Textbook,Red Wine
--1.557825494815235,-0.2277605153403391,0,United States,361,Benton-Lane Estate Pinot Noir,Benton Lane,Red Wine
-2.5420342616890297,1.3585029334760113,2,New Zealand,362,Wairau River Sauvignon Blanc,Wairau River,White Wine
--2.4088606927223544,1.5489338732448867,0,United States,363,Quilt Cabernet Sauvignon,Quilt Wines,Red Wine
--0.8851917345201258,0.049908794093701324,1,United States,364,Quilt Napa Valley Chardonnay,Quilt Wines,White Wine
--0.9422159826611686,-0.7431212311971324,0,United States,365,Auspicion Cabernet Sauvignon,Auspicion,Red Wine
-2.126106472016723,-0.10796998863182607,2,Italy,366,Gemma Di Luna Pinot Grigio DOC Delle Venezie,Gemma Di Luna,White Wine
-2.0577782189382896,0.4267012002112165,2,Italy,367,Riff Pinot Grigio DOC,Riff,White Wine
-0.06367172093521689,0.009586268448296395,0,Spain,368,Altos Hormigas Malbec,Altos Las Hormigas,Red Wine
--0.544582648485823,-0.6681019214814848,1,South Africa,369,Southern Right Sauvignon Blanc,Southern Right,White Wine
-0.5093792817217194,0.27231968046935456,0,Spain,370,Flaco Tempranillo,Flaco,Red Wine
-0.2730046465247857,1.2913239933765595,0,Argentina,371,Diseno Malbec,Diseno,Red Wine
--1.0783990336495433,-0.10706150371916637,0,United States,372,Folly Of The Beast Pinot Noir,Folly of the Beast,Red Wine
--1.5762022322358444,0.3648074609714733,0,United States,373,Hahn SLH Pinot Noir,Hahn SLH,Red Wine
--1.471419987573925,0.35145549747127663,0,United States,374,INTRINSIC Cabernet Sauvignon,Intrinsic Wine Co.,Red Wine
-0.27230411480468697,0.8412663784703872,0,Spain,375,Martin Codax Ergo Rojo Spanish Red Blend,Martin Codax,Red Wine
--2.3679635239407606,0.9675690629511693,0,United States,376,Faust Cabernet Sauvignon,Faust,Red Wine
--1.8915271298597147,1.0144741883809334,0,United States,377,Jordan Cabernet Sauvignon,Jordan,Red Wine
--1.293498740084763,0.9371149181778206,0,United States,378,True Myth Cabernet Sauvignon,True Myth,Red Wine
-0.5533012700822766,-0.916162347608363,1,United States,379,Pomelo Sauvignon Blanc,Pomelo,White Wine
-2.9802066573549677,-0.6214398771431027,2,Germany,380,Clean Slate Riesling,Clean Slate,White Wine
-0.5158362352553346,-0.6280146597159573,1,United States,381,THRIVE Sauvignon Blanc,THRIVE,White Wine
-2.2594053240045775,0.62710151415969,2,Italy,382,Torresella Pinot Grigio Venezia DOC,Torresella,White Wine
-1.8200453561023129,-0.5371730393773341,2,Italy,383,Benvolio Friuli Pinot Grigio,Benvolio,White Wine
-3.322595019761491,0.8658232495861371,2,New Zealand,384,Starborough Sauvignon Blanc,Starborough,White Wine
--1.7294339548196853,-0.3691301537317731,0,United States,385,7 Deadly Zins Zinfandel,7 Deadly Zins,Red Wine
-2.4910843746327282,-0.20794514233384828,2,New Zealand,386,"13 Celsius® Sauvignon Blanc – 750ml, Marlborough, New Zealand",13 Celsius,White Wine
-1.7031403895309114,-0.6083461483923797,2,Italy,387,"13 Celsius® Pinot Grigio – 750ml, Delle Venezie D.O.C., Italy",13 Celsius,White Wine
-0.06581196317333689,1.0206397265130134,0,Spain,388,Montebuena Rioja,Montebuena,Red Wine
-0.9195888328439049,1.0071667689813115,2,Italy,389,IL Bastardo Sangiovese,IL Bastardo,Red Wine
-0.14963346787838247,1.073404495317786,0,Argentina,390,Bodini Malbec,Bodini,Red Wine
--0.7112190503602385,-0.7646838895824529,0,United States,391,Block Nine Pinot Noir,Block Nine,Red Wine
--1.4564265755669878,0.8529184371487555,0,United States,392,Smith & Hook Cabernet Sauvignon Central Coast,Smith and Hook,Red Wine
--1.6927370446772694,-0.12668001609545626,0,United States,393,Bonanza Cabernet Sauvignon by Chuck Wagner,Bonanza,Red Wine
--1.2054279748938594,0.5065189530660593,0,United States,394,Pendulum Cabernet Sauvignon,Pendulum,Red Wine
--1.1247091425921325,-0.32215279824704,0,United States,395,Chop Shop Cabernet Sauvignon,Chop Shop,Red Wine
--0.805688466274792,0.5523487967770614,0,United States,396,"Stave and Steel Cabernet Sauvignon Red Wine – 750ml, California",Stave  Steel,Red Wine
--1.1432463472762766,0.45089531523507065,0,United States,397,One Stone Cabernet Sauvignon,One Stone Cellars,Red Wine
--0.3968239242775829,-0.8266657630308077,1,United States,398,Harken Chardonnay,Harken,White Wine
-3.9592583637643033,-0.9749762152288266,2,Germany,399,Dr Loosen “L” Riesling,Dr. L Rieslings,White Wine
-2.128664190669916,1.0331694568422864,2,New Zealand,400,Monkey Bay Sauvignon Blanc,Monkey Bay,White Wine
-2.705132212077615,0.775936086189519,2,New Zealand,401,Mohua Sauvignon Blanc,Mohua,White Wine
-2.6269812588550177,0.4036346531953832,2,New Zealand,402,Frenzy Sauvignon Blanc,Frenzy,White Wine
-2.4869230097988826,0.9479780678242647,2,New Zealand,403,Ottos Dream Sauvignon Blanc,Ottos Dream,White Wine
-2.55774307940174,1.0678997545730158,2,New Zealand,404,Sea Pearl Sauvignon Blanc,Sea Pearl,White Wine
+1.4023431791070469,1.5165558463666513,2,France,0,Louis Jadot Beaujolais Villages,Louis Jadot,Red Wine
+2.5842721421973542,-0.24426795964344386,2,New Zealand,1,90+ Cellars Sauvignon Blanc (Lot 2),90 Cellars,White Wine
+1.5520790318065896,-0.5179559496949103,2,Italy,2,90+ Cellars Pinot Grigio (Lot 42),90 Cellars,White Wine
+-0.7163233869070843,-0.9326974469162768,0,United States,3,90+ Cellars Pinot Noir,90 Cellars,Red Wine
+-0.32658912712156324,0.6231332746780055,0,Chile,4,90+ Cellars Cabernet Sauvignon Lot 53,90 Cellars,Red Wine
+-0.04159685898010996,0.9843137845643004,0,Argentina,5,90+ Cellars Old Vine Malbec (Lot 23),90 Cellars,Red Wine
+-0.7717660664812837,-0.8289776019755285,0,United States,6,Beringer Main & Vine Cabernet Sauvignon,Beringer Vineyards,Red Wine
+0.5449151603032015,-1.9739074103165608,1,United States,7,Beringer Main & Vine Pinot Grigio,Beringer Vineyards,White Wine
+-1.7680940966028684,-0.03617826514641018,0,United States,8,Beringer Knights Valley Cabernet Sauvignon,Beringer Vineyards,Red Wine
+-0.819006853381916,-0.21432141377008834,0,United States,9,Francis Coppola Diamond Collection Cabernet Sauvignon,Francis Ford Coppola,Red Wine
+0.032805241325312505,-1.1724487419823848,1,United States,10,Francis Coppola Diamond Collection Chardonnay,Francis Ford Coppola,White Wine
+-0.024938591714596166,-1.1377690209435298,1,United States,11,Francis Coppola Diamond Collection Sauvignon Blanc,Francis Ford Coppola,White Wine
+1.388082689736644,-2.255245114660343,1,United States,12,Barefoot Pinot Grigio,Barefoot,White Wine
+0.29585554031179234,-1.8235787690198348,1,United States,13,Barefoot Chardonnay,Barefoot,White Wine
+-0.6126012767221042,-0.906307256240166,0,United States,14,Barefoot Merlot,Barefoot,Red Wine
+2.8639122774838506,-3.1765998471711585,1,United States,15,Barefoot Riesling,Barefoot,White Wine
+-0.6902487889803149,-0.8725877820849346,0,United States,16,Barefoot Cabernet Sauvignon,Barefoot,Red Wine
+-0.7079167763622259,-0.8662889614684817,0,United States,17,Barefoot Pinot Noir,Barefoot,Red Wine
+0.3512663312715265,-1.8781167610918712,1,United States,18,Barefoot Sauvignon Blanc,Barefoot,White Wine
+-0.5541388620740382,-0.9671861955094839,0,United States,19,Barefoot Malbec,Barefoot,Red Wine
+1.2186536260107192,1.2703114819443175,2,France,20,Louis Latour Pouilly Fuisse,Louis Latour,White Wine
+-0.014842630780525924,-1.390117986795047,1,United States,21,Chateau Ste. Michelle Chardonnay,Chateau Ste. Michelle,White Wine
+0.9492417272848392,-1.893135471410477,1,United States,22,Chateau Ste. Michelle Riesling,Chateau Ste. Michelle,White Wine
+-0.8072960353898869,-0.46873336816810385,0,United States,23,Chateau Ste. Michelle Cabernet Sauvignon,Chateau Ste. Michelle,Red Wine
+1.7429729125087736,0.26635855072618314,2,France,24,Chateau Ste. Michelle Sauvignon Blanc,Chateau Ste. Michelle,White Wine
+-1.4742286496136607,-0.12725431943867496,0,United States,25,Chateau Ste. Michelle Indian Wells Cabernet Sauvignon,Chateau Ste. Michelle,Red Wine
+-0.9324375063105017,-0.44208828055754695,0,United States,26,Chateau Ste. Michelle Merlot,Chateau Ste. Michelle,Red Wine
+1.5137704321084078,-2.240849100745869,1,United States,27,Chateau Ste. Michelle Harvest Select Riesling,Chateau Ste. Michelle,White Wine
+0.5270898236347212,-1.7311211021579718,1,United States,28,Chateau Ste. Michelle Dry Riesling,Chateau Ste. Michelle,White Wine
+0.24930713360048393,-1.5769182015111216,1,United States,29,Chateau Ste. Michelle Pinot Gris,Chateau Ste. Michelle,White Wine
+-0.403270094064004,-1.1695772774701945,1,United States,30,Chateau Ste. Michelle Indian Wells Chardonnay,Chateau Ste. Michelle,White Wine
+-0.14002737566681142,-1.282464561973501,1,United States,31,Cupcake® Vineyards Chardonnay White Wine,Cupcake,White Wine
+0.5890569242407082,-1.670106089256967,1,United States,32,Cupcake® Vineyards Pinot Grigio White Wine,Cupcake,White Wine
+5.304292764289089,-3.655330350910245,2,United States,33,Cupcake® Vineyards Cabernet Sauvignon Red Wine,Cupcake,Red Wine
+-0.7908176481643211,-0.49957226456034254,0,United States,34,Cupcake® Vineyards Pinot Noir Red Wine,Cupcake,Red Wine
+-0.5761181342872443,-0.6071663479489785,0,United States,35,Cupcake® Vineyards Malbec Red Wine,Cupcake,Red Wine
+0.6671268476980348,-1.1012436416597386,1,United States,36,Kendall-Jackson Vintner’s Reserve Chardonnay,Kendall-Jackson,White Wine
+-0.8166586367077912,0.07962630514378613,0,United States,37,Kendall-Jackson Vintner’s Reserve Cabernet Sauvignon,Kendall-Jackson,Red Wine
+0.14669146657222945,-0.9817500476551787,1,United States,38,Kendall-Jackson Vintner’s Reserve Sauvignon Blanc,Kendall-Jackson,White Wine
+-0.5433689833445623,-0.5808088214834263,1,United States,39,Kendall-Jackson Grand Reserve Chardonnay,Kendall-Jackson,White Wine
+0.0469831684882949,-0.9346079435246002,1,United States,40,Kendall-Jackson Avant Chardonnay,Kendall-Jackson,White Wine
+-1.4391203718493293,0.37283609856611405,0,United States,41,Kendall-Jackson Vintner’s Reserve Merlot,Kendall-Jackson,Red Wine
+-1.3675719995670508,0.2989942483256484,0,United States,42,Kendall-Jackson Vintner’s Reserve Pinot Noir,Kendall-Jackson,Red Wine
+0.038913079056751454,-0.9322113313915765,1,United States,43,Kendall-Jackson Vintner’s Reserve Pinot Gris,Kendall-Jackson,White Wine
+0.32967415480236056,-1.1058713100098152,1,United States,44,Kendall-Jackson Vintner’s Reserve Riesling,Kendall-Jackson,White Wine
+0.2610497746235566,2.311822722899716,0,Argentina,45,Trapiche Oak Cask Malbec,Trapiche,Red Wine
+0.7940189042837092,2.0101274355784806,0,Argentina,46,Trapiche Malbec,Trapiche,Red Wine
+-0.33898648452715263,2.6684977795005183,0,Argentina,47,Trapiche Broquel Malbec,Trapiche,Red Wine
+0.6673236113601957,-0.7806540753299865,1,United States,48,Sutter Home Chardonnay,Sutter Home,White Wine
+0.35689975273258057,-0.6342888398321249,1,United States,49,Sutter Home Sauvignon Blanc,Sutter Home,White Wine
+-0.1910699900613056,-1.2809811054441171,1,United States,50,Clos Du Bois Chardonnay,Clos du Bois,White Wine
+-0.859943323380884,-0.4836023390476292,0,United States,51,Clos du Bois Cabernet Sauvignon North Coast,Clos du Bois,Red Wine
+0.9920755205296979,-0.4493599035298355,0,United States,52,Josh Cellars Cabernet Sauvignon,Josh Cellars,Red Wine
+0.5091372307224008,-1.0787663160299137,1,United States,53,Josh Cellars Chardonnay,Josh Cellars,White Wine
+0.2339128914069712,-1.0165354558063902,1,United States,54,Josh Cellars Sauvignon Blanc,Josh Cellars,White Wine
+-0.9385541372647389,0.04527281742302482,0,United States,55,Josh Cellars Merlot,Josh Cellars,Red Wine
+0.6527899302667546,-0.546144743019269,1,United States,56,Woodbridge Chardonnay by Robert Mondavi,Woodbridge By Robert Mondavi,White Wine
+-0.21158312767984927,0.3543534442954665,0,United States,57,Woodbridge Cabernet Sauvignon by Robert Mondavi,Woodbridge By Robert Mondavi,Red Wine
+0.45705872583666385,-0.4966078535155692,1,United States,58,Woodbridge Pinot Grigio by Robert Mondavi,Woodbridge By Robert Mondavi,White Wine
+0.6881450666313321,-0.6159056028882605,1,United States,59,Woodbridge Sauvignon Blanc by Robert Mondavi,Woodbridge By Robert Mondavi,White Wine
+-0.42190673570762055,0.4238267341971591,0,United States,60,Woodbridge Merlot by Robert Mondavi,Woodbridge By Robert Mondavi,Red Wine
+2.605232307390159,1.258506085294269,2,New Zealand,61,Tussock Jumper Sauvignon Blanc,Tussock Jumper,White Wine
+0.46062713379528564,-1.4257309403669394,1,United States,62,Gallo Family Vineyards Chardonnay,Gallo Family Vineyards,White Wine
+0.5230246684384071,-1.3624029242233668,1,United States,63,Ferrari-Carano Sonoma Chardonnay,Ferrari-Carano,White Wine
+-0.011156258524844422,-1.4519934889369166,1,United States,64,Chateau St. Jean Chardonnay California,Chateau St. Jean,White Wine
+-1.271211418622977,0.644499479431392,0,United States,65,Rodney Strong Sonoma County Cabernet Sauvignon,Rodney Strong,Red Wine
+-0.4380459168170442,-0.2730277522994798,1,United States,66,Rodney Strong Chalk Hill Chardonnay,Rodney Strong,White Wine
+-1.4372652244630602,0.7814695802037056,0,United States,67,Rodney Strong Alexander Valley Cabernet Sauvignon,Rodney Strong,Red Wine
+-1.9870760535168381,1.2093018662918922,0,United States,68,Rodney Strong Alexander’s Crown Cabernet Sauvignon,Rodney Strong,Red Wine
+-0.8274116900176932,0.12263287782961223,0,United States,69,Menage A Trois Lavish Merlot,Menage a Trois Wine,Red Wine
+-0.8815666764177805,0.17377806769634158,0,United States,70,Menage A Trois Cabernet Sauvignon,Menage a Trois Wine,Red Wine
+0.3529054517189124,-0.9563064299098836,1,United States,71,Menage A Trois Pinot Grigio,Menage a Trois Wine,White Wine
+3.4300153895465724,2.1824918010703636,2,Australia,72,[ yellow tail ] Chardonnay,Yellow Tail,White Wine
+2.5354070385975267,3.0972284841095936,2,Australia,73,[ yellow tail ] Cabernet Sauvignon,Yellow Tail,Red Wine
+4.228106546725964,1.7252638391736843,2,Australia,74,[ yellow tail ] Pinot Grigio,Yellow Tail,White Wine
+2.388531410943436,3.1408468249306254,2,Australia,75,[ yellow tail ]  Merlot,Yellow Tail,Red Wine
+3.9063845628941887,1.8749843316577792,2,Australia,76,[ yellow tail ] Sauvignon Blanc,Yellow Tail,White Wine
+2.3332197626222015,3.148682663319713,2,Australia,77,[ yellow tail ]  Pinot Noir,Yellow Tail,Red Wine
+4.111646617507917,1.7633557411107639,2,Australia,78,[ yellow tail ] Riesling,Yellow Tail,White Wine
+0.2883190327583367,-0.8746768697799593,1,United States,79,La Crema Sonoma Coast Chardonnay,La Crema Wines,White Wine
+-0.6519032348286657,0.12723730557668217,0,United States,80,La Crema Sonoma Coast Pinot Noir,La Crema Wines,Red Wine
+-0.8408391679103765,0.10340392157415373,0,United States,81,La Crema Monterey Pinot Noir,La Crema Wines,Red Wine
+-0.17124761554275886,-0.747449242480984,1,United States,82,La Crema Monterey Chardonnay,La Crema Wines,White Wine
+-1.6312336972619168,0.5965531324295997,0,United States,83,La Crema Williamette Valley Pinot Noir,La Crema Wines,Red Wine
+-0.8025494382477062,-0.30211201834037343,1,United States,84,La Crema Russian River Valley Chardonnay,La Crema Wines,White Wine
+-1.8526956965211918,0.8025718591763317,0,United States,85,La Crema Russian River Valley Pinot Noir,La Crema Wines,Red Wine
+-0.5539337432362639,-0.605921088398909,0,United States,86,Bota Box Cabernet Sauvignon,Bota Box Wines,Red Wine
+0.6946736606357781,-1.824421362451414,1,United States,87,Bota Box Pinot Grigio,Bota Box Wines,White Wine
+0.307031712675771,-1.515756353820871,1,United States,88,Bota Box Sauvignon Blanc,Bota Box Wines,White Wine
+0.4396588345990052,-1.7486884190478642,1,United States,89,Bota Box Chardonnay,Bota Box Wines,White Wine
+0.1689564855722324,1.2343302912960679,0,Argentina,90,Bota Box Malbec,Bota Box Wines,Red Wine
+-1.0671914310824264,-0.45349655673859995,0,United States,91,Bota Box Merlot,Bota Box Wines,Red Wine
+0.23869295330554077,-1.602232482536474,1,United States,92,Bota Box Riesling,Bota Box Wines,White Wine
+-0.7169566814855947,-0.8125238825371273,0,United States,93,Black Box Cabernet Sauvignon,Black Box Wines,Red Wine
+-0.522713702143752,-1.1370882065345633,1,United States,94,Black Box Chardonnay,Black Box Wines,White Wine
+-0.1391266141758993,-1.359358280819389,1,United States,95,Black Box Sauvignon Blanc,Black Box Wines,White Wine
+-1.35558393098902,-0.3276412580646728,0,United States,96,Black Box Merlot,Black Box Wines,Red Wine
+0.4279076655142278,-1.741295116250264,1,United States,97,Black Box Riesling,Black Box Wines,White Wine
+3.001501876834431,1.6592144929735164,2,Australia,98,Lindeman’s Bin 65 Chardonnay,Lindemans Wine,White Wine
+0.4849541917548947,-1.2900817705747711,1,United States,99,Franzia® Chardonnay White Wine,Franzia,White Wine
+0.34453463564603887,-1.2483807194601582,1,United States,100,Franzia® Rich & Buttery Chardonnay White Wine,Franzia,White Wine
+-1.1130649287540895,-0.16731070161723524,0,United States,101,Estancia Cabernet Sauvignon,Estancia,Red Wine
+-0.20476220802605657,-1.1422143147606978,1,United States,102,Estancia Reserve Chardonnay,Estancia,White Wine
+-0.20637622591236526,-1.141734992334093,1,United States,103,Estancia Pinot Grigio,Estancia,White Wine
+0.5526784136915668,1.705489845533545,0,Italy,104,Ruffino Chianti DOCG,Ruffino,Red Wine
+-0.20522478110856818,2.4312608344320994,0,Italy,105,Ruffino Riserva Ducale Oro Chianti Classico,Ruffino,Red Wine
+0.8736772659287451,1.5882360300694605,2,Italy,106,Ruffino Aziano Chianti Classico,Ruffino,Red Wine
+-0.5985272557737391,-0.5368670502295777,0,United States,107,Dark Horse Cabernet Sauvignon,Dark Horse Wine,Red Wine
+0.4324416634854047,-1.5497828339148945,1,United States,108,Dark Horse Sauvignon Blanc,Dark Horse Wine,White Wine
+0.10426360810839409,-1.3981450517243807,1,United States,109,Dark Horse Chardonnay,Dark Horse Wine,White Wine
+-0.7792972590403121,-0.48318293844984617,0,United States,110,Dark Horse Merlot,Dark Horse Wine,Red Wine
+-0.29094252392432146,-0.0284052284277132,0,United States,111,Rex Goliath Pinot Noir,Rex Goliath,Red Wine
+0.07072699984162618,-0.6870369131724894,1,United States,112,Rex Goliath Chardonnay,Rex Goliath,White Wine
+-0.7858968460474738,0.22693809329283984,0,United States,113,Rex Goliath Cabernet Sauvignon,Rex Goliath,Red Wine
+0.06528946730894092,-0.6861233543663409,1,United States,114,Rex Goliath Pinot Grigio,Rex Goliath,White Wine
+0.03142914416786497,0.7304567279811859,0,Chile,115,Concha y Toro Casillero Del Diablo Cabernet Sauvignon,Casillero del Diablo,Red Wine
+0.014368615707662687,0.7472692205607151,0,Chile,116,Concha Y Toro Casillero del Diablo Malbec,Casillero del Diablo,Red Wine
+-0.8304201381920906,-0.881978244242008,0,United States,117,14 Hands Cabernet Sauvignon,14 Hands,Red Wine
+-0.9401733544610816,-0.8493843192328854,0,United States,118,14 Hands Merlot,14 Hands,Red Wine
+-0.12117320276472292,-1.7451735354432298,1,United States,119,14 Hands Chardonnay,14 Hands,White Wine
+0.14692537995166205,-1.896500501530452,1,United States,120,14 Hands Pinot Grigio,14 Hands,White Wine
+-1.1611411254372708,0.17402582572569153,0,United States,121,J. Lohr Estates Seven Oaks Cabernet Sauvignon Paso Robles CA,J. Lohr Wines,Red Wine
+-0.1298552651276959,-0.8861601562278467,1,United States,122,J. Lohr Estates Riverstone Chardonnay Monterey Arroyo Seco CA,J. Lohr Wines,White Wine
+-0.9751172619338893,0.014372087149647647,0,United States,123,J. Lohr Estates Los Osos Merlot Paso Robles CA,J. Lohr Wines,Red Wine
+-0.7978919700209435,-0.7110636530612877,0,United States,124,Bogle Merlot,Bogle,Red Wine
+-0.002200173469206884,0.8578462104359239,0,Chile,125,Cono Sur Bicicleta Pinot Noir,Cono Sur,Red Wine
+0.17200851668410247,-1.1253615673104953,1,United States,127,Hess Select Monterey Chardonnay,Hess Collection,White Wine
+-0.9075170551953048,-0.04287568877821998,0,United States,128,Hess Select North Coast Cabernet Sauvignon,Hess Collection,Red Wine
+-0.08856119290154513,-1.002567383877923,1,United States,129,Hess Select Sauvignon Blanc,Hess Collection,White Wine
+-0.03795226824998171,1.3325299639443187,0,Chile,130,House Wine Cabernet Sauvignon,House Wine,Red Wine
+0.13221134574275392,-1.0188888586771148,1,United States,131,House Wine Pinot Grigio 3L Box,House Wine,White Wine
+0.3574177777208762,1.1152830857923839,0,Chile,132,House Wine Malbec 3L Box,House Wine,Red Wine
+1.1815305912265637,0.2311239875630379,1,Chile,133,House Wine Sauvignon Blanc,House Wine,White Wine
+0.9845172731090878,0.3329737227952966,1,Chile,134,House Wine Chardonnay,House Wine,White Wine
+0.44295478822090445,1.9924866830369785,0,Argentina,135,Santa Julia Organic Malbec,Santa Julia,Red Wine
+1.776812904899736,0.6374958069161468,2,France,136,Gerard Bertrand Cote Des Roses Chardonnay,Gerard Bertrand,White Wine
+0.2524033552722132,0.8051791519043762,0,Italy,137,Villa Antinori Toscana Rosso,Antinori,Red Wine
+0.6880356321557084,0.4754194347367929,0,Italy,138,Santa Cristina Rosso Toscana,Antinori,Red Wine
+2.0030166316864015,-0.670057325101435,2,Italy,139,Santa Cristina Pinot Grigio,Antinori,White Wine
+0.30997725306628,0.8390915418965685,0,Italy,140,Antinori Pèppoli Chianti Classico,Antinori,Red Wine
+0.09315053888957384,-0.9939342348937441,1,United States,141,Joel Gott Sauvignon Blanc,Joel Gott,White Wine
+-1.0899839180449902,0.5314821764828939,0,United States,142,Robert Mondavi Bourbon Barrel Aged Cabernet Sauvignon Private Selection,Robert Mondavi Private Selection,Red Wine
+0.17769562235626496,-0.6585016745463231,1,United States,143,Robert Mondavi Buttery Chardonnay Private Selection,Robert Mondavi Private Selection,White Wine
+0.271572865367866,1.6109252620880345,0,Chile,144,Smoking Loon Cabernet Sauvignon,Smoking Loon,Red Wine
+2.658717161558194,1.2624330283130418,2,New Zealand,145,Villa Maria Private Bin Sauvignon Blanc,Villa Maria,White Wine
+-1.0813988070376608,-0.6809689871617246,0,United States,146,Angeline Pinot Noir,Angeline Winery,Red Wine
+-0.18168530436638544,-1.6195939067609768,1,United States,147,Angeline Reserve Sauvignon Blanc,Angeline Winery,White Wine
+-1.1969086748444846,-0.6154937720405608,0,United States,148,Angeline Reserve Merlot,Angeline Winery,Red Wine
+-0.1108696215325114,2.084790004303723,0,Argentina,149,Luigi Bosca Malbec,Luigi Bosca,Red Wine
+-1.2401827485726096,0.8094579452710005,0,United States,150,Siduri Willamette Valley Pinot Noir,Siduri,Red Wine
+-0.6793963729045748,0.03296269040094743,0,United States,151,"McManis Cabernet Sauvignon Red Wine – 750ml, California",McManis,Red Wine
+-0.6955365517676616,0.03775591466699498,0,United States,152,"McManis Pinot Noir Red Wine – 750ml, Lodi, California",McManis,Red Wine
+0.6986746809458946,-1.5352330821281355,1,United States,153,Gato Negro Sauvignon Blanc,Gato Negro,White Wine
+-0.41604276296769876,-0.48868047541883003,0,United States,154,Gato Negro Malbec,Gato Negro,Red Wine
+0.20670681453043996,0.950435007304584,0,Chile,155,Frontera Malbec,Frontera,Red Wine
+1.043715797729331,0.0491223116765196,1,Chile,156,Frontera Chardonnay,Frontera,White Wine
+-1.3934419719863982,-0.166964924229571,0,United States,157,Columbia Crest H3 Cabernet Sauvignon,Columbia Crest,Red Wine
+-0.8407877436658181,-0.4936152664501505,0,United States,158,Columbia Crest Grand Estates Merlot,Columbia Crest,Red Wine
+-1.1182608636672504,-0.5531148219910053,1,United States,159,Cakebread Cellars Napa Valley Chardonnay,Cakebread Cellars,White Wine
+-0.16346073989154095,-0.8499493323246441,1,United States,160,J Vineyards & Winery Pinot Gris,J Vineyards,White Wine
+-1.615731815579053,0.9373779046542954,0,United States,161,Ridge Three Valleys,Ridge Vineyards,Red Wine
+-1.7712775955507105,1.064531565162563,0,United States,162,Ridge Ponzo Zinfandel,Ridge Vineyards,Red Wine
+-0.17109904717788482,-1.0926873584237011,1,United States,163,Four Vines Naked Chardonnay,Four Vines,White Wine
+-0.8153470238061135,-0.21215658672632998,0,United States,164,Decoy California Cabernet Sauvignon,Decoy Wines,Red Wine
+-1.1810553824555745,-0.10845922248252655,0,United States,165,Decoy California Pinot Noir,Decoy Wines,Red Wine
+-0.30122547820460427,-1.0875296414593185,1,United States,166,Decoy Sonoma County Sauvignon Blanc,Decoy Wines,White Wine
+-1.3675260163181355,-0.03141128261643891,0,United States,167,Decoy Sonoma County Merlot,Decoy Wines,Red Wine
+-1.768008475589619,0.257614681958951,0,United States,168,Decoy Limited Napa Valley Cabernet Sauvignon,Decoy Wines,Red Wine
+-0.9841825542164421,-0.39824233531597497,1,United States,169,Frank Family Vineyards Carneros Chardonnay,Frank Family,White Wine
+-2.3128130230547033,0.9819882173484846,0,United States,170,Frank Family Vineyards Napa Valley Cabernet Sauvignon,Frank Family,Red Wine
+1.2538193672693556,-2.1996431012684505,1,United States,171,Carlo Rossi Chablis,Carlo Rossi,White Wine
+-0.5959479350509702,0.3823025009195287,0,United States,172,Sterling Vintner’s Collection Cabernet Sauvignon,Sterling,Red Wine
+-0.2522423061154349,-0.1473127714410034,1,United States,173,Sonoma-Cutrer Sonoma Coast Chardonnay White Wine,Sonoma-Cutrer Winery,White Wine
+-1.2294395436476528,0.005345054180278556,0,United States,174,Gnarly Head Cabernet Sauvignon,Gnarly Head,Red Wine
+-0.8318185590996916,0.6012984930358473,0,United States,175,The Federalist Lodi Cabernet Sauvignon,The Federalist,Red Wine
+-1.377236724166945,0.8824637403844185,0,United States,176,The Federalist Lodi Zinfandel,The Federalist,Red Wine
+-1.5561688538826588,1.0098667315873395,0,United States,177,The Federalist Bourbon Barrel Aged Zinfandel,The Federalist,Red Wine
+-1.157374409329087,-0.4841530931725397,0,United States,178,Bonterra Organic Cabernet Sauvignon,Bonterra,Red Wine
+0.15844871712986963,-1.6360158862551097,1,United States,179,Bonterra Organic Sauvignon Blanc,Bonterra,White Wine
+-0.7462037973771101,0.16202336633051972,0,United States,180,Murphy-Goode California Cabernet Sauvignon,Murphy-Goode,Red Wine
+0.12501644545898719,-0.7685582860363321,1,United States,181,Murphy-Goode North Coast Sauvignon Blanc,Murphy-Goode,White Wine
+-0.7248144781135727,0.14094501742484136,0,United States,182,Murphy-Goode California Pinot Noir,Murphy-Goode,Red Wine
+-0.7551200070862336,0.1674762572114155,0,United States,183,Murphy-Goode California Merlot,Murphy-Goode,Red Wine
+-1.1998078818147577,0.4431886916174161,0,United States,184,Parducci Small Lot Pinot Noir,Parducci,Red Wine
+0.5998462538619073,0.8263499514398014,0,Italy,185,Cecchi Chianti Classico,Cecchi,Red Wine
+0.7510130878580081,0.6762696388258466,0,Italy,186,Cecchi Bonizio Rosso,Cecchi,Red Wine
+-0.45097864993885195,2.7167741130802616,0,Argentina,187,Terrazas de los Andes Reserva Malbec,Terrazas de los Andes,Red Wine
+-0.0017685151209093533,2.3714114809114277,0,Argentina,188,Terrazas de los Andes Altos de Plata Malbec,Terrazas de los Andes,Red Wine
+0.22734887234245213,-0.4885756139746896,1,United States,189,Vendange Chardonnay,Vendange,White Wine
+-0.3710922645554016,-0.8753783229209513,1,United States,190,Duckhorn Vineyards Napa Valley Sauvignon Blanc,Duckhorn,White Wine
+-1.3432646503930032,-0.0799497550857921,0,United States,191,Duckhorn Vineyards Napa Valley Cabernet Sauvignon,Duckhorn,Red Wine
+-2.305545355896312,0.8550059949587858,0,United States,192,Duckhorn Vineyards Napa Valley Merlot,Duckhorn,Red Wine
+0.19490557664530234,-0.2949259245669715,1,United States,193,William Hill North Coast Chardonnay,William Hill,White Wine
+-0.883352935746745,0.7396060563930339,0,United States,194,William Hill North Coast Cabernet Sauvignon,William Hill,Red Wine
+0.9222197587816306,-0.9889523542765731,1,United States,195,Ste Genevieve Chardonnay,Ste Genevieve,White Wine
+2.1330380672818325,0.2217314175803459,2,Italy,196,Mezzacorona Pinot Grigio,Mezzacorona,White Wine
+3.443278821138097,0.5160559692339355,2,New Zealand,197,Kim Crawford Sauvignon Blanc,Kim Crawford Wines,White Wine
+-0.7947686262894232,0.49388187503881037,0,United States,198,Sokol Blosser Evolution Pinot Noir,Sokol Blosser,Red Wine
+-0.1615269172211482,-0.6661260590782383,1,United States,199,Matchbook Chardonnay,Matchbook,White Wine
+0.11225174733291893,-0.23011653153935904,1,United States,200,Wente Vineyards Riva Ranch Chardonnay,Wente Vineyards,White Wine
+-0.6913298472347608,0.62603123304277,0,United States,201,Wente Vineyards Southern Hills Cabernet Sauvignon,Wente Vineyards,Red Wine
+-0.9221151429446838,0.8523500080302144,0,United States,202,Wente Vineyards Charles Wetmore Cabernet Sauvignon,Wente Vineyards,Red Wine
+0.2011935054973891,-0.3266550421535609,1,United States,203,Wente Vineyards Morning Fog Chardonnay,Wente Vineyards,White Wine
+0.7496769551704044,-1.8120143185471402,1,United States,204,Charles Smith Kung Fu Girl Riesling,Charles Smith Wines,White Wine
+-1.4706765702428757,-0.3414824507934157,0,United States,205,"Benziger Cabernet Sauvignon Red Wine – 750ml, Sonoma County",Benziger,Red Wine
+-0.3619200293452008,-1.4399783761863103,1,United States,206,"Benziger Chardonnay White Wine – 750ml, Sonoma County",Benziger,White Wine
+-1.5108813770353473,0.5058211997013332,0,United States,207,JUSTIN Cabernet Sauvignon,Justin Winery,Red Wine
+-0.044155682349536804,-0.8747588072616073,1,United States,208,JUSTIN Sauvignon Blanc,Justin Winery,White Wine
+-3.225926440859011,1.9897147837214915,0,United States,209,JUSTIN ISOSCELES,Justin Winery,Red Wine
+2.8288213647328226,-0.7341995807920706,2,Italy,210,Cavit Pinot Grigio,Cavit,White Wine
+-1.6494989032428646,0.08446652859139844,0,United States,211,Charles Krug Cabernet Sauvignon,Charles Krug,Red Wine
+-1.8233526873814943,0.07008291794864088,0,United States,212,Charles Krug Merlot,Charles Krug,Red Wine
+-0.09461403964121934,-1.363594817722536,1,United States,213,Charles Krug Sauvignon Blanc,Charles Krug,White Wine
+-1.1411993687740374,0.31719197852896147,0,United States,214,King Estate Willamette Valley Pinot Noir,King Estate,Red Wine
+-0.06279264625162263,-0.8186751859667172,1,United States,215,King Estate Willamette Valley Pinot Gris,King Estate,White Wine
+-0.9856215279564334,0.16054232901618806,0,United States,216,King Estate “Inscription” Willamette Valley Pinot Noir,King Estate,Red Wine
+2.376204314816057,1.7068657903086824,2,Australia,217,19 Crimes Cabernet Sauvignon,19 Crimes,Red Wine
+0.5854171238799907,-2.0870332977595503,1,United States,218,Archer Roose Sauvignon Blanc,Archer Roose,White Wine
+2.206630442717314,-0.27049856624281826,2,Italy,219,Folonari Pinot Grigio,Folonari,White Wine
+0.08562338563660972,0.21870434397743083,0,Spain,220,Campo Viejo Tempranillo Rioja,Campo Viejo,Red Wine
+-1.3261659723411072,0.5772954598810587,0,United States,221,Napa Cellars Pinot Noir,Napa Cellars,Red Wine
+-0.1467031860894183,-0.5886562825079587,1,United States,222,Napa Cellars Sauvignon Blanc,Napa Cellars,White Wine
+-1.5449516223163309,0.6789152033813658,0,United States,223,Napa Cellars Merlot,Napa Cellars,Red Wine
+-0.5821559728620084,0.08356155773960708,0,United States,224,Pepperwood Grove Pinot Noir,Pepperwood Grove,Red Wine
+0.6875820480713576,1.113757827582488,0,Italy,225,Frescobaldi Castiglioni Chianti Chianti DOCG,Frescobaldi,Red Wine
+1.2216265800299533,0.2543433204933912,2,Italy,226,Ferrari Carano Fume Blanc,Ferrari,White Wine
+-0.7825065902497191,0.0035484286966143853,0,United States,227,Line 39 Pinot Noir,Line 39,Red Wine
+-0.6177736298584172,-0.08871485800354909,0,United States,228,Line 39 Cabernet Sauvignon,Line 39,Red Wine
+0.3837136789786388,-1.0820399076067095,1,United States,229,Line 39 Sauvignon Blanc,Line 39,White Wine
+-0.11317708981839995,-1.3840198417709593,1,United States,230,Cambria Katherine’s Vineyard Chardonnay,Cambria,White Wine
+-0.8229380377271377,0.4995583960289565,0,United States,231,SIMI Sonoma County Cabernet Sauvignon,SIMI,Red Wine
+0.14129811932362762,-0.5315766905531787,1,United States,232,SIMI Sonoma County Chardonnay,SIMI,White Wine
+0.14812134411722253,-0.5816386825841159,1,United States,233,SIMI Sonoma County Sauvignon Blanc,SIMI,White Wine
+-0.31157875386331974,-0.4815387322618701,1,United States,234,Matanzas Creek Alexander Valley Chardonnay,Matanzas Creek,White Wine
+2.3076540072438823,0.5484912244558507,2,Italy,235,Tiamo Organic Pinot Grigio,Tiamo,White Wine
+0.287000187389733,1.6746716675190685,0,Argentina,236,Kaiken Estate Malbec,Kaiken,Red Wine
+-1.840351320479005,0.5830242017154244,0,United States,237,Klinker Brick Old Vine Zinfandel,Klinker Brick,Red Wine
+-0.8122321172090631,-0.7264734317760558,0,United States,238,CK Mondavi Cabernet Sauvignon,CK Mondavi,Red Wine
+0.1254499171248914,-1.679179045935089,1,United States,239,CK Mondavi Chardonnay,CK Mondavi,White Wine
+0.36485698875492417,-1.804454094662342,1,United States,240,CK Mondavi Pinot Grigio,CK Mondavi,White Wine
+-0.7795224710143586,-0.747022810711422,0,United States,241,CK Mondavi Merlot,CK Mondavi,Red Wine
+-0.859424707567904,-0.4375316451552606,0,United States,242,Cycles Gladiator Pinot Noir,Cycles Gladiator,Red Wine
+0.174745368905814,1.4047718052839615,0,Argentina,243,Doña Paula Estate Malbec,Dona Paula,Red Wine
+3.3872582674652145,0.669673567796628,2,New Zealand,244,Oyster Bay Marlborough Sauvignon Blanc,Oyster Bay,White Wine
+1.372820870159384,2.0272483727540918,2,New Zealand,245,Oyster Bay Marlborough Pinot Noir,Oyster Bay,Red Wine
+2.7677531888258886,0.7996489827481678,2,New Zealand,246,Oyster Bay Hawke’s Bay Pinot Gris,Oyster Bay,White Wine
+2.7663938056927173,0.7998773724497048,2,New Zealand,247,Oyster Bay Marlborough Chardonnay,Oyster Bay,White Wine
+1.65269889414099,1.8487560027552097,2,New Zealand,248,Oyster Bay Hawke’s Bay Merlot,Oyster Bay,Red Wine
+-0.8130279335986225,0.0437199910498303,0,United States,249,Liberty School Cabernet Sauvignon,Liberty School,Red Wine
+-1.3205130943228622,0.11811283638684074,0,United States,250,Franciscan Cabernet Sauvignon,Franciscan,Red Wine
+-0.4304365524073394,0.2676272786613593,0,United States,251,Meiomi Pinot Noir,Meiomi Wines,Red Wine
+-0.13669539901519281,-0.6189439537570697,1,United States,252,Meiomi Chardonnay,Meiomi Wines,White Wine
+2.9222222899310415,0.7030513448934114,2,New Zealand,253,Nobilo Sauvignon Blanc,Nobilo,White Wine
+-1.5238936737789694,0.08768814908948257,0,United States,254,DAOU Vineyards Cabernet Sauvignon,Daou Vineyards,Red Wine
+-4.300033215311296,6.6966339249464975,0,France,255,Dom Pérignon Vintage Champagne,Dom Perignon Champagne,Others
+-1.0806381075117903,-0.6410056030207517,0,United States,256,A to Z Pinot Noir,A to Z,Red Wine
+-0.19870088926550286,-1.6343762278601643,1,United States,257,A to Z Pinot Gris,A to Z,White Wine
+0.02151837316242754,-1.745187350627618,1,United States,258,A to Z Chardonnay,A to Z,White Wine
+-1.4173655089310346,-0.34588285109958045,0,United States,259,Adelsheim Willamette Valley Pinot Noir,Adelsheim,Red Wine
+-0.7112481203169656,-0.06323462667611927,0,United States,260,Leese-Fitch Cabernet Sauvignon,Leese-Fitch,Red Wine
+1.2025134475682904,-0.3955050453381123,1,Chile,261,Carta Vieja Sauvignon Blanc,Carta Vieja,White Wine
+1.0833722454035462,0.9441314063809998,1,Chile,262,Veramonte Organic Reserva Sauvignon Blanc,Veramonte,White Wine
+0.014938179145931853,1.5176621772166856,0,Argentina,263,Finca de los Padrillos Malbec,Ernesto Catena,Red Wine
+-1.0197780933577414,0.23901546368646961,0,United States,264,Louis M. Martini Sonoma County Cabernet Sauvignon,Louis M. Martini,Red Wine
+1.1276330357824838,0.8151773170380657,2,Italy,265,Gabbiano Chianti,Gabbiano,Red Wine
+0.5038697005222704,1.8798191770274773,0,Argentina,266,Revolution El Libre Malbec,Revolution Wine Company,Red Wine
+0.3865191335212153,1.9693329287756043,0,Argentina,267,Argentine Revolution Malbec,Revolution Wine Company,Red Wine
+1.108186825545985,1.5858702446163047,2,France,268,Le Grand Noir Pinot Noir,Le Grand Noir,Red Wine
+-1.1727400176139244,0.4021325718705863,0,United States,269,Noble Vines 337 Cabernet Sauvignon,Noble Vines,Red Wine
+-1.1399672324572792,-0.46299148378911215,0,United States,270,Broadside Paso Robles Cabernet Sauvignon,Broadside,Red Wine
+1.6964337411044275,-0.192445861610692,2,Italy,271,Chloe Pinot Grigio,Chloe,White Wine
+-0.32673149217623365,-1.2316940395926546,1,United States,272,Chloe Chardonnay,Chloe,White Wine
+-0.9289208226508808,-0.4544693581370965,0,United States,273,Chloe Pinot Noir,Chloe,Red Wine
+-2.2153983647589865,0.895965217274011,0,United States,274,Freemark Abbey Napa Valley Cabernet Sauvignon,Freemark Abbey,Red Wine
+-1.3232555849580854,0.10777253063157226,0,United States,275,Hahn Cabernet Sauvignon,Hahn,Red Wine
+-0.459423743312288,-0.8188618272047894,1,United States,276,Hahn Chardonnay,Hahn,White Wine
+2.386062197340414,0.5721908093248399,2,Italy,277,Voga Pinot Grigio,Voga,White Wine
+-0.6353136733709119,-0.34344650666106624,0,United States,278,Erath Pinot Noir,Erath,Red Wine
+-0.6306851443229787,0.47647689144516764,0,United States,279,Dreaming Tree Cabernet Sauvignon,The Dreaming Tree,Red Wine
+0.23618033512900222,-0.6273661185960799,1,United States,280,SeaGlass Sauvignon Blanc,SeaGlass,White Wine
+0.1642630239346343,-0.5620633737651192,1,United States,281,Sean Minor 4B Chardonnay,Sean Minor,White Wine
+2.228412910136102,0.6918242395050576,2,Italy,282,Santa Margherita Pinot Grigio DOC,Santa Margherita,White Wine
+0.3911558302853725,1.9808331299748088,0,Italy,283,Santa Margherita Chianti Classico Riserva DOCG,Santa Margherita,Red Wine
+2.1335095880630592,0.28430292923186445,2,France,284,Pascal Jolivet Attitude Sauvignon Blanc,Domaine Pascal Jolivet,White Wine
+-1.6428625650469273,-0.3194600454904304,0,United States,285,Ancient Peaks Cabernet Sauvignon,Ancient Peaks,Red Wine
+-0.9086169764070197,-0.7332369871578527,0,United States,286,Acrobat Pinot Noir,Acrobat,Red Wine
+-0.6757541633150542,0.5202155264199485,0,United States,287,Tortoise Creek Pinot Noir,Tortoise Creek,Red Wine
+-0.9635244039612653,-0.12326849923646924,0,United States,288,Grayson Cellars Cabernet Sauvigon,Grayson Cellars,Red Wine
+-1.268124846231464,0.7135336343759602,0,United States,289,Silver Palm Cabernet Sauvignon,Silver Palm,Red Wine
+0.5452789072038181,2.140219007732981,0,Argentina,290,Tilia Malbec,Tilia,Red Wine
+0.20819855715110583,1.2409109859561125,0,Argentina,291,Cigar Box Reserve Hand Harvested Malbec,Cigar Box,Red Wine
+-0.3108170630970483,1.6186983188811974,0,Argentina,292,Diamandes Perlita Malbec-Syrah,DiamAndes,Red Wine
+-1.5468868604661472,0.5871327936021363,0,United States,293,Markham Merlot,Markham Vineyards,Red Wine
+0.17598733090442875,-1.8896447803958725,1,United States,294,AVA Grace Vineyards Pinot Grigio White Wine,AVA Grace Vineyards,White Wine
+-0.04559930135530595,-1.7852647769198218,1,United States,295,"AVA Grace Vineyards Sauvignon Blanc White Wine – 750ml, 2017 California",AVA Grace Vineyards,White Wine
+-0.0063147529484815,-0.30654093981773095,1,United States,296,Toad Hollow Chardonnay,Toad Hollow,White Wine
+2.469543792880823,0.24813707051856862,2,Italy,297,Santa Marina Pinot Grigio,Santa Marina,White Wine
+-0.660574872209066,-0.655304171376111,0,United States,298,Bread & Butter Pinot Noir,Bread  Butter,Red Wine
+0.0002515266290411039,-1.5041197897791905,1,United States,299,Bread & Butter Chardonnay,Bread  Butter,White Wine
+-0.8582019612534617,0.8049104113027664,0,United States,300,Willamette Valley Vineyards Whole Cluster Pinot Noir,Willamette Valley Vineyards,Red Wine
+-0.12820311251610816,-1.4065402463606225,1,United States,301,Carmel Road Monterey Chardonnay,Carmel Road,White Wine
+-1.145040500880516,-0.4019607892136017,0,United States,302,Carmel Road Monterey Pinot Noir,Carmel Road,Red Wine
+-0.9463230918110241,0.5422779635582528,0,United States,303,RouteStock Willamette Valley Pinot Noir,RouteStock,Red Wine
+-1.338011853444834,0.7675817934325275,0,United States,304,RouteStock Cabernet Sauvignon,RouteStock,Red Wine
+-0.21329845987703602,-0.5479251945200542,1,United States,305,Mer Soleil Silver Unoaked Chardonnay,Mer Soleil,White Wine
+-0.7637970914503833,-0.16834282477626672,1,United States,306,Mer Soleil Chardonnay,Mer Soleil,White Wine
+0.10568639425239638,-1.772270436720576,1,United States,307,Bandit Pinot Grigio 1L Tetra Pak ®,Bandit,White Wine
+-0.1262088907719295,1.1631330409954743,0,Argentina,308,Antigal Uno Malbec,Antigal,Red Wine
+0.6008265471564472,0.7940416284869513,0,Argentina,309,Alamos Malbec,Alamos,Red Wine
+0.16385698843532434,0.9129750756935665,0,Argentina,310,Alamos Cabernet Sauvignon,Alamos,Red Wine
+-0.04929650854523842,1.0196180351918729,0,Argentina,311,Alamos Red Blend,Alamos,Red Wine
+-2.7824694242144035,1.1442510165725168,0,United States,312,Caymus Napa Valley Cabernet Sauvignon,Caymus,Red Wine
+-1.3248666762333243,2.4221387083906305,0,Argentina,313,Caymus Red Schooner,Caymus,Red Wine
+-0.053618676154796256,1.7108927667016796,0,Chile,314,Root:1 Cabernet Sauvignon,Root 1,Red Wine
+-0.6892097905888803,0.41204379053022305,0,United States,315,Spellbound California Cabernet Sauvignon,Spellbound,Red Wine
+0.019968506220258097,-0.32635995526085965,1,United States,316,Toasted Head Chardonnay,Toasted Head,White Wine
+2.0222187323892515,0.11573338036433595,2,Italy,317,KRIS Pinot Grigio,KRIS,White Wine
+-0.2880926524949144,-1.43811470798846,1,South Africa,318,Indaba Sauvignon Blanc,Indaba,White Wine
+-2.0637032642631463,0.7899834484826427,0,United States,319,Flowers Sonoma Coast Pinot Noir,Flowers Vineyards and Winery,Red Wine
+-0.8639156110746716,-0.3364964614426954,1,United States,320,Flowers Sonoma Coast Chardonnay,Flowers Vineyards and Winery,White Wine
+-0.21501091696915742,-0.42873768467087936,1,United States,321,Raeburn Chardonnay,Raeburn,White Wine
+-0.9272007570199229,0.3918052186126616,0,United States,322,Replica Misbehaved California Pinot Noir,Replica,Red Wine
+2.5943934322590154,1.1605772685390165,2,New Zealand,323,Spy Valley Sauvignon Blanc,Spy Valley,White Wine
+-0.21501091696915742,-0.42873768467087936,1,United States,324,Raeburn Chardonnay,Raeburn,White Wine
+-0.9272007570199229,0.3918052186126616,0,United States,325,Replica Misbehaved California Pinot Noir,Replica,Red Wine
+2.5943934322590154,1.1605772685390165,2,New Zealand,326,Spy Valley Sauvignon Blanc,Spy Valley,White Wine
+0.3052931227766561,0.9019462054846634,0,Spain,327,Montecillo Crianza,Montecillo,Red Wine
+-0.5261680607946359,-0.6171667069663228,1,United States,328,Butter Chardonnay,JaM Cellars,White Wine
+-1.0278829163664704,-0.7597654117805831,0,United States,329,Alias Pinot Noir,Alias,Red Wine
+-1.8129461773376474,0.024651655790814173,0,United States,330,Baby Blue,Blue Rock,Red Wine
+-0.8510443831815597,-0.5527917203076963,0,United States,331,Carnivor Cabernet Sauvignon,Carnivor,Red Wine
+-0.02784674790784724,1.4300294680388874,0,Argentina,332,Crios de Susana Balbo Malbec,Crios,Red Wine
+-1.0579632333650848,-0.46939429973243296,0,United States,333,Cannonball Cabernet Sauvignon,Cannonball,Red Wine
+-1.0574843148376694,0.4631371905716498,0,United States,334,Oberon Napa County Cabernet Sauvignon,Oberon,Red Wine
+-0.4187797478959351,0.4109752776741482,0,United States,335,The Pinot Project Pinot Noir,The Pinot Project,Red Wine
+-1.278127646147504,-0.463828682954264,0,United States,336,Averaen Willamette Valley Pinot Noir,Averaen,Red Wine
+-0.7216668188409422,0.003615437883566536,0,United States,337,Love Noir Pinot Noir Red Wine,Love Noir,Red Wine
+-0.8961029835316149,-0.028616891809355876,0,United States,338,Imagery Cabernet Sauvignon,Imagery,Red Wine
+-0.8977170014179234,-0.028137569382751127,0,United States,339,Imagery Pinot Noir,Imagery,Red Wine
+-0.013263738117316952,-0.9784272324460586,1,United States,340,Imagery Chardonnay,Imagery,White Wine
+0.47523451246060056,-1.2318532644601927,1,United States,341,Imagery Sauvignon Blanc,Imagery,White Wine
+3.330761352917707,0.5566604457386386,2,New Zealand,342,Matua Marlborough Sauvignon Blanc,Matua,White Wine
+-0.35295685798282084,-1.2614322111292033,1,United States,343,Chime Chardonnay California,Chime,White Wine
+-1.0445633456222763,-0.1696612071058252,0,United States,344,Duck Pond Pinot Noir,Duck Pond,Red Wine
+1.7856627531980094,0.810748474043489,2,New Zealand,345,Cloudy Bay Sauvignon Blanc,Cloudy Bay,White Wine
+2.527013516211567,0.8527326586886484,2,New Zealand,346,Loveblock Sauvignon Blanc,Loveblock,White Wine
+0.7073582815533085,2.3660041137195473,2,New Zealand,347,Loveblock Pinot Noir,Loveblock,Red Wine
+-0.09938534579936882,-1.2412694405681208,1,United States,348,Conundrum White Blend,Conundrum,White Wine
+-1.2800585753533735,-0.4847356824593196,0,United States,349,Aviary Cabernet Sauvignon,Aviary Vineyards,Red Wine
+1.9493815811114268,0.26283123826744076,2,Italy,350,Luna Nuda Pinot Grigio,Luna Nuda,White Wine
+-0.041455891389109586,-0.9372716708206503,1,United States,351,Honig Napa Valley Sauvignon Blanc,Honig,White Wine
+-2.2350269855366864,0.9634039486608552,0,United States,352,Honig Cabernet Sauvignon,Honig,Red Wine
+0.6276181750346891,-1.9835726581219657,1,United States,353,BABE Grigio with Bubbles,BABE,White Wine
+2.3911741287735233,-0.757751354725735,2,Italy,354,Ca’ Donini Pinot Grigio,Ca Donini,White Wine
+-1.425767238609273,0.6702949986036849,0,United States,355,Paul Dolan Vineyards Organically Grown Cabernet Sauvignon,Paul Dolan,Red Wine
+0.39946350609872094,1.9610473508054884,0,Argentina,356,Punto Final Malbec Clásico,Renacer,Red Wine
+-0.5104512680527749,1.7225198977470326,0,Argentina,357,Domaine Jean Bousquet Cabernet Sauvignon,Domaine Jean Bousquet,Red Wine
+0.22150629421480642,1.7891416729944463,0,Argentina,358,La Posta Pizzella Malbec,La Posta,Red Wine
+0.3425993974962222,-1.3401631292393879,1,United States,359,Emmolo Sauvignon Blanc,Emmolo,White Wine
+-0.9821187748704233,0.8172914692596964,0,United States,360,Textbook Cabernet Sauvignon,Textbook,Red Wine
+-1.5578254948152366,-0.22776051534032382,0,United States,361,Benton-Lane Estate Pinot Noir,Benton Lane,Red Wine
+2.542034261689037,1.3585029334759893,2,New Zealand,362,Wairau River Sauvignon Blanc,Wairau River,White Wine
+-2.4088606927223477,1.5489338732448876,0,United States,363,Quilt Cabernet Sauvignon,Quilt Wines,Red Wine
+-0.8851917345201229,0.04990879409369032,1,United States,364,Quilt Napa Valley Chardonnay,Quilt Wines,White Wine
+-0.9422159826611728,-0.7431212311971187,0,United States,365,Auspicion Cabernet Sauvignon,Auspicion,Red Wine
+2.1261064720167226,-0.10796998863182897,2,Italy,366,Gemma Di Luna Pinot Grigio DOC Delle Venezie,Gemma Di Luna,White Wine
+2.057778218938292,0.4267012002112028,2,Italy,367,Riff Pinot Grigio DOC,Riff,White Wine
+0.06367172093521511,0.009586268448309438,0,Spain,368,Altos Hormigas Malbec,Altos Las Hormigas,Red Wine
+-0.5445826484858242,-0.6681019214814978,1,South Africa,369,Southern Right Sauvignon Blanc,Southern Right,White Wine
+0.5093792817217198,0.27231968046935734,0,Spain,370,Flaco Tempranillo,Flaco,Red Wine
+0.27300464652478607,1.2913239933765719,0,Argentina,371,Diseno Malbec,Diseno,Red Wine
+-1.0783990336495441,-0.1070615037191612,0,United States,372,Folly Of The Beast Pinot Noir,Folly of the Beast,Red Wine
+-1.5762022322358435,0.36480746097147687,0,United States,373,Hahn SLH Pinot Noir,Hahn SLH,Red Wine
+-1.471419987573924,0.35145549747127897,0,United States,374,INTRINSIC Cabernet Sauvignon,Intrinsic Wine Co.,Red Wine
+0.2723041148046898,0.8412663784703824,0,Spain,375,Martin Codax Ergo Rojo Spanish Red Blend,Martin Codax,Red Wine
+-2.367963523940756,0.9675690629511833,0,United States,376,Faust Cabernet Sauvignon,Faust,Red Wine
+-1.8915271298597098,1.0144741883809443,0,United States,377,Jordan Cabernet Sauvignon,Jordan,Red Wine
+-1.2934987400847586,0.9371149181778083,0,United States,378,True Myth Cabernet Sauvignon,True Myth,Red Wine
+0.5533012700822751,-0.9161623476083762,1,United States,379,Pomelo Sauvignon Blanc,Pomelo,White Wine
+2.980206657354965,-0.6214398771430987,2,Germany,380,Clean Slate Riesling,Clean Slate,White Wine
+0.5158362352553351,-0.6280146597159748,1,United States,381,THRIVE Sauvignon Blanc,THRIVE,White Wine
+2.259405324004581,0.6271015141596725,2,Italy,382,Torresella Pinot Grigio Venezia DOC,Torresella,White Wine
+1.8200453561023102,-0.5371730393773279,2,Italy,383,Benvolio Friuli Pinot Grigio,Benvolio,White Wine
+3.3225950197614966,0.8658232495861201,2,New Zealand,384,Starborough Sauvignon Blanc,Starborough,White Wine
+-1.7294339548196882,-0.3691301537317575,0,United States,385,7 Deadly Zins Zinfandel,7 Deadly Zins,Red Wine
+2.4910843746327282,-0.20794514233384084,2,New Zealand,386,"13 Celsius® Sauvignon Blanc – 750ml, Marlborough, New Zealand",13 Celsius,White Wine
+1.7031403895309083,-0.6083461483923696,2,Italy,387,"13 Celsius® Pinot Grigio – 750ml, Delle Venezie D.O.C., Italy",13 Celsius,White Wine
+0.06581196317334043,1.0206397265130065,0,Spain,388,Montebuena Rioja,Montebuena,Red Wine
+0.9195888328439069,1.0071667689813126,2,Italy,389,IL Bastardo Sangiovese,IL Bastardo,Red Wine
+0.14963346787838167,1.073404495317804,0,Argentina,390,Bodini Malbec,Bodini,Red Wine
+-0.7112190503602429,-0.7646838895824398,0,United States,391,Block Nine Pinot Noir,Block Nine,Red Wine
+-1.4564265755669843,0.8529184371487466,0,United States,392,Smith & Hook Cabernet Sauvignon Central Coast,Smith and Hook,Red Wine
+-1.6927370446772707,-0.1266800160954433,0,United States,393,Bonanza Cabernet Sauvignon by Chuck Wagner,Bonanza,Red Wine
+-1.2054279748938574,0.5065189530660535,0,United States,394,Pendulum Cabernet Sauvignon,Pendulum,Red Wine
+-1.1247091425921347,-0.32215279824703097,0,United States,395,Chop Shop Cabernet Sauvignon,Chop Shop,Red Wine
+-0.8056884662747895,0.5523487967770524,0,United States,396,"Stave and Steel Cabernet Sauvignon Red Wine – 750ml, California",Stave  Steel,Red Wine
+-1.1432463472762746,0.4508953152350659,0,United States,397,One Stone Cabernet Sauvignon,One Stone Cellars,Red Wine
+-0.39682392427758434,-0.8266657630308142,1,United States,398,Harken Chardonnay,Harken,White Wine
+3.9592583637642993,-0.9749762152288218,2,Germany,399,Dr Loosen “L” Riesling,Dr. L Rieslings,White Wine
+2.1286641906699217,1.0331694568422711,2,New Zealand,400,Monkey Bay Sauvignon Blanc,Monkey Bay,White Wine
+2.7051322120776202,0.7759360861895065,2,New Zealand,401,Mohua Sauvignon Blanc,Mohua,White Wine
+2.62698125885502,0.4036346531953777,2,New Zealand,402,Frenzy Sauvignon Blanc,Frenzy,White Wine
+2.486923009798888,0.9479780678242501,2,New Zealand,403,Ottos Dream Sauvignon Blanc,Ottos Dream,White Wine
+2.5577430794017464,1.0678997545729976,2,New Zealand,404,Sea Pearl Sauvignon Blanc,Sea Pearl,White Wine

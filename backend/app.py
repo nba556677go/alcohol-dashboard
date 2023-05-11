@@ -28,7 +28,7 @@ best_k = {"wine":3, "spirits": 3, "beer":3, "consumption": 3}
 feature_dict = {"wine" : ["Country", "Brand", "ABV", "Categories",  "Rate Count", "Price","region"],
                     "spirits" : ["Country", "Brand","Categories", "ABV", "region", "Price"],
                     "beer" : ["Country", "Brand","Categories", "ABV", "region", "Price"],
-                    "consumption" : ["Country","Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)", "GDP per capita, PPP (constant 2017 international $)", "Population (historical estimates)",'life_expect', 'HappinessScore']}
+                    "consumption" : ["Country","Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)", "GDP per capita, PPP (constant 2017 international $)", "Population (historical estimates)",'life_expect', 'HappinessScore', "adult_mortality"]}
 
 
 def buildProduce_PCA(alcohol):

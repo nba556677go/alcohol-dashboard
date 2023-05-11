@@ -214,8 +214,10 @@ const ConsumptionScatterplot = (props) => {
             brushed_data.sort(function(a,b){ // 这是比较函数
                 return b['Alcohol_PerCapita'] - a['Alcohol_PerCapita'];    // 降序
             })
-            var top10 = brushed_data.slice(0, 7).reverse()
-            props.selectChange(top10, brushed_data);
+            var top10 = brushed_data.slice(0, 5).reverse()
+            var bottom  = brushed_data.slice(-2).reverse()
+            const ret = bottom.concat(top10);
+            props.selectChange(ret, brushed_data);
         }
       }
     
@@ -286,6 +288,8 @@ const ConsumptionScatterplot = (props) => {
                         )
                     })
         var top10 = data_cp.slice(0, 7).reverse()
+        var bottom  = data_cp.slice(-2).reverse()
+        top10 = bottom.concat(top10);
         props.selectChange(top10, data_cp);
 
         scatters.transition()
