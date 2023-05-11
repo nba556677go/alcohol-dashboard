@@ -102,7 +102,9 @@ const MapChart = ({alcoholType, selectProdMap, countries}) => {
                         .style('z-index', -1);
                   }}
                   onClick={(event) => {
-                    
+                    d3.select("#recommand").selectAll(".tooltip").style("opacity", 0)
+                    d3.select("#biplot").selectAll(".tooltip").style("opacity", 0)
+                    d3.select("#scatter_area").selectAll(".tooltip").style("opacity", 0)
                     //Window.init = false
                     console.log(item)
                     tooltip.style("opacity", 0);

@@ -65,6 +65,9 @@ const MapChart = ({ data, selectCountry, countries }) => {
                                 "</span>");
                           }}
                           onClick={function() {
+                            d3.select("#recommand").selectAll(".tooltip").style("opacity", 0)
+                            d3.select("#biplot").selectAll(".tooltip").style("opacity", 0)
+                            d3.select("#scatter_area").selectAll(".tooltip").style("opacity", 0)
                             const { name } = geo.properties;
                             selectCountry(name);
                             tooltip.transition().duration(200)
