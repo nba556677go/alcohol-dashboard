@@ -18,6 +18,7 @@ import '../css/main.css'
 
 Window.init = true;
 Window.isMapClick = false;
+Window.isProdClickScatter = false;
 Window.displayCountry = [];
 //Window.isBarSelected = false;
 export default function Main() {
@@ -77,8 +78,11 @@ export default function Main() {
         if(genre === "consumption") setConsumpHorizonData(processHorizonBar(countries, consumptionData));
         if(genre === 'production' && !Window.init){ // set recommand data
           //console.log(row2Data)
-          const recommanded = processRecommandBar(countries, row2Data)
-          setRecommandData(recommanded)
+          if(!Window.isProdClickScatter){
+            const recommanded = processRecommandBar(countries, row2Data)
+            setRecommandData(recommanded)
+          }
+          Window.isProdClickScatter = false;
         }
       }
    }, [countries])
@@ -162,6 +166,7 @@ export default function Main() {
         
         
       if(genre === 'production') { 
+        Window.isProdClickScatter = true;
         let idList = [...new Set(topdata.map(d => d[""]))]//update all ids in biplot
         hideScatters("#biplot", "", idList)
         setRecommandData(topdata)
@@ -195,6 +200,7 @@ export default function Main() {
     }
     // alcolhol type change
     const selectAlcoholType = async (type) => {
+      Window.init  = true;
       setType(type);
       type = type.toLowerCase();
       let data = await csv(`/data/${type}_processed.csv`);

@@ -237,7 +237,7 @@ const Recommand = (props) => {
 
     return (
         <div>
-            <h3 style={{position:'absolute', top: '-50px', left: '0'}}>Most Rated {props.type}</h3>
+            <h3 style={{position:'absolute', top: '-50px', left: '0'}}>Most Popular {props.type}</h3>
             <div id="recommand" class="bar_area"></div>
         </div>
     )
