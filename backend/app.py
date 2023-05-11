@@ -26,8 +26,8 @@ pca_dict = {}
 #best number of cluster - NOT TESTED
 best_k = {"wine":3, "spirits": 3, "beer":3, "consumption": 3}
 feature_dict = {"wine" : ["Country", "Brand", "ABV", "Categories",  "Rate Count", "Price","region"],
-                    "spirits" : ["Country", "Brand","Categories", "ABV", "region"],
-                    "beer" : ["Country", "Brand","Categories", "ABV", "region"],
+                    "spirits" : ["Country", "Brand","Categories", "ABV", "region", "Price"],
+                    "beer" : ["Country", "Brand","Categories", "ABV", "region", "Price"],
                     "consumption" : ["Country","Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)", "GDP per capita, PPP (constant 2017 international $)", "Population (historical estimates)",'life_expect', 'HappinessScore']}
 
 
@@ -41,6 +41,10 @@ def buildProduce_PCA(alcohol):
     id_col.reset_index(drop=True, inplace=True)
     name_col = df["Name"]
     name_col.reset_index(drop=True, inplace=True)
+    brand_col = df["Brand"]
+    brand_col.reset_index(drop=True, inplace=True)
+    categories_col = df["Categories"]
+    categories_col.reset_index(drop=True, inplace=True)
     # convert string columns to categorical data
     for col in df.columns:
         # Check if the column is of type string
@@ -68,6 +72,8 @@ def buildProduce_PCA(alcohol):
     scat_df["Country"] = country_col
     scat_df["ID"] = id_col
     scat_df["Name"] = name_col
+    scat_df["Brand"] = brand_col
+    scat_df["Categories"] = categories_col
 
     axes_df = pd.DataFrame((pca.components_[0:2, :]).T, columns=['first_pca','second_pca'])
     axes_df["ind"] = features
