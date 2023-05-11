@@ -16,7 +16,9 @@ const PieChart = (props) => {
 
     const drawChart = () => {
         var data = {}
+        var dataCount = {}
         var regions = []
+
 
         // consumption region distribution
         if(props.genre === 'consumption') {     
@@ -26,8 +28,10 @@ const PieChart = (props) => {
                 if(!regions.includes(d.region)) {
                     regions.push(d.region);
                     data[d.region] = 0
+                    dataCount[d.region] = 0
                 }
                 data[d.region] += value
+                dataCount[d.region]+=1
             })
         } else {
             var alcoholType = props.type.toLowerCase();
@@ -145,7 +149,13 @@ const PieChart = (props) => {
                 .selectAll('allLabels')
                 .data(data_ready)
                 .join('text')
-                  .text(d => d.data[0])
+                  .text(d =>  {
+                    if(props.genre === 'consumption' && ['Americas', 'Europe', 'Africa'].includes(d.data[0])) {
+                        return d.data[0] + '(' + (data[d.data[0]]/dataCount[d.data[0]]).toFixed(2) + ' liters)'
+                    } else {
+                        return d.data[0]
+                    }
+                  })
                   .attr('transform', function(d, i) {
                       const pos = outerArc.centroid(d);
                       const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
