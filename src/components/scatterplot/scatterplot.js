@@ -220,7 +220,7 @@ const Scatterplot = (props) => {
         else {
             var brushed_data =  d3.selectAll(".brushed").data(); 
             brushed_data.sort(function(a,b){ // 这是比较函数
-                return b[yattr] - a[yattr];    // 降序
+                return b["Rate Count"] - a["Rate Count"];    // 降序
             })
             var top10 = brushed_data.slice(0, 7).reverse()
             props.selectChange(top10, brushed_data);
@@ -297,7 +297,7 @@ const Scatterplot = (props) => {
                             // if there is no brush, select top10 at the beginning
                             var data_cp = JSON.parse(JSON.stringify(props.data))
                             data_cp.sort(function(a,b){ // 这是比较函数
-                                return b[yattr] - a[yattr];    // 降序
+                                return b['Rate Count'] - a['Rate Count'];    // 降序
                             })
                             
         var top10 = data_cp.slice(0, 7).reverse()

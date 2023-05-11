@@ -69,8 +69,7 @@ function Radar(id, data, options) {
 		feMergeNode_1 = feMerge.append('feMergeNode').attr('in','coloredBlur'),
 		feMergeNode_2 = feMerge.append('feMergeNode').attr('in','SourceGraphic');
 
-    // Draw the Circular grid 
-	
+    
 	//Wrapper for the grid & axes
 	var axisGrid = g.append("g").attr("class", "axisWrapper");
 	
@@ -170,15 +169,27 @@ function Radar(id, data, options) {
 			console.log("mouse over called");
 			console.log(event.pageX+" "+event.pageY);
 			console.log(d);
+			//console.log(options.totaldata);
+			const displaydata = filtercountry(d[0].country , options.totaldata)
+			//console.log(displaydata);
 			tooltip
-				.html(d[0].country)
+				.html("<span class='tooltipHeader'>" + d[0].country + "</span></br>" + 
+                                "</span></br>" + "<span class='tooltip-row-name'>"+ "GDP" + ": </span><span class='tooltip-win'>" + Number(displaydata[0]["GDP per capita, PPP (constant 2017 international $)"]).toFixed(2) + 
+                                " </span></br>" + "<span class='tooltip-row-name'>"+ d[1].axis + ": </span><span class='tooltip-win'>" + (Number(displaydata[0]["Population (historical estimates)"])/1000000).toFixed(2) + "M" +
+                                " </span></br>" + "<span class='tooltip-row-name'>"+ d[2].axis + ": </span><span class='tooltip-win'>" + (Number(displaydata[0]["Alcohol_PerCapita"])).toFixed(2) + "L" +
+								" </span></br>" + "<span class='tooltip-row-name'>"+ d[3].axis + ": </span><span class='tooltip-win'>" + (Number(displaydata[0]["life_expect"])).toFixed(2) +
+								" </span></br>" + "<span class='tooltip-row-name'>"+ d[4].axis + ": </span><span class='tooltip-win'>" + (Number(displaydata[0]["HappinessScore"])).toFixed(2) +
+								"</span>")
 				.style("left", (event.layerX+10) + "px")
 				.style("top", (event.layerY-10) + "px")
 				.transition().duration(1)
 				.style('opacity', 1);
 			d3.select(this)
 				.transition().duration(1)
-				.style("fill-opacity", 0.7);	
+				.style("fill-opacity", 0.7);
+			function filtercountry(country , data){
+				return data.filter(item => item.Country ===  country)
+			}
 		})
 		.on('mouseout', function(){
 			//Bring back all blobs

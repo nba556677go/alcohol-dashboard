@@ -240,7 +240,7 @@ export default function Main() {
                 <Col xl={7} xs={24} sm={24} md={12} lg={12}>
                     { 
                       radarData.length > 0 && 
-                      <Radar data={radarData}/>
+                      <Radar data={radarData} totaldata={consumptionData}/>
                     }
                 </Col>
             {/* </Row>

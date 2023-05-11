@@ -2,7 +2,7 @@ import * as d3 from "d3";
 import React, { useEffect } from "react";
 import Radar from "./radar";
 
-function RadarWrapper({ data }) {
+function RadarWrapper({ data, totaldata }) {
   useEffect(() => {
     let svg = d3.select(".radarChart");
     svg.selectAll("*").remove();
@@ -28,6 +28,7 @@ function RadarWrapper({ data }) {
       levels: 5,
       roundStrokes: true,
       color: color,
+      totaldata: totaldata
     };
     Radar(".radarChart", data, radarChartOptions);
   };
