@@ -5,16 +5,19 @@ categoryList = {"wine" : ["Red Wine", "White Wine"],
               "spirits" : ["Whiskey", "Gin", "Rum", "Vodka", "Tequila", "Brandy", "Liqueur"],
                "beer" : ["IPA", "ALE", "Lager", "Seltzer"] }
 
-def replaceCategory(df, key):
+tastingNotesList = {"wine" : ["Balanced", "Berry", "Cherry", "fruity", "Spicy", "Citrus", "Peach"]}
+FoodPairingList = {"wine" : ["Beef", "Chicken", "Duck", "Fish", "Lamb", "Pork"]}
+
+def replaceCategory(df, classes , field , key):
        for index, row in df.iterrows():
-              for type in categoryList[key]:
+              for type in classes[key]:
                      #print(row["Categories"])
                      #print(i)
-                     if type in row["Categories"]:
-                            df.at[index, "Categories" ] = type
+                     if type in row[field]:
+                            df.at[index, field ] = type
                             break
                      else: 
-                            df.at[index, "Categories" ] = "Others"
+                            df.at[index, field ] = "Others"
        #print(df["Categories"])
        #input()
        return df
@@ -106,7 +109,9 @@ df_capital = pd.merge(df_capital, df_productionCount, on=['Country'], how='left'
 #df_productionMap_data.to_csv("./productionMap_data.csv")
 
 ## category separation
-df = replaceCategory(df, "wine")
+df = replaceCategory(df,categoryList, "Categories" ,"wine")
+df = replaceCategory(df, tastingNotesList, "Tasting Notes" ,"wine")
+df = replaceCategory(df, FoodPairingList, "Food Pairing" ,"wine")
 df.to_csv("./wine_processed.csv")
 
 ###spirits
@@ -136,7 +141,7 @@ df_capital = pd.merge(df_capital, df_productionCount, on=['Country'], how='left'
 
 
 ## category separation
-df = replaceCategory(df, "spirits")
+df = replaceCategory(df, categoryList , "Categories", "spirits")
 df.to_csv("./spirits_processed.csv")
 
 ###Beer
@@ -175,7 +180,7 @@ df_productionCount = df['Country'].value_counts().rename_axis('Country').reset_i
 df_capital = pd.merge(df_capital, df_productionCount, on=['Country'], how='left')
 
 
-df = replaceCategory(df, "beer")
+df = replaceCategory(df, categoryList, "Categories", "beer")
 df.to_csv("./beer_processed.csv")
 
 #add region in productionmap

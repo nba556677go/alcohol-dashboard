@@ -208,7 +208,8 @@ const ConsumptionHorizonBar= (props) => {
 
             //tooltipBox.html("<span class='tooltipHeader'>" + d['Date'] + "</span></br>" + "<span class='tooltip-row-name'>Team: </span><span class='tooltip-opponent'>" + d['Team'] + "</span></br>" + "<span class='tooltip-row-name'>Win / Loss: </span><span class='tooltip-win'>Win" + "</span></br>" + "<span class='tooltip-row-name'>Opponent: </span><span class='tooltip-opponent'>" + d['Opponent'] + "</span>");
             tooltipBox.html(
-                "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + i.data.Country + "L"+
+                "<span class='tooltip-row-name'>Country: </span><span class='tooltip-win'>" + i.data.Country +
+                "</span></br>" + "<span class='tooltip-row-name'>Region: </span><span class='tooltip-win'>" + i.data['region'] + 
                 "</span></br>" + "<span class='tooltip-row-name'>Total: </span><span class='tooltip-win'>" + i.data['Alcohol_PerCapita'] + "L" +
                 "</span></br>" + "<span class='tooltip-row-name'>Wine: </span><span class='tooltip-win'>" + i.data['Wine_PerCapita'] + "L" + 
                 " </span></br>" + "<span class='tooltip-row-name'>Spirit: </span><span class='tooltip-win'>" + i.data['Spirit_PerCapita'] + "L" +
@@ -250,6 +251,8 @@ const ConsumptionHorizonBar= (props) => {
         function onMouseClick(d, i) {
             
             Window.init = true;
+            tooltipBox.style('opacity', 0)
+            .style('z-index', -1);
             //console.log(i["data"].Country)
             selectCountry(i["data"].Country)
             

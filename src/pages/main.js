@@ -253,7 +253,7 @@ export default function Main() {
             <Row>  */}
               <Col xl={9} xs={24} sm={24} md={12} lg={12}>
               {genre === 'production' ? 
-                  <Scatterplot data={row2Data} selectChange={selectScatter} />:
+                  <Scatterplot data={row2Data} selectChange={selectScatter} type={type}/>:
                   <ConsumptionScatterplot data={row2Data} selectChange={selectScatter} selectCountry={selectCountry} />
                 }
               </Col>

@@ -17,8 +17,9 @@ const Scatterplot = (props) => {
         div.selectAll("*").remove();
         div.remove();
     }
-
+    
     var cat_attrs = ['Price', 'Rating', 'ABV', 'Rate Count', 'Categories'];
+    
     var colors = ['#52ad66', '#e2ad0d','#f75639', '#a37720', '#43a2ca','#0868ac', '#e2ad0d'];
     var geo_regions = ['Americas','Western Pacific', 'Europe', 'Eastern Mediterranean', 'Africa', 'South-East Asia', 'Eastern Mediterranean'];
 
@@ -47,7 +48,7 @@ const Scatterplot = (props) => {
         var margin = { top: 50, right: 50, bottom: 50, left: 50 },
         width  = 600 - margin.left - margin.right,
         height = 410 - margin.top  - margin.bottom;
-    
+        if (props.type === "Wine") {cat_attrs.push("Tasting Notes"); cat_attrs.push("Food Pairing");}
         var num_attrs = Object.keys(props.data[0]).filter(function(d) { return cat_attrs.includes(d); });
     
         // X-axis dropdown menu
@@ -172,13 +173,13 @@ const Scatterplot = (props) => {
             .classed("hidden", function(d){
                 var xValue;
                 var yValue;
-                if (xattr === 'Categories') {
+                if (xattr === 'Categories' || xattr === "Tasting Notes" ||  xattr ===  "Food Pairing") {
                     xValue = x(d[xattr]) + x.bandwidth()/2
                 } else {
                     xValue = x(d[xattr])
                 }
 
-                if(yattr === 'Categories') {
+                if(yattr === 'Categories'|| yattr === "Tasting Notes" || yattr ===  "Food Pairing") {
                     yValue = y(d[yattr]) + y.bandwidth()/2
                 } else {
                     yValue = y(d[yattr])
@@ -193,13 +194,13 @@ const Scatterplot = (props) => {
             .classed("brushed", function(d) {
                 var xValue;
                 var yValue;
-                if (xattr === 'Categories') {
+                if (xattr === 'Categories' || xattr === "Tasting Notes"  || xattr ===  "Food Pairing") {
                     xValue = x(d[xattr]) + x.bandwidth()/2
                 } else {
                     xValue = x(d[xattr])
                 }
 
-                if(yattr === 'Categories') {
+                if(yattr === 'Categories' || yattr === "Tasting Notes" ||  yattr ===  "Food Pairing") {
                     yValue = y(d[yattr]) + y.bandwidth()/2
                 } else {
                     yValue = y(d[yattr])
@@ -258,8 +259,8 @@ const Scatterplot = (props) => {
                             .enter()
                             .append("circle")
                             .attr("class", "circle")
-                            .attr('cx',(d) => xattr === 'Categories' ? (x(d[xattr]) +  x.bandwidth()/2) : x(+d[xattr]))
-                            .attr('cy',(d) => yattr === 'Categories' ? (y(d[yattr]) +  y.bandwidth()/2) : y(+d[yattr]) )
+                            .attr('cx',(d) => (xattr === 'Categories' || xattr === "Tasting Notes"  ||  xattr ===  "Food Pairing") ? (x(d[xattr]) +  x.bandwidth()/2) : x(+d[xattr]))
+                            .attr('cy',(d) => (yattr === 'Categories' || yattr === "Tasting Notes" ||  yattr ===  "Food Pairing") ? (y(d[yattr]) +  y.bandwidth()/2) : y(+d[yattr]) )
                             .attr("r", 5)
                             .style("opacity", 0)
                             .on("mouseover", function (event, d) {
@@ -313,7 +314,7 @@ const Scatterplot = (props) => {
             xattr = this.value
             var xLabel = this.value
             // setXattr(xLabel)
-            if(xLabel === 'Categories') {
+            if(xLabel === 'Categories' || xLabel === "Tasting Notes" ||  xLabel ===  "Food Pairing") {
                 x = d3.scaleBand()
                 .domain(props.data.map((d) => d[xLabel]).sort((a, b) => (a < b) ? -1 : (a > b) ? 1 : 0))
                 .range([0, width])
@@ -336,7 +337,7 @@ const Scatterplot = (props) => {
                     .selectAll('circle')
                     .transition()
                     .duration(800)
-                    .attr('cx',function (d) { return xLabel === 'Categories' ? (x(d[xLabel]) +  x.bandwidth()/2) : x(+d[xLabel]) })
+                    .attr('cx',function (d) { return (xLabel === 'Categories'|| xLabel === "Tasting Notes" ||  xLabel ===  "Food Pairing") ? (x(d[xLabel]) +  x.bandwidth()/2) : x(+d[xLabel]) })
                     .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
             canvas1.call(brush);
           }
@@ -348,7 +349,7 @@ const Scatterplot = (props) => {
         let yLabel = this.value
         // setYattr(yLabel)
 
-        if(yLabel === 'Categories') {
+        if(yLabel === 'Categories'|| yLabel === "Tasting Notes" ||  yLabel ===  "Food Pairing") {
             y = d3.scaleBand()
             .domain(props.data.map((d) => d[yLabel]).sort((a, b) => (a < b) ? -1 : (a > b) ? 1 : 0))
             .range([0, height])
@@ -372,7 +373,7 @@ const Scatterplot = (props) => {
                 .selectAll('circle')
                 .transition()
                 .duration(800)
-                .attr('cy',function (d) { return yLabel === 'Categories' ? (y(d[yLabel]) +  y.bandwidth()/2) : y(+d[yLabel]) })
+                .attr('cy',function (d) { return (yLabel === 'Categories'|| yLabel === "Tasting Notes" || yLabel ===  "Food Pairing") ? (y(d[yLabel]) +  y.bandwidth()/2) : y(+d[yLabel]) })
                 .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
         canvas1.call(brush);
         }
