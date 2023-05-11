@@ -44,6 +44,9 @@ export default function Main() {
         //default load
         let PCAScat = await csv(`/data/pca_wine_scatters.csv`);
         let PCAVec = await csv(`/data/pca_wine_vectors.csv`);
+        
+
+
         setPCAData({scatter : PCAScat, vector : PCAVec});
         setGenre("production");
 
@@ -63,8 +66,11 @@ export default function Main() {
       if(consumptionData.length === 0) return;
       if(countries.length == 0) {
         
-        setRadarData(processRadar(['United States','China','Australia'], consumptionData));
-        if(genre === "consumption") setConsumpHorizonData(processHorizonBar(findtop10Data( 'Alcohol_PerCapita',consumptionData))); 
+        setRadarData(processRadar([], consumptionData));
+        // console.log(findtop10Data( 'Alcohol_PerCapita',consumptionData));
+        // console.log(processHorizonBar(findtop10Data( 'Alcohol_PerCapita',consumptionData)));
+        var cos = consumptionData;
+        if(genre === "consumption") setConsumpHorizonData(processHorizonBar(findtop10Data('Alcohol_PerCapita',consumptionData), cos)); 
       } else {
         console.log(countries)
         setRadarData(processRadar(countries, consumptionData));
@@ -201,7 +207,6 @@ export default function Main() {
 
     //switch to consumption data
     const selectConsumptionData = async (type) => {
-      
       //let scatter_data= await csv(`/data/conusmption_gdp_happiness_year_processed.csv`);
       Window.displayCountry = [];
       Window.init = true;
@@ -211,7 +216,6 @@ export default function Main() {
       Window.scat = PCAScat
       let PCAVec = await csv(`/data/pca_consumption_vectors.csv`);
       setPCAData({scatter : PCAScat, vector : PCAVec});
-      
     }
 
     
@@ -220,7 +224,7 @@ export default function Main() {
         <div className="main-wrapper">
             <h1 style={{textAlign:'center',marginBottom: '5px'}}>Alcohol Consumption and Production</h1>
             <Row>
-                <Col span={9}>
+                <Col xl={9} xs={24} sm={24} md={12} lg={12}>
                     <WorldMap 
                         selectCountry={selectCountry} 
                         data={consumptionData} 
@@ -229,33 +233,33 @@ export default function Main() {
                         selectConsumptionData={selectConsumptionData}
                         selectProdMap={selectProdMap}/>
                 </Col>
-                <Col span={8}>
+                <Col xl={8} xs={24} sm={24} md={12} lg={12}>
                     <PieChart genre={genre} type={type} data={genre==='consumption'?consumptionData:productionData}/>
                     {/* <BarChart genre={genre} type={type} data={genre==='consumption'?consumptionData:productionData}/> */}
                 </Col>
-                <Col span={7}>
+                <Col xl={7} xs={24} sm={24} md={12} lg={12}>
                     { 
                       radarData.length > 0 && 
                       <Radar data={radarData}/>
                     }
                 </Col>
-            </Row>
-            <Row> 
-              <Col span={9}>
+            {/* </Row>
+            <Row>  */}
+              <Col xl={9} xs={24} sm={24} md={12} lg={12}>
               {genre === 'production' ? 
                   <Scatterplot data={row2Data} selectChange={selectScatter} />:
                   <ConsumptionScatterplot data={row2Data} selectChange={selectScatter} selectCountry={selectCountry} />
                 }
               </Col>
 
-              <Col span={8}>
+              <Col xl={8} xs={24} sm={24} md={12} lg={12}>
                 {genre === 'production' ? 
                   <Recommand data={recommandData} selectCountry={selectCountry} type={type}/>:
                   
                   <ConsumptionHorizonBar data={consumpHorizonData} selectCountry={selectHorizonBar} mapCountries={countries} />//TODO: display wine/spirit/beer consumption per capita
                   } 
               </Col>
-              <Col span={7}>
+              <Col xl={7} xs={24} sm={24} md={12} lg={12}>
                   {/* <Biplot genre={genre} data={PCAData} wdata={row2Data}/> */}
                   <Biplot1 genre={genre} data={PCAData} wdata={row2Data} />
               </Col>

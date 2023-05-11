@@ -18,15 +18,15 @@ const Scatterplot = (props) => {
         div.remove();
     }
 
-    var cat_attrs = ['Price', 'Rating', 'ABV', 'Rate Count'];
+    var cat_attrs = ['Price', 'Rating', 'ABV', 'Rate Count', 'Categories'];
     var colors = ['#52ad66', '#e2ad0d','#f75639', '#a37720', '#43a2ca','#0868ac', '#e2ad0d'];
     var geo_regions = ['Americas','Western Pacific', 'Europe', 'Eastern Mediterranean', 'Africa', 'South-East Asia', 'Eastern Mediterranean'];
 
-    // var xattr = 'Price'
-    // var yattr = 'Rating'
+    var xattr = 'Price'
+    var yattr = 'Rating'
 
-    const [xattr, setXattr] = useState('Price')
-    const [yattr, setYattr] = useState('Rating')
+    // const [xattr, setXattr] = useState('Price')
+    // const [yattr, setYattr] = useState('Rating')
 
 
     var draw_scatter = function(){
@@ -107,7 +107,7 @@ const Scatterplot = (props) => {
         var yextent = d3.extent(props.data, (d) => d.Rating)
 
         var y = d3.scaleLinear().range([height, 0]).domain([yextent[0], 1.02 * yextent[1]]);
-        
+
         //insert  x axis
         var x_axis = canvas1.append("g")
                             .attr("transform", "translate(0," + height + ")")
@@ -188,7 +188,7 @@ const Scatterplot = (props) => {
       // If the brush is empty, select all circles.
       function brushend() {
         var e = d3.brushSelection(this);
-        if (e === null) {canvas1.selectAll(".hidden").classed("hidden", false); d3.select("#biplot").selectAll(".hidden").classed("hidden", false);}
+        if (e === null) {canvas1.selectAll(".hidden").classed("hidden", false); d3.select("#scatter_area").selectAll(".hidden").classed("hidden", false);}
         else {
             var brushed_data =  d3.selectAll(".brushed").data(); 
             brushed_data.sort(function(a,b){ // 这是比较函数
@@ -230,8 +230,8 @@ const Scatterplot = (props) => {
                             .enter()
                             .append("circle")
                             .attr("class", "circle")
-                            .attr('cx',(d) => x(+d[xattr])  )
-                            .attr('cy',(d) => y(+d[yattr]) )
+                            .attr('cx',(d) => xattr === 'Categories' ? (x(d[xattr]) +  x.bandwidth()/2) : x(+d[xattr]))
+                            .attr('cy',(d) => yattr === 'Categories' ? (y(d[yattr]) +  y.bandwidth()/2) : y(+d[yattr]) )
                             .attr("r", 5)
                             .style("opacity", 0)
                             .on("mouseover", function (event, d) {
@@ -254,7 +254,7 @@ const Scatterplot = (props) => {
                                 "</span>");
                             // tooltipBox.show();
                     
-                        })
+                           })
                             .on("mouseout",function(){
                                 tooltipBox.style('opacity', 0)
                                 .style('z-index', -1);
@@ -281,10 +281,18 @@ const Scatterplot = (props) => {
         
         function xChange() {
             d3.select(".brush").remove();
-            // xattr = this.value
+            xattr = this.value
             var xLabel = this.value
-            setXattr(xLabel)
-            x.domain(d3.extent(props.data, (d) => +d[xLabel] ) );
+            // setXattr(xLabel)
+            if(xLabel === 'Categories') {
+                x = d3.scaleBand()
+                .domain(props.data.map((d) => d[xLabel]).sort((a, b) => (a < b) ? -1 : (a > b) ? 1 : 0))
+                .range([0, width])
+                .padding(0.1)
+            } else {
+                x = d3.scaleLinear().range([0, width])
+                x.domain(d3.extent(props.data, (d) => +d[xLabel] ) );
+            }
    
             x_axis.transition()
                 .duration(200)
@@ -299,7 +307,7 @@ const Scatterplot = (props) => {
                     .selectAll('circle')
                     .transition()
                     .duration(800)
-                    .attr('cx',function (d) { return x(+d[xLabel]) })
+                    .attr('cx',function (d) { return xLabel === 'Categories' ? (x(d[xLabel]) +  x.bandwidth()/2) : x(+d[xLabel]) })
                     .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
             canvas1.call(brush);
           }
@@ -307,11 +315,19 @@ const Scatterplot = (props) => {
         function yChange() {
         d3.select(".brush").remove();
 
-        // yattr = this.value
+        yattr = this.value
         let yLabel = this.value
-        setYattr(yLabel)
+        // setYattr(yLabel)
 
-        y.domain(d3.extent(props.data, (d) => +d[yLabel]));
+        if(yLabel === 'Categories') {
+            y = d3.scaleBand()
+            .domain(props.data.map((d) => d[yLabel]).sort((a, b) => (a < b) ? -1 : (a > b) ? 1 : 0))
+            .range([0, height])
+            .padding(0.1)
+        } else {
+            y = d3.scaleLinear().range([height, 0])
+            y.domain(d3.extent(props.data, (d) => +d[yLabel] ) );
+        }
 
         y_axis.transition()
                 .duration(200)
@@ -327,7 +343,7 @@ const Scatterplot = (props) => {
                 .selectAll('circle')
                 .transition()
                 .duration(800)
-                .attr('cy',function (d) { return y(+d[yLabel]) })
+                .attr('cy',function (d) { return yLabel === 'Categories' ? (y(d[yLabel]) +  y.bandwidth()/2) : y(+d[yLabel]) })
                 .style("fill", (d) => colors[geo_regions.indexOf(d.region)]);
         canvas1.call(brush);
         }
@@ -345,7 +361,7 @@ const Scatterplot = (props) => {
 
     return (
         <div>
-            <h3 style={{position:'absolute', top: '-50px', left: '0'}}>{xattr} VS {yattr}</h3>
+            <h3 style={{position:'absolute', top: '-50px', left: '0'}}>Scatterplot</h3>
             <div id="scatter_area"></div>
         </div>
     )

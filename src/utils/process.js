@@ -25,6 +25,8 @@ export const processRadar = (countries, consumptionData) => {
     }
   
     for (var i = 0; i < countries.length; i++) {
+      // console.log(data[i])
+      if(!data[i]) continue;
       let item = [
         {
           axis: "GDP",
@@ -97,9 +99,8 @@ export const findtop10Data = (field , data) => {
 
 
 export const processHorizonBar = (countries, consumptionData) => {
-  
+  if(consumptionData.length === 0) return
   let data = [];
-
   for (var i = 0; i < countries.length; i++) {
     const targetData = consumptionData.find(item => item.Country === countries[i])
     data.push(targetData)
