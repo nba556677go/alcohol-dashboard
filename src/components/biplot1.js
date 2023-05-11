@@ -164,9 +164,10 @@ const Biplot1 = (props) => {
         else {
             var brushed_data =  d3.selectAll(".brushed").data(); 
             brushed_data.sort(function(a,b){ // 这是比较函数
-                return b["first_pca"] - a["first_pca"];    // 降序
+                return b['Alcohol_PerCapita'] - a['Alcohol_PerCapita'];    // 降序
             })
             var top10 = brushed_data.slice(0, 10).reverse()
+            
             //props.selectChange(top10);
         }
       }

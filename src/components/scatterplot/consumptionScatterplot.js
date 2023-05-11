@@ -207,6 +207,8 @@ const ConsumptionScatterplot = (props) => {
     
       // If the brush is empty, select all circles.
       function brushend() {
+        d3.select("#recommand").selectAll(".tooltip").style("opacity", 0)
+        d3.select("#biplot").selectAll(".tooltip").style("opacity", 0)
         var e = d3.brushSelection(this);
         if (e === null) {canvas1.selectAll(".hidden").classed("hidden", false); d3.select("#biplot").selectAll(".hidden").classed("hidden", false);}
         else {
