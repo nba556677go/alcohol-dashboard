@@ -284,7 +284,7 @@ const Biplot1 = (props) => {
             .enter().append("text")
             .attr("class", "lines")
             .attr("x", (d,i)=> path_x[i] > 0 ? x(2*path_x[i]) + 5 : x(2*path_x[i]) - 5)
-            .attr("y",(d, i)=> i==1 ? y(2*d) - 5: y(2*d) + 2)
+            .attr("y",(d, i)=> i==4 ? y(2*d) - 5: (i == 2 ? y(2*d) + 10 : y(2*d) +2))
             .attr("text-anchor", (d,i)=>path_x[i] > 0 ? 'start' : 'end')
             .text((d,i)=>ind[i])
             .style("font-size", "12px")      
