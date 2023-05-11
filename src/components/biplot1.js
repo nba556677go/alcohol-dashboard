@@ -12,7 +12,7 @@ const Biplot1 = (props) => {
         
         if(props.data.length == 0 || props.wdata.length == 0) return;
         //genre changed, but consumption data not changed
-        if (props.genre === 'consumption' && props.data.scatter.length != 438) return;
+        if (props.genre === 'consumption' && props.data.scatter.length != 439) return;
         removeChart();
         draw_scatter(year);
         
@@ -32,6 +32,7 @@ const Biplot1 = (props) => {
         console.log(props.genre);
         //console.log(props.data);
         let data = []
+        console.log(year)
         props.genre === 'consumption' ? 
                 data = {scatter : props.data.scatter.filter(item => item.Year === year), vector: props.data.vector} : data = props.data 
         
